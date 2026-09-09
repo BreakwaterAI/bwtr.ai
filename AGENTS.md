@@ -37,6 +37,9 @@ Do not change these production subdomains from this repository:
 This is a static site. The main files are:
 
 - `index.html`
+- `products/index.html`, `platform/index.html`, `research/index.html`, `about/index.html`, and
+  `security/index.html`
+- `404.html`
 - `styles.css`
 - `.github/workflows/deploy-aws.yml`
 - `infra/cloudformation/static-site.yml`
@@ -64,6 +67,8 @@ aws s3 sync . s3://bwtr-ai-site-prod \
   --exclude ".git/*" \
   --exclude ".github/*" \
   --exclude "infra/*" \
+  --exclude "scripts/*" \
+  --exclude "AGENTS.md" \
   --exclude "google-apps-script/*" \
   --exclude "assets/videos/*" \
   --exclude "README.md" \
@@ -77,14 +82,14 @@ Large media assets are intentionally stored directly in S3, not in git. Preserve
 `assets/videos/*` exclusion whenever deploying with `--delete`; otherwise S3-only product demo
 videos will be removed from the bucket.
 
-## Lead Capture Forms
-The static forms in `index.html` submit through `script.js` to a Google Apps Script Web App.
+## Lead Capture Form
+The static form in `index.html` submits through `script.js` to a Google Apps Script Web App.
 The Apps Script template lives at `google-apps-script/Code.gs` and appends rows to a Google
 Sheet named `Leads`.
 
-Do not add a backend service just for these forms unless the user explicitly asks for one.
-To activate submissions, replace `PASTE_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE` in `index.html`
-with the deployed Google Apps Script Web App URL.
+Do not add a backend service just for this form unless the user explicitly asks for one.
+The deployed Apps Script URL is the `FORM_ENDPOINT` fallback in `script.js`; it can also be
+overridden by setting `window.BREAKWATER_FORM_ENDPOINT` before `script.js` loads.
 
 ## Validation
 For content-only changes, at minimum run:

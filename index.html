@@ -1,565 +1,88 @@
 <!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Breakwater | Cyber-Physical Risk Intelligence</title>
-    <meta
-      name="description"
-      content="Breakwater helps critical infrastructure teams discover cyber-physical assets, map exposure, model attack paths, and understand operational consequence before disruption happens."
-    />
-    <meta property="og:title" content="Breakwater | Cyber-Physical Risk Intelligence" />
-    <meta
-      property="og:description"
-      content="Predict cyber risk. Understand operational impact. Act before disruption."
-    />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://bwtr.ai/" />
-    <meta name="theme-color" content="#0b1020" />
-    <link rel="canonical" href="https://bwtr.ai/" />
-    <script>
-      window.BREAKWATER_FORM_ENDPOINT = "https://script.google.com/macros/s/AKfycbwDKJk38q6oQMQ7MA_R2pBSxa6XjFsbJjcaAW1vu5eq6zEhZt_qU-5DpltcO0CGLNOK/exec";
-      try {
-        const savedTheme = localStorage.getItem("breakwater-theme");
-        const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-        document.documentElement.dataset.theme = savedTheme || (prefersDark ? "dark" : "light");
-      } catch (_) {
-        document.documentElement.dataset.theme = "light";
-      }
-    </script>
-    <link rel="stylesheet" href="./styles.css" />
-  </head>
-  <body>
-    <header class="site-header" aria-label="Primary navigation">
-      <a class="brand" href="/" aria-label="Breakwater home">
-        <img class="logo-light" src="./assets/breakwater-horizontal-light-transparent.png" alt="Breakwater" />
-        <img class="logo-dark" src="./assets/breakwater-horizontal-dark-transparent.png" alt="Breakwater" />
-      </a>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Breakwater | Evidence-led security from code to critical infrastructure</title>
+  <meta name="description" content="Breakwater builds evidence-led security products for application assurance, IoT and OT operations, post-quantum readiness, and governed response." />
+  <meta property="og:title" content="Breakwater | Security that can show its work" />
+  <meta property="og:description" content="One evidence system across software, infrastructure, and cryptography." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.bwtr.ai/" />
+  <meta property="og:image" content="https://www.bwtr.ai/assets/breakwater-social-card.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Breakwater — evidence-led security from code to critical infrastructure" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Breakwater | Security that can show its work" />
+  <meta name="twitter:description" content="One evidence system across software, infrastructure, and cryptography." />
+  <meta name="twitter:image" content="https://www.bwtr.ai/assets/breakwater-social-card.png" />
+  <meta name="theme-color" content="#08070d" />
+  <link rel="canonical" href="https://www.bwtr.ai/" />
+  <link rel="icon" href="/assets/breakwater-mark-light.png" />
+  <link rel="stylesheet" href="/styles.css" />
+  <script>try{document.documentElement.dataset.theme=localStorage.getItem("breakwater-theme")||"dark"}catch(_){}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Breakwater","url":"https://www.bwtr.ai/","email":"hello@bwtr.ai","founder":[{"@type":"Person","name":"Nagu Thogiti","jobTitle":"Co-Founder & CEO","sameAs":"https://www.linkedin.com/in/0xnagu/"},{"@type":"Person","name":"Chetna Mallarapu","jobTitle":"Co-Founder & COO"}]}</script>
+</head>
+<body data-page="home">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <a class="brand" href="/" aria-label="Breakwater home"><img class="logo-on-dark" src="/assets/breakwater-horizontal-dark-transparent.png" alt="Breakwater" /><img class="logo-on-light" src="/assets/breakwater-horizontal-light-transparent.png" alt="Breakwater" /></a>
+    <nav class="desktop-nav" aria-label="Primary navigation"><a href="/products/">Products</a><a href="/platform/">Platform</a><a href="#approach">Approach</a><a href="/research/">Research</a><a href="/about/">About</a></nav>
+    <div class="header-actions"><button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch to light theme"><span aria-hidden="true"></span></button><a class="text-link header-link" href="/products/#access">Product access <span>→</span></a><a class="button button-primary header-cta" href="#contact">Talk to us</a><button class="menu-toggle" type="button" data-menu-toggle aria-label="Open navigation" aria-expanded="false" aria-controls="mobile-menu"><span></span><span></span></button></div>
+    <nav class="mobile-menu" id="mobile-menu" data-mobile-menu aria-label="Mobile navigation" hidden><a href="/products/">Products</a><a href="/platform/">Platform</a><a href="#approach">Approach</a><a href="/research/">Research</a><a href="/about/">About</a><a href="/products/#access">Product access</a><a href="#contact">Talk to us</a></nav>
+  </header>
 
-      <nav class="nav-links" aria-label="Main">
-        <a href="#platform">Platform</a>
-        <a href="#demo">Demo</a>
-        <a href="#cctv">Products</a>
-        <a href="#industries">Solutions</a>
-        <a href="#lead-forms">Contact</a>
-      </nav>
-
-      <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch color theme">
-        <span aria-hidden="true"></span>
-        <strong data-theme-label>Light</strong>
-      </button>
-
-      <a class="button button-primary header-cta" href="#lead-form" data-select-request="request_demo">
-        Request private demo
-      </a>
-    </header>
-
-    <main id="top">
-      <section class="hero" aria-labelledby="hero-title">
-        <div class="hero-bg" aria-hidden="true"></div>
-        <div class="hero-content">
-          <p class="eyebrow">Cyber-physical risk intelligence for critical infrastructure</p>
-          <h1 id="hero-title">Stop flying blind across your physical security stack.</h1>
-          <p class="hero-bridge">
-            Breakwater maps cameras, IoT devices, firmware exposure, and attack paths into one
-            consequence-driven view.
-          </p>
-          <p class="hero-copy">
-            Breakwater helps security and infrastructure leaders prioritize the risks that can
-            turn into downtime, blind spots, and real-world disruption.
-          </p>
-          <div class="hero-actions">
-            <a class="button button-primary" href="#lead-form" data-select-request="request_demo">
-              Request private demo
-            </a>
-            <a class="button button-ghost" href="#lead-form" data-select-request="start_pilot">
-              Explore CCTV+ pilot
-            </a>
-          </div>
-          <dl class="proof-strip" aria-label="Platform focus areas">
-            <div>
-              <dt>Assets</dt>
-              <dd>Known and unknown</dd>
-            </div>
-            <div>
-              <dt>Exposure</dt>
-              <dd>Firmware, CVEs, paths</dd>
-            </div>
-            <div>
-              <dt>Impact</dt>
-              <dd>Downtime and consequence</dd>
-            </div>
-          </dl>
-        </div>
-      </section>
-
-      <section class="trust-strip" aria-label="Breakwater deployment focus">
-        <span>Built for critical infrastructure security teams</span>
-        <strong>Airports</strong>
-        <strong>Rail & Metro</strong>
-        <strong>Ports</strong>
-        <strong>Manufacturing</strong>
-        <strong>Government</strong>
-      </section>
-
-      <section class="trust-signals" aria-label="Breakwater trust signals">
-        <strong>Private deployment ready</strong>
-        <strong>License-gated installer</strong>
-        <strong>Pilot-first adoption</strong>
-        <strong>Security review ready</strong>
-        <strong>Infrastructure-focused risk modeling</strong>
-      </section>
-
-      <section class="section demo-section" id="demo" aria-labelledby="demo-title">
-        <div class="split-heading">
-          <div>
-            <p class="section-kicker">Product demo</p>
-            <h2 id="demo-title">See Breakwater in action.</h2>
-          </div>
-          <p>
-            Watch a five-minute walkthrough of how Breakwater maps physical-security assets,
-            exposure, attack paths, and operational consequence into one decision view.
-          </p>
-        </div>
-
-        <div class="demo-frame">
-          <div class="demo-copy">
-            <span>5-minute product walkthrough</span>
-            <strong>From blind spots to consequence-ranked action.</strong>
-            <p>
-              The demo shows the core Breakwater workflow, including CCTV+ discovery,
-              exposure intelligence, risk modeling, remediation, and executive-ready output.
-            </p>
-          </div>
-          <video
-            controls
-            preload="metadata"
-            playsinline
-            poster="/assets/product-demo-poster.jpg"
-            aria-label="Breakwater product demo video"
-          >
-            <source src="/assets/videos/breakwater-product-demo.mp4" type="video/mp4" />
-            Your browser does not support embedded video.
-          </video>
-        </div>
-
-        <div class="demo-actions">
-          <a class="button button-primary" href="#lead-form" data-select-request="request_demo">
-            Request private demo
-          </a>
-          <a class="button button-secondary" href="#lead-form" data-select-request="start_pilot">
-            Explore CCTV+ pilot
-          </a>
-        </div>
-      </section>
-
-      <section class="section tight" id="platform" aria-labelledby="platform-title">
-        <div class="section-kicker">The problem</div>
-        <div class="split-heading">
-          <h2 id="platform-title">Security teams have tools. Operators need consequence clarity.</h2>
-          <p>
-            Traditional scans produce long findings lists. Breakwater connects asset reality,
-            exposure, attacker movement, and operational consequence in one decision view.
-          </p>
-        </div>
-
-        <div class="value-grid">
-          <article>
-            <span class="icon">01</span>
-            <h3>Find blind spots</h3>
-            <p>Discover cameras, recorders, gateways, IoT devices, and paths that inventories miss.</p>
-          </article>
-          <article>
-            <span class="icon">02</span>
-            <h3>Explain exposure</h3>
-            <p>Translate firmware, vulnerabilities, supply-chain signals, and weak services into risk.</p>
-          </article>
-          <article>
-            <span class="icon">03</span>
-            <h3>Model the breach</h3>
-            <p>Show how an attacker can pivot from entry point to system access and disruption.</p>
-          </article>
-          <article>
-            <span class="icon">04</span>
-            <h3>Prioritize action</h3>
-            <p>Rank fixes by consequence, not noise, with remediation plans teams can execute.</p>
-          </article>
-        </div>
-      </section>
-
-      <section class="section consequence-callout" aria-labelledby="consequence-title">
-        <p class="section-kicker">Why now</p>
-        <div>
-          <h2 id="consequence-title">Connected physical security systems have become unmanaged cyber-physical infrastructure.</h2>
-          <p>
-            Cameras, NVRs, gateways, access systems, and IoT devices now sit across complex networks,
-            often with outdated firmware, weak credentials, unmanaged paths, and unclear ownership. A
-            compromise does not just create a cyber ticket. It can create blind spots, downtime, safety
-            exposure, and operational disruption.
-          </p>
-        </div>
-      </section>
-
-      <section class="section deployment-model" aria-labelledby="deployment-title">
-        <div>
-          <p class="section-kicker">Deployment model</p>
-          <h2 id="deployment-title">Private, pilot-first deployment for sensitive infrastructure environments.</h2>
-        </div>
-        <div class="deployment-grid">
-          <article>
-            <span>01</span>
-            <h3>Private environment</h3>
-            <p>Breakwater is designed to run as a private, license-gated deployment during evaluation.</p>
-          </article>
-          <article>
-            <span>02</span>
-            <h3>CCTV+ pilot package</h3>
-            <p>Start with a focused camera and physical-security stack assessment before expanding scope.</p>
-          </article>
-          <article>
-            <span>03</span>
-            <h3>Security review ready</h3>
-            <p>Support security review, controlled activation, and infrastructure-sensitive pilot planning.</p>
-          </article>
-        </div>
-      </section>
-
-      <section class="section product-band" id="cctv" aria-labelledby="cctv-title">
-        <div class="product-copy">
-          <p class="section-kicker">Featured product</p>
-          <h2 id="cctv-title">Breakwater CCTV+ secures the cameras everyone depends on and nobody fully sees.</h2>
-          <p>
-            Video surveillance environments are often operationally critical and poorly understood.
-            CCTV+ discovers every camera path, identifies firmware and configuration risk, and models
-            the downstream impact of compromise.
-          </p>
-          <p>
-            Start with the physical-security layer that already protects your facilities and may
-            already be part of your attack surface.
-          </p>
-          <ul class="check-list" aria-label="CCTV+ capabilities">
-            <li>Camera, recorder, encoder, and gateway discovery</li>
-            <li>Firmware, CVE, credential, and insecure protocol intelligence</li>
-            <li>Attack path and downtime modeling for real-world impact</li>
-          </ul>
-        </div>
-
-        <div class="dashboard-card" aria-label="Example Breakwater risk dashboard">
-          <p class="snapshot-label">Illustrative environment snapshot</p>
-          <p class="snapshot-caption">
-            Example output from a CCTV+ pilot: risk score, high-risk devices, critical exposures,
-            affected camera paths, and top remediation categories.
-          </p>
-          <div class="dash-topline">
-            <span>Environment Risk Snapshot</span>
-            <strong>High</strong>
-          </div>
-          <div class="dash-metrics">
-            <div><small>Risk score</small><strong>78</strong><span>High consequence</span></div>
-            <div><small>High-risk devices</small><strong>512</strong><span>Prioritized</span></div>
-            <div><small>Critical exposures</small><strong>1,092</strong><span>Mapped to paths</span></div>
-            <div><small>Camera paths affected</small><strong>37</strong><span>Operational visibility</span></div>
-          </div>
-          <div class="topology">
-            <span class="node camera">CAM</span>
-            <span class="node">NVR</span>
-            <span class="node danger">FW</span>
-            <span class="node">CORE</span>
-            <span class="node impact">OPS</span>
-            <i class="path path-a"></i>
-            <i class="path path-b"></i>
-            <i class="path path-c"></i>
-          </div>
-          <div class="risk-list">
-            <div><span>Outdated firmware</span><strong>92</strong></div>
-            <div><span>Weak credentials</span><strong>85</strong></div>
-            <div><span>Open management port</span><strong>81</strong></div>
-          </div>
-        </div>
-      </section>
-
-      <section class="section pilot-deliverables" id="pilot-deliverables" aria-labelledby="deliverables-title">
-        <div class="split-heading">
-          <div>
-            <p class="section-kicker">CCTV+ pilot deliverables</p>
-            <h2 id="deliverables-title">What a CCTV+ pilot delivers.</h2>
-          </div>
-          <p>
-            A focused pilot gives your team a concrete view of physical-security exposure,
-            attack paths, and prioritized remediation actions.
-          </p>
-        </div>
-        <div class="deliverable-grid">
-          <article><span>01</span><h3>Asset and camera-path inventory</h3><p>Discover cameras, NVRs, encoders, gateways, and related paths that may not appear in current inventories.</p></article>
-          <article><span>02</span><h3>Firmware and exposure intelligence</h3><p>Map firmware versions, known vulnerabilities, weak services, open management ports, credential risks, and insecure protocols.</p></article>
-          <article><span>03</span><h3>Attack-path and pivot-risk analysis</h3><p>Show how a compromised device could become a bridge into higher-value systems, facilities, or operational workflows.</p></article>
-          <article><span>04</span><h3>Operational consequence ranking</h3><p>Prioritize issues by potential downtime, blind spots, safety exposure, and operational impact, not just CVSS score.</p></article>
-          <article><span>05</span><h3>Remediation action plan</h3><p>Give security, IT, facilities, and infrastructure teams a sequenced plan they can actually execute.</p></article>
-          <article><span>06</span><h3>Executive-ready risk summary</h3><p>Provide leadership with a concise view of exposure, consequence, urgency, and recommended next steps.</p></article>
-          <article><span>07</span><h3>Technical appendix</h3><p>Include device-level findings, paths, assumptions, and evidence for security review and internal validation.</p></article>
-        </div>
-      </section>
-
-      <section class="section" id="workflow" aria-labelledby="workflow-title">
-        <div class="section-kicker">How Breakwater works</div>
-        <h2 id="workflow-title" class="centered">From asset reality to board-level consequence.</h2>
-        <p class="workflow-intro">
-          Breakwater turns fragmented physical-security data into a sequence of decisions:
-          what exists, what is exposed, how it can be abused, what impact it creates, and what to fix first.
-        </p>
-        <div class="flow" aria-label="Breakwater workflow">
-          <article>
-            <span><i aria-hidden="true">01</i>Discover</span>
-            <p>Build the ground truth of assets and connections.</p>
-          </article>
-          <article>
-            <span><i aria-hidden="true">02</i>Assess</span>
-            <p>Enrich devices with firmware, CVE, and supply-chain context.</p>
-          </article>
-          <article>
-            <span><i aria-hidden="true">03</i>Model</span>
-            <p>Map attacker movement through cyber-physical paths.</p>
-          </article>
-          <article>
-            <span><i aria-hidden="true">04</i>Simulate</span>
-            <p>Estimate downtime, operational consequence, and blast radius.</p>
-          </article>
-          <article>
-            <span><i aria-hidden="true">05</i>Assure</span>
-            <p>Validate remediation, monitor residual exposure, and confirm critical paths have been reduced.</p>
-          </article>
-        </div>
-      </section>
-
-      <section class="section industries" id="industries" aria-labelledby="industries-title">
-        <div class="split-heading">
-          <div>
-            <p class="section-kicker">Built for critical environments</p>
-            <h2 id="industries-title">Purpose-built for places where cyber incidents become physical disruption.</h2>
-          </div>
-          <p>
-            Breakwater is designed for infrastructure leaders who need to protect uptime, public
-            safety, facilities, and continuity.
-          </p>
-        </div>
-        <div class="industry-grid">
-          <article><span class="industry-icon" data-icon="airport" aria-hidden="true"></span><strong>Airports</strong><p>Protect terminal visibility, perimeter coverage, baggage operations, and access-control continuity.</p></article>
-          <article><span class="industry-icon" data-icon="rail" aria-hidden="true"></span><strong>Rail & Metro</strong><p>Map surveillance and device exposure across stations, tunnels, rolling stock, and command centers.</p></article>
-          <article><span class="industry-icon" data-icon="port" aria-hidden="true"></span><strong>Ports</strong><p>Prioritize cyber-physical risks across terminals, cranes, yards, and logistics chokepoints.</p></article>
-          <article><span class="industry-icon" data-icon="plant" aria-hidden="true"></span><strong>Manufacturing</strong><p>Reduce blind spots across plant surveillance, OT-adjacent networks, and production-critical facilities.</p></article>
-          <article><span class="industry-icon" data-icon="health" aria-hidden="true"></span><strong>Healthcare</strong><p>Protect clinical facilities, safety operations, and connected devices that support patient continuity.</p></article>
-          <article><span class="industry-icon" data-icon="gov" aria-hidden="true"></span><strong>Government</strong><p>Assess exposure across strategic facilities, public infrastructure, and mission continuity environments.</p></article>
-        </div>
-      </section>
-
-      <section class="section trust-section" aria-labelledby="trust-title">
-        <div>
-          <p class="section-kicker">Why trust Breakwater</p>
-          <h2 id="trust-title">Built for high-consequence security environments.</h2>
-          <p>
-            Breakwater is designed by operators and researchers who understand cyber risk,
-            infrastructure exposure, adversarial systems, and operational consequence.
-          </p>
-        </div>
-        <div class="trust-grid">
-          <article><h3>Security + infrastructure thinking</h3><p>Cyber risk cannot be understood only as a list of findings. In critical environments, the important question is how exposure can turn into downtime, blind spots, safety risk, and operational disruption.</p></article>
-          <article><h3>Private-by-design deployment</h3><p>Breakwater supports pilot-first, license-gated, private deployment patterns for sensitive environments where data control, review, and operational trust matter.</p></article>
-          <article><h3>Consequence-first analytics</h3><p>Instead of ranking every issue equally, Breakwater helps teams identify which exposures matter most because of where they sit in the operational chain.</p></article>
-        </div>
-        <p class="trust-note">
-          Breakwater combines experience across cybersecurity, infrastructure analytics,
-          AI-driven risk modeling, and high-consequence systems. The work is shaped by
-          environments where failure is not merely technical.
-        </p>
-      </section>
-
-      <section class="section pilot-path" aria-labelledby="pilot-path-title">
-        <p class="section-kicker">Pilot path</p>
-        <h2 id="pilot-path-title" class="centered">Start with a focused CCTV+ pilot.</h2>
-        <div class="pilot-path-grid">
-          <article><span>1</span><h3>Scope the environment</h3><p>Identify the facility, camera estate, connected devices, ownership boundaries, and pilot constraints.</p></article>
-          <article><span>2</span><h3>Deploy privately</h3><p>Run Breakwater in a controlled, license-gated environment suitable for security review.</p></article>
-          <article><span>3</span><h3>Produce consequence-ranked findings</h3><p>Map exposure to attack paths, operational impact, and remediation priorities.</p></article>
-          <article><span>4</span><h3>Decide next scope</h3><p>Use the pilot output to determine whether to expand across more sites, device classes, or infrastructure domains.</p></article>
-        </div>
-      </section>
-
-      <section class="section personas" aria-labelledby="personas-title">
-        <div>
-          <p class="section-kicker">Who this is for</p>
-          <h2 id="personas-title">Built for teams responsible for cyber-physical continuity.</h2>
-        </div>
-        <ul>
-          <li>CISOs and security leaders</li>
-          <li>Infrastructure and operations leaders</li>
-          <li>Physical security directors</li>
-          <li>OT / IoT security teams</li>
-          <li>Risk and resilience teams</li>
-          <li>Facilities and mission-continuity teams</li>
-        </ul>
-        <p class="not-for">
-          Breakwater is not a generic vulnerability scanner or ticketing system. It connects
-          physical-security asset exposure with operational consequence and remediation priority.
-        </p>
-      </section>
-
-      <section class="section lead-section" id="lead-forms" aria-labelledby="lead-title">
-        <div class="lead-intro">
-          <p class="section-kicker">Talk to Breakwater</p>
-          <h2 id="lead-title">Start with a focused risk conversation.</h2>
-          <p>
-            Tell us what environment you are trying to protect. We will route demo and pilot
-            requests to the right person without adding a sales platform or backend service.
-          </p>
-        </div>
-
-        <div class="lead-form-shell">
-          <form class="lead-form lead-form-single" id="lead-form" data-lead-form>
-            <label class="hidden-field">Website <input name="website" tabindex="-1" autocomplete="off" /></label>
-            <div class="form-heading">
-              <span>01</span>
-              <h3>Tell us what you need</h3>
-              <p>
-                Choose the path that matches your stage. We will collect only the context needed
-                to route the conversation correctly.
-              </p>
-            </div>
-
-            <div class="request-chooser" role="radiogroup" aria-label="Request type">
-              <label>
-                <input type="radio" name="form_type" value="request_demo" checked />
-                <span>
-                  <strong>Request a private demo</strong>
-                  <small>Best for a private walkthrough with your security and infrastructure team.</small>
-                </span>
-              </label>
-              <label>
-                <input type="radio" name="form_type" value="start_pilot" />
-                <span>
-                  <strong>Explore CCTV+ pilot</strong>
-                  <small>Best when you are ready to test CCTV+ with real physical-security environments.</small>
-                </span>
-              </label>
-            </div>
-
-            <label class="half-field">
-              Name
-              <input name="name" autocomplete="name" required />
-            </label>
-            <label class="half-field">
-              Work email
-              <input name="email" type="email" autocomplete="email" required />
-            </label>
-            <label class="half-field">
-              Company
-              <input name="company" autocomplete="organization" required />
-            </label>
-            <label class="half-field">
-              Role / title
-              <input name="title" autocomplete="organization-title" />
-            </label>
-            <label class="half-field">
-              Industry
-              <select name="industry">
-                <option value="">Select one</option>
-                <option>Airports</option>
-                <option>Rail & Metro</option>
-                <option>Ports</option>
-                <option>Manufacturing</option>
-                <option>Healthcare</option>
-                <option>Government</option>
-                <option>Other critical infrastructure</option>
-              </select>
-            </label>
-            <label class="half-field pilot-field" data-pilot-field>
-              Approximate device count
-              <input name="device_count" placeholder="Example: 300 cameras across 4 sites" />
-            </label>
-            <label class="half-field pilot-field" data-pilot-field>
-              Target timeline
-              <select name="timeline">
-                <option value="">Select one</option>
-                <option>Immediately</option>
-                <option>30 days</option>
-                <option>This quarter</option>
-                <option>Planning stage</option>
-              </select>
-            </label>
-            <label class="full-field">
-              What are you trying to secure?
-              <textarea name="message" rows="4" placeholder="Cameras, IoT devices, facilities, OT networks, pilot goals, or operational risk priorities..."></textarea>
-            </label>
-            <button class="button button-primary form-submit" type="submit" data-submit-label>Send demo request</button>
-            <p class="form-expectation">
-              We will review your request and respond with the most appropriate next step. No
-              automated sales platform is used for this form.
-            </p>
-            <p class="form-status" data-form-status aria-live="polite"></p>
-          </form>
-        </div>
-      </section>
-
-      <section class="section final-cta" aria-labelledby="cta-title">
-        <div>
-          <p class="section-kicker">See the chain. Prevent the impact.</p>
-          <h2 id="cta-title">Turn hidden cyber-physical exposure into a prioritized action plan.</h2>
-        </div>
-        <div class="final-actions">
-          <a class="button button-primary" href="#lead-form" data-select-request="request_demo">
-            Request private demo
-          </a>
-          <a class="button button-secondary" href="#lead-form" data-select-request="start_pilot">
-            Explore CCTV+ pilot
-          </a>
-        </div>
-      </section>
-    </main>
-
-    <footer class="site-footer">
-      <div class="footer-main">
-        <a class="footer-wordmark" href="/" aria-label="Breakwater home">
-          Breakwater
-        </a>
-        <p>Cyber risk, measured in operational impact.</p>
-        <div class="footer-signals" aria-label="Security and deployment signals">
-          <span>Private deployment ready</span>
-          <span>License-gated installer</span>
-          <span>Security review ready</span>
-        </div>
+  <main id="main">
+    <section class="hero shell" aria-labelledby="hero-title">
+      <div class="hero-copy reveal">
+        <p class="eyebrow"><span></span> Evidence-led security intelligence</p>
+        <h1 id="hero-title">Security from code to critical infrastructure—<em>with the proof attached.</em></h1>
+        <p class="hero-lede">Breakwater connects what was observed, what was validated, and who is authorized to act across applications, connected environments, and cryptographic systems.</p>
+        <div class="hero-actions"><a class="button button-primary" href="/products/">Explore the portfolio <span>→</span></a><a class="button button-secondary" href="#contact">Request a private briefing</a></div>
+        <p class="boundary-note"><span aria-hidden="true">●</span> Evidence before inference · Human authority stays explicit</p>
       </div>
-      <div class="footer-links">
-        <h3>Platform</h3>
-        <a href="#platform">Platform</a>
-        <a href="#demo">Product demo</a>
-        <a href="#workflow">How it works</a>
-        <a href="#deployment-title">Deployment model</a>
-        <a href="#lead-form" data-select-request="request_demo">Request private demo</a>
+      <div class="evidence-orbit reveal" aria-label="Breakwater evidence system spans software, infrastructure, cryptography, and response">
+        <div class="orbit-ring ring-one"></div><div class="orbit-ring ring-two"></div><div class="core-mark"><span>BW</span><strong>Evidence<br />core</strong></div>
+        <div class="orbit-node node-build"><i></i><span>BUILD</span><strong>Application assurance</strong></div><div class="orbit-node node-operate"><i></i><span>OPERATE</span><strong>IoT / OT assurance</strong></div><div class="orbit-node node-transition"><i></i><span>TRANSITION</span><strong>PQC readiness</strong></div><div class="orbit-node node-govern"><i></i><span>GOVERN</span><strong>Human-controlled action</strong></div>
+        <div class="orbit-trace trace-a"></div><div class="orbit-trace trace-b"></div><div class="orbit-trace trace-c"></div>
       </div>
-      <div class="footer-links">
-        <h3>Product</h3>
-        <a href="#cctv">Products</a>
-        <a href="#pilot-deliverables">Pilot deliverables</a>
-        <a href="#cctv">Physical-security exposure</a>
-        <a href="#workflow">Attack-path modeling</a>
-        <a href="#pilot-deliverables">Operational consequence ranking</a>
+    </section>
+
+    <section class="signal-bar" aria-label="Breakwater operating principles"><span>01 <strong>Evidence before inference</strong></span><span>02 <strong>Scope stays visible</strong></span><span>03 <strong>Limits are reported</strong></span><span>04 <strong>People retain authority</strong></span></section>
+
+    <section class="section shell" id="portfolio" aria-labelledby="portfolio-title">
+      <div class="section-heading reveal"><div><p class="eyebrow"><span></span> The Breakwater portfolio</p><h2 id="portfolio-title">Four products. One evidence language.</h2></div><p>Each product owns a different security decision. Together they connect software, infrastructure, cryptography, and response without blurring the evidence boundary.</p></div>
+      <div class="portfolio-grid">
+        <a class="product-card product-asoc reveal" href="https://asoc.bwtr.ai/" target="_blank" rel="noopener noreferrer"><div class="card-top"><span class="product-index">01 / OPERATE</span><span class="external">↗</span></div><div><p class="product-name">Breakwater ASOC</p><h3>Continuous assurance for IoT, OT, and connected operations.</h3><p>Observe changing environments, connect exposure to operational paths, and keep the evidence current.</p></div><span class="card-link">Explore ASOC</span></a>
+        <a class="product-card product-assure reveal" href="https://assure.bwtr.ai/" target="_blank" rel="noopener noreferrer"><div class="card-top"><span class="product-index">02 / BUILD</span><span class="external">↗</span></div><div><p class="product-name">Breakwater Assure</p><h3>Application security findings that arrive ready to defend.</h3><p>Connect exact source, independent replay, adversarial review, and governed remediation.</p></div><span class="card-link">Explore Assure</span></a>
+        <a class="product-card product-quantum reveal" href="https://qq.bwtr.ai/" target="_blank" rel="noopener noreferrer"><div class="card-top"><span class="product-index">03 / TRANSITION</span><span class="external">↗</span></div><div><p class="product-name">Breakwater Secure</p><h3>Post-quantum readiness grounded in observable cryptography.</h3><p>Inventory, assess, rehearse, and govern cryptographic change with interoperability in view.</p></div><span class="card-link">Explore Secure</span></a>
+        <a class="product-card product-mcp reveal" href="https://mcp.bwtr.ai/" target="_blank" rel="noopener noreferrer"><div class="card-top"><span class="product-index">04 / LEARN</span><span class="external">↗</span></div><div><p class="product-name">Breakwater MCP</p><h3>Applied cyber analytics for learning, research, and evaluation.</h3><p>Explore networks and evidence honestly alongside the Cyber Analytics course and labs.</p></div><span class="card-link">Explore MCP</span></a>
       </div>
-      <div class="footer-links">
-        <h3>Company</h3>
-        <a href="#industries">Solutions</a>
-        <a href="#lead-forms">Contact</a>
-        <a href="mailto:hello@bwtr.ai">Privacy</a>
-        <a href="https://x.com/bwtrlabs" target="_blank" rel="noopener noreferrer">X.com</a>
-      </div>
-      <div class="footer-bottom">
-        <span>© 2026 Breakwater. All rights reserved.</span>
-        <span>Cyber-physical risk intelligence for critical infrastructure.</span>
-        <nav aria-label="Legal and social">
-          <a href="mailto:hello@bwtr.ai">Privacy</a>
-          <a href="https://x.com/bwtrlabs" target="_blank" rel="noopener noreferrer">X.com</a>
-          <a href="#lead-forms">Contact</a>
-        </nav>
-      </div>
-    </footer>
-    <script src="./script.js"></script>
-  </body>
+      <div class="portfolio-footer reveal"><p>Need the capability map?</p><a class="text-link" href="/products/">Compare the portfolio <span>→</span></a></div>
+    </section>
+
+    <section class="section platform-preview" id="platform" aria-labelledby="platform-title"><div class="shell platform-layout">
+      <div class="platform-copy reveal"><p class="eyebrow"><span></span> ProscanX platform</p><h2 id="platform-title">The operational engine behind deeper infrastructure assurance.</h2><p>ProscanX joins discovery, exposure, adversarial analysis, simulation, and governed response in one assessment context. Every handoff retains its source and scope.</p><a class="button button-light" href="/platform/">Explore platform capabilities <span>→</span></a></div>
+      <div class="console-card reveal" aria-label="Illustrative ProscanX investigation workspace"><div class="console-bar"><span><i></i><i></i><i></i></span><strong>ASSESSMENT / EVIDENCE WORKSPACE</strong><small>VERIFIED SCOPE</small></div><div class="console-body"><aside><b>OVERVIEW</b><span>Network map</span><span class="active">Exposure</span><span>Attack paths</span><span>Protocols</span><span>Firmware</span><span>Remediation</span></aside><div class="console-main"><div class="console-heading"><div><small>DECISION BRIEF</small><strong>What needs attention now?</strong></div><span>Completed</span></div><div class="console-signals"><article><small>Observed assets</small><strong>126</strong><em>3 newly observed</em></article><article><small>Priority exposure</small><strong>18</strong><em>Evidence available</em></article><article><small>Modeled paths</small><strong>7</strong><em>Validate controls</em></article></div><div class="console-list"><span><i class="risk critical"></i><b>Review critical exposure</b><small>Open supporting evidence →</small></span><span><i class="risk warning"></i><b>Validate firmware posture</b><small>12 assessed · 4 unknown →</small></span><span><i class="risk info"></i><b>Compare with prior assessment</b><small>Scope identity verified →</small></span></div></div></div><p class="illustrative">Illustrative interface · no customer or production data</p></div>
+    </div></section>
+
+    <section class="section shell" id="approach" aria-labelledby="approach-title">
+      <div class="section-heading reveal"><div><p class="eyebrow"><span></span> A system for defensible decisions</p><h2 id="approach-title">Evidence moves. Authority stays explicit.</h2></div><p>Breakwater products share a disciplined operating loop designed for consequential security work.</p></div>
+      <div class="approach-grid"><article class="reveal"><span>01</span><div><h3>Observe</h3><p>Capture exact source, time, scope, and coverage before drawing a conclusion.</p></div></article><article class="reveal"><span>02</span><div><h3>Validate</h3><p>Replay, correlate, challenge, or simulate claims against independent evidence.</p></div></article><article class="reveal"><span>03</span><div><h3>Decide</h3><p>Prioritize by consequence and uncertainty, with assumptions visible.</p></div></article><article class="reveal"><span>04</span><div><h3>Verify</h3><p>Measure the result and preserve an attributable record of what changed.</p></div></article></div>
+    </section>
+
+    <section class="section shell roadmap" aria-labelledby="roadmap-title"><div class="section-heading reveal"><div><p class="eyebrow"><span></span> Company direction</p><h2 id="roadmap-title">From point-in-time findings to continuous, governed assurance.</h2></div><p>Our roadmap expands the shared evidence model—not the authority granted to automation.</p></div><div class="roadmap-grid"><article class="reveal"><span>NOW</span><h3>Connect the evidence</h3><p>Bring asset, code, vulnerability, protocol, firmware, supply-chain, and cryptographic observations into decision-ready workspaces.</p></article><article class="reveal"><span>NEXT</span><h3>Keep it current</h3><p>Expand continuous monitoring, cross-environment intelligence, durable investigations, and verification after change.</p></article><article class="reveal"><span>DIRECTION</span><h3>Govern the response</h3><p>Advance policy-bounded agents and remediation workflows with previews, approvals, rollback, and complete audit trails.</p></article></div></section>
+
+    <section class="section research-band" aria-labelledby="research-title"><div class="shell research-layout"><div class="reveal"><p class="eyebrow"><span></span> Research becomes product discipline</p><h2 id="research-title">Built alongside the way cyber analytics should be taught.</h2></div><div class="research-copy reveal"><p>Breakwater MCP and the Cyber Analytics course connect measurement, inference, adversarial analysis, digital twins, PQC, federated intelligence, formal verification, and governed action.</p><div><a class="text-link" href="/research/">Explore Breakwater research <span>→</span></a><a class="text-link" href="https://course.bwater.io/" target="_blank" rel="noopener noreferrer">Explore the course <span>↗</span></a><a class="text-link" href="https://mcp.bwtr.ai/" target="_blank" rel="noopener noreferrer">Open MCP <span>↗</span></a></div></div></div></section>
+
+    <section class="section shell contact-section" id="contact" aria-labelledby="contact-title">
+      <div class="contact-intro reveal"><p class="eyebrow"><span></span> Start a conversation</p><h2 id="contact-title">Bring us the decision that is hardest to defend.</h2><p>Tell us what you need to secure or prove. We will route the conversation to the right product and operating model.</p><div class="contact-meta"><span>Private briefings</span><span>Pilot planning</span><span>Research collaboration</span></div></div>
+      <form class="lead-form reveal" data-lead-form><label class="hidden-field">Website <input name="website" tabindex="-1" autocomplete="off" /></label><input type="hidden" name="form_type" value="company_inquiry" /><div class="field-row"><label>Name<input name="name" autocomplete="name" required /></label><label>Work email<input name="email" type="email" autocomplete="email" required /></label></div><div class="field-row"><label>Company<input name="company" autocomplete="organization" required /></label><label>Role / title<input name="title" autocomplete="organization-title" /></label></div><label>Area of interest<select name="environment"><option value="">Choose one</option><option>Breakwater ASOC — IoT / OT assurance</option><option>Breakwater Assure — application security</option><option>Breakwater Secure — post-quantum readiness</option><option>ProscanX platform</option><option>Breakwater MCP / research and education</option><option>Partnership or other</option></select></label><label>What are you trying to secure, understand, or prove?<textarea name="message" rows="5" required></textarea></label><p class="form-privacy">Contact details are sent through Google Apps Script to a Breakwater-managed Google Sheet and used to respond to this inquiry. Do not include secrets or sensitive data.</p><div class="form-footer"><button class="button button-primary" type="submit">Send inquiry <span>→</span></button><p>Or email <a href="mailto:hello@bwtr.ai">hello@bwtr.ai</a></p></div><p class="form-status" data-form-status aria-live="polite"></p></form>
+    </section>
+  </main>
+
+  <footer class="site-footer"><div class="shell footer-grid"><div class="footer-brand"><a class="brand" href="/"><img class="logo-on-dark" src="/assets/breakwater-horizontal-dark-transparent.png" alt="Breakwater" /><img class="logo-on-light" src="/assets/breakwater-horizontal-light-transparent.png" alt="Breakwater" /></a><p>Evidence-led security from code to critical infrastructure.</p></div><div><strong>Explore</strong><a href="/products/">Products</a><a href="/platform/">ProscanX platform</a><a href="/research/">Research</a><a href="/about/">About us</a><a href="/security/">Security</a><a href="#contact">Contact</a></div><div><strong>Products</strong><a href="https://asoc.bwtr.ai/" target="_blank" rel="noopener noreferrer">Breakwater ASOC ↗</a><a href="https://assure.bwtr.ai/" target="_blank" rel="noopener noreferrer">Breakwater Assure ↗</a><a href="https://qq.bwtr.ai/" target="_blank" rel="noopener noreferrer">Breakwater Secure ↗</a><a href="https://mcp.bwtr.ai/" target="_blank" rel="noopener noreferrer">Breakwater MCP ↗</a></div><div><strong>Connect</strong><a href="mailto:hello@bwtr.ai">hello@bwtr.ai</a><a href="https://x.com/bwtrlabs" target="_blank" rel="noopener noreferrer">X / @bwtrlabs ↗</a><a href="https://course.bwater.io/" target="_blank" rel="noopener noreferrer">Cyber Analytics ↗</a></div></div><div class="shell footer-bottom"><span>© <span data-year>2026</span> Breakwater. All rights reserved.</span><span>Observe · Validate · Decide · Verify</span></div></footer>
+  <script src="/script.js"></script>
+</body>
 </html>

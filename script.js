@@ -1,22 +1,66 @@
 (() => {
-  const ENDPOINT = window.BREAKWATER_FORM_ENDPOINT || "";
-  const forms = document.querySelectorAll("[data-lead-form]");
+  const FORM_ENDPOINT =
+    window.BREAKWATER_FORM_ENDPOINT ||
+    "https://script.google.com/macros/s/AKfycbwDKJk38q6oQMQ7MA_R2pBSxa6XjFsbJjcaAW1vu5eq6zEhZt_qU-5DpltcO0CGLNOK/exec";
+  const root = document.documentElement;
   const themeToggle = document.querySelector("[data-theme-toggle]");
-  const themeLabel = document.querySelector("[data-theme-label]");
-  const requestLinks = document.querySelectorAll("[data-select-request]");
+  const menuToggle = document.querySelector("[data-menu-toggle]");
+  const mobileMenu = document.querySelector("[data-mobile-menu]");
 
   const setTheme = (theme) => {
-    const nextTheme = theme === "dark" ? "dark" : "light";
-    document.documentElement.dataset.theme = nextTheme;
-    if (themeLabel) {
-      themeLabel.textContent = nextTheme === "dark" ? "Dark" : "Light";
-    }
+    const nextTheme = theme === "light" ? "light" : "dark";
+    root.dataset.theme = nextTheme;
+    themeToggle?.setAttribute(
+      "aria-label",
+      `Switch to ${nextTheme === "dark" ? "light" : "dark"} theme`,
+    );
     try {
       localStorage.setItem("breakwater-theme", nextTheme);
     } catch (_) {
-      // Ignore storage failures; the visual toggle still works for this page view.
+      // Storage may be unavailable in hardened browsers; the toggle still works.
     }
   };
+
+  const closeMenu = () => {
+    if (!menuToggle || !mobileMenu) return;
+    menuToggle.setAttribute("aria-expanded", "false");
+    menuToggle.setAttribute("aria-label", "Open navigation");
+    mobileMenu.hidden = true;
+    document.body.classList.remove("menu-open");
+  };
+
+  if (themeToggle) {
+    setTheme(root.dataset.theme);
+    themeToggle.addEventListener("click", () => {
+      setTheme(root.dataset.theme === "dark" ? "light" : "dark");
+    });
+  }
+
+  if (menuToggle && mobileMenu) {
+    menuToggle.addEventListener("click", () => {
+      const isOpen = menuToggle.getAttribute("aria-expanded") === "true";
+      menuToggle.setAttribute("aria-expanded", String(!isOpen));
+      menuToggle.setAttribute("aria-label", isOpen ? "Open navigation" : "Close navigation");
+      mobileMenu.hidden = isOpen;
+      document.body.classList.toggle("menu-open", !isOpen);
+    });
+    mobileMenu.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", closeMenu);
+    });
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && !mobileMenu.hidden) {
+        closeMenu();
+        menuToggle.focus();
+      }
+    });
+    window.addEventListener("resize", () => {
+      if (window.innerWidth > 760) closeMenu();
+    });
+  }
+
+  document.querySelectorAll("[data-year]").forEach((node) => {
+    node.textContent = String(new Date().getFullYear());
+  });
 
   const setStatus = (form, message, tone = "neutral") => {
     const status = form.querySelector("[data-form-status]");
@@ -25,101 +69,48 @@
     status.dataset.tone = tone;
   };
 
-  const serialize = (form) => {
-    const data = new FormData(form);
-    data.append("submitted_at", new Date().toISOString());
-    data.append("page_url", window.location.href);
-    return data;
-  };
-
-  const updateRequestMode = (form) => {
-    const selected = form.querySelector("input[name='form_type']:checked")?.value || "request_demo";
-    const isPilot = selected === "start_pilot";
-    const submit = form.querySelector("[data-submit-label]");
-    form.dataset.requestMode = selected;
-    form.querySelectorAll("[data-pilot-field]").forEach((field) => {
-      field.hidden = !isPilot;
-      field.querySelectorAll("input, select, textarea").forEach((control) => {
-        if (!isPilot) control.value = "";
-      });
-    });
-    if (submit) {
-      submit.textContent = isPilot ? "Send pilot request" : "Send demo request";
-    }
-  };
-
-  const selectRequestMode = (value) => {
-    const form = document.querySelector("[data-lead-form]");
-    const radio = form?.querySelector(`input[name='form_type'][value='${value}']`);
-    if (!form || !radio) return;
-    radio.checked = true;
-    updateRequestMode(form);
-  };
-
-  if (themeToggle) {
-    setTheme(document.documentElement.dataset.theme || "light");
-    themeToggle.addEventListener("click", () => {
-      const current = document.documentElement.dataset.theme === "dark" ? "dark" : "light";
-      setTheme(current === "dark" ? "light" : "dark");
-    });
-  }
-
-  requestLinks.forEach((link) => {
-    link.addEventListener("click", () => {
-      selectRequestMode(link.dataset.selectRequest);
-    });
-  });
-
-  forms.forEach((form) => {
-    updateRequestMode(form);
-    form.querySelectorAll("input[name='form_type']").forEach((radio) => {
-      radio.addEventListener("change", () => {
-        updateRequestMode(form);
-        setStatus(form, "");
-      });
-    });
-
+  document.querySelectorAll("[data-lead-form]").forEach((form) => {
     form.addEventListener("submit", async (event) => {
       event.preventDefault();
-
       const submit = form.querySelector("button[type='submit']");
       const honey = form.querySelector("input[name='website']");
-      if (honey && honey.value) {
+
+      if (honey?.value) {
         setStatus(form, "Thanks. We'll follow up shortly.", "success");
         form.reset();
-        return;
-      }
-
-      if (!ENDPOINT || ENDPOINT.includes("PASTE_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE")) {
-        setStatus(
-          form,
-          "Form endpoint is not configured yet. Email hello@bwtr.ai and we'll route this manually.",
-          "error",
-        );
         return;
       }
 
       submit.disabled = true;
-      setStatus(form, "Sending request...", "neutral");
+      submit.setAttribute("aria-busy", "true");
+      setStatus(form, "Sending inquiry…");
+
+      const data = new FormData(form);
+      data.append("submitted_at", new Date().toISOString());
+      data.append("page_url", window.location.href);
 
       try {
-        await fetch(ENDPOINT, {
+        await fetch(FORM_ENDPOINT, {
           method: "POST",
           mode: "no-cors",
-          body: serialize(form),
+          body: data,
         });
-        setStatus(form, "Thanks. We'll follow up shortly.", "success");
+        setStatus(
+          form,
+          "Submission sent. Delivery cannot be confirmed in this page; email hello@bwtr.ai if you do not hear back.",
+          "success",
+        );
         form.reset();
-        updateRequestMode(form);
       } catch (error) {
         console.error(error);
         setStatus(
           form,
-          "We could not submit the form. Please email hello@bwtr.ai and we'll follow up.",
+          "We could not submit the form. Please email hello@bwtr.ai.",
           "error",
         );
       } finally {
         submit.disabled = false;
+        submit.removeAttribute("aria-busy");
       }
     });
   });

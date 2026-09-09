@@ -16,6 +16,23 @@ const HEADERS = [
   'user_agent',
 ];
 
+const FIELD_LIMITS = {
+  submitted_at: 64,
+  form_type: 64,
+  name: 200,
+  email: 320,
+  company: 300,
+  title: 300,
+  phone: 80,
+  industry: 200,
+  environment: 300,
+  device_count: 100,
+  timeline: 100,
+  message: 5000,
+  page_url: 2000,
+  user_agent: 1000,
+};
+
 function doPost(e) {
   try {
     const params = e.parameter || {};
@@ -26,9 +43,9 @@ function doPost(e) {
     const sheet = getSheet_();
     const row = HEADERS.map((header) => {
       if (header === 'user_agent') {
-        return (e && e.contextPath) || '';
+        return safeCell_((e && e.contextPath) || '', FIELD_LIMITS[header]);
       }
-      return params[header] || '';
+      return safeCell_(params[header] || '', FIELD_LIMITS[header]);
     });
 
     sheet.appendRow(row);
@@ -36,6 +53,12 @@ function doPost(e) {
   } catch (error) {
     return jsonResponse({ ok: false, error: String(error) }, 500);
   }
+}
+
+function safeCell_(value, maxLength) {
+  const text = String(value).slice(0, maxLength);
+  // Prevent user-controlled values from being interpreted as spreadsheet formulas.
+  return /^[\u0000-\u0020]*[=+\-@]/.test(text) ? `'${text}` : text;
 }
 
 function doGet() {

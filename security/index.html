@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Security and vulnerability disclosure | Breakwater</title>
+  <meta name="description" content="How to report a potential security vulnerability affecting a Breakwater-operated public service." />
+  <meta property="og:title" content="Security and vulnerability disclosure | Breakwater" />
+  <meta property="og:description" content="Responsible reporting guidance for Breakwater-operated public services." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.bwtr.ai/security/" />
+  <meta property="og:image" content="https://www.bwtr.ai/assets/breakwater-social-card.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Breakwater — evidence-led security from code to critical infrastructure" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Security and vulnerability disclosure | Breakwater" />
+  <meta name="twitter:description" content="Responsible reporting guidance for Breakwater-operated public services." />
+  <meta name="twitter:image" content="https://www.bwtr.ai/assets/breakwater-social-card.png" />
+  <meta name="theme-color" content="#08070d" />
+  <link rel="canonical" href="https://www.bwtr.ai/security/" />
+  <link rel="icon" href="/assets/breakwater-mark-light.png" />
+  <link rel="stylesheet" href="/styles.css" />
+  <script>try{document.documentElement.dataset.theme=localStorage.getItem("breakwater-theme")||"dark"}catch(_){}</script>
+</head>
+<body data-page="security">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header"><a class="brand" href="/" aria-label="Breakwater home"><img class="logo-on-dark" src="/assets/breakwater-horizontal-dark-transparent.png" alt="Breakwater" /><img class="logo-on-light" src="/assets/breakwater-horizontal-light-transparent.png" alt="Breakwater" /></a><nav class="desktop-nav" aria-label="Primary navigation"><a href="/products/">Products</a><a href="/platform/">Platform</a><a href="/#approach">Approach</a><a href="/research/">Research</a><a href="/about/">About</a></nav><div class="header-actions"><button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch to light theme"><span aria-hidden="true"></span></button><a class="text-link header-link" href="/products/#access">Product access <span>→</span></a><a class="button button-primary header-cta" href="mailto:hello@bwtr.ai?subject=Security%20report">Report a concern</a><button class="menu-toggle" type="button" data-menu-toggle aria-label="Open navigation" aria-expanded="false" aria-controls="mobile-menu"><span></span><span></span></button></div><nav class="mobile-menu" id="mobile-menu" data-mobile-menu aria-label="Mobile navigation" hidden><a href="/products/">Products</a><a href="/platform/">Platform</a><a href="/#approach">Approach</a><a href="/research/">Research</a><a href="/about/">About</a><a href="/products/#access">Product access</a><a href="mailto:hello@bwtr.ai?subject=Security%20report">Report a concern</a></nav></header>
+
+  <main id="main">
+    <section class="page-hero security-hero shell"><div><p class="eyebrow"><span></span> Security at Breakwater</p><h1>Help us protect the systems built to protect others.</h1></div><div class="page-hero-copy"><p>If you believe you have found a vulnerability affecting a Breakwater-operated public service, please report it privately and include enough evidence for us to reproduce it safely.</p><a class="button button-primary" href="mailto:hello@bwtr.ai?subject=Security%20report">Email a security report <span>→</span></a></div></section>
+
+    <section class="section security-policy"><div class="shell security-policy-layout"><aside><p class="eyebrow"><span></span> Reporting guidance</p><nav aria-label="Security policy sections"><a href="#report">What to report</a><a href="#include">What to include</a><a href="#boundaries">Testing boundaries</a><a href="#process">Our process</a></nav></aside><div class="policy-content">
+      <section id="report"><span>01</span><h2>What to report</h2><p>Reports should concern a potential security weakness in a Breakwater-operated public website, application, API, or service. Customer-managed deployments, customer data, and third-party services are not implicitly in scope.</p><p>If scope is unclear, contact us before testing further.</p></section>
+      <section id="include"><span>02</span><h2>What to include</h2><ul><li>The affected URL, component, or service.</li><li>A concise description of the suspected vulnerability and its potential impact.</li><li>Reproduction steps, relevant request and response details, and supporting screenshots or logs.</li><li>The date and time of testing and any assumptions required to reproduce the behavior.</li><li>A safe way to contact you for follow-up.</li></ul></section>
+      <section id="boundaries"><span>03</span><h2>Testing boundaries</h2><p>Please minimize access to data and systems, stop when you have enough evidence to demonstrate the issue, and preserve confidentiality while we investigate.</p><ul><li>Do not access, modify, retain, or disclose data that does not belong to you.</li><li>Do not use denial-of-service, destructive, persistence, social-engineering, or physical-security techniques.</li><li>Do not degrade service availability or interfere with customers, users, or third parties.</li><li>Do not publicly disclose an unresolved report without first attempting private coordination.</li></ul><p>This guidance is not a bug-bounty offer or blanket authorization to test any system.</p></section>
+      <section id="process"><span>04</span><h2>Our process</h2><p>We will review reports submitted in good faith, validate the affected scope, and communicate next steps as appropriate. Resolution timing depends on severity, reproducibility, product ownership, and deployment context; this page does not promise a fixed response or remediation deadline.</p><div class="policy-contact"><strong>Security contact</strong><a href="mailto:hello@bwtr.ai?subject=Security%20report">hello@bwtr.ai</a><small>Use the subject “Security report.” Do not send secrets or sensitive customer data unless we establish an appropriate transfer method.</small></div></section>
+    </div></div></section>
+  </main>
+
+  <footer class="site-footer"><div class="shell footer-grid"><div class="footer-brand"><a class="brand" href="/"><img class="logo-on-dark" src="/assets/breakwater-horizontal-dark-transparent.png" alt="Breakwater" /><img class="logo-on-light" src="/assets/breakwater-horizontal-light-transparent.png" alt="Breakwater" /></a><p>Evidence-led security from code to critical infrastructure.</p></div><div><strong>Explore</strong><a href="/products/">Products</a><a href="/platform/">ProscanX platform</a><a href="/research/">Research</a><a href="/about/">About us</a><a href="/security/">Security</a><a href="/#contact">Contact</a></div><div><strong>Products</strong><a href="https://asoc.bwtr.ai/" target="_blank" rel="noopener noreferrer">Breakwater ASOC ↗</a><a href="https://assure.bwtr.ai/" target="_blank" rel="noopener noreferrer">Breakwater Assure ↗</a><a href="https://qq.bwtr.ai/" target="_blank" rel="noopener noreferrer">Breakwater Secure ↗</a><a href="https://mcp.bwtr.ai/" target="_blank" rel="noopener noreferrer">Breakwater MCP ↗</a></div><div><strong>Connect</strong><a href="mailto:hello@bwtr.ai">hello@bwtr.ai</a><a href="https://x.com/bwtrlabs" target="_blank" rel="noopener noreferrer">X / @bwtrlabs ↗</a><a href="https://course.bwater.io/" target="_blank" rel="noopener noreferrer">Cyber Analytics ↗</a></div></div><div class="shell footer-bottom"><span>© <span data-year>2026</span> Breakwater. All rights reserved.</span><span>Observe · Validate · Decide · Verify</span></div></footer>
+  <script src="/script.js"></script>
+</body>
+</html>

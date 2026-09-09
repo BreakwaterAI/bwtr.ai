@@ -1,6 +1,6 @@
 # bwtr.ai Static Site
 
-This repository contains the public one-page marketing site for `bwtr.ai`.
+This repository contains the public multi-page company and product marketing site for `bwtr.ai`.
 It is intentionally separate from the Breakwater platform source repository.
 
 ## Hosting Model
@@ -22,7 +22,9 @@ The GitHub Actions workflow at `.github/workflows/deploy-aws.yml` deploys this s
 
 Large product-demo videos are stored directly in S3 under `assets/videos/` and are intentionally
 not committed to this repository. The deploy workflow excludes that prefix during `aws s3 sync
---delete` so publishing the static site does not remove S3-only media.
+--delete` so publishing the static site does not remove S3-only media. Repository-only operational
+files such as `AGENTS.md`, `scripts/`, `infra/`, and `google-apps-script/` are also excluded from
+the public bucket.
 
 Required repository configuration in `thogiti/bwtr.ai`:
 
@@ -104,14 +106,21 @@ repo:thogiti/bwtr.ai:ref:refs/heads/main
 
 Copy the `RoleArn` output into the `AWS_ROLE_TO_ASSUME` GitHub Actions secret.
 
-## Lead Capture Forms
+## Site Map
 
-The site includes two branded static forms:
+- `index.html`: company narrative, portfolio overview, roadmap, and contact
+- `products/index.html`: portfolio details and comparison, served at `/products/`
+- `platform/index.html`: ProscanX capability and evidence model, served at `/platform/`
+- `research/index.html`: research themes, Cyber Analytics, and product translation, served at `/research/`
+- `about/index.html`: company principles, founders, and research connection, served at `/about/`
+- `security/index.html`: vulnerability disclosure guidance, served at `/security/`
+- `404.html`: real not-found response body
+- `.well-known/security.txt`: machine-readable security contact metadata
 
-- `Request a demo`
-- `Start a pilot`
+## Lead Capture Form
 
-The forms post to a Google Apps Script Web App, which appends submissions to a Google Sheet.
+The site includes a branded company inquiry form. It posts to a Google Apps Script Web App,
+which appends submissions to a Google Sheet.
 This keeps lead capture simple without adding an AWS API, database, or sales platform.
 
 Setup:
@@ -122,17 +131,36 @@ Setup:
 4. Deploy it as a Web App:
    - Execute as: `Me`
    - Who has access: `Anyone`
-5. Copy the Web App URL.
-6. Replace this placeholder in `index.html`:
-
-```js
-window.BREAKWATER_FORM_ENDPOINT = "PASTE_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE";
-```
-
-with the deployed Web App URL.
+5. Copy the Web App URL into the `FORM_ENDPOINT` fallback in `script.js`, or set
+   `window.BREAKWATER_FORM_ENDPOINT` before loading `script.js`.
 
 The script writes submissions to a `Leads` sheet and includes a hidden honeypot field named
-`website` for basic spam filtering.
+`website` for basic spam filtering. Submitted fields are length-limited and escaped before they
+reach the sheet so user-controlled values cannot be interpreted as spreadsheet formulas. The
+public form discloses that Google Apps Script and a Breakwater-managed Google Sheet process the
+contact details.
+
+## Canonical URLs
+
+Public pages use directory-style canonical URLs. The CloudFront viewer-request function redirects
+legacy `.html`, extensionless, explicit `index.html`, apex-domain, and CloudFront-domain variants
+to the matching `https://www.bwtr.ai/<page>/` URL. It then rewrites the canonical directory request
+to the corresponding S3 `index.html` object without changing the browser-visible URL.
+
+Production rollout order:
+
+1. Record the current stack template, distribution configuration, and S3 object versions.
+2. Upload `404.html` and the five nested page directories without deleting or replacing existing
+   production objects.
+3. Create and inspect the CloudFormation change set, then execute it and wait for CloudFront to
+   finish deploying.
+4. Verify canonical redirects, directory rewrites, query preservation, and genuine 404 responses.
+5. Publish the remaining static-site files, invalidate CloudFront, and run the full live smoke test.
+
+During the initial soak, permanent redirects use a five-minute cache lifetime so a stack rollback
+can take effect promptly. To roll back, restore the preceding stack template, restore or republish
+the preceding Git revision, invalidate `/*`, and verify both canonical and legacy URLs. S3
+versioning remains enabled as an additional object-recovery path.
 
 ## Route 53 Safety
 
@@ -153,4 +181,11 @@ Then open:
 
 ```text
 http://127.0.0.1:4177/
+```
+
+## Validation
+
+```bash
+node scripts/test-canonical-urls.mjs
+git diff --check
 ```
