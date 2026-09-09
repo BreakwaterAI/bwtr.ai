@@ -55,6 +55,7 @@ Resources:
                 Effect: Allow
                 Action:
                   - cloudfront:CreateInvalidation
+                  - cloudfront:GetInvalidation
                 Resource: !Sub 'arn:aws:cloudfront::${AWS::AccountId}:distribution/${CloudFrontDistributionId}'
 
 Outputs:

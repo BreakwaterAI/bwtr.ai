@@ -139,4 +139,18 @@ if (workflow.includes("runner.temp")) {
 }
 checks += 1;
 
+const deployRole = fs.readFileSync(
+  new URL("../infra/cloudformation/github-deploy-role.yml", import.meta.url),
+  "utf8",
+);
+for (const permission of [
+  "cloudfront:CreateInvalidation",
+  "cloudfront:GetInvalidation",
+]) {
+  if (!deployRole.includes(permission)) {
+    throw new Error(`Deploy role is missing required permission: ${permission}`);
+  }
+  checks += 1;
+}
+
 console.log(`Canonical URL and metadata tests: ${checks} passed`);
