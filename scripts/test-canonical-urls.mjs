@@ -115,8 +115,15 @@ const workflow = fs.readFileSync(
 );
 for (const required of [
   'bash scripts/build-site-artifact.sh "${RUNNER_TEMP}/bwtr-site"',
-  'aws s3 sync "${RUNNER_TEMP}/bwtr-site"',
+  'artifact="${RUNNER_TEMP}/bwtr-site"',
+  'rollback_artifact="${RUNNER_TEMP}/bwtr-site-rollback"',
+  'aws s3 sync "${artifact}" "s3://${bucket}"',
   '--exclude "assets/videos/*"',
+  "set -Eeuo pipefail",
+  "trap rollback ERR",
+  "aws cloudfront wait invalidation-completed",
+  "curl -fsS https://www.bwtr.ai/",
+  "curl -fsS https://www.bwtr.ai/products/",
 ]) {
   if (!workflow.includes(required)) {
     throw new Error(`Safe deployment step missing: ${required}`);

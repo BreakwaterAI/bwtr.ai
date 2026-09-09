@@ -30,14 +30,66 @@ jobs:
       - name: Build public site artifact
         run: bash scripts/build-site-artifact.sh "${RUNNER_TEMP}/bwtr-site"
 
-      - name: Sync static site to S3
+      - name: Snapshot current production site
         run: |
-          aws s3 sync "${RUNNER_TEMP}/bwtr-site" "s3://${{ vars.AWS_S3_BUCKET }}" \
+          mkdir -p "${RUNNER_TEMP}/bwtr-site-rollback"
+          aws s3 sync "s3://${{ vars.AWS_S3_BUCKET }}" "${RUNNER_TEMP}/bwtr-site-rollback" \
+            --exclude "assets/videos/*"
+
+      - name: Publish, verify, and roll back on failure
+        shell: bash
+        run: |
+          set -Eeuo pipefail
+
+          bucket="${{ vars.AWS_S3_BUCKET }}"
+          distribution="${{ vars.AWS_CLOUDFRONT_DISTRIBUTION_ID }}"
+          artifact="${RUNNER_TEMP}/bwtr-site"
+          rollback_artifact="${RUNNER_TEMP}/bwtr-site-rollback"
+
+          invalidate_and_wait() {
+            local invalidation_id
+            invalidation_id="$(aws cloudfront create-invalidation \
+              --distribution-id "${distribution}" \
+              --paths "/*" \
+              --query 'Invalidation.Id' \
+              --output text)"
+            aws cloudfront wait invalidation-completed \
+              --distribution-id "${distribution}" \
+              --id "${invalidation_id}"
+          }
+
+          rollback() {
+            local exit_code=$?
+            trap - ERR
+            set +e
+            echo "Publish failed; restoring the pre-release site snapshot."
+            aws s3 sync "${rollback_artifact}" "s3://${bucket}" \
+              --delete \
+              --exclude "assets/videos/*"
+            local restore_status=$?
+            invalidate_and_wait
+            local invalidation_status=$?
+            if [[ ${restore_status} -ne 0 || ${invalidation_status} -ne 0 ]]; then
+              echo "Automatic rollback was incomplete; manual recovery is required." >&2
+            fi
+            exit "${exit_code}"
+          }
+          trap rollback ERR
+
+          # Publish supporting files first and switch the homepage entry point last.
+          aws s3 sync "${artifact}" "s3://${bucket}" \
+            --exclude "assets/videos/*" \
+            --exclude "index.html"
+          aws s3 cp "${artifact}/index.html" "s3://${bucket}/index.html" \
+            --content-type "text/html"
+
+          # Remove stale public objects only after the complete release is present.
+          aws s3 sync "${artifact}" "s3://${bucket}" \
             --delete \
             --exclude "assets/videos/*"
 
-      - name: Invalidate CloudFront cache
-        run: |
-          aws cloudfront create-invalidation \
-            --distribution-id "${{ vars.AWS_CLOUDFRONT_DISTRIBUTION_ID }}" \
-            --paths "/*"
+          invalidate_and_wait
+          curl -fsS https://www.bwtr.ai/ | grep -F "Every product shares one evidence and provenance standard."
+          curl -fsS https://www.bwtr.ai/products/ | grep -F "Every product is built around"
+
+          trap - ERR
