@@ -62,17 +62,11 @@ Deployment is through GitHub Actions using AWS OIDC. Required repo configuration
 Manual deploy fallback from AWS CloudShell:
 
 ```bash
-aws s3 sync . s3://bwtr-ai-site-prod \
+artifact_root="$(mktemp -d)"
+bash scripts/build-site-artifact.sh "${artifact_root}/site"
+aws s3 sync "${artifact_root}/site" s3://bwtr-ai-site-prod \
   --delete \
-  --exclude ".git/*" \
-  --exclude ".github/*" \
-  --exclude "infra/*" \
-  --exclude "scripts/*" \
-  --exclude "AGENTS.md" \
-  --exclude "google-apps-script/*" \
-  --exclude "assets/videos/*" \
-  --exclude "README.md" \
-  --exclude ".gitignore"
+  --exclude "assets/videos/*"
 aws cloudfront create-invalidation \
   --distribution-id E2M3MM3HR6HAUB \
   --paths "/*"

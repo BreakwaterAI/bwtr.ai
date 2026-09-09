@@ -17,14 +17,13 @@ Production hosting should stay in AWS, consistent with the rest of Breakwater's 
 The GitHub Actions workflow at `.github/workflows/deploy-aws.yml` deploys this static site to AWS by:
 
 1. Assuming an AWS IAM role through GitHub OIDC.
-2. Syncing static files to S3.
-3. Invalidating the CloudFront distribution.
+2. Building an explicit public-site artifact that contains no repository operations files.
+3. Syncing that artifact to S3 while preserving S3-only product-demo videos.
+4. Invalidating the CloudFront distribution.
 
 Large product-demo videos are stored directly in S3 under `assets/videos/` and are intentionally
-not committed to this repository. The deploy workflow excludes that prefix during `aws s3 sync
---delete` so publishing the static site does not remove S3-only media. Repository-only operational
-files such as `AGENTS.md`, `scripts/`, `infra/`, and `google-apps-script/` are also excluded from
-the public bucket.
+not committed to this repository. The deploy workflow preserves that prefix during `aws s3 sync
+--delete`. Repository-only files never enter the generated artifact.
 
 Required repository configuration in `thogiti/bwtr.ai`:
 

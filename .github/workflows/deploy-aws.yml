@@ -27,19 +27,14 @@ jobs:
           role-to-assume: ${{ secrets.AWS_ROLE_TO_ASSUME }}
           aws-region: ${{ vars.AWS_REGION || 'us-east-1' }}
 
+      - name: Build public site artifact
+        run: bash scripts/build-site-artifact.sh "${RUNNER_TEMP}/bwtr-site"
+
       - name: Sync static site to S3
         run: |
-          aws s3 sync . "s3://${{ vars.AWS_S3_BUCKET }}" \
+          aws s3 sync "${RUNNER_TEMP}/bwtr-site" "s3://${{ vars.AWS_S3_BUCKET }}" \
             --delete \
-            --exclude ".git/*" \
-            --exclude ".github/*" \
-            --exclude "infra/*" \
-            --exclude "scripts/*" \
-            --exclude "AGENTS.md" \
-            --exclude "README.md" \
-            --exclude "google-apps-script/*" \
-            --exclude "assets/videos/*" \
-            --exclude ".gitignore"
+            --exclude "assets/videos/*"
 
       - name: Invalidate CloudFront cache
         run: |

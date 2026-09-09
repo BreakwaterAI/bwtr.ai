@@ -113,11 +113,23 @@ const workflow = fs.readFileSync(
   new URL("../.github/workflows/deploy-aws.yml", import.meta.url),
   "utf8",
 );
-for (const exclusion of ['--exclude "scripts/*"', '--exclude "AGENTS.md"']) {
-  if (!workflow.includes(exclusion)) {
-    throw new Error(`Deployment exclusion missing: ${exclusion}`);
+for (const required of [
+  'bash scripts/build-site-artifact.sh "${RUNNER_TEMP}/bwtr-site"',
+  'aws s3 sync "${RUNNER_TEMP}/bwtr-site"',
+  '--exclude "assets/videos/*"',
+]) {
+  if (!workflow.includes(required)) {
+    throw new Error(`Safe deployment step missing: ${required}`);
   }
   checks += 1;
 }
+if (workflow.includes("aws s3 sync . ")) {
+  throw new Error("Deployment must not sync the repository root");
+}
+checks += 1;
+if (workflow.includes("runner.temp")) {
+  throw new Error("runner.temp must not be referenced from an invalid workflow context");
+}
+checks += 1;
 
 console.log(`Canonical URL and metadata tests: ${checks} passed`);
