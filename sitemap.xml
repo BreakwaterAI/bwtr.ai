@@ -2,8 +2,12 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://www.bwtr.ai/</loc></url>
   <url><loc>https://www.bwtr.ai/products/</loc></url>
-  <url><loc>https://www.bwtr.ai/platform/</loc></url>
+  <url><loc>https://www.bwtr.ai/architecture/</loc></url>
   <url><loc>https://www.bwtr.ai/research/</loc></url>
   <url><loc>https://www.bwtr.ai/about/</loc></url>
   <url><loc>https://www.bwtr.ai/security/</loc></url>
+  <url><loc>https://www.bwtr.ai/airports/</loc></url>
+  <url><loc>https://www.bwtr.ai/power-utilities/</loc></url>
+  <url><loc>https://www.bwtr.ai/connected-industry/</loc></url>
+  <url><loc>https://www.bwtr.ai/healthcare/</loc></url>
 </urlset>

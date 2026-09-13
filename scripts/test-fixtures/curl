@@ -1,0 +1,32 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+printf 'curl %s\n' "$*" >>"${BWTR_TEST_LOG}"
+output=""
+headers=false
+url=""
+while [[ $# -gt 0 ]]; do
+  case "$1" in
+    --output) output="$2"; shift 2 ;;
+    -fsSI) headers=true; shift ;;
+    http*) url="$1"; shift ;;
+    *) shift ;;
+  esac
+done
+if [[ "${headers}" == true ]]; then
+  if [[ "${url}" =~ /(styles|script)\.[0-9a-f]{12}\.(css|js)$ ]]; then
+    cache_control='public, max-age=31536000, immutable'
+  else
+    cache_control='no-cache'
+  fi
+  printf 'HTTP/2 200\r\nContent-Type: image/jpeg\r\nCache-Control: %s\r\n\r\n' \
+    "${cache_control}" >"${output}"
+elif [[ "${url}" == *"/assets/"* ]]; then
+  head -c 12001 /dev/zero >"${output}"
+else
+  printf '%s\n' \
+    'One evidence chain, start to finish' \
+    'One evidence-to-action system. Three operational modules.' \
+    'Breakwater ASOC is the system. Secure, Assure, and SOAR own the work.' \
+    'CUSTOMER-CONTROLLED DECISION BOUNDARY' >"${output}"
+fi

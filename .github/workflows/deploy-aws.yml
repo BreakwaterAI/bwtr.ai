@@ -27,7 +27,33 @@ jobs:
         run: |
           node scripts/test-canonical-urls.mjs
           node scripts/test-homepage-content.mjs
+          node scripts/test-positioning.mjs
+          bash scripts/test-publish-site.sh
           git diff --check HEAD^ HEAD
+
+      - name: Validate rendered layouts
+        run: |
+          python3 -m http.server 4177 --bind 127.0.0.1 >"${RUNNER_TEMP}/bwtr-preview.log" 2>&1 &
+          preview_pid=$!
+          trap 'kill "${preview_pid}" 2>/dev/null || true' EXIT
+          for attempt in {1..20}; do
+            if curl -fsS http://127.0.0.1:4177/ >/dev/null; then
+              break
+            fi
+            if [ "${attempt}" -eq 20 ]; then
+              cat "${RUNNER_TEMP}/bwtr-preview.log"
+              exit 1
+            fi
+            sleep 1
+          done
+          node scripts/test-rendered-layout.mjs
+
+      - name: Verify canonical route infrastructure
+        run: |
+          test "$(curl -sS -o /dev/null -w '%{http_code} %{redirect_url}' https://www.bwtr.ai/architecture)" = "301 https://www.bwtr.ai/architecture/"
+          test "$(curl -sS -o /dev/null -w '%{http_code} %{redirect_url}' https://www.bwtr.ai/platform/)" = "301 https://www.bwtr.ai/architecture/"
+          test "$(curl -sS -o /dev/null -w '%{http_code}' https://www.bwtr.ai/architecture/)" = "200"
+          curl -fsS https://www.bwtr.ai/architecture/ | grep -F "CUSTOMER-CONTROLLED DECISION BOUNDARY"
 
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v4
@@ -38,6 +64,9 @@ jobs:
       - name: Build public site artifact
         run: bash scripts/build-site-artifact.sh "${RUNNER_TEMP}/bwtr-site"
 
+      - name: Validate public site artifact
+        run: node scripts/test-site-artifact.mjs "${RUNNER_TEMP}/bwtr-site"
+
       - name: Snapshot current production site
         run: |
           mkdir -p "${RUNNER_TEMP}/bwtr-site-rollback"
@@ -46,70 +75,9 @@ jobs:
 
       - name: Publish, verify, and roll back on failure
         shell: bash
-        run: |
-          set -Eeuo pipefail
-
-          bucket="${{ vars.AWS_S3_BUCKET }}"
-          distribution="${{ vars.AWS_CLOUDFRONT_DISTRIBUTION_ID }}"
-          artifact="${RUNNER_TEMP}/bwtr-site"
-          rollback_artifact="${RUNNER_TEMP}/bwtr-site-rollback"
-
-          invalidate_and_wait() {
-            local invalidation_id
-            invalidation_id="$(aws cloudfront create-invalidation \
-              --distribution-id "${distribution}" \
-              --paths "/*" \
-              --query 'Invalidation.Id' \
-              --output text)"
-            aws cloudfront wait invalidation-completed \
-              --distribution-id "${distribution}" \
-              --id "${invalidation_id}"
-          }
-
-          rollback() {
-            local exit_code=$?
-            trap - ERR
-            set +e
-            echo "Publish failed; restoring the pre-release site snapshot."
-            aws s3 sync "${rollback_artifact}" "s3://${bucket}" \
-              --delete \
-              --exclude "assets/videos/*"
-            local restore_status=$?
-            invalidate_and_wait
-            local invalidation_status=$?
-            if [[ ${restore_status} -ne 0 || ${invalidation_status} -ne 0 ]]; then
-              echo "Automatic rollback was incomplete; manual recovery is required." >&2
-            fi
-            exit "${exit_code}"
-          }
-          trap rollback ERR
-
-          # Publish supporting files first and switch the homepage entry point last.
-          aws s3 sync "${artifact}" "s3://${bucket}" \
-            --exclude "assets/videos/*" \
-            --exclude "index.html"
-          aws s3 cp "${artifact}/index.html" "s3://${bucket}/index.html" \
-            --content-type "text/html"
-
-          # Remove stale public objects only after the complete release is present.
-          aws s3 sync "${artifact}" "s3://${bucket}" \
-            --delete \
-            --exclude "assets/videos/*"
-
-          invalidate_and_wait
-          curl -fsS https://www.bwtr.ai/ | grep -F "One evidence chain, start to finish"
-          curl -fsS https://www.bwtr.ai/ | grep -F "current and planned capabilities—not a claim that every step is available or connected today"
-          curl -fsS https://www.bwtr.ai/products/ | grep -F "Every product is built around"
-          for image in \
-            infrastructure-substation.jpg \
-            infrastructure-airport.jpg \
-            infrastructure-utility-worker.jpg \
-            infrastructure-hmi.jpg \
-            product-demo-poster.jpg; do
-            target="${RUNNER_TEMP}/${image}"
-            curl -fsS --output "${target}" "https://www.bwtr.ai/assets/${image}"
-            test "$(wc -c < "${target}")" -gt 10000
-            curl -fsSI "https://www.bwtr.ai/assets/${image}" | grep -qi '^content-type: image/jpeg'
-          done
-
-          trap - ERR
+        env:
+          BWTR_BUCKET: ${{ vars.AWS_S3_BUCKET }}
+          BWTR_DISTRIBUTION: ${{ vars.AWS_CLOUDFRONT_DISTRIBUTION_ID }}
+          BWTR_ARTIFACT: ${{ runner.temp }}/bwtr-site
+          BWTR_ROLLBACK_ARTIFACT: ${{ runner.temp }}/bwtr-site-rollback
+        run: bash scripts/publish-site.sh

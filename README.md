@@ -18,12 +18,14 @@ The GitHub Actions workflow at `.github/workflows/deploy-aws.yml` deploys this s
 
 1. Assuming an AWS IAM role through GitHub OIDC.
 2. Building an explicit public-site artifact that contains no repository operations files.
-3. Syncing that artifact to S3 while preserving S3-only product-demo videos.
+3. Publishing that artifact to S3 while preserving S3-only product-demo videos and prior
+   content-addressed assets through the release soak window.
 4. Invalidating the CloudFront distribution.
 
 Large product-demo videos are stored directly in S3 under `assets/videos/` and are intentionally
-not committed to this repository. The deploy workflow preserves that prefix during `aws s3 sync
---delete`. Repository-only files never enter the generated artifact.
+not committed to this repository. The deploy workflow excludes that prefix from content uploads.
+It does not delete superseded objects during deployment; cleanup happens separately after the
+rollback window. Repository-only files never enter the generated artifact.
 
 Required repository configuration in `thogiti/bwtr.ai`:
 
@@ -107,12 +109,17 @@ Copy the `RoleArn` output into the `AWS_ROLE_TO_ASSUME` GitHub Actions secret.
 
 ## Site Map
 
-- `index.html`: company narrative, portfolio overview, roadmap, and contact
-- `products/index.html`: portfolio details and comparison, served at `/products/`
-- `platform/index.html`: ProscanX capability and evidence model, served at `/platform/`
+- `index.html`: CISO-facing company narrative, decision gaps, ASOC overview, and contact
+- `products/index.html`: Breakwater ASOC and its Secure, Assure, and SOAR modules, served at `/products/`
+- `architecture/index.html`: executive reference architecture, trust boundaries, and deployment patterns, served at `/architecture/`
+- `platform/index.html`: browser fallback from the retired `/platform/` route to `/architecture/`
 - `research/index.html`: research themes, Cyber Analytics, and product translation, served at `/research/`
 - `about/index.html`: company principles, founders, and research connection, served at `/about/`
 - `security/index.html`: vulnerability disclosure guidance, served at `/security/`
+- `airports/index.html`: how Secure, Assure, and SOAR apply to airport and transportation environments, served at `/airports/`
+- `power-utilities/index.html`: how Secure, Assure, and SOAR apply to power and utility environments, served at `/power-utilities/`
+- `connected-industry/index.html`: how Secure, Assure, and SOAR apply to connected industrial environments, served at `/connected-industry/`
+- `healthcare/index.html`: how Secure, Assure, and SOAR apply to healthcare environments, served at `/healthcare/`
 - `404.html`: real not-found response body
 - `.well-known/security.txt`: machine-readable security contact metadata
 
@@ -146,20 +153,40 @@ legacy `.html`, extensionless, explicit `index.html`, apex-domain, and CloudFron
 to the matching `https://www.bwtr.ai/<page>/` URL. It then rewrites the canonical directory request
 to the corresponding S3 `index.html` object without changing the browser-visible URL.
 
+The retired `/platform`, `/platform/`, `/platform.html`, and `/platform/index.html` variants redirect
+to the canonical `/architecture/` route. Follow the staged rollout order below so the destination is
+available before the edge begins returning those HTTP 301 responses.
+
 Production rollout order:
 
-1. Record the current stack template, distribution configuration, and S3 object versions.
-2. Upload `404.html` and the five nested page directories without deleting or replacing existing
-   production objects.
-3. Create and inspect the CloudFormation change set, then execute it and wait for CloudFront to
-   finish deploying.
-4. Verify canonical redirects, directory rewrites, query preservation, and genuine 404 responses.
-5. Publish the remaining static-site files, invalidate CloudFront, and run the full live smoke test.
+1. Before changing S3 or CloudFront, record the current stack template and distribution
+   configuration, and capture an immutable S3 inventory or download of the current object versions.
+2. Build and validate a release artifact locally. Pre-stage only its content-addressed `styles.*.css`
+   and `script.*.js` files plus `architecture/index.html`. Do not replace the homepage or any other
+   existing HTML during this phase.
+3. Create and inspect the CloudFormation change set. Execute it, wait for CloudFront to finish
+   deploying, then verify that `/architecture` redirects to `/architecture/`, `/platform/` redirects
+   to `/architecture/`, and the destination returns HTTP 200 with the expected release marker.
+4. Trigger the normal site workflow. Its preflight requires that migration-safe state before it takes
+   a rollback snapshot or changes any public object. Its rollback therefore preserves a working
+   Architecture destination even though the new edge redirect remains active.
+5. Verify canonical redirects, query preservation, genuine 404 responses, immutable asset headers,
+   all primary pages, and the inquiry form. Retain the baseline artifacts through the soak window.
+
+The repository tests validate artifact integrity, canonical routing, required cache policies,
+deployment phase ordering, and rollback behavior. The publish test uses mocked AWS and HTTP
+commands to inject failures before each material release phase and during rollback; it confirms
+that the snapshot is restored without deleting superseded objects. This does not replace an AWS
+staging exercise for IAM, network, and CloudFront service behavior. Retain the pre-release S3
+snapshot and CloudFront configuration for every production rollout.
 
 During the initial soak, permanent redirects use a five-minute cache lifetime so a stack rollback
-can take effect promptly. To roll back, restore the preceding stack template, restore or republish
-the preceding Git revision, invalidate `/*`, and verify both canonical and legacy URLs. S3
-versioning remains enabled as an additional object-recovery path.
+can take effect promptly. A normal content-publish failure restores the workflow snapshot, which
+already includes the valid Architecture destination. To reverse the route migration itself, restore
+and fully deploy the preceding CloudFront function first; only then restore the pre-stage S3 object
+versions and remove `architecture/index.html`. Invalidate `/*` and verify both canonical and legacy
+URLs. Never remove `architecture/index.html` while the edge redirect remains active. S3 versioning
+remains enabled as an additional object-recovery path.
 
 ## Route 53 Safety
 
@@ -186,5 +213,13 @@ http://127.0.0.1:4177/
 
 ```bash
 node scripts/test-canonical-urls.mjs
+node scripts/test-homepage-content.mjs
+node scripts/test-positioning.mjs
+# With the local preview running; set CHROME_PATH when Chrome is not in a standard location.
+node scripts/test-rendered-layout.mjs
+bash scripts/test-publish-site.sh
+artifact_parent="$(mktemp -d)"
+bash scripts/build-site-artifact.sh "${artifact_parent}/site"
+node scripts/test-site-artifact.mjs "${artifact_parent}/site"
 git diff --check
 ```

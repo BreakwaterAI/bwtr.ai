@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+printf 'aws %s\n' "$*" >>"${BWTR_TEST_LOG}"
+if [[ "$1 $2" == "cloudfront create-invalidation" ]]; then
+  printf 'TEST-INVALIDATION\n'
+  exit 0
+fi
+if [[ "$1 $2" == "cloudfront wait" ]]; then
+  exit 0
+fi
+if [[ "$1 $2" == "s3 cp" ]]; then
+  if [[ "$3" == "${BWTR_ROLLBACK_ARTIFACT}" ]]; then
+    printf 'baseline\n' >"${BWTR_TEST_REMOTE_STATE}"
+  elif [[ "$3" == "${BWTR_ARTIFACT}/index.html" ]]; then
+    printf 'published\n' >"${BWTR_TEST_REMOTE_STATE}"
+  else
+    printf 'mutating\n' >"${BWTR_TEST_REMOTE_STATE}"
+  fi
+  exit 0
+fi
+exit 2
