@@ -17,18 +17,23 @@ assert.ok(chrome, "Chrome is required; set CHROME_PATH to the browser executable
 
 const profile = mkdtempSync(join(tmpdir(), "bwtr-rendered-layout-"));
 const port = 12000 + Math.floor(Math.random() * 2000);
+const chromeArgs = [
+  "--headless=new",
+  "--disable-background-networking",
+  "--disable-gpu",
+  "--hide-scrollbars",
+  "--no-first-run",
+  `--remote-debugging-port=${port}`,
+  `--user-data-dir=${profile}`,
+  "about:blank",
+];
+if (process.platform === "linux") {
+  // GitHub-hosted Linux runners do not expose the namespaces Chrome needs for its sandbox.
+  chromeArgs.splice(1, 0, "--no-sandbox", "--disable-dev-shm-usage");
+}
 const browser = spawn(
   chrome,
-  [
-    "--headless=new",
-    "--disable-background-networking",
-    "--disable-gpu",
-    "--hide-scrollbars",
-    "--no-first-run",
-    `--remote-debugging-port=${port}`,
-    `--user-data-dir=${profile}`,
-    "about:blank",
-  ],
+  chromeArgs,
   { stdio: ["ignore", "ignore", "ignore"] },
 );
 
