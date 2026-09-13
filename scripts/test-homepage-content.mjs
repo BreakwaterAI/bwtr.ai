@@ -20,7 +20,7 @@ const requiredCopy = [
   "POWER + UTILITIES",
   "AVIATION",
   "HEALTHCARE",
-  "Illustrative stock photo; no depicted facility is represented as exposed.",
+  '<small class="photo-credit">Photo: Unsplash</small>',
   "CONNECTED INDUSTRY",
   "Breakwater Assure",
   "Breakwater Secure",
