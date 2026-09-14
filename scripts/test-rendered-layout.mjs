@@ -141,6 +141,24 @@ try {
             const style = getComputedStyle(node);
             return rect.width > 0 && rect.height > 0 && style.display !== "none" && style.visibility !== "hidden";
           };
+          const colorChannels = (color) => {
+            const value = color.trim();
+            if (/^#[0-9a-f]{6}$/i.test(value)) {
+              return [1, 3, 5].map((offset) => Number.parseInt(value.slice(offset, offset + 2), 16));
+            }
+            return (value.match(/[\\d.]+/g) || []).slice(0, 3).map(Number);
+          };
+          const luminance = (color) => {
+            const linear = colorChannels(color).map((channel) => {
+              const value = channel / 255;
+              return value <= 0.04045 ? value / 12.92 : ((value + 0.055) / 1.055) ** 2.4;
+            });
+            return 0.2126 * linear[0] + 0.7152 * linear[1] + 0.0722 * linear[2];
+          };
+          const contrast = (foreground, background) => {
+            const values = [luminance(foreground), luminance(background)].sort((a, b) => b - a);
+            return (values[0] + 0.05) / (values[1] + 0.05);
+          };
           const support = [...document.querySelectorAll(
             ".eyebrow, .capability-boundary, .comparison-disclaimer, .access-card p, .technical-node-grid p, .positioning-table td"
           )].filter(visible).map((node) => parseFloat(getComputedStyle(node).fontSize));
@@ -174,6 +192,25 @@ try {
               const captionRect = caption.getBoundingClientRect();
               const copyRect = document.querySelector(".hero-copy").getBoundingClientRect();
               const actionButtons = [...document.querySelectorAll(".hero-actions .button")];
+              const productLabels = [...document.querySelectorAll(".asoc-module .product-name")];
+              const environmentLabels = [...document.querySelectorAll(".environment-story > div > span")];
+              const focusTargets = [
+                document.querySelector(".theme-toggle"),
+                document.querySelector(".hero .button-primary"),
+                document.querySelector(".platform-preview .button-light"),
+                document.querySelector(".lead-form input"),
+              ];
+              const focusIndicators = focusTargets.map((target) => {
+                target.focus({ preventScroll: true });
+                const style = getComputedStyle(target);
+                return {
+                  visible: target.matches(":focus-visible"),
+                  outlineColor: style.outlineColor,
+                  outlineStyle: style.outlineStyle,
+                  outlineWidth: style.outlineWidth,
+                  boxShadow: style.boxShadow,
+                };
+              });
               const buttons = actionButtons.map((button) => {
                 const rect = button.getBoundingClientRect();
                 return { left: rect.left, right: rect.right, top: rect.top, bottom: rect.bottom };
@@ -200,6 +237,19 @@ try {
                 ),
                 overlay: getComputedStyle(backdrop, "::after").backgroundImage,
                 objectPosition: getComputedStyle(image).objectPosition,
+                minimumProductLabelContrast: Math.min(...productLabels.map((label) =>
+                  contrast(
+                    getComputedStyle(label).color,
+                    getComputedStyle(label.closest(".asoc-module")).backgroundColor,
+                  )
+                )),
+                minimumEnvironmentLabelContrast: Math.min(...environmentLabels.map((label) =>
+                  contrast(
+                    getComputedStyle(label).color,
+                    getComputedStyle(label.closest(".environment-story")).backgroundColor,
+                  )
+                )),
+                focusIndicators,
               };
             });
             return {
@@ -260,14 +310,29 @@ try {
           assert.ok(snapshot.buttonsVisible, `homepage ${snapshot.theme}: expected two visible hero CTAs`);
           assert.ok(snapshot.buttonsInsideHero, `homepage ${snapshot.theme}: CTA escapes hero bounds`);
           assert.ok(!snapshot.captionOverlapsCopy, `homepage ${snapshot.theme}: caption overlaps hero copy`);
-          assert.ok(snapshot.overlay.includes("rgba(5, 4, 9, 0.94)"), `homepage ${snapshot.theme}: dark text overlay changed`);
+          assert.ok(snapshot.overlay.includes("rgba(5, 5, 5, 0.94)"), `homepage ${snapshot.theme}: Vantablack text overlay changed`);
+          assert.ok(
+            snapshot.minimumProductLabelContrast >= 4.5,
+            `homepage ${snapshot.theme}: product labels fail AA contrast`,
+          );
+          assert.ok(
+            snapshot.minimumEnvironmentLabelContrast >= 4.5,
+            `homepage ${snapshot.theme}: environment labels fail AA contrast`,
+          );
+          for (const indicator of snapshot.focusIndicators) {
+            assert.ok(indicator.visible, `homepage ${snapshot.theme}: focused control has no visible state`);
+            assert.equal(indicator.outlineColor, "rgb(255, 255, 255)", `homepage ${snapshot.theme}: focus outline must be white`);
+            assert.equal(indicator.outlineStyle, "solid", `homepage ${snapshot.theme}: focus outline must be solid`);
+            assert.equal(indicator.outlineWidth, "3px", `homepage ${snapshot.theme}: focus outline is too thin`);
+            assert.ok(indicator.boxShadow.includes("rgb(5, 5, 5) 0px 0px 0px 2px"), `homepage ${snapshot.theme}: focus ring needs a near-black underlay`);
+          }
           assert.equal(
             snapshot.objectPosition,
             width <= 760 ? "61% 50%" : "52% 50%",
             `homepage ${snapshot.theme}: hero focal position changed at ${width}px`,
           );
         }
-        checks += 26;
+        checks += 64;
       }
       checks += 10;
     }

@@ -8,6 +8,77 @@ const legacyPlatform = readFileSync("platform/index.html", "utf8");
 const script = readFileSync("script.js", "utf8");
 const styles = readFileSync("styles.css", "utf8");
 
+function relativeLuminance(hex) {
+  const channels = [1, 3, 5].map((offset) => Number.parseInt(hex.slice(offset, offset + 2), 16) / 255);
+  const linear = channels.map((channel) =>
+    channel <= 0.04045 ? channel / 12.92 : ((channel + 0.055) / 1.055) ** 2.4,
+  );
+  return 0.2126 * linear[0] + 0.7152 * linear[1] + 0.0722 * linear[2];
+}
+
+function contrast(foreground, background) {
+  const lighter = Math.max(relativeLuminance(foreground), relativeLuminance(background));
+  const darker = Math.min(relativeLuminance(foreground), relativeLuminance(background));
+  return (lighter + 0.05) / (darker + 0.05);
+}
+
+assert.ok(styles.includes("--vanta: #050505;"), "Vantablack brand token is missing");
+assert.ok(styles.includes("--titian: #c45c3e;"), "Titian earth brand token is missing");
+assert.ok(
+  !/purple|violet|magenta/i.test(styles),
+  "Legacy purple-family brand tokens must not return to the site stylesheet",
+);
+for (const legacyColor of [
+  "#6631d5",
+  "#6d35d4",
+  "#7847e8",
+  "#8f51ff",
+  "#914cff",
+  "#a76bff",
+  "#af68ff",
+  "#b268ff",
+  "#bd2d7d",
+  "#e348a5",
+  "#f17ba6",
+  "#ff5b82",
+  "#ff5f80",
+]) {
+  assert.ok(!styles.toLowerCase().includes(legacyColor), `Legacy purple color remains: ${legacyColor}`);
+}
+assert.ok(contrast("#c45c3e", "#050505") >= 4.5, "Titian text must pass AA on Vantablack");
+assert.ok(contrast("#9f442f", "#f7f4ef") >= 4.5, "Light-theme Titian text must pass AA");
+for (const buttonStop of ["#6f2d21", "#8f3f2c", "#b95036"]) {
+  assert.ok(contrast("#ffffff", buttonStop) >= 4.5, `CTA stop ${buttonStop} must pass AA`);
+}
+for (const [token, value] of [
+  ["--button-deep", "#6f2d21"],
+  ["--button-main", "var(--titian-deep)"],
+  ["--button-bright", "#b95036"],
+]) {
+  assert.ok(styles.includes(`${token}: ${value};`), `${token} is disconnected from its tested value`);
+}
+assert.ok(
+  /\.button-primary \{[^}]*var\(--button-deep\)[^}]*var\(--button-main\)[^}]*var\(--button-bright\)/.test(styles),
+  "Primary CTA must use the contrast-tested gradient tokens",
+);
+assert.ok(
+  contrast("#9f442f", "#f1ebe2") >= 3,
+  "Light-theme focus ring must have 3:1 contrast against controls",
+);
+assert.ok(
+  styles.includes(':focus-visible { box-shadow: 0 0 0 2px #050505 !important; outline: 3px solid #fff !important;'),
+  "Focus indicators must use a two-tone ring that survives light and fixed-dark surfaces",
+);
+assert.ok(
+  styles.includes(".hero h1 em, .page-hero-visual h1 em { color: var(--titian-bright); }"),
+  "Photographic hero emphasis must remain bright in both themes",
+);
+assert.ok(!styles.includes(".healthcare-hero.page-hero-visual::before"), "Healthcare hero must retain the safe dark overlay");
+assert.ok(
+  styles.includes(".product-name { color: var(--titian);"),
+  "Small product labels must use the accessible theme-aware Titian token",
+);
+
 const publicHtmlFiles = ["index.html", "404.html"];
 for (const entry of readdirSync(".", { withFileTypes: true })) {
   if (entry.isDirectory()) {
@@ -22,6 +93,10 @@ for (const entry of readdirSync(".", { withFileTypes: true })) {
 for (const relativePath of publicHtmlFiles) {
   const html = readFileSync(relativePath, "utf8");
   assert.ok(!html.includes("asoc.bwtr.ai"), `${relativePath}: temporary ASOC demo host remains`);
+  assert.ok(
+    html.includes('<meta name="theme-color" content="#050505"'),
+    `${relativePath}: browser theme color must match the near-black site canvas`,
+  );
 }
 
 for (const [page, html] of [
