@@ -63,7 +63,7 @@ assert.match(
 );
 assert.match(
   stylesheet,
-  /\.environment-story \.photo-credit \{[^}]*background: rgba\(5,5,5,\.92\)[^}]*color: #fff/,
+  /\.environment-story \.photo-credit \{[^}]*background: rgba\(0,1,0,\.92\)[^}]*color: #fff/,
   "photo credits require an opaque high-contrast treatment",
 );
 assert.match(

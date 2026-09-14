@@ -22,13 +22,15 @@ function contrast(foreground, background) {
   return (lighter + 0.05) / (darker + 0.05);
 }
 
-assert.ok(styles.includes("--vanta: #050505;"), "Vantablack brand token is missing");
-assert.ok(styles.includes("--titian: #c45c3e;"), "Titian earth brand token is missing");
+assert.ok(styles.includes("--vanta: #000100;"), "Vantablack brand token is missing");
+assert.ok(styles.includes("--titian: #BD5620;"), "Titian earth brand token is missing");
 assert.ok(
   !/purple|violet|magenta/i.test(styles),
   "Legacy purple-family brand tokens must not return to the site stylesheet",
 );
 for (const legacyColor of [
+  "#050505",
+  "#c45c3e",
   "#6631d5",
   "#6d35d4",
   "#7847e8",
@@ -45,15 +47,15 @@ for (const legacyColor of [
 ]) {
   assert.ok(!styles.toLowerCase().includes(legacyColor), `Legacy purple color remains: ${legacyColor}`);
 }
-assert.ok(contrast("#c45c3e", "#050505") >= 4.5, "Titian text must pass AA on Vantablack");
-assert.ok(contrast("#9f442f", "#f7f4ef") >= 4.5, "Light-theme Titian text must pass AA");
-for (const buttonStop of ["#6f2d21", "#8f3f2c", "#b95036"]) {
+assert.ok(contrast("#C55F27", "#000100") >= 4.5, "Accessible Titian text must pass AA on Vantablack");
+assert.ok(contrast("#9B4012", "#f7f4ef") >= 4.5, "Light-theme Titian text must pass AA");
+for (const buttonStop of ["#78300D", "#84350F", "#BD5620"]) {
   assert.ok(contrast("#ffffff", buttonStop) >= 4.5, `CTA stop ${buttonStop} must pass AA`);
 }
 for (const [token, value] of [
-  ["--button-deep", "#6f2d21"],
+  ["--button-deep", "#78300D"],
   ["--button-main", "var(--titian-deep)"],
-  ["--button-bright", "#b95036"],
+  ["--button-bright", "var(--titian)"],
 ]) {
   assert.ok(styles.includes(`${token}: ${value};`), `${token} is disconnected from its tested value`);
 }
@@ -62,11 +64,11 @@ assert.ok(
   "Primary CTA must use the contrast-tested gradient tokens",
 );
 assert.ok(
-  contrast("#9f442f", "#f1ebe2") >= 3,
+  contrast("#9B4012", "#f1ebe2") >= 3,
   "Light-theme focus ring must have 3:1 contrast against controls",
 );
 assert.ok(
-  styles.includes(':focus-visible { box-shadow: 0 0 0 2px #050505 !important; outline: 3px solid #fff !important;'),
+  styles.includes(':focus-visible { box-shadow: 0 0 0 2px #000100 !important; outline: 3px solid #fff !important;'),
   "Focus indicators must use a two-tone ring that survives light and fixed-dark surfaces",
 );
 assert.ok(
@@ -75,7 +77,7 @@ assert.ok(
 );
 assert.ok(!styles.includes(".healthcare-hero.page-hero-visual::before"), "Healthcare hero must retain the safe dark overlay");
 assert.ok(
-  styles.includes(".product-name { color: var(--titian);"),
+  styles.includes(".product-name { color: var(--titian-text);"),
   "Small product labels must use the accessible theme-aware Titian token",
 );
 
@@ -94,7 +96,7 @@ for (const relativePath of publicHtmlFiles) {
   const html = readFileSync(relativePath, "utf8");
   assert.ok(!html.includes("asoc.bwtr.ai"), `${relativePath}: temporary ASOC demo host remains`);
   assert.ok(
-    html.includes('<meta name="theme-color" content="#050505"'),
+    html.includes('<meta name="theme-color" content="#000100"'),
     `${relativePath}: browser theme color must match the near-black site canvas`,
   );
 }

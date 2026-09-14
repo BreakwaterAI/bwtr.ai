@@ -310,7 +310,7 @@ try {
           assert.ok(snapshot.buttonsVisible, `homepage ${snapshot.theme}: expected two visible hero CTAs`);
           assert.ok(snapshot.buttonsInsideHero, `homepage ${snapshot.theme}: CTA escapes hero bounds`);
           assert.ok(!snapshot.captionOverlapsCopy, `homepage ${snapshot.theme}: caption overlaps hero copy`);
-          assert.ok(snapshot.overlay.includes("rgba(5, 5, 5, 0.94)"), `homepage ${snapshot.theme}: Vantablack text overlay changed`);
+          assert.ok(snapshot.overlay.includes("rgba(0, 1, 0, 0.94)"), `homepage ${snapshot.theme}: Vantablack text overlay changed`);
           assert.ok(
             snapshot.minimumProductLabelContrast >= 4.5,
             `homepage ${snapshot.theme}: product labels fail AA contrast`,
@@ -324,7 +324,7 @@ try {
             assert.equal(indicator.outlineColor, "rgb(255, 255, 255)", `homepage ${snapshot.theme}: focus outline must be white`);
             assert.equal(indicator.outlineStyle, "solid", `homepage ${snapshot.theme}: focus outline must be solid`);
             assert.equal(indicator.outlineWidth, "3px", `homepage ${snapshot.theme}: focus outline is too thin`);
-            assert.ok(indicator.boxShadow.includes("rgb(5, 5, 5) 0px 0px 0px 2px"), `homepage ${snapshot.theme}: focus ring needs a near-black underlay`);
+            assert.ok(indicator.boxShadow.includes("rgb(0, 1, 0) 0px 0px 0px 2px"), `homepage ${snapshot.theme}: focus ring needs a near-black underlay`);
           }
           assert.equal(
             snapshot.objectPosition,
