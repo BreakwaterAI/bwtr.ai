@@ -25,6 +25,7 @@ jobs:
 
       - name: Validate public site source
         run: |
+          node scripts/test-brand-contract.mjs
           node scripts/test-canonical-urls.mjs
           node scripts/test-homepage-content.mjs
           node scripts/test-positioning.mjs
@@ -65,7 +66,9 @@ jobs:
         run: bash scripts/build-site-artifact.sh "${RUNNER_TEMP}/bwtr-site"
 
       - name: Validate public site artifact
-        run: node scripts/test-site-artifact.mjs "${RUNNER_TEMP}/bwtr-site"
+        run: |
+          node scripts/test-site-artifact.mjs "${RUNNER_TEMP}/bwtr-site"
+          node scripts/test-brand-contract.mjs --artifact "${RUNNER_TEMP}/bwtr-site"
 
       - name: Snapshot current production site
         run: |

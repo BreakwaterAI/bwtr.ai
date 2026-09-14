@@ -33,6 +33,14 @@ Do not change these production subdomains from this repository:
 - `install.bwtr.ai`
 - `license.bwtr.ai`
 
+## Brand Lock
+
+Read `BRAND.md` and `brand-contract.json` before changing website styling, colors, logos, or visual
+assets. The canonical website colors are locked to Vantablack `#000100` and Breakwater Red
+`#F0443E`. Do not change those values, add a new brand accent, recolor logo artwork, or expand the
+approved color inventory without explicit user approval. A failing brand-contract test is a release
+blocker; do not weaken the test or its allowlist to bypass the contract.
+
 ## Development
 This is a static site. The main files are:
 
@@ -90,6 +98,14 @@ For content-only changes, at minimum run:
 
 ```bash
 git diff --check
+```
+
+For any styling, asset, or design change, also run:
+
+```bash
+node scripts/test-brand-contract.mjs
+node scripts/test-positioning.mjs
+node scripts/test-rendered-layout.mjs
 ```
 
 For deployment changes, validate the affected workflow/template and test both:

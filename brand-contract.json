@@ -1,0 +1,57 @@
+{
+  "version": 1,
+  "canonical": {
+    "vanta": {
+      "role": "Primary canvas",
+      "name": "Vantablack (digital approximation)",
+      "token": "--vanta",
+      "value": "#000100"
+    },
+    "breakwaterRed": {
+      "role": "Primary accent",
+      "name": "Breakwater Red",
+      "token": "--breakwater-red",
+      "value": "#F0443E"
+    }
+  },
+  "approvedColors": {
+    "brand": ["#000100", "#F0443E"],
+    "neutral": [
+      "#000000",
+      "#0A0A0B",
+      "#0B0C12",
+      "#121214",
+      "#151515",
+      "#18181B",
+      "#5F5F5B",
+      "#74746F",
+      "#8D8C87",
+      "#AAA9A5",
+      "#B8B8B3",
+      "#E6E6E2",
+      "#EFEFEC",
+      "#F1F1EE",
+      "#F5F5F3",
+      "#F7F7F5",
+      "#FFF",
+      "#FFFFFF"
+    ],
+    "functional": ["#16724A", "#5EE6A8", "#F8BD64"]
+  },
+  "approvedRgbTriplets": [
+    "0,0,0",
+    "0,1,0",
+    "240,68,62",
+    "255,255,255"
+  ],
+  "pinnedBrandAssets": {
+    "assets/breakwater-horizontal-dark-transparent.png": "b276a093e045113ec924a51e68a974198642efac8012f969faa61dff1ec9d359",
+    "assets/breakwater-horizontal-dark.png": "393630fb798dec7906d587e7f1ea6ec04b24f05ea8bb18147864abb5c61a4968",
+    "assets/breakwater-horizontal-light-transparent.png": "7751b1746d73c6dcfab5d44999553b38bd195e25b392d13622f24c6f7a67fd20",
+    "assets/breakwater-horizontal-light.png": "d82615e91147ada1a4b2cbc59d8278cd1ac9dc1e49652502d432c1b737c8f6e9",
+    "assets/breakwater-mark-light.png": "0aecc7581d5eff74e9022440f75473c53fe25ccb93d259b285ab26c86a1a41cf",
+    "assets/breakwater-social-card.png": "4f02884cbe4c93e470479e375fe29afae36686e501abf197ab187dc7fe184d7a",
+    "assets/breakwater-stacked-dark.png": "e438f126cc5d8e00438091697bc87a83a6e1a558fbe4440c4c063f040b967a49",
+    "assets/breakwater-stacked-light.png": "bf6c9386d7fdf03bbbb08a2ddab92b922745a14f75ec10a6800709c24c7f4279"
+  }
+}

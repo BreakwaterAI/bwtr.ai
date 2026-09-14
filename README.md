@@ -212,6 +212,7 @@ http://127.0.0.1:4177/
 ## Validation
 
 ```bash
+node scripts/test-brand-contract.mjs
 node scripts/test-canonical-urls.mjs
 node scripts/test-homepage-content.mjs
 node scripts/test-positioning.mjs
@@ -221,5 +222,6 @@ bash scripts/test-publish-site.sh
 artifact_parent="$(mktemp -d)"
 bash scripts/build-site-artifact.sh "${artifact_parent}/site"
 node scripts/test-site-artifact.mjs "${artifact_parent}/site"
+node scripts/test-brand-contract.mjs --artifact "${artifact_parent}/site"
 git diff --check
 ```

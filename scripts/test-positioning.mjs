@@ -23,7 +23,7 @@ function contrast(foreground, background) {
 }
 
 assert.ok(styles.includes("--vanta: #000100;"), "Vantablack brand token is missing");
-assert.ok(styles.includes("--titian: #BD5620;"), "Titian earth brand token is missing");
+assert.ok(styles.includes("--breakwater-red: #F0443E;"), "Breakwater Red brand token is missing");
 assert.ok(
   !/purple|violet|magenta/i.test(styles),
   "Legacy purple-family brand tokens must not return to the site stylesheet",
@@ -31,6 +31,15 @@ assert.ok(
 for (const legacyColor of [
   "#050505",
   "#c45c3e",
+  "#bd5620",
+  "#c55f27",
+  "#e17b40",
+  "#84350f",
+  "#78300d",
+  "#d5672d",
+  "#a84718",
+  "#b44e1c",
+  "#9b4012",
   "#6631d5",
   "#6d35d4",
   "#7847e8",
@@ -47,24 +56,15 @@ for (const legacyColor of [
 ]) {
   assert.ok(!styles.toLowerCase().includes(legacyColor), `Legacy purple color remains: ${legacyColor}`);
 }
-assert.ok(contrast("#C55F27", "#000100") >= 4.5, "Accessible Titian text must pass AA on Vantablack");
-assert.ok(contrast("#9B4012", "#f7f4ef") >= 4.5, "Light-theme Titian text must pass AA");
-for (const buttonStop of ["#78300D", "#84350F", "#BD5620"]) {
-  assert.ok(contrast("#ffffff", buttonStop) >= 4.5, `CTA stop ${buttonStop} must pass AA`);
-}
-for (const [token, value] of [
-  ["--button-deep", "#78300D"],
-  ["--button-main", "var(--titian-deep)"],
-  ["--button-bright", "var(--titian)"],
-]) {
-  assert.ok(styles.includes(`${token}: ${value};`), `${token} is disconnected from its tested value`);
-}
+assert.ok(contrast("#F0443E", "#000100") >= 4.5, "Breakwater Red must pass AA on Vantablack");
+assert.ok(contrast("#000100", "#F0443E") >= 4.5, "Vantablack button text must pass AA on Breakwater Red");
+assert.ok(contrast("#ffffff", "#F0443E") < 4.5, "White must not be treated as accessible small text on Breakwater Red");
 assert.ok(
-  /\.button-primary \{[^}]*var\(--button-deep\)[^}]*var\(--button-main\)[^}]*var\(--button-bright\)/.test(styles),
-  "Primary CTA must use the contrast-tested gradient tokens",
+  /\.button-primary \{[^}]*background: var\(--breakwater-red\)[^}]*color: var\(--vanta\)/.test(styles),
+  "Primary CTA must use Breakwater Red with Vantablack text",
 );
 assert.ok(
-  contrast("#9B4012", "#f1ebe2") >= 3,
+  contrast("#F0443E", "#ffffff") >= 3,
   "Light-theme focus ring must have 3:1 contrast against controls",
 );
 assert.ok(
@@ -72,13 +72,17 @@ assert.ok(
   "Focus indicators must use a two-tone ring that survives light and fixed-dark surfaces",
 );
 assert.ok(
-  styles.includes(".hero h1 em, .page-hero-visual h1 em { color: var(--titian-bright); }"),
-  "Photographic hero emphasis must remain bright in both themes",
+  styles.includes(".hero h1 em, .page-hero-visual h1 em { color: var(--breakwater-red); }"),
+  "Photographic hero emphasis must use Breakwater Red",
 );
 assert.ok(!styles.includes(".healthcare-hero.page-hero-visual::before"), "Healthcare hero must retain the safe dark overlay");
 assert.ok(
-  styles.includes(".product-name { color: var(--titian-text);"),
-  "Small product labels must use the accessible theme-aware Titian token",
+  styles.includes(".product-name { color: var(--brand-text);"),
+  "Small product labels must use the accessible theme-aware brand token",
+);
+assert.ok(
+  styles.includes('html[data-theme="light"] {') && styles.includes("--brand-text: var(--text);"),
+  "Light-theme small brand text must use the neutral accessible text token",
 );
 
 const publicHtmlFiles = ["index.html", "404.html"];
