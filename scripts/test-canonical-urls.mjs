@@ -176,6 +176,8 @@ for (const required of [
   "BWTR_ROLLBACK_ARTIFACT: ${{ runner.temp }}/bwtr-site-rollback",
   "BWTR_EXPECTED_AWS_ACCOUNT_ID: ${{ vars.AWS_ACCOUNT_ID }}",
   "BWTR_CLOUDFRONT_DOMAIN: ${{ vars.AWS_CLOUDFRONT_DOMAIN }}",
+  "BWTR_EXPECTED_GITHUB_SUBJECT: repo:BreakwaterAI/bwtr.ai:ref:refs/heads/main",
+  'GitHub OIDC subject: ${payload.sub}',
   'test "${actual_account_id}" = "${BWTR_EXPECTED_AWS_ACCOUNT_ID}"',
   'test "${actual_domain}" = "${BWTR_CLOUDFRONT_DOMAIN}"',
   'test "${actual_origin}" = "${expected_origin}"',

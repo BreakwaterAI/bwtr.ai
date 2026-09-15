@@ -84,6 +84,23 @@ jobs:
           test "$(curl -sS -o /dev/null -w '%{http_code}' "${BWTR_SITE_BASE_URL}/architecture/")" = "200"
           curl -fsS "${BWTR_SITE_BASE_URL}/architecture/" | grep -F "CUSTOMER-CONTROLLED DECISION BOUNDARY"
 
+      - name: Verify GitHub OIDC claims
+        shell: bash
+        env:
+          BWTR_EXPECTED_GITHUB_SUBJECT: repo:BreakwaterAI/bwtr.ai:ref:refs/heads/main
+        run: |
+          oidc_response="$(curl -fsS \
+            -H "Authorization: bearer ${ACTIONS_ID_TOKEN_REQUEST_TOKEN}" \
+            "${ACTIONS_ID_TOKEN_REQUEST_URL}&audience=sts.amazonaws.com")"
+          OIDC_RESPONSE="${oidc_response}" node <<'NODE'
+          const response = JSON.parse(process.env.OIDC_RESPONSE);
+          const payload = JSON.parse(Buffer.from(response.value.split('.')[1], 'base64url'));
+          console.log(`GitHub OIDC audience: ${payload.aud}`);
+          console.log(`GitHub OIDC subject: ${payload.sub}`);
+          if (payload.aud !== 'sts.amazonaws.com') process.exit(2);
+          if (payload.sub !== process.env.BWTR_EXPECTED_GITHUB_SUBJECT) process.exit(2);
+          NODE
+
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
