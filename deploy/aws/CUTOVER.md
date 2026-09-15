@@ -1,5 +1,8 @@
 # One-time CloudFront account cutover
 
+**Status:** Completed successfully on 2026-09-15. The Breakwater Production distribution owns
+both aliases; the legacy distribution is disabled and retained temporarily for rollback.
+
 This runbook moves only `bwtr.ai` and `www.bwtr.ai` from the legacy CloudFront distribution to
 Breakwater Production. It does not move the Route 53 hosted zone and must not change email or
 product-subdomain records.

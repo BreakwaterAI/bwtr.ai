@@ -24,11 +24,12 @@ Renew SSO, then run the non-writing check appropriate for the current state:
 
 ```bash
 aws sso login --profile breakwater-prod
-AWS_PROFILE=breakwater-prod deploy/aws/deploy.sh check preview
+AWS_PROFILE=breakwater-prod deploy/aws/deploy.sh check production
 ```
 
-After the CloudFront aliases have moved to the new account, use `production` instead of
-`preview`. A manual publication is a break-glass fallback for GitHub Actions:
+The production aliases moved to the Breakwater account on 2026-09-15. Use `preview` only for a
+new alias-free deployment before its domain cutover. A manual production publication is a
+break-glass fallback for GitHub Actions:
 
 ```bash
 AWS_PROFILE=breakwater-prod \
