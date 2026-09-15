@@ -5,9 +5,10 @@ Parameters:
   RoleName:
     Type: String
     Default: bwtr-ai-site-github-deploy
-  Repository:
+  RepositorySubject:
     Type: String
-    Default: BreakwaterAI/bwtr.ai
+    Default: BreakwaterAI@323852433/bwtr.ai@1234382108
+    Description: GitHub OIDC repository subject, including immutable organization and repository IDs when configured by the organization.
   Branch:
     Type: String
     Default: main
@@ -33,7 +34,7 @@ Resources:
             Condition:
               StringEquals:
                 token.actions.githubusercontent.com:aud: sts.amazonaws.com
-                token.actions.githubusercontent.com:sub: !Sub 'repo:${Repository}:ref:refs/heads/${Branch}'
+                token.actions.githubusercontent.com:sub: !Sub 'repo:${RepositorySubject}:ref:refs/heads/${Branch}'
       Policies:
         - PolicyName: bwtr-ai-site-deploy
           PolicyDocument:

@@ -176,7 +176,7 @@ for (const required of [
   "BWTR_ROLLBACK_ARTIFACT: ${{ runner.temp }}/bwtr-site-rollback",
   "BWTR_EXPECTED_AWS_ACCOUNT_ID: ${{ vars.AWS_ACCOUNT_ID }}",
   "BWTR_CLOUDFRONT_DOMAIN: ${{ vars.AWS_CLOUDFRONT_DOMAIN }}",
-  "BWTR_EXPECTED_GITHUB_SUBJECT: repo:BreakwaterAI/bwtr.ai:ref:refs/heads/main",
+  "BWTR_EXPECTED_GITHUB_SUBJECT: ${{ vars.AWS_OIDC_SUBJECT }}",
   'GitHub OIDC subject: ${payload.sub}',
   'test "${actual_account_id}" = "${BWTR_EXPECTED_AWS_ACCOUNT_ID}"',
   'test "${actual_domain}" = "${BWTR_CLOUDFRONT_DOMAIN}"',
@@ -303,6 +303,12 @@ assert.ok(
   oidcProvider.includes("https://token.actions.githubusercontent.com") &&
     oidcProvider.includes("sts.amazonaws.com"),
   "GitHub OIDC provider must trust only the GitHub issuer for the AWS STS audience",
+);
+checks += 1;
+assert.ok(
+  deployRole.includes("BreakwaterAI@323852433/bwtr.ai@1234382108") &&
+    deployRole.includes("repo:${RepositorySubject}:ref:refs/heads/${Branch}"),
+  "Deploy role must use the exact immutable-ID GitHub OIDC repository subject",
 );
 checks += 1;
 for (const permission of [

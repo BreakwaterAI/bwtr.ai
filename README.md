@@ -38,6 +38,7 @@ Required repository configuration in `BreakwaterAI/bwtr.ai`:
 | `AWS_S3_BUCKET` | `bwtr-ai-site-prod` | Private S3 bucket for static site files. |
 | `AWS_CLOUDFRONT_DISTRIBUTION_ID` | `E123EXAMPLE` | CloudFront distribution to invalidate after deploy. |
 | `AWS_CLOUDFRONT_DOMAIN` | `d123example.cloudfront.net` | Distribution hostname used to bind deployment and validation targets. |
+| `AWS_OIDC_SUBJECT` | `repo:ORG@ORG_ID/REPOSITORY@REPOSITORY_ID:ref:refs/heads/main` | Exact GitHub OIDC subject that must match the deploy role trust. |
 | `SITE_BASE_URL` | `https://d123example.cloudfront.net` | Exact URL validated after publishing; it must match `AWS_CLOUDFRONT_DOMAIN`. |
 
 ### Actions Secret
@@ -132,6 +133,7 @@ aws cloudformation deploy \
   --parameter-overrides \
     BucketName=bwtr-ai-site-prod-506126099258 \
     CloudFrontDistributionId=E173Y881SRDFT0 \
+    RepositorySubject=BreakwaterAI@323852433/bwtr.ai@1234382108 \
   --capabilities CAPABILITY_NAMED_IAM
 ```
 
@@ -144,8 +146,14 @@ token.actions.githubusercontent.com
 It limits trust to this repository and branch:
 
 ```text
-repo:BreakwaterAI/bwtr.ai:ref:refs/heads/main
+repo:BreakwaterAI@323852433/bwtr.ai@1234382108:ref:refs/heads/main
 ```
+
+The numeric values are GitHub's immutable organization and repository IDs. For another customer
+repository, obtain them with `gh api orgs/ORG --jq .id` and
+`gh api repos/ORG/REPOSITORY --jq .id`, then set `RepositorySubject` to
+`ORG@ORG_ID/REPOSITORY@REPOSITORY_ID` and set the `AWS_OIDC_SUBJECT` Actions variable to
+`repo:ORG@ORG_ID/REPOSITORY@REPOSITORY_ID:ref:refs/heads/main`.
 
 Copy the `RoleArn` output into the `AWS_ROLE_TO_ASSUME` GitHub Actions secret.
 

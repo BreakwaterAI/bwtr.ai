@@ -23,6 +23,7 @@ jobs:
       BWTR_BUCKET: ${{ vars.AWS_S3_BUCKET }}
       BWTR_DISTRIBUTION: ${{ vars.AWS_CLOUDFRONT_DISTRIBUTION_ID }}
       BWTR_CLOUDFRONT_DOMAIN: ${{ vars.AWS_CLOUDFRONT_DOMAIN }}
+      BWTR_EXPECTED_GITHUB_SUBJECT: ${{ vars.AWS_OIDC_SUBJECT }}
       BWTR_SITE_BASE_URL: ${{ vars.SITE_BASE_URL }}
     steps:
       - name: Checkout
@@ -39,6 +40,7 @@ jobs:
             BWTR_BUCKET \
             BWTR_DISTRIBUTION \
             BWTR_CLOUDFRONT_DOMAIN \
+            BWTR_EXPECTED_GITHUB_SUBJECT \
             BWTR_SITE_BASE_URL; do
             test -n "${!required_variable}" || {
               echo "Missing required deployment variable: ${required_variable}" >&2
@@ -86,8 +88,6 @@ jobs:
 
       - name: Verify GitHub OIDC claims
         shell: bash
-        env:
-          BWTR_EXPECTED_GITHUB_SUBJECT: repo:BreakwaterAI/bwtr.ai:ref:refs/heads/main
         run: |
           oidc_response="$(curl -fsS \
             -H "Authorization: bearer ${ACTIONS_ID_TOKEN_REQUEST_TOKEN}" \
