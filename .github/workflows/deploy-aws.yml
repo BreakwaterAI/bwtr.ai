@@ -19,7 +19,9 @@ jobs:
     runs-on: ubuntu-latest
     env:
       AWS_REGION: ${{ vars.AWS_REGION }}
+      BWTR_DEPLOY_TARGET: ${{ vars.DEPLOY_TARGET }}
       BWTR_EXPECTED_AWS_ACCOUNT_ID: ${{ vars.AWS_ACCOUNT_ID }}
+      BWTR_CERTIFICATE_ARN: ${{ vars.AWS_ACM_CERTIFICATE_ARN }}
       BWTR_BUCKET: ${{ vars.AWS_S3_BUCKET }}
       BWTR_DISTRIBUTION: ${{ vars.AWS_CLOUDFRONT_DISTRIBUTION_ID }}
       BWTR_CLOUDFRONT_DOMAIN: ${{ vars.AWS_CLOUDFRONT_DOMAIN }}
@@ -36,7 +38,9 @@ jobs:
         run: |
           for required_variable in \
             AWS_REGION \
+            BWTR_DEPLOY_TARGET \
             BWTR_EXPECTED_AWS_ACCOUNT_ID \
+            BWTR_CERTIFICATE_ARN \
             BWTR_BUCKET \
             BWTR_DISTRIBUTION \
             BWTR_CLOUDFRONT_DOMAIN \
@@ -47,10 +51,14 @@ jobs:
               exit 2
             }
           done
-          test "${BWTR_SITE_BASE_URL}" = "https://${BWTR_CLOUDFRONT_DOMAIN}"
           case "${BWTR_CLOUDFRONT_DOMAIN}" in
             *.cloudfront.net) ;;
             *) echo "AWS_CLOUDFRONT_DOMAIN must be a CloudFront domain" >&2; exit 2 ;;
+          esac
+          case "${BWTR_DEPLOY_TARGET}" in
+            preview) test "${BWTR_SITE_BASE_URL}" = "https://${BWTR_CLOUDFRONT_DOMAIN}" ;;
+            production) test "${BWTR_SITE_BASE_URL}" = "https://www.bwtr.ai" ;;
+            *) echo "DEPLOY_TARGET must be preview or production" >&2; exit 2 ;;
           esac
 
       - name: Validate public site source
@@ -59,7 +67,9 @@ jobs:
           node scripts/test-canonical-urls.mjs
           node scripts/test-homepage-content.mjs
           node scripts/test-positioning.mjs
+          node scripts/test-deployment-target.mjs
           bash scripts/test-publish-site.sh
+          bash scripts/test-deploy-entrypoint.sh
           git diff --check HEAD^ HEAD
 
       - name: Validate rendered layouts
@@ -115,18 +125,14 @@ jobs:
 
           aws s3api get-bucket-location --bucket "${BWTR_BUCKET}" >/dev/null
 
-          actual_domain="$(aws cloudfront get-distribution \
-            --id "${BWTR_DISTRIBUTION}" \
-            --query 'Distribution.DomainName' \
-            --output text)"
-          test "${actual_domain}" = "${BWTR_CLOUDFRONT_DOMAIN}"
-
-          expected_origin="${BWTR_BUCKET}.s3.${AWS_REGION}.amazonaws.com"
-          actual_origin="$(aws cloudfront get-distribution \
-            --id "${BWTR_DISTRIBUTION}" \
-            --query "Distribution.DistributionConfig.Origins.Items[?DomainName=='${expected_origin}'].DomainName | [0]" \
-            --output text)"
-          test "${actual_origin}" = "${expected_origin}"
+          distribution_json="${RUNNER_TEMP}/bwtr-target-distribution.json"
+          aws cloudfront get-distribution --id "${BWTR_DISTRIBUTION}" >"${distribution_json}"
+          node deploy/aws/validate-target.mjs \
+            "${distribution_json}" \
+            "${BWTR_DEPLOY_TARGET}" \
+            "${BWTR_CLOUDFRONT_DOMAIN}" \
+            "${BWTR_BUCKET}.s3.${AWS_REGION}.amazonaws.com" \
+            "${BWTR_CERTIFICATE_ARN}"
 
       - name: Build public site artifact
         run: bash scripts/build-site-artifact.sh "${RUNNER_TEMP}/bwtr-site"

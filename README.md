@@ -14,6 +14,9 @@ Production hosting should stay in AWS, consistent with the rest of Breakwater's 
 
 ## Repository Deployment
 
+The concise operator runbook and pinned local fallback are in `deploy/aws/README.md` and
+`deploy/aws/deploy.sh`.
+
 The GitHub Actions workflow at `.github/workflows/deploy-aws.yml` deploys this static site to AWS by:
 
 1. Assuming an AWS IAM role through GitHub OIDC.
@@ -34,7 +37,9 @@ Required repository configuration in `BreakwaterAI/bwtr.ai`:
 | Variable | Example | Purpose |
 |---|---|---|
 | `AWS_REGION` | `us-east-1` | AWS region used by the deploy workflow. |
+| `DEPLOY_TARGET` | `preview` or `production` | Selects the exact alias and smoke-test contract. |
 | `AWS_ACCOUNT_ID` | `506126099258` | Exact AWS account that the workflow must assume. |
+| `AWS_ACM_CERTIFICATE_ARN` | `arn:aws:acm:us-east-1:...` | Exact certificate required after production aliases are attached. |
 | `AWS_S3_BUCKET` | `bwtr-ai-site-prod` | Private S3 bucket for static site files. |
 | `AWS_CLOUDFRONT_DISTRIBUTION_ID` | `E123EXAMPLE` | CloudFront distribution to invalidate after deploy. |
 | `AWS_CLOUDFRONT_DOMAIN` | `d123example.cloudfront.net` | Distribution hostname used to bind deployment and validation targets. |
@@ -80,17 +85,27 @@ aws cloudformation deploy \
 ```
 
 Test the `PreviewUrl` stack output before attaching the production aliases.
+Keep `DEPLOY_TARGET=preview` and `SITE_BASE_URL=https://<CloudFrontDomainName>` until the alias
+transfer is complete. Then change them together to `production` and `https://www.bwtr.ai`.
 
-Deploy example:
+Reconcile the existing target stack after the aliases have moved:
 
 ```bash
+test "$(aws sts get-caller-identity \
+  --profile breakwater-prod \
+  --query Account \
+  --output text)" = "506126099258" && \
 aws cloudformation deploy \
+  --profile breakwater-prod \
   --region us-east-1 \
-  --stack-name bwtr-ai-static-site \
+  --stack-name bwtr-ai-static-site-preview \
   --template-file infra/cloudformation/static-site.yml \
   --parameter-overrides \
-    CertificateArn=YOUR_US_EAST_1_ACM_CERT_ARN \
-    BucketName=bwtr-ai-site-prod
+    AttachCustomDomains=true \
+    UseCustomCertificate=true \
+    CreateRoute53Records=false \
+    CertificateArn=arn:aws:acm:us-east-1:506126099258:certificate/3ba2f2a9-fb4e-44a9-a9ae-fa6456fbaff4 \
+    BucketName=bwtr-ai-site-prod-506126099258
 ```
 
 After stack creation, copy the stack outputs into the GitHub Actions variables listed above. Then update only the exact Route 53 records for `bwtr.ai` and `www.bwtr.ai` to alias to the `CloudFrontDomainName` output. Leave `app.bwtr.ai`, `install.bwtr.ai`, and `license.bwtr.ai` unchanged.
@@ -266,9 +281,11 @@ node scripts/test-brand-contract.mjs
 node scripts/test-canonical-urls.mjs
 node scripts/test-homepage-content.mjs
 node scripts/test-positioning.mjs
+node scripts/test-deployment-target.mjs
 # With the local preview running; set CHROME_PATH when Chrome is not in a standard location.
 node scripts/test-rendered-layout.mjs
 bash scripts/test-publish-site.sh
+bash scripts/test-deploy-entrypoint.sh
 artifact_parent="$(mktemp -d)"
 bash scripts/build-site-artifact.sh "${artifact_parent}/site"
 node scripts/test-site-artifact.mjs "${artifact_parent}/site"

@@ -20,22 +20,56 @@ Parameters:
       - "false"
   AttachCustomDomains:
     Type: String
-    Default: "true"
+    Default: "false"
     AllowedValues:
       - "true"
       - "false"
-    Description: Attach bwtr.ai aliases and the ACM certificate. Set false for a non-live CloudFront preview.
+    Description: Attach bwtr.ai aliases. Set false for a non-live CloudFront preview or cross-account move preparation.
+  UseCustomCertificate:
+    Type: String
+    Default: "false"
+    AllowedValues:
+      - "true"
+      - "false"
+    Description: Attach the ACM certificate independently of aliases. Required before a cross-account alias move.
   CertificateArn:
     Type: String
     Default: ""
-    Description: ACM certificate ARN in us-east-1 covering bwtr.ai and www.bwtr.ai. Required when AttachCustomDomains is true.
+    Description: ACM certificate ARN in us-east-1 covering bwtr.ai and www.bwtr.ai. Required when UseCustomCertificate is true.
   BucketName:
     Type: String
     Default: bwtr-ai-site-prod
     Description: Globally unique private S3 bucket name for the marketing site.
 
+Rules:
+  CustomDomainsRequireCertificate:
+    Assertions:
+      - Assert: !Or
+          - !Equals [!Ref AttachCustomDomains, "false"]
+          - !Equals [!Ref UseCustomCertificate, "true"]
+        AssertDescription: AttachCustomDomains=true requires UseCustomCertificate=true.
+  CustomCertificateRequiresArn:
+    Assertions:
+      - Assert: !Or
+          - !Equals [!Ref UseCustomCertificate, "false"]
+          - !Not [!Equals [!Ref CertificateArn, ""]]
+        AssertDescription: UseCustomCertificate=true requires CertificateArn.
+  Route53RecordsRequireCustomDomains:
+    Assertions:
+      - Assert: !Or
+          - !Equals [!Ref CreateRoute53Records, "false"]
+          - !Equals [!Ref AttachCustomDomains, "true"]
+        AssertDescription: CreateRoute53Records=true requires AttachCustomDomains=true.
+  Route53RecordsRequireHostedZone:
+    Assertions:
+      - Assert: !Or
+          - !Equals [!Ref CreateRoute53Records, "false"]
+          - !Not [!Equals [!Ref HostedZoneId, ""]]
+        AssertDescription: CreateRoute53Records=true requires HostedZoneId.
+
 Conditions:
   ShouldAttachCustomDomains: !Equals [!Ref AttachCustomDomains, "true"]
+  ShouldUseCustomCertificate: !Equals [!Ref UseCustomCertificate, "true"]
   ShouldCreateRoute53Records: !And
     - !Condition ShouldAttachCustomDomains
     - !Equals [!Ref CreateRoute53Records, "true"]
@@ -219,7 +253,7 @@ Resources:
             ResponsePagePath: /404.html
             ErrorCachingMinTTL: 60
         ViewerCertificate: !If
-          - ShouldAttachCustomDomains
+          - ShouldUseCustomCertificate
           - AcmCertificateArn: !Ref CertificateArn
             SslSupportMethod: sni-only
             MinimumProtocolVersion: TLSv1.2_2021

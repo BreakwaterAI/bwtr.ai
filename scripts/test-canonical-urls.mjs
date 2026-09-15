@@ -167,20 +167,34 @@ const workflow = fs.readFileSync(
   "utf8",
 );
 const publishScript = fs.readFileSync(new URL("../scripts/publish-site.sh", import.meta.url), "utf8");
+const operatorDeployScript = fs.readFileSync(
+  new URL("../deploy/aws/deploy.sh", import.meta.url),
+  "utf8",
+);
+assert.ok(
+  template.includes('UseCustomCertificate:') &&
+    template.includes('ShouldUseCustomCertificate:') &&
+    template.includes('- ShouldUseCustomCertificate'),
+  "CloudFront certificate attachment must be separable from aliases for cross-account cutover",
+);
+checks += 1;
 for (const required of [
   'bash scripts/build-site-artifact.sh "${RUNNER_TEMP}/bwtr-site"',
   "node scripts/test-positioning.mjs",
+  "node scripts/test-deployment-target.mjs",
   "bash scripts/test-publish-site.sh",
+  "bash scripts/test-deploy-entrypoint.sh",
   'node scripts/test-site-artifact.mjs "${RUNNER_TEMP}/bwtr-site"',
   "BWTR_ARTIFACT: ${{ runner.temp }}/bwtr-site",
   "BWTR_ROLLBACK_ARTIFACT: ${{ runner.temp }}/bwtr-site-rollback",
+  "BWTR_DEPLOY_TARGET: ${{ vars.DEPLOY_TARGET }}",
   "BWTR_EXPECTED_AWS_ACCOUNT_ID: ${{ vars.AWS_ACCOUNT_ID }}",
+  "BWTR_CERTIFICATE_ARN: ${{ vars.AWS_ACM_CERTIFICATE_ARN }}",
   "BWTR_CLOUDFRONT_DOMAIN: ${{ vars.AWS_CLOUDFRONT_DOMAIN }}",
   "BWTR_EXPECTED_GITHUB_SUBJECT: ${{ vars.AWS_OIDC_SUBJECT }}",
   'GitHub OIDC subject: ${payload.sub}',
   'test "${actual_account_id}" = "${BWTR_EXPECTED_AWS_ACCOUNT_ID}"',
-  'test "${actual_domain}" = "${BWTR_CLOUDFRONT_DOMAIN}"',
-  'test "${actual_origin}" = "${expected_origin}"',
+  "node deploy/aws/validate-target.mjs",
   "run: bash scripts/publish-site.sh",
   '--exclude "assets/videos/*"',
   "${BWTR_SITE_BASE_URL}/architecture/",
@@ -194,6 +208,31 @@ if (`${workflow}\n${publishScript}`.includes("aws s3 sync . ")) {
   throw new Error("Deployment must not sync the repository root");
 }
 checks += 1;
+for (const operatorGuard of [
+  'EXPECTED_ACCOUNT_ID="506126099258"',
+  'BUCKET_NAME="bwtr-ai-site-prod-506126099258"',
+  'DISTRIBUTION_ID="E173Y881SRDFT0"',
+  'CLOUDFRONT_DOMAIN="d363eyllse1zcb.cloudfront.net"',
+  'Production publication requires --confirm-production.',
+  'Publication requires a clean main branch.',
+  'Publication requires local HEAD to equal origin/main.',
+  'bash scripts/publish-site.sh',
+]) {
+  assert.ok(operatorDeployScript.includes(operatorGuard), `operator deploy guard is missing: ${operatorGuard}`);
+  checks += 1;
+}
+for (const forbiddenOperatorMutation of [
+  "route53 change-resource-record-sets",
+  "cloudfront update-distribution",
+  "cloudfront associate-alias",
+  "acm request-certificate",
+]) {
+  assert.ok(
+    !operatorDeployScript.includes(forbiddenOperatorMutation),
+    `content deploy script must not mutate infrastructure: ${forbiddenOperatorMutation}`,
+  );
+  checks += 1;
+}
 
 const orderedWorkflowMarkers = [
   "Verify canonical route infrastructure",

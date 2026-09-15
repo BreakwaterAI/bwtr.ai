@@ -1,6 +1,11 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+if [[ "$1 $2" == "sts get-caller-identity" && -n "${BWTR_TEST_ACCOUNT_ID:-}" ]]; then
+  printf '%s\n' "${BWTR_TEST_ACCOUNT_ID}"
+  exit 0
+fi
+
 printf 'aws %s\n' "$*" >>"${BWTR_TEST_LOG}"
 if [[ "$1 $2" == "cloudfront create-invalidation" ]]; then
   printf 'TEST-INVALIDATION\n'
