@@ -43,6 +43,7 @@ run_publish() {
     BWTR_DISTRIBUTION="TEST-DISTRIBUTION" \
     BWTR_ARTIFACT="${artifact}" \
     BWTR_ROLLBACK_ARTIFACT="${rollback_artifact}" \
+    BWTR_SITE_BASE_URL="https://preview.example.test" \
     BWTR_TEST_LOG="${test_log}" \
     BWTR_TEST_REMOTE_STATE="${remote_state}" \
     BWTR_INJECT_FAILURE_PHASES="${injected_phases}" \
@@ -54,6 +55,11 @@ run_publish() {
 run_publish
 test "${publish_status}" -eq 0
 grep -qx 'published' "${remote_state}"
+grep -q 'https://preview.example.test/' "${test_log}"
+if grep -q 'https://www.bwtr.ai/' "${test_log}"; then
+  echo "preview publication validated the live production hostname" >&2
+  exit 1
+fi
 if grep -q 'restoring the pre-release site snapshot' "${test_output}"; then
   echo "successful publication unexpectedly invoked rollback" >&2
   exit 1

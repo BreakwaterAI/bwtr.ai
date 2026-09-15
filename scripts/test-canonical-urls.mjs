@@ -13,6 +13,7 @@ const source = match[1]
   .split("\n")
   .map((line) => line.replace(/^        /, ""))
   .join("\n")
+  .replaceAll("${AttachCustomDomains}", "true")
   .replaceAll("${AlternateDomainName}", "www.bwtr.ai");
 const context = {};
 vm.createContext(context);
@@ -119,6 +120,25 @@ expectRewrite("/.well-known/security.txt", "/.well-known/security.txt");
 expectRewrite("/missing", "/missing");
 checks += 8;
 
+const previewSource = match[1]
+  .split("\n")
+  .map((line) => line.replace(/^        /, ""))
+  .join("\n")
+  .replaceAll("${AttachCustomDomains}", "false")
+  .replaceAll("${AlternateDomainName}", "www.bwtr.ai");
+const previewContext = {};
+vm.createContext(previewContext);
+vm.runInContext(previewSource, previewContext);
+const previewCanonical = previewContext.handler(event("/products.html", "preview.cloudfront.net"));
+assert.equal(
+  previewCanonical.headers.location.value,
+  "https://preview.cloudfront.net/products/",
+  "preview redirects must remain on the preview CloudFront hostname",
+);
+const previewHome = previewContext.handler(event("/", "preview.cloudfront.net"));
+assert.equal(previewHome.statusCode, undefined, "preview root must not redirect to production");
+checks += 2;
+
 for (const route of routes) {
   if (!sitemap.includes(`<loc>https://www.bwtr.ai/${route}/</loc>`)) {
     throw new Error(`${route}: canonical URL is missing from sitemap.xml`);
@@ -154,9 +174,14 @@ for (const required of [
   'node scripts/test-site-artifact.mjs "${RUNNER_TEMP}/bwtr-site"',
   "BWTR_ARTIFACT: ${{ runner.temp }}/bwtr-site",
   "BWTR_ROLLBACK_ARTIFACT: ${{ runner.temp }}/bwtr-site-rollback",
+  "BWTR_EXPECTED_AWS_ACCOUNT_ID: ${{ vars.AWS_ACCOUNT_ID }}",
+  "BWTR_CLOUDFRONT_DOMAIN: ${{ vars.AWS_CLOUDFRONT_DOMAIN }}",
+  'test "${actual_account_id}" = "${BWTR_EXPECTED_AWS_ACCOUNT_ID}"',
+  'test "${actual_domain}" = "${BWTR_CLOUDFRONT_DOMAIN}"',
+  'test "${actual_origin}" = "${expected_origin}"',
   "run: bash scripts/publish-site.sh",
   '--exclude "assets/videos/*"',
-  "https://www.bwtr.ai/architecture/",
+  "${BWTR_SITE_BASE_URL}/architecture/",
 ]) {
   if (!workflow.includes(required)) {
     throw new Error(`Safe deployment step missing: ${required}`);
@@ -202,9 +227,9 @@ if (publishScript.includes('aws s3 sync "${artifact}" "s3://${bucket}"') ||
 }
 checks += 1;
 for (const migrationPreflight of [
-  'https://www.bwtr.ai/architecture)" = "301 https://www.bwtr.ai/architecture/"',
-  'https://www.bwtr.ai/platform/)" = "301 https://www.bwtr.ai/architecture/"',
-  'https://www.bwtr.ai/architecture/)" = "200"',
+  '"${BWTR_SITE_BASE_URL}/architecture")" = "301 ${BWTR_SITE_BASE_URL}/architecture/"',
+  '"${BWTR_SITE_BASE_URL}/platform/")" = "301 ${BWTR_SITE_BASE_URL}/architecture/"',
+  '"${BWTR_SITE_BASE_URL}/architecture/")" = "200"',
 ]) {
   assert.ok(workflow.includes(migrationPreflight), `migration preflight is missing: ${migrationPreflight}`);
   checks += 1;
@@ -268,9 +293,21 @@ const deployRole = fs.readFileSync(
   new URL("../infra/cloudformation/github-deploy-role.yml", import.meta.url),
   "utf8",
 );
+const oidcProvider = fs.readFileSync(
+  new URL("../infra/cloudformation/github-oidc-provider.yml", import.meta.url),
+  "utf8",
+);
+assert.ok(
+  oidcProvider.includes("https://token.actions.githubusercontent.com") &&
+    oidcProvider.includes("sts.amazonaws.com"),
+  "GitHub OIDC provider must trust only the GitHub issuer for the AWS STS audience",
+);
+checks += 1;
 for (const permission of [
   "cloudfront:CreateInvalidation",
+  "cloudfront:GetDistribution",
   "cloudfront:GetInvalidation",
+  "s3:GetBucketLocation",
 ]) {
   if (!deployRole.includes(permission)) {
     throw new Error(`Deploy role is missing required permission: ${permission}`);

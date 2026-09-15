@@ -17,11 +17,39 @@ concurrency:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    env:
+      AWS_REGION: ${{ vars.AWS_REGION }}
+      BWTR_EXPECTED_AWS_ACCOUNT_ID: ${{ vars.AWS_ACCOUNT_ID }}
+      BWTR_BUCKET: ${{ vars.AWS_S3_BUCKET }}
+      BWTR_DISTRIBUTION: ${{ vars.AWS_CLOUDFRONT_DISTRIBUTION_ID }}
+      BWTR_CLOUDFRONT_DOMAIN: ${{ vars.AWS_CLOUDFRONT_DOMAIN }}
+      BWTR_SITE_BASE_URL: ${{ vars.SITE_BASE_URL }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
         with:
           fetch-depth: 2
+
+      - name: Validate deployment configuration
+        shell: bash
+        run: |
+          for required_variable in \
+            AWS_REGION \
+            BWTR_EXPECTED_AWS_ACCOUNT_ID \
+            BWTR_BUCKET \
+            BWTR_DISTRIBUTION \
+            BWTR_CLOUDFRONT_DOMAIN \
+            BWTR_SITE_BASE_URL; do
+            test -n "${!required_variable}" || {
+              echo "Missing required deployment variable: ${required_variable}" >&2
+              exit 2
+            }
+          done
+          test "${BWTR_SITE_BASE_URL}" = "https://${BWTR_CLOUDFRONT_DOMAIN}"
+          case "${BWTR_CLOUDFRONT_DOMAIN}" in
+            *.cloudfront.net) ;;
+            *) echo "AWS_CLOUDFRONT_DOMAIN must be a CloudFront domain" >&2; exit 2 ;;
+          esac
 
       - name: Validate public site source
         run: |
@@ -51,16 +79,37 @@ jobs:
 
       - name: Verify canonical route infrastructure
         run: |
-          test "$(curl -sS -o /dev/null -w '%{http_code} %{redirect_url}' https://www.bwtr.ai/architecture)" = "301 https://www.bwtr.ai/architecture/"
-          test "$(curl -sS -o /dev/null -w '%{http_code} %{redirect_url}' https://www.bwtr.ai/platform/)" = "301 https://www.bwtr.ai/architecture/"
-          test "$(curl -sS -o /dev/null -w '%{http_code}' https://www.bwtr.ai/architecture/)" = "200"
-          curl -fsS https://www.bwtr.ai/architecture/ | grep -F "CUSTOMER-CONTROLLED DECISION BOUNDARY"
+          test "$(curl -sS -o /dev/null -w '%{http_code} %{redirect_url}' "${BWTR_SITE_BASE_URL}/architecture")" = "301 ${BWTR_SITE_BASE_URL}/architecture/"
+          test "$(curl -sS -o /dev/null -w '%{http_code} %{redirect_url}' "${BWTR_SITE_BASE_URL}/platform/")" = "301 ${BWTR_SITE_BASE_URL}/architecture/"
+          test "$(curl -sS -o /dev/null -w '%{http_code}' "${BWTR_SITE_BASE_URL}/architecture/")" = "200"
+          curl -fsS "${BWTR_SITE_BASE_URL}/architecture/" | grep -F "CUSTOMER-CONTROLLED DECISION BOUNDARY"
 
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
           role-to-assume: ${{ secrets.AWS_ROLE_TO_ASSUME }}
-          aws-region: ${{ vars.AWS_REGION || 'us-east-1' }}
+          aws-region: ${{ env.AWS_REGION }}
+
+      - name: Verify AWS deployment target
+        shell: bash
+        run: |
+          actual_account_id="$(aws sts get-caller-identity --query Account --output text)"
+          test "${actual_account_id}" = "${BWTR_EXPECTED_AWS_ACCOUNT_ID}"
+
+          aws s3api get-bucket-location --bucket "${BWTR_BUCKET}" >/dev/null
+
+          actual_domain="$(aws cloudfront get-distribution \
+            --id "${BWTR_DISTRIBUTION}" \
+            --query 'Distribution.DomainName' \
+            --output text)"
+          test "${actual_domain}" = "${BWTR_CLOUDFRONT_DOMAIN}"
+
+          expected_origin="${BWTR_BUCKET}.s3.${AWS_REGION}.amazonaws.com"
+          actual_origin="$(aws cloudfront get-distribution \
+            --id "${BWTR_DISTRIBUTION}" \
+            --query "Distribution.DistributionConfig.Origins.Items[?DomainName=='${expected_origin}'].DomainName | [0]" \
+            --output text)"
+          test "${actual_origin}" = "${expected_origin}"
 
       - name: Build public site artifact
         run: bash scripts/build-site-artifact.sh "${RUNNER_TEMP}/bwtr-site"
@@ -73,14 +122,12 @@ jobs:
       - name: Snapshot current production site
         run: |
           mkdir -p "${RUNNER_TEMP}/bwtr-site-rollback"
-          aws s3 sync "s3://${{ vars.AWS_S3_BUCKET }}" "${RUNNER_TEMP}/bwtr-site-rollback" \
+          aws s3 sync "s3://${BWTR_BUCKET}" "${RUNNER_TEMP}/bwtr-site-rollback" \
             --exclude "assets/videos/*"
 
       - name: Publish, verify, and roll back on failure
         shell: bash
         env:
-          BWTR_BUCKET: ${{ vars.AWS_S3_BUCKET }}
-          BWTR_DISTRIBUTION: ${{ vars.AWS_CLOUDFRONT_DISTRIBUTION_ID }}
           BWTR_ARTIFACT: ${{ runner.temp }}/bwtr-site
           BWTR_ROLLBACK_ARTIFACT: ${{ runner.temp }}/bwtr-site-rollback
         run: bash scripts/publish-site.sh

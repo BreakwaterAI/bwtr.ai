@@ -1,7 +1,7 @@
 # Repository Guidelines
 
 ## Repository Boundaries
-This repository, `thogiti/bwtr.ai`, is the public marketing website repository for `bwtr.ai`.
+This repository, `BreakwaterAI/bwtr.ai`, is the public marketing website repository for `bwtr.ai`.
 It is intentionally separate from the Breakwater product/platform repository.
 
 Product source, dashboard, API, customer installers, Docker assets, licensing code, and product
@@ -51,6 +51,7 @@ This is a static site. The main files are:
 - `styles.css`
 - `.github/workflows/deploy-aws.yml`
 - `infra/cloudformation/static-site.yml`
+- `infra/cloudformation/github-oidc-provider.yml`
 - `infra/cloudformation/github-deploy-role.yml`
 
 Preview locally with:

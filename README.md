@@ -27,15 +27,18 @@ not committed to this repository. The deploy workflow excludes that prefix from 
 It does not delete superseded objects during deployment; cleanup happens separately after the
 rollback window. Repository-only files never enter the generated artifact.
 
-Required repository configuration in `thogiti/bwtr.ai`:
+Required repository configuration in `BreakwaterAI/bwtr.ai`:
 
 ### Actions Variables
 
 | Variable | Example | Purpose |
 |---|---|---|
 | `AWS_REGION` | `us-east-1` | AWS region used by the deploy workflow. |
+| `AWS_ACCOUNT_ID` | `506126099258` | Exact AWS account that the workflow must assume. |
 | `AWS_S3_BUCKET` | `bwtr-ai-site-prod` | Private S3 bucket for static site files. |
 | `AWS_CLOUDFRONT_DISTRIBUTION_ID` | `E123EXAMPLE` | CloudFront distribution to invalidate after deploy. |
+| `AWS_CLOUDFRONT_DOMAIN` | `d123example.cloudfront.net` | Distribution hostname used to bind deployment and validation targets. |
+| `SITE_BASE_URL` | `https://d123example.cloudfront.net` | Exact URL validated after publishing; it must match `AWS_CLOUDFRONT_DOMAIN`. |
 
 ### Actions Secret
 
@@ -56,6 +59,26 @@ You need an issued ACM certificate in `us-east-1` covering both:
 
 - `bwtr.ai`
 - `www.bwtr.ai`
+
+For a non-live migration preview, deploy without aliases, DNS records, or an ACM certificate:
+
+```bash
+test "$(aws sts get-caller-identity \
+  --profile breakwater-prod \
+  --query Account \
+  --output text)" = "506126099258" && \
+aws cloudformation deploy \
+  --profile breakwater-prod \
+  --region us-east-1 \
+  --stack-name bwtr-ai-static-site-preview \
+  --template-file infra/cloudformation/static-site.yml \
+  --parameter-overrides \
+    AttachCustomDomains=false \
+    CreateRoute53Records=false \
+    BucketName=bwtr-ai-site-prod-506126099258
+```
+
+Test the `PreviewUrl` stack output before attaching the production aliases.
 
 Deploy example:
 
@@ -80,20 +103,39 @@ HostedZoneId=YOUR_BWTR_AI_HOSTED_ZONE_ID
 
 ## Deploy Role
 
+Create the account-level GitHub Actions OIDC provider once in a new AWS account:
+
+```bash
+test "$(aws sts get-caller-identity \
+  --profile breakwater-prod \
+  --query Account \
+  --output text)" = "506126099258" && \
+aws cloudformation deploy \
+  --profile breakwater-prod \
+  --region us-east-1 \
+  --stack-name github-actions-oidc-provider \
+  --template-file infra/cloudformation/github-oidc-provider.yml
+```
+
 After the static-site stack is created, deploy the least-privilege GitHub OIDC role:
 
 ```bash
+test "$(aws sts get-caller-identity \
+  --profile breakwater-prod \
+  --query Account \
+  --output text)" = "506126099258" && \
 aws cloudformation deploy \
+  --profile breakwater-prod \
   --region us-east-1 \
   --stack-name bwtr-ai-github-deploy-role \
   --template-file infra/cloudformation/github-deploy-role.yml \
   --parameter-overrides \
-    BucketName=bwtr-ai-site-prod \
-    CloudFrontDistributionId=YOUR_CLOUDFRONT_DISTRIBUTION_ID \
+    BucketName=bwtr-ai-site-prod-506126099258 \
+    CloudFrontDistributionId=E173Y881SRDFT0 \
   --capabilities CAPABILITY_NAMED_IAM
 ```
 
-The template assumes the account already has the GitHub OIDC provider:
+The deploy-role template assumes the account already has the GitHub OIDC provider:
 
 ```text
 token.actions.githubusercontent.com
@@ -102,7 +144,7 @@ token.actions.githubusercontent.com
 It limits trust to this repository and branch:
 
 ```text
-repo:thogiti/bwtr.ai:ref:refs/heads/main
+repo:BreakwaterAI/bwtr.ai:ref:refs/heads/main
 ```
 
 Copy the `RoleArn` output into the `AWS_ROLE_TO_ASSUME` GitHub Actions secret.

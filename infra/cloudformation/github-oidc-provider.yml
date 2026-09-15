@@ -1,0 +1,19 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: Account-level GitHub Actions OIDC provider for repository deployment roles.
+
+Resources:
+  GitHubActionsOidcProvider:
+    Type: AWS::IAM::OIDCProvider
+    Properties:
+      Url: https://token.actions.githubusercontent.com
+      ClientIdList:
+        - sts.amazonaws.com
+      Tags:
+        - Key: ManagedBy
+          Value: CloudFormation
+        - Key: Workload
+          Value: github-actions
+
+Outputs:
+  ProviderArn:
+    Value: !Ref GitHubActionsOidcProvider

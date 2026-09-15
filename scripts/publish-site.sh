@@ -1,7 +1,12 @@
 #!/usr/bin/env bash
 set -Eeuo pipefail
 
-for required_variable in BWTR_BUCKET BWTR_DISTRIBUTION BWTR_ARTIFACT BWTR_ROLLBACK_ARTIFACT; do
+for required_variable in \
+  BWTR_BUCKET \
+  BWTR_DISTRIBUTION \
+  BWTR_ARTIFACT \
+  BWTR_ROLLBACK_ARTIFACT \
+  BWTR_SITE_BASE_URL; do
   if [[ -z "${!required_variable:-}" ]]; then
     echo "missing required environment variable: ${required_variable}" >&2
     exit 2
@@ -13,6 +18,13 @@ bucket="${BWTR_BUCKET}"
 distribution="${BWTR_DISTRIBUTION}"
 artifact="${BWTR_ARTIFACT}"
 rollback_artifact="${BWTR_ROLLBACK_ARTIFACT}"
+site_base_url="${BWTR_SITE_BASE_URL}"
+site_base_url="${site_base_url%/}"
+
+case "${site_base_url}" in
+  https://*) ;;
+  *) echo "BWTR_SITE_BASE_URL must be an https URL" >&2; exit 2 ;;
+esac
 
 test -d "${artifact}"
 test -d "${rollback_artifact}"
@@ -99,27 +111,27 @@ run_phase "homepage-switch" aws s3 cp "${artifact}/index.html" "s3://${bucket}/i
 invalidate_and_wait "publish"
 
 verification_body="${RUNNER_TEMP:-/tmp}/bwtr-site-verification.html"
-run_phase "smoke-home" curl -fsS --output "${verification_body}" https://www.bwtr.ai/
+run_phase "smoke-home" curl -fsS --output "${verification_body}" "${site_base_url}/"
 grep -F "One evidence chain, start to finish" "${verification_body}" >/dev/null
 grep -F "One evidence-to-action system. Three operational modules." "${verification_body}" >/dev/null
-run_phase "smoke-products" curl -fsS --output "${verification_body}" https://www.bwtr.ai/products/
+run_phase "smoke-products" curl -fsS --output "${verification_body}" "${site_base_url}/products/"
 grep -F "Breakwater ASOC is the system. Secure, Assure, and SOAR own the work." \
   "${verification_body}" >/dev/null
 run_phase "smoke-architecture" curl -fsS --output "${verification_body}" \
-  https://www.bwtr.ai/architecture/
+  "${site_base_url}/architecture/"
 grep -F "CUSTOMER-CONTROLLED DECISION BOUNDARY" "${verification_body}" >/dev/null
 
 cache_headers="${RUNNER_TEMP:-/tmp}/bwtr-site-cache-headers.txt"
 for cache_url in \
-  "https://www.bwtr.ai/" \
-  "https://www.bwtr.ai/styles.css" \
-  "https://www.bwtr.ai/script.js"; do
+  "${site_base_url}/" \
+  "${site_base_url}/styles.css" \
+  "${site_base_url}/script.js"; do
   run_phase "cache-unversioned" curl -fsSI --output "${cache_headers}" "${cache_url}"
   grep -qi '^cache-control: no-cache' "${cache_headers}"
 done
 for revisioned_asset in $(node -e 'const manifest=require(process.argv[1]); console.log(Object.values(manifest).join(" "))' "${artifact}/asset-manifest.json"); do
   run_phase "cache-revisioned" curl -fsSI --output "${cache_headers}" \
-    "https://www.bwtr.ai/${revisioned_asset}"
+    "${site_base_url}/${revisioned_asset}"
   grep -qi '^cache-control: public, max-age=31536000, immutable' "${cache_headers}"
 done
 for image in \
@@ -130,10 +142,10 @@ for image in \
   product-demo-poster.jpg; do
   target="${RUNNER_TEMP:-/tmp}/${image}"
   run_phase "image-download" curl -fsS --output "${target}" \
-    "https://www.bwtr.ai/assets/${image}"
+    "${site_base_url}/assets/${image}"
   test "$(wc -c < "${target}")" -gt 10000
   run_phase "image-headers" curl -fsSI --output "${cache_headers}" \
-    "https://www.bwtr.ai/assets/${image}"
+    "${site_base_url}/assets/${image}"
   grep -qi '^content-type: image/jpeg' "${cache_headers}"
   grep -qi '^cache-control: no-cache' "${cache_headers}"
 done

@@ -1,5 +1,5 @@
 AWSTemplateFormatVersion: '2010-09-09'
-Description: Least-privilege GitHub OIDC deploy role for the thogiti/bwtr.ai static site.
+Description: Least-privilege GitHub OIDC deploy role for the BreakwaterAI/bwtr.ai static site.
 
 Parameters:
   RoleName:
@@ -7,7 +7,7 @@ Parameters:
     Default: bwtr-ai-site-github-deploy
   Repository:
     Type: String
-    Default: thogiti/bwtr.ai
+    Default: BreakwaterAI/bwtr.ai
   Branch:
     Type: String
     Default: main
@@ -42,6 +42,7 @@ Resources:
               - Sid: ListSiteBucket
                 Effect: Allow
                 Action:
+                  - s3:GetBucketLocation
                   - s3:ListBucket
                 Resource: !Sub 'arn:aws:s3:::${BucketName}'
               - Sid: ManageSiteObjects
@@ -55,6 +56,7 @@ Resources:
                 Effect: Allow
                 Action:
                   - cloudfront:CreateInvalidation
+                  - cloudfront:GetDistribution
                   - cloudfront:GetInvalidation
                 Resource: !Sub 'arn:aws:cloudfront::${AWS::AccountId}:distribution/${CloudFrontDistributionId}'
 
