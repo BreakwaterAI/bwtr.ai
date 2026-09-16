@@ -345,6 +345,8 @@ html[data-theme="light"] .detail-mcp { --detail-accent: #F0443E; }
 .about-hero .page-hero-backdrop img { object-position: 62% 50%; }
 .page-hero-visual.about-hero::before { background: linear-gradient(90deg, rgba(0,1,0,.9) 0%, rgba(0,1,0,.74) 45%, rgba(0,1,0,.34) 72%, rgba(0,1,0,.16) 100%); }
 .page-hero-visual.about-hero::after { background: linear-gradient(180deg, rgba(0,1,0,.06), rgba(0,1,0,.58)); }
+.page-hero-visual:is(.airports-hero, .power-utilities-hero, .connected-industry-hero, .healthcare-hero)::before { background: linear-gradient(90deg, rgba(0,1,0,.84) 0%, rgba(0,1,0,.65) 45%, rgba(0,1,0,.3) 72%, rgba(0,1,0,.12) 100%); }
+.page-hero-visual:is(.airports-hero, .power-utilities-hero, .connected-industry-hero, .healthcare-hero)::after { background: linear-gradient(180deg, rgba(0,1,0,.04), rgba(0,1,0,.38)); }
 .page-hero-visual .eyebrow, .page-hero-visual .page-hero-copy > p { color: rgba(255,255,255,.78); }
 .page-hero-visual .text-link { color: #fff; }
 .page-hero-links { align-items: flex-start; display: flex; flex-direction: column; gap: 13px; margin-top: 20px; }
@@ -478,6 +480,7 @@ html[data-theme="light"] .detail-mcp { --detail-accent: #F0443E; }
   .page-hero-visual { gap: 32px; grid-template-columns: 1fr; padding: 68px 44px; }
   .page-hero-visual > div { max-width: 760px; }
   .page-hero-visual::before { background: linear-gradient(90deg, rgba(0,1,0,.96), rgba(0,1,0,.7)); }
+  .page-hero-visual:is(.airports-hero, .power-utilities-hero, .connected-industry-hero, .healthcare-hero)::before { background: linear-gradient(90deg, rgba(0,1,0,.84), rgba(0,1,0,.58)); }
   .technical-services { grid-template-columns: repeat(2, 1fr); }
   .sector-architecture-grid { grid-template-columns: 1fr 1fr; }
   .sector-architecture-card:last-child { grid-column: 1 / -1; }
@@ -489,6 +492,7 @@ html[data-theme="light"] .detail-mcp { --detail-accent: #F0443E; }
   .page-hero-visual { margin-top: calc(var(--header) + 18px); min-height: 600px; padding: 46px 26px; width: calc(100% - 36px); }
   .page-hero-visual h1 { font-size: clamp(2.75rem, 12vw, 4.15rem); }
   .page-hero-visual::before { background: linear-gradient(180deg, rgba(0,1,0,.9), rgba(0,1,0,.72)); }
+  .page-hero-visual:is(.airports-hero, .power-utilities-hero, .connected-industry-hero, .healthcare-hero)::before { background: linear-gradient(180deg, rgba(0,1,0,.78), rgba(0,1,0,.58)); }
   .page-hero-backdrop img { object-position: 58% center; }
   .technical-zone { padding: 20px; }
   .technical-zone-heading { align-items: flex-start; flex-direction: column; gap: 9px; }

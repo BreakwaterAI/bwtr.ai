@@ -105,6 +105,43 @@ for (const relativePath of publicHtmlFiles) {
   );
 }
 
+const socialCards = {
+  "index.html": "breakwater-social-home.png",
+  "products/index.html": "breakwater-social-home.png",
+  "architecture/index.html": "breakwater-social-home.png",
+  "research/index.html": "breakwater-social-home.png",
+  "about/index.html": "breakwater-social-home.png",
+  "security/index.html": "breakwater-social-home.png",
+  "airports/index.html": "breakwater-social-airports.png",
+  "power-utilities/index.html": "breakwater-social-power-utilities.png",
+  "connected-industry/index.html": "breakwater-social-connected-industry.png",
+  "healthcare/index.html": "breakwater-social-healthcare.png",
+};
+assert.equal(
+  new Set(Object.values(socialCards)).size,
+  5,
+  "The shared company card and four sector-specific social previews must remain available",
+);
+for (const [relativePath, filename] of Object.entries(socialCards)) {
+  const html = readFileSync(relativePath, "utf8");
+  const imageUrl = `https://www.bwtr.ai/assets/${filename}`;
+  assert.ok(html.includes(`property="og:site_name" content="Breakwater"`), `${relativePath}: Open Graph site name is missing`);
+  assert.ok(html.includes(`property="og:locale" content="en_US"`), `${relativePath}: Open Graph locale is missing`);
+  assert.ok(html.includes(`property="og:image" content="${imageUrl}"`), `${relativePath}: expected Open Graph image is missing`);
+  assert.ok(html.includes('property="og:image:type" content="image/png"'), `${relativePath}: Open Graph image type is missing`);
+  assert.ok(html.includes('property="og:image:width" content="1280"'), `${relativePath}: Open Graph width is incorrect`);
+  assert.ok(html.includes('property="og:image:height" content="720"'), `${relativePath}: Open Graph height is incorrect`);
+  assert.match(html, /property="og:image:alt" content="[^"]+"/, `${relativePath}: Open Graph image alt is missing`);
+  assert.ok(html.includes(`name="twitter:image" content="${imageUrl}"`), `${relativePath}: X/Twitter image must match Open Graph`);
+  assert.match(html, /name="twitter:image:alt" content="[^"]+"/, `${relativePath}: X/Twitter image alt is missing`);
+  assert.ok(!html.includes("breakwater-social-card.png"), `${relativePath}: legacy shared social card remains`);
+
+  const png = readFileSync(`assets/${filename}`);
+  assert.equal(png.subarray(1, 4).toString("ascii"), "PNG", `${filename}: asset must be a PNG`);
+  assert.equal(png.readUInt32BE(16), 1280, `${filename}: width must be 1280px`);
+  assert.equal(png.readUInt32BE(20), 720, `${filename}: height must be 720px`);
+}
+
 for (const [page, html] of [
   ["homepage", homepage],
   ["products", products],
@@ -194,8 +231,8 @@ for (const [page, html] of [
   ["architecture", architecture],
 ]) {
   for (const socialMetadata of [
-    'property="og:image:width" content="1200"',
-    'property="og:image:height" content="630"',
+    'property="og:image:width" content="1280"',
+    'property="og:image:height" content="720"',
     'property="og:image:alt"',
     'name="twitter:title"',
     'name="twitter:description"',
