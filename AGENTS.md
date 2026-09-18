@@ -7,12 +7,15 @@ It is intentionally separate from the Breakwater product/platform repository.
 Product source, dashboard, API, customer installers, Docker assets, licensing code, and product
 documentation live in:
 
-- Product repo: `https://github.com/gwuml/proscanx`
+- Secure: `https://github.com/BreakwaterAI/bwtr`
+- Assure: `https://github.com/BreakwaterAI/assure`
+- SOAR: `https://github.com/BreakwaterAI/soar`
 
 Do not add platform source, private operational docs, customer installer secrets, Docker build
 contexts, production app code, or license-server code to this repository. If the user asks for
-product changes, dashboard fixes, API work, Docker tags/images, installer changes, or production
-`app.bwtr.ai` changes, work in `gwuml/proscanx` instead.
+product changes, dashboard fixes, API work, Docker tags/images, or installer changes, work in
+the corresponding product repository above. Legacy ProscanX v1 and course materials remain
+separate; confirm the owning codebase before changing legacy `app.bwtr.ai` services.
 
 ## Hosting Model
 The public website is hosted on AWS:
