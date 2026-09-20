@@ -24,6 +24,7 @@ bash scripts/build-site-artifact.sh "${artifact}"
 mkdir -p "${rollback_artifact}/architecture" "${mock_bin}"
 cp "${artifact}/architecture/index.html" "${rollback_artifact}/architecture/index.html"
 for revisioned_asset in $(node -e 'const manifest=require(process.argv[1]); console.log(Object.values(manifest).join(" "))' "${artifact}/asset-manifest.json"); do
+  mkdir -p "${rollback_artifact}/$(dirname "${revisioned_asset}")"
   cp "${artifact}/${revisioned_asset}" "${rollback_artifact}/${revisioned_asset}"
 done
 
@@ -67,6 +68,7 @@ fi
 
 for failure_phase in \
   immutable-upload \
+  public-assets-upload \
   supporting-upload \
   homepage-switch \
   publish-invalidation-create \
@@ -74,6 +76,7 @@ for failure_phase in \
   smoke-home \
   smoke-products \
   smoke-architecture \
+  smoke-release \
   cache-unversioned \
   cache-revisioned \
   image-download \
@@ -104,6 +107,7 @@ grep -qx 'baseline' "${remote_state}"
 grep -q 'Automatic rollback was incomplete; manual recovery is required.' "${test_output}"
 
 missing_dependency="$(node -e 'const manifest=require(process.argv[1]); console.log(manifest["script.js"])' "${artifact}/asset-manifest.json")"
+mkdir -p "${fixture_root}/$(dirname "${missing_dependency}")"
 mv "${rollback_artifact}/${missing_dependency}" "${fixture_root}/${missing_dependency}"
 run_publish
 test "${publish_status}" -ne 0

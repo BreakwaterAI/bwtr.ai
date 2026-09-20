@@ -55,7 +55,7 @@ For an independent terminal check that follows the content-addressed stylesheet 
 live homepage:
 
 ```bash
-live_css="$(curl -fsS https://www.bwtr.ai/ | sed -n 's/.*href="\(\/styles\.[0-9a-f]*\.css\)".*/\1/p')"
+live_css="$(curl -fsS https://www.bwtr.ai/ | sed -n 's/.*href="\(\/assets\/site-ui\/site\.[0-9a-f]*\.css\)".*/\1/p')"
 curl -fsS "https://www.bwtr.ai${live_css}" | grep -E -- '--vanta: #000100|--breakwater-red: #F0443E'
 ```
 

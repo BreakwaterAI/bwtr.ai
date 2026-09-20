@@ -12,21 +12,19 @@ const architecturePath = join(rollbackArtifact, "architecture", "index.html");
 assert.ok(existsSync(architecturePath), "rollback snapshot is missing architecture/index.html");
 const architecture = readFileSync(architecturePath, "utf8");
 assert.ok(
-  architecture.includes("CUSTOMER-CONTROLLED DECISION BOUNDARY"),
+  architecture.includes("CUSTOMER-CONTROLLED DECISION BOUNDARY") || architecture.includes('Know what connects.'),
   "rollback Architecture page is missing its release marker",
 );
 
-for (const [stem, extension] of [
-  ["styles", "css"],
-  ["script", "js"],
-]) {
-  const match = architecture.match(new RegExp(`/${stem}\\.([0-9a-f]{12})\\.${extension}`));
-  assert.ok(match, `rollback Architecture page does not reference a hashed ${stem} asset`);
-  const relativePath = match[0].slice(1);
+const dependencies = [...architecture.matchAll(/(?:src|href)="\/((?:assets\/site-ui\/)?[\w-]+\.([0-9a-f]{12})\.(?:css|js|webp))"/g)];
+assert.ok(dependencies.some(m => m[1].endsWith('.css')), 'rollback stylesheet is not hashed');
+assert.ok(dependencies.some(m => m[1].endsWith('.js')), 'rollback script is not hashed');
+for (const match of dependencies) {
+  const relativePath = match[1];
   const dependencyPath = join(rollbackArtifact, relativePath);
   assert.ok(existsSync(dependencyPath), `rollback snapshot is missing ${relativePath}`);
   const digest = createHash("sha256").update(readFileSync(dependencyPath)).digest("hex").slice(0, 12);
-  assert.equal(digest, match[1], `${relativePath}: filename does not match its content hash`);
+  assert.equal(digest, match[2], `${relativePath}: filename does not match its content hash`);
 }
 
 console.log("Rollback snapshot contains a working Architecture destination and dependencies.");

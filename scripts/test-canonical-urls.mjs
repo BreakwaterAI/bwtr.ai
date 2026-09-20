@@ -307,7 +307,7 @@ for (const requiredPublishGuard of [
 assert.ok(!template.includes("rawQueryString"), "CloudFront Function uses a non-existent request API");
 checks += 1;
 
-const assetRevision = "20260912";
+const release = JSON.parse(fs.readFileSync(new URL('../site-release.json', import.meta.url)));
 for (const relativePath of [
   "index.html",
   "404.html",
@@ -320,8 +320,8 @@ for (const relativePath of [
 ]) {
   const html = fs.readFileSync(new URL(`../${relativePath}`, import.meta.url), "utf8");
   for (const versionedAsset of [
-    `/styles.css?v=${assetRevision}`,
-    `/script.js?v=${assetRevision}`,
+    `/${release.resources['styles.css']}`,
+    `/${release.resources['script.js']}`,
   ]) {
     if (!html.includes(versionedAsset)) {
       throw new Error(`${relativePath}: versioned asset reference missing: ${versionedAsset}`);

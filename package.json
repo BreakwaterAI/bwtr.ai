@@ -1,0 +1,10 @@
+{
+  "name": "breakwater-marketing-site",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node scripts/test-brand-contract.mjs && node scripts/test-canonical-urls.mjs && node scripts/test-production-content.mjs && node scripts/test-org-lead-capture.mjs && node scripts/test-deployment-target.mjs && node scripts/test-rollback-artifact.mjs && bash scripts/test-publish-site.sh && bash scripts/test-deploy-entrypoint.sh",
+    "test:browser": "node scripts/test-rendered-layout.mjs"
+  },
+  "devDependencies": { "playwright": "1.61.0" }
+}

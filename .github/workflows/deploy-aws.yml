@@ -33,6 +33,17 @@ jobs:
         with:
           fetch-depth: 2
 
+      - name: Set up reproducible browser checks
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install test dependencies
+        run: |
+          npm ci
+          npx playwright install --with-deps chromium
+
       - name: Validate deployment configuration
         shell: bash
         run: |
@@ -67,6 +78,8 @@ jobs:
           node scripts/test-canonical-urls.mjs
           node scripts/test-homepage-content.mjs
           node scripts/test-positioning.mjs
+          node scripts/test-org-lead-capture.mjs
+          node scripts/test-rollback-artifact.mjs
           node scripts/test-deployment-target.mjs
           bash scripts/test-publish-site.sh
           bash scripts/test-deploy-entrypoint.sh
@@ -94,7 +107,7 @@ jobs:
           test "$(curl -sS -o /dev/null -w '%{http_code} %{redirect_url}' "${BWTR_SITE_BASE_URL}/architecture")" = "301 ${BWTR_SITE_BASE_URL}/architecture/"
           test "$(curl -sS -o /dev/null -w '%{http_code} %{redirect_url}' "${BWTR_SITE_BASE_URL}/platform/")" = "301 ${BWTR_SITE_BASE_URL}/architecture/"
           test "$(curl -sS -o /dev/null -w '%{http_code}' "${BWTR_SITE_BASE_URL}/architecture/")" = "200"
-          curl -fsS "${BWTR_SITE_BASE_URL}/architecture/" | grep -F "CUSTOMER-CONTROLLED DECISION BOUNDARY"
+          # Content is validated from the rollback snapshot; this checks edge routing.
 
       - name: Verify GitHub OIDC claims
         shell: bash
@@ -141,12 +154,23 @@ jobs:
         run: |
           node scripts/test-site-artifact.mjs "${RUNNER_TEMP}/bwtr-site"
           node scripts/test-brand-contract.mjs --artifact "${RUNNER_TEMP}/bwtr-site"
+          BWTR_ARTIFACT="${RUNNER_TEMP}/bwtr-site" node scripts/test-rendered-layout.mjs
+          node scripts/verify-release-media.mjs "${BWTR_SITE_BASE_URL}"
 
       - name: Snapshot current production site
+        id: snapshot
         run: |
           mkdir -p "${RUNNER_TEMP}/bwtr-site-rollback"
           aws s3 sync "s3://${BWTR_BUCKET}" "${RUNNER_TEMP}/bwtr-site-rollback" \
             --exclude "assets/videos/*"
+
+      - name: Retain rollback snapshot
+        uses: actions/upload-artifact@v4
+        with:
+          name: marketing-rollback-${{ github.sha }}
+          path: ${{ runner.temp }}/bwtr-site-rollback
+          include-hidden-files: true
+          retention-days: 7
 
       - name: Publish, verify, and roll back on failure
         shell: bash

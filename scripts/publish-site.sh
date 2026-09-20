@@ -96,13 +96,20 @@ run_phase "immutable-upload" aws s3 cp "${artifact}" "s3://${bucket}" \
   --exclude "*" \
   --include "styles.*.css" \
   --include "script.*.js" \
+  --include "assets/site-ui/*" \
   --cache-control "public, max-age=31536000, immutable"
+run_phase "public-assets-upload" aws s3 cp "${artifact}/assets" "s3://${bucket}/assets" \
+  --recursive \
+  --exclude "videos/*" \
+  --exclude "site-ui/*" \
+  --cache-control "no-cache"
 run_phase "supporting-upload" aws s3 cp "${artifact}" "s3://${bucket}" \
   --recursive \
   --exclude "assets/videos/*" \
   --exclude "index.html" \
   --exclude "styles.*.css" \
   --exclude "script.*.js" \
+  --exclude "assets/*" \
   --cache-control "no-cache"
 run_phase "homepage-switch" aws s3 cp "${artifact}/index.html" "s3://${bucket}/index.html" \
   --content-type "text/html" \
@@ -112,20 +119,30 @@ invalidate_and_wait "publish"
 
 verification_body="${RUNNER_TEMP:-/tmp}/bwtr-site-verification.html"
 run_phase "smoke-home" curl -fsS --output "${verification_body}" "${site_base_url}/"
-grep -F "One evidence chain, start to finish" "${verification_body}" >/dev/null
-grep -F "One evidence-to-action system. Three operational modules." "${verification_body}" >/dev/null
+grep -F "See the connections." "${verification_body}" >/dev/null
+grep -F "Plan your post-quantum transition." "${verification_body}" >/dev/null
 run_phase "smoke-products" curl -fsS --output "${verification_body}" "${site_base_url}/products/"
-grep -F "Breakwater ASOC is the system. Secure, Assure, and SOAR own the work." \
+grep -F "A closer look at the evidence." \
   "${verification_body}" >/dev/null
 run_phase "smoke-architecture" curl -fsS --output "${verification_body}" \
   "${site_base_url}/architecture/"
-grep -F "CUSTOMER-CONTROLLED DECISION BOUNDARY" "${verification_body}" >/dev/null
+grep -F "Know what connects." "${verification_body}" >/dev/null
+
+# Verify exact released documents and UI bytes, not merely a matching headline.
+while IFS= read -r relative_path; do
+  case "${relative_path}" in
+    index.html) public_path="/" ;;
+    platform/index.html) continue ;; # CloudFront intentionally redirects this route.
+    */index.html) public_path="/${relative_path%index.html}" ;;
+    *) public_path="/${relative_path}" ;;
+  esac
+  run_phase "smoke-release" curl -fsS --output "${verification_body}" "${site_base_url}${public_path}"
+  cmp "${verification_body}" "${artifact}/${relative_path}"
+done < <(node -e 'const fs=require("fs"); const m=JSON.parse(fs.readFileSync(process.argv[1]+"/asset-manifest.json")); function walk(d,p=""){for(const e of fs.readdirSync(d,{withFileTypes:true})){if(e.isDirectory())walk(d+"/"+e.name,p+e.name+"/");else if(e.name.endsWith(".html")) console.log(p+e.name)}} walk(process.argv[1]); console.log(Object.values(m).join("\n"))' "${artifact}")
 
 cache_headers="${RUNNER_TEMP:-/tmp}/bwtr-site-cache-headers.txt"
 for cache_url in \
-  "${site_base_url}/" \
-  "${site_base_url}/styles.css" \
-  "${site_base_url}/script.js"; do
+  "${site_base_url}/"; do
   run_phase "cache-unversioned" curl -fsSI --output "${cache_headers}" "${cache_url}"
   grep -qi '^cache-control: no-cache' "${cache_headers}"
 done

@@ -119,6 +119,8 @@ readonly ARTIFACT="${WORK_ROOT}/site"
 bash scripts/build-site-artifact.sh "${ARTIFACT}"
 node scripts/test-site-artifact.mjs "${ARTIFACT}"
 node scripts/test-brand-contract.mjs --artifact "${ARTIFACT}"
+BWTR_ARTIFACT="${ARTIFACT}" node scripts/test-rendered-layout.mjs
+node scripts/verify-release-media.mjs "${SITE_BASE_URL}"
 
 if [[ "${OPERATION}" == "check" ]]; then
   printf 'READY target=%s account=%s distribution=%s url=%s\n' \

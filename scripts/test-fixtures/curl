@@ -14,19 +14,17 @@ while [[ $# -gt 0 ]]; do
   esac
 done
 if [[ "${headers}" == true ]]; then
-  if [[ "${url}" =~ /(styles|script)\.[0-9a-f]{12}\.(css|js)$ ]]; then
+  if [[ "${url}" =~ \.[0-9a-f]{12}\.(css|js|webp)$ ]]; then
     cache_control='public, max-age=31536000, immutable'
   else
     cache_control='no-cache'
   fi
   printf 'HTTP/2 200\r\nContent-Type: image/jpeg\r\nCache-Control: %s\r\n\r\n' \
     "${cache_control}" >"${output}"
-elif [[ "${url}" == *"/assets/"* ]]; then
-  head -c 12001 /dev/zero >"${output}"
 else
-  printf '%s\n' \
-    'One evidence chain, start to finish' \
-    'One evidence-to-action system. Three operational modules.' \
-    'Breakwater ASOC is the system. Secure, Assure, and SOAR own the work.' \
-    'CUSTOMER-CONTROLLED DECISION BOUNDARY' >"${output}"
+  relative_path="${url#${BWTR_SITE_BASE_URL}/}"
+  case "${relative_path}" in
+    ""|*/) relative_path="${relative_path}index.html" ;;
+  esac
+  cp "${BWTR_ARTIFACT}/${relative_path}" "${output}"
 fi
