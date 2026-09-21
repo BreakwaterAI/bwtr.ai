@@ -1,5 +1,5 @@
 {
-  "version": "2026-09-20-product-led",
+  "version": "2026-09-21-ciso-led",
   "routes": [
     {
       "route": "/",
@@ -57,8 +57,8 @@
     "/platform/"
   ],
   "resources": {
-    "styles.css": "assets/site-ui/site.57aa4f310aa3.css",
-    "script.js": "assets/site-ui/site.4937b014a0a1.js",
+    "styles.css": "assets/site-ui/site.60b78aea74a1.css",
+    "script.js": "assets/site-ui/site.4c570fc49dac.js",
     "theme-init.js": "assets/site-ui/theme-init.48bf567099e1.js",
     "favicon.webp": "assets/site-ui/favicon.67b69ee5e105.webp",
     "lead-form.js": "assets/site-ui/lead-form.8eb8f51ef7a1.js"
@@ -206,6 +206,46 @@
       "bytes": 65704
     },
     {
+      "destination": "/assets/product-proof/context-airport-400.webp",
+      "sha256": "766a625c614da592e357ef7e1474d3577267163e4e6d04483bf831beb83dcac3",
+      "bytes": 34856
+    },
+    {
+      "destination": "/assets/product-proof/context-airport-800.webp",
+      "sha256": "57bb191bb911d5340369a8c49be683b49a2e5b66db5c80ec36a1782d4ff167c5",
+      "bytes": 117476
+    },
+    {
+      "destination": "/assets/product-proof/context-substation-400.webp",
+      "sha256": "f029c46e36fe3fa56be8ad5f9c5c9088b29199647a6eec14f68c35af61c446f4",
+      "bytes": 28594
+    },
+    {
+      "destination": "/assets/product-proof/context-substation-800.webp",
+      "sha256": "cc93d426a4a2e8ebd8dee6b0da34e91fae01e60bff771fbf9ba01178d280134f",
+      "bytes": 95316
+    },
+    {
+      "destination": "/assets/product-proof/context-hmi-400.webp",
+      "sha256": "7acf344c09c42ea042f60345774fa108927aaa0ff2d18847eae0bc25762ebd30",
+      "bytes": 40838
+    },
+    {
+      "destination": "/assets/product-proof/context-hmi-800.webp",
+      "sha256": "c06cfd7cb898936a4c40e8d92b0aa50d1c8a2e9bf1cc10920b5bda21f68eb474",
+      "bytes": 108102
+    },
+    {
+      "destination": "/assets/product-proof/context-healthcare-400.webp",
+      "sha256": "f9468c7cac956a43894f24eb6cf461e28f971e6db226129b9366f52dccb268c9",
+      "bytes": 28648
+    },
+    {
+      "destination": "/assets/product-proof/context-healthcare-800.webp",
+      "sha256": "1a20929477bed476fa27d34fa82c3054b5206df73b9acf07e9e1f0787f5dd640",
+      "bytes": 85266
+    },
+    {
       "destination": "/assets/product-proof/Breakwater-secure-attack-path-01.png",
       "sha256": "259bec6a5a564424aaa032a7450e2738fc15f8b8cd276941894bfe7c3475b5d0",
       "bytes": 451263
@@ -259,23 +299,23 @@
     },
     {
       "path": "404.html",
-      "bytes": 3126,
-      "sha256": "3f5a78aafe9cf734bf9f42c5b6736239a1f2f4185d957f6cad9513653aa525e8"
+      "bytes": 3147,
+      "sha256": "742f2a89d7bd2799c795870ee8f942982ee6e9eb6e206ba5aa11af18a11765e0"
     },
     {
       "path": "about/index.html",
-      "bytes": 8850,
-      "sha256": "14a48ce8012e74ef03fbe00731bc46493571464043ac747377541206f7040fac"
+      "bytes": 8568,
+      "sha256": "477a7daf0374887e816d484ed652beb47425bf3890685808e3158c86ffc46baf"
     },
     {
       "path": "airports/index.html",
-      "bytes": 8964,
-      "sha256": "cf48b8d7016099f93ad6ca0a12d824c183e2da7c7761478beb7385cc5e5aaae9"
+      "bytes": 8390,
+      "sha256": "3e546261ce57e97ca3cadecbf654bbd03cf59800c947a52a30f213706a4572c8"
     },
     {
       "path": "architecture/index.html",
-      "bytes": 8551,
-      "sha256": "3a1a3a5eef3e7c5062703d67270ebbbd6ce0c87f19b803013b7e32b14d327228"
+      "bytes": 9766,
+      "sha256": "148258f2a1872f7e8a47250b0323b358834ac8c9560eddfd6fecb5df2663ba65"
     },
     {
       "path": "assets/breakwater-hero-airport-1200.jpg",
@@ -603,6 +643,46 @@
       "sha256": "0c1e2b99aaaa7a1cb0f33cbaaa8be722b6a47be66a0a554d1978f216769f682c"
     },
     {
+      "path": "assets/product-proof/context-airport-400.webp",
+      "bytes": 34856,
+      "sha256": "766a625c614da592e357ef7e1474d3577267163e4e6d04483bf831beb83dcac3"
+    },
+    {
+      "path": "assets/product-proof/context-airport-800.webp",
+      "bytes": 117476,
+      "sha256": "57bb191bb911d5340369a8c49be683b49a2e5b66db5c80ec36a1782d4ff167c5"
+    },
+    {
+      "path": "assets/product-proof/context-healthcare-400.webp",
+      "bytes": 28648,
+      "sha256": "f9468c7cac956a43894f24eb6cf461e28f971e6db226129b9366f52dccb268c9"
+    },
+    {
+      "path": "assets/product-proof/context-healthcare-800.webp",
+      "bytes": 85266,
+      "sha256": "1a20929477bed476fa27d34fa82c3054b5206df73b9acf07e9e1f0787f5dd640"
+    },
+    {
+      "path": "assets/product-proof/context-hmi-400.webp",
+      "bytes": 40838,
+      "sha256": "7acf344c09c42ea042f60345774fa108927aaa0ff2d18847eae0bc25762ebd30"
+    },
+    {
+      "path": "assets/product-proof/context-hmi-800.webp",
+      "bytes": 108102,
+      "sha256": "c06cfd7cb898936a4c40e8d92b0aa50d1c8a2e9bf1cc10920b5bda21f68eb474"
+    },
+    {
+      "path": "assets/product-proof/context-substation-400.webp",
+      "bytes": 28594,
+      "sha256": "f029c46e36fe3fa56be8ad5f9c5c9088b29199647a6eec14f68c35af61c446f4"
+    },
+    {
+      "path": "assets/product-proof/context-substation-800.webp",
+      "bytes": 95316,
+      "sha256": "cc93d426a4a2e8ebd8dee6b0da34e91fae01e60bff771fbf9ba01178d280134f"
+    },
+    {
       "path": "assets/product-proof/nagu-thogiti-headshot-336.webp",
       "bytes": 18440,
       "sha256": "d297203ae960ae2cfed380b10451d3691e82a0e80bf102443f5be09af965c60a"
@@ -633,14 +713,14 @@
       "sha256": "8eb8f51ef7a16e72f69bc3c2e209e6d77b7bd67ecbed242e26d9801741902907"
     },
     {
-      "path": "assets/site-ui/site.4937b014a0a1.js",
-      "bytes": 6011,
-      "sha256": "4937b014a0a121dc9ed55a1530c37444592cc6dde1b8f47f007a43e24d8d3729"
+      "path": "assets/site-ui/site.4c570fc49dac.js",
+      "bytes": 6656,
+      "sha256": "4c570fc49dac928b85aee77ca9c53e80346ee977bf37125fb87d43ac625dd541"
     },
     {
-      "path": "assets/site-ui/site.57aa4f310aa3.css",
-      "bytes": 19779,
-      "sha256": "57aa4f310aa3adbd6e3a0d4d08813ed11118d1e7145b8749f2b23488c1bf3152"
+      "path": "assets/site-ui/site.60b78aea74a1.css",
+      "bytes": 36300,
+      "sha256": "60b78aea74a125f212f4aa7fac781d0909bcf72d9f9bd916d7fedd4109d34457"
     },
     {
       "path": "assets/site-ui/theme-init.48bf567099e1.js",
@@ -649,38 +729,38 @@
     },
     {
       "path": "connected-industry/index.html",
-      "bytes": 9651,
-      "sha256": "b604edb4d1c9bb71ffc2a580158209574c5ecad5370a9f0d056b09085254dc1b"
+      "bytes": 8183,
+      "sha256": "98d19337b3e0056fa14e3d076b3bec2c6598f9f0fd4c9ae3fb04e7fb77e08aba"
     },
     {
       "path": "healthcare/index.html",
-      "bytes": 9313,
-      "sha256": "9d343953033915f6a044a4af9881f23142ad2dcd060a48e850a2a59123f7d90e"
+      "bytes": 8386,
+      "sha256": "1cb6f6641efe48f84cdc188dc9e82dd88e93f56d1f01792ca9b7e98151d2602f"
     },
     {
       "path": "index.html",
-      "bytes": 16519,
-      "sha256": "d0a62d4a4955e1f8e94e39e16c90100bf9ed52a2a9edd9acb5d68004ca504e74"
+      "bytes": 13897,
+      "sha256": "3798cb351aea858c5e7294c84b55594f0f849aec0369d7cad87e2b982c2c78d8"
     },
     {
       "path": "platform/index.html",
-      "bytes": 3279,
-      "sha256": "7b57ac62c1d50825d060781cefb4700789f3b6c954e660332ef13c77b4e012df"
+      "bytes": 3300,
+      "sha256": "1783a5633e59f132a763329429ea933487eaff6c64c07b9e3956427f353b5f45"
     },
     {
       "path": "power-utilities/index.html",
-      "bytes": 8611,
-      "sha256": "cac3fe3d5865284393507d6e44333ddffaa71d29f04ce40d1f7ea15bb05b59e8"
+      "bytes": 8552,
+      "sha256": "bade57d5ad825053e577861ae04a0cec3038462c4df04f0bd1252c986c590c3f"
     },
     {
       "path": "products/index.html",
-      "bytes": 11141,
-      "sha256": "b8cb7ff987ecf1809c756de20e5cd21cf62b64b2058f984e8be3f227ce4267ff"
+      "bytes": 12848,
+      "sha256": "29ae0efad6d03a1c4a85f7ef29959b6870ab3e2897f0e293d8e3f211ca1484c3"
     },
     {
       "path": "research/index.html",
-      "bytes": 7983,
-      "sha256": "de54cb74743c8409633c5725f7f8083d6a025c478c2316ccd441f4579baf8953"
+      "bytes": 7208,
+      "sha256": "c0f3cc3f7a3c4d49259cd697ddf7901ffc1e29b4532876603d076a42c778de05"
     },
     {
       "path": "robots.txt",
@@ -689,8 +769,8 @@
     },
     {
       "path": "security/index.html",
-      "bytes": 7100,
-      "sha256": "9a2fa55271562c0f67cdcc8400e027b1aa410ff057a5ca6c043f6e604ca5318e"
+      "bytes": 7134,
+      "sha256": "ac965c726e02e0245434decbbd9ad9370eeda1b8fa1a1c54b760de0b7cbdae1f"
     },
     {
       "path": "sitemap.xml",

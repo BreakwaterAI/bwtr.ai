@@ -8,6 +8,7 @@ const root = resolve(process.argv[2] || '');
 assert.equal(process.argv.length, 3, 'Usage: node scripts/test-redesign-release-candidate.mjs CANDIDATE_SITE');
 const release = JSON.parse(readFileSync(new URL('../site-release.json', import.meta.url)));
 const candidateManifest = join(dirname(root), 'release-candidate.json');
+const cisoRelease = existsSync(candidateManifest) || release.version === '2026-09-21-ciso-led';
 const manifest = existsSync(candidateManifest) ? JSON.parse(readFileSync(candidateManifest, 'utf8')) : {
   productionApproved: false, files: release.files, routes: release.routes,
   resources: Object.fromEntries(Object.entries(release.resources).map(([k, v]) => [k, '/' + v])),
@@ -124,6 +125,10 @@ try {
   assert.equal(await page.locator('[data-menu]').getAttribute('aria-expanded'), 'false');
   for (const path of ['/', '/products/', '/connected-industry/']) {
     await page.goto(base + path);
+    // The CISO revision intentionally keeps secondary PQC detail collapsed.
+    // Open it through its native control before exercising its enlargement UI.
+    const disclosure = page.locator('#secure-crypto-readiness');
+    if (await disclosure.count() && !await disclosure.evaluate(el => el.open)) await disclosure.locator('summary').click();
     for (const button of await page.locator('[data-enlarge]').all()) {
       const before = served.length;
       await button.click(); await page.locator('dialog img').evaluate(i => i.decode());
@@ -153,6 +158,7 @@ try {
       assert.ok(bytes <= budget, `${route.route} ${width}@${dpr}: ${bytes} > ${budget}`);
       assert.equal(requests.filter(r => /brand-(?:light|dark)-/.test(r.path)).length, 1);
       assert.ok(!requests.some(r => /Breakwater-.*\.png$|horizontal-.*\.png$|emblems\/|soar-review\.mp4$/.test(r.path)));
+      if (cisoRelease) assert.ok(!requests.some(r => /\.mp4$/.test(r.path)), 'CISO release must not fetch clips before explicit play');
       const captures = await tab.locator('.product-capture').evaluateAll(images => images.map(i => ({ src: i.currentSrc, width: i.getBoundingClientRect().width })));
       for (const capture of captures.filter(c => c.src)) {
         const choices = capture.src.includes('PQC') ? [640,960,1280,1676] : [640,960,1280,1920];
@@ -168,6 +174,12 @@ try {
   for (const path of ['/', '/products/']) {
     await film.goto(base + path);
     const video = film.locator('video').first(); await video.scrollIntoViewIfNeeded();
+    // Both the candidate and the promoted CISO release require opt-in playback.
+    if (cisoRelease) {
+      assert.equal(await video.getAttribute('src'), null);
+      assert.ok(await video.evaluate(v => v.paused));
+      await film.locator('[data-play]').first().click();
+    }
     await film.waitForFunction(() => { const v = document.querySelector('video'); return v.readyState >= 2 && !v.paused; });
     const duration = await video.evaluate(v => v.duration); assert.ok(duration >= 5 && duration <= 10);
     await film.locator('[data-play]').first().click(); assert.ok(await video.evaluate(v => v.paused));

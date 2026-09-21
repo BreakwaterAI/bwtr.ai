@@ -4,7 +4,7 @@ import { readFileSync, writeFileSync, mkdirSync, mkdtempSync, copyFileSync, rena
 import { join, dirname } from 'node:path';
 import { spawnSync } from 'node:child_process';
 const release = JSON.parse(readFileSync('site-release.json'));
-for (const format of ['legacy', 'redesign']) {
+for (const format of ['legacy', 'product-led', 'ciso-led']) {
   const root = mkdtempSync('/tmp/bwtr-rollback-test-');
   mkdirSync(join(root, 'architecture'));
   const dependencies = [];
@@ -16,7 +16,10 @@ for (const format of ['legacy', 'redesign']) {
     }
     writeFileSync(join(root, 'architecture/index.html'), `CUSTOMER-CONTROLLED DECISION BOUNDARY<link href="/${dependencies[0]}"><script src="/${dependencies[1]}"></script>`);
   } else {
-    copyFileSync('architecture/index.html', join(root, 'architecture/index.html'));
+    const architecture = readFileSync('architecture/index.html', 'utf8');
+    writeFileSync(join(root, 'architecture/index.html'), format === 'product-led'
+      ? architecture.replace('How Breakwater connects to your environment.', 'Know what connects.')
+      : architecture);
     for (const path of Object.values(release.resources)) {
       mkdirSync(dirname(join(root, path)), { recursive: true }); copyFileSync(path, join(root, path)); dependencies.push(path);
     }
@@ -27,4 +30,4 @@ for (const format of ['legacy', 'redesign']) {
   assert.notEqual(run().status, 0, `${format}: missing dependency accepted`);
   writeFileSync(path, 'corrupted'); assert.notEqual(run().status, 0, `${format}: corrupted dependency accepted`);
 }
-console.log('Legacy and redesigned rollback snapshots: valid, missing and corrupted dependency tests passed.');
+console.log('Legacy, product-led and CISO-led rollback snapshots: valid, missing and corrupted dependency tests passed.');

@@ -1,0 +1,20 @@
+{
+  "revision": "2026-09-21-ciso-led",
+  "publicManifestSha256": "c69570a154374b1ad3a9bd8447ac3ee9a253625df871057f2d3f07b67979bdef",
+  "approvedBy": "Website owner in this release conversation, September 21, 2026",
+  "scope": "Ten marketing content pages, 404 and platform fallback; latest Architecture corrections and clinical-equipment image. Commit and push main to the existing GitHub production deployment after technical checks pass.",
+  "manualReviewCompleted": true,
+  "clinicalPhotoPublicationApproved": true,
+  "productionPublicationApproved": true,
+  "evidence": "Owner approved the current preview, then answered 'both are yes' to manual device/Safari/screen-reader review and clinical-photo public-use approval after the stated rebuild, test, commit/push and deploy sequence.",
+  "limitations": "Owner attestation, not independent manual review or stock-license verification. Existing product-media approval retained. No new real inquiry, product changes, DNS changes or infrastructure changes authorized.",
+  "approvedSources": {
+    "redesign-preview/build-preview.mjs": "10a5da6c28832db0aff51b0c038b410e8b2e3f2d0d72cf4827cabfb26435ca05",
+    "redesign-preview/ciso-pages.mjs": "664601e412231aa022f6c9ed2b9b643fe41e5f9baecd131129e9ee0cd8beb5e0",
+    "redesign-preview/support-pages.mjs": "8f9eae80fbefbce0bb7302cb550d295f7dbd277dc3ef43f037c256e7db1a0ea7",
+    "redesign-preview/preview.css": "60b78aea74a125f212f4aa7fac781d0909bcf72d9f9bd916d7fedd4109d34457",
+    "redesign-preview/preview.js": "b20cd2a8cae657f9c4c363bcb2bbf9bafbffd651ae89bbc2bfa025d9e26ae4a2",
+    "redesign-preview/theme-init.js": "48bf567099e1219ad0e9c71691b03e6010299dec440abed7b7c29306faef7284",
+    "redesign-preview/integration-assets.lock.json": "53b55b26c6fd042f6bb44634cd92e7c8a838335a7fa3335c870ab31a9af4b092"
+  }
+}

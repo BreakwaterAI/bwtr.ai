@@ -119,14 +119,14 @@ invalidate_and_wait "publish"
 
 verification_body="${RUNNER_TEMP:-/tmp}/bwtr-site-verification.html"
 run_phase "smoke-home" curl -fsS --output "${verification_body}" "${site_base_url}/"
-grep -F "See the connections." "${verification_body}" >/dev/null
-grep -F "Plan your post-quantum transition." "${verification_body}" >/dev/null
+grep -F "Understand exposure across connected operations." "${verification_body}" >/dev/null
+grep -F "See what the connection is based on." "${verification_body}" >/dev/null
 run_phase "smoke-products" curl -fsS --output "${verification_body}" "${site_base_url}/products/"
-grep -F "A closer look at the evidence." \
+grep -F "Put security findings in operational context." \
   "${verification_body}" >/dev/null
 run_phase "smoke-architecture" curl -fsS --output "${verification_body}" \
   "${site_base_url}/architecture/"
-grep -F "Know what connects." "${verification_body}" >/dev/null
+grep -F "How Breakwater connects to your environment." "${verification_body}" >/dev/null
 
 # Verify exact released documents and UI bytes, not merely a matching headline.
 while IFS= read -r relative_path; do

@@ -24,7 +24,13 @@ for (const route of release.routes) {
   for (const text of [`rel="canonical" href="${route.canonical}"`, `property="og:url" content="${route.canonical}"`, `property="og:image" content="${route.socialImage}"`, `name="twitter:image" content="${route.socialImage}"`, 'property="og:image:width" content="1280"', 'property="og:image:height" content="720"']) assert.ok(html.includes(text), `${route.route}: ${text}`);
 }
 const home = read('index.html');
-for (const text of ['See the connections.', 'Understand the exposure.', 'Plan your post-quantum transition.', 'Simulated plant', 'data-lead-form', 'Google Apps Script', 'Breakwater-managed Google Sheet', '<fieldset disabled', 'data-play', 'id="product-family"']) assert.ok(home.includes(text), text);
+for (const text of ['IoT & OT security', 'Understand exposure across connected operations.', 'See what the connection is based on.', 'cryptographic readiness', 'Simulated plant', 'data-lead-form', 'Google Apps Script', 'Breakwater-managed Google Sheet', '<fieldset disabled', 'data-play', 'id="product-family"']) assert.ok(home.includes(text), text);
+assert.ok(!home.includes('Plan your post-quantum transition.'), 'PQC must not dominate the homepage');
+const products = read('products/index.html');
+assert.match(products, /<details\b[^>]*id="secure-crypto-readiness"[^>]*>/);
+assert.ok(!/<details\b[^>]*id="secure-crypto-readiness"[^>]*\bopen\b/.test(products), 'Secondary PQC detail is closed initially');
+assert.match(products, /Post-quantum transition planning/);
+assert.match(products, /soar-review-summary/);
 for (const name of ['name', 'email', 'organization', 'interest', 'message', 'website']) assert.ok(home.includes(`name="${name}"`));
 assert.ok(!/hero-backdrop|secure\.webp|assure\.webp|soar\.webp/.test(home));
 const lead = read(release.resources['lead-form.js']);
@@ -33,11 +39,16 @@ const headlines = [];
 for (const industry of ['airports', 'healthcare', 'power-utilities', 'connected-industry']) {
   const html = read(`${industry}/index.html`);
   headlines.push(html.match(/<h1[^>]*>(.*?)<\/h1>/s)[1]);
-  assert.match(html, /Context photograph/);
-  assert.match(html, /https:\/\/unsplash.com\//);
+  assert.match(html, /Photo: Unsplash/);
+  assert.ok(!/href="https:\/\/(?:www\.)?unsplash\.com\//.test(html), 'Photo credits remain unlinked');
 }
+assert.match(read('healthcare/index.html'), /Photo: Unsplash · not a depiction of an exposed facility/);
 assert.equal(new Set(headlines).size, 4, 'Industry messages must be distinct');
 for (const anchor of ['reference-model', 'technical-architecture', 'category-positioning']) assert.ok(read('architecture/index.html').includes(`id="${anchor}"`));
+const architecture = read('architecture/index.html');
+for (const text of ['Illustrative reference design', 'must be confirmed for the selected configuration', 'These are reference-design mechanisms. Confirm support for your deployment with engineering.', 'aria-describedby="architecture-mechanism-scope"']) assert.ok(architecture.includes(text), text);
+assert.ok(!architecture.includes('ASOC'), 'Do not use an unexplained acronym in Architecture copy');
+assert.ok(!/<h[23][^>]*class="architecture-zone-label"/.test(architecture), 'Diagram zones are not page sections');
 for (const text of ['Nagu Thogiti', 'Chetna Mallarapu', 'President']) assert.ok(read('about/index.html').includes(text));
 assert.match(read('404.html'), /Page not found/);
 assert.match(read('platform/index.html'), /http-equiv="refresh" content="0;\s*url=\/architecture\/"/);

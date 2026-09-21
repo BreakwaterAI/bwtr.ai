@@ -12,7 +12,7 @@ const architecturePath = join(rollbackArtifact, "architecture", "index.html");
 assert.ok(existsSync(architecturePath), "rollback snapshot is missing architecture/index.html");
 const architecture = readFileSync(architecturePath, "utf8");
 assert.ok(
-  architecture.includes("CUSTOMER-CONTROLLED DECISION BOUNDARY") || architecture.includes('Know what connects.'),
+  architecture.includes("CUSTOMER-CONTROLLED DECISION BOUNDARY") || architecture.includes('Know what connects.') || architecture.includes('How Breakwater connects to your environment.'),
   "rollback Architecture page is missing its release marker",
 );
 

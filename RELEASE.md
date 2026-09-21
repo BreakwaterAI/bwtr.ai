@@ -1,6 +1,37 @@
-# Product-led website release
+# CISO-led website release
 
-September 20, 2026. Marketing website only: `BreakwaterAI/bwtr.ai`.
+September 21, 2026. Marketing website only: `BreakwaterAI/bwtr.ai`.
+
+## Current revision approval
+
+The owner approved the latest local design, confirmed manual device/Safari/
+screen-reader review complete and authorized public use of the supplied clinical
+equipment photograph, then confirmed proceeding with the stated technical-check,
+main-commit/push and production-deployment sequence. The source-bound approval is
+recorded in `release-prep/ciso-publication-approval.json`. These are owner
+attestations, not independent manual-review or stock-license verification.
+
+This revision puts IoT/OT security first, makes PQC a discoverable secondary Secure
+capability, improves mobile evidence presentation and industry-specific content,
+and labels the Architecture diagram and mechanisms as a reference design whose
+deployment support must be confirmed with engineering. No shipped-capability
+sign-off is implied. Photography uses minimal unlinked Unsplash credit; Healthcare
+also states that the photograph does not depict an exposed facility.
+
+Existing product-media approval and the verified lead endpoint are retained.
+No further real inquiry is authorized or needed for this unchanged endpoint;
+release form checks intercept submissions. Current local design review stays on
+port 4179; the existing release verification port 4177 is not changed.
+
+Pre-push validation passed on the exact 97-file public artifact: 125 browser/form
+checks, 30 cold-cache budget cases, 12 intercepted submissions and zero real
+submissions. Brand, canonical metadata, approved copy, offline lead handling,
+deployment-target guards, exact artifact hashes, publisher failure/rollback tests
+and legacy/product-led/CISO-led snapshot validation all passed. Both existing
+video files matched their approved hashes, MIME types and HTTP byte-range behavior.
+The approval record pins the public manifest hash. Production builds use the
+committed HTML and assets directly; local prototype sources, reports and review
+evidence are not packaged or swept into this release commit.
 
 ## Approved scope
 
@@ -14,7 +45,7 @@ changed. Vantablack #000100 and Breakwater Red #F0443E remain locked by BRAND.md
 
 ## Reproducible public artifact
 
-`site-release.json` records the exact 89 public source files and their hashes,
+`site-release.json` records the exact 97 public source files and their hashes,
 five content-addressed UI resources, canonical/social metadata, endpoint and media
 inventory. It is source-only. The build adds only the public asset manifest.
 No planning documents, test evidence, source scripts, or local review banners ship.
