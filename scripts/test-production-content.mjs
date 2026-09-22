@@ -2,6 +2,7 @@ import assert from 'node:assert/strict';
 import { existsSync, readFileSync } from 'node:fs';
 import { resolve, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import './test-production-branding.mjs';
 const root = fileURLToPath(new URL('../', import.meta.url));
 const release = JSON.parse(readFileSync(join(root, 'site-release.json')));
 const read = file => readFileSync(join(root, file), 'utf8');

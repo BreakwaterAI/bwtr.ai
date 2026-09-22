@@ -15,7 +15,10 @@
     }
   },
   "approvedColors": {
-    "brand": ["#000100", "#F0443E"],
+    "brand": [
+      "#000100",
+      "#F0443E"
+    ],
     "neutral": [
       "#000000",
       "#0A0A0B",
@@ -36,7 +39,11 @@
       "#FFF",
       "#FFFFFF"
     ],
-    "functional": ["#16724A", "#5EE6A8", "#F8BD64"]
+    "functional": [
+      "#16724A",
+      "#5EE6A8",
+      "#F8BD64"
+    ]
   },
   "approvedRgbTriplets": [
     "0,0,0",
@@ -52,6 +59,14 @@
     "assets/breakwater-mark-light.png": "0aecc7581d5eff74e9022440f75473c53fe25ccb93d259b285ab26c86a1a41cf",
     "assets/breakwater-social-card.png": "4f02884cbe4c93e470479e375fe29afae36686e501abf197ab187dc7fe184d7a",
     "assets/breakwater-stacked-dark.png": "e438f126cc5d8e00438091697bc87a83a6e1a558fbe4440c4c063f040b967a49",
-    "assets/breakwater-stacked-light.png": "bf6c9386d7fdf03bbbb08a2ddab92b922745a14f75ec10a6800709c24c7f4279"
+    "assets/breakwater-stacked-light.png": "bf6c9386d7fdf03bbbb08a2ddab92b922745a14f75ec10a6800709c24c7f4279",
+    "assets/product-proof/brand-light-v05-340.webp": "6cb97d83275a9e385aacf130611760a0808b73ff389e2ac4949e4e2a44e19405",
+    "assets/product-proof/brand-light-v05-510.webp": "30734038bfdf721a0178dcd9922e999b6548b1b21ea23cd0b3c8488e95b96fb2",
+    "assets/product-proof/brand-light-v05-680.webp": "d6da3179ae8da1fb4719d088e086eabf6a347bda124d0bb78c90b2f6246cb44d",
+    "assets/product-proof/brand-dark-v05-340.webp": "5b8571e5cd5550fcfc31234aea350b0a71209122c8859cceff043a53fade7438",
+    "assets/product-proof/brand-dark-v05-510.webp": "b8b9cedabc3ee324537c630b0c25d3e80ec2dc5a39537737ae15bce26fd5549d",
+    "assets/product-proof/brand-dark-v05-680.webp": "88b821a7ab9de11f59afaadc85611b036e3505fa4fbc047ca768fe0358505ff5",
+    "assets/product-proof/apple-touch-icon-v05-180.png": "40321ac600fea8c882ebac78f5a644b8ff101869dbbcf19095912001c82f88b5",
+    "assets/site-ui/favicon.59d331b98f38.webp": "59d331b98f38ac09c9f1bd56caaa9baf2c3c27fe834ffba3b72e78f84137a7dd"
   }
 }

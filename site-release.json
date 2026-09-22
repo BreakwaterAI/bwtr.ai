@@ -57,34 +57,14 @@
     "/platform/"
   ],
   "resources": {
-    "styles.css": "assets/site-ui/site.60b78aea74a1.css",
-    "script.js": "assets/site-ui/site.4c570fc49dac.js",
+    "styles.css": "assets/site-ui/site.750c35ca1506.css",
+    "script.js": "assets/site-ui/site.3bdb33dbae94.js",
     "theme-init.js": "assets/site-ui/theme-init.48bf567099e1.js",
-    "favicon.webp": "assets/site-ui/favicon.67b69ee5e105.webp",
+    "favicon.webp": "assets/site-ui/favicon.59d331b98f38.webp",
     "lead-form.js": "assets/site-ui/lead-form.8eb8f51ef7a1.js"
   },
   "endpoint": "https://script.google.com/macros/s/AKfycbyn7VeN_qJtlnNLMN_nzW_nMHmPXkt9SN_Qx-1AWk1im76oI9m9v0b_7ujn2SWa1z1N/exec",
   "media": [
-    {
-      "destination": "/assets/product-proof/brand-light-340.webp",
-      "sha256": "14962c8560e4cb896359a2a887d0f72dcc5ab36752bfc9a81e0b4c8167afce94",
-      "bytes": 12608
-    },
-    {
-      "destination": "/assets/product-proof/brand-light-510.webp",
-      "sha256": "aa03f05e66ad7331c0d6b70fd5d9360b3b5c3c3c3bbd1fde6bbaf93adc46f31d",
-      "bytes": 20852
-    },
-    {
-      "destination": "/assets/product-proof/brand-dark-340.webp",
-      "sha256": "96cf58a24d4eaa4bbb1f120b5bace36a14ffc4c041a98229812cc36dea8e3a6b",
-      "bytes": 9382
-    },
-    {
-      "destination": "/assets/product-proof/brand-dark-510.webp",
-      "sha256": "f6b2962ce3e34ed2064189c82e3ff0696c8bf9cebfd1b49a3b211a109a17bd02",
-      "bytes": 16694
-    },
     {
       "destination": "/assets/product-proof/Breakwater-secure-attack-path-01-640.webp",
       "sha256": "eefbc7fdc2664b4840b4a1c72cdc16be78614c6fbe943c51f294b298ddecf5b0",
@@ -289,6 +269,41 @@
       "destination": "/assets/product-proof/soar-review-poster.jpg",
       "sha256": "75d089ad2f70d46fe1325b180f15ec690c9a3c308f95fb000a01a4840b57150d",
       "bytes": 159632
+    },
+    {
+      "destination": "/assets/product-proof/brand-light-v05-340.webp",
+      "sha256": "6cb97d83275a9e385aacf130611760a0808b73ff389e2ac4949e4e2a44e19405",
+      "bytes": 4934
+    },
+    {
+      "destination": "/assets/product-proof/brand-light-v05-510.webp",
+      "sha256": "30734038bfdf721a0178dcd9922e999b6548b1b21ea23cd0b3c8488e95b96fb2",
+      "bytes": 7174
+    },
+    {
+      "destination": "/assets/product-proof/brand-light-v05-680.webp",
+      "sha256": "d6da3179ae8da1fb4719d088e086eabf6a347bda124d0bb78c90b2f6246cb44d",
+      "bytes": 10150
+    },
+    {
+      "destination": "/assets/product-proof/brand-dark-v05-340.webp",
+      "sha256": "5b8571e5cd5550fcfc31234aea350b0a71209122c8859cceff043a53fade7438",
+      "bytes": 4914
+    },
+    {
+      "destination": "/assets/product-proof/brand-dark-v05-510.webp",
+      "sha256": "b8b9cedabc3ee324537c630b0c25d3e80ec2dc5a39537737ae15bce26fd5549d",
+      "bytes": 7192
+    },
+    {
+      "destination": "/assets/product-proof/brand-dark-v05-680.webp",
+      "sha256": "88b821a7ab9de11f59afaadc85611b036e3505fa4fbc047ca768fe0358505ff5",
+      "bytes": 10048
+    },
+    {
+      "destination": "/assets/product-proof/apple-touch-icon-v05-180.png",
+      "sha256": "40321ac600fea8c882ebac78f5a644b8ff101869dbbcf19095912001c82f88b5",
+      "bytes": 5646
     }
   ],
   "files": [
@@ -299,23 +314,23 @@
     },
     {
       "path": "404.html",
-      "bytes": 3147,
-      "sha256": "742f2a89d7bd2799c795870ee8f942982ee6e9eb6e206ba5aa11af18a11765e0"
+      "bytes": 3309,
+      "sha256": "b1dba84600e0af05717963689aad6bffa28ad44ff495c31deee85031ef6af929"
     },
     {
       "path": "about/index.html",
-      "bytes": 8568,
-      "sha256": "477a7daf0374887e816d484ed652beb47425bf3890685808e3158c86ffc46baf"
+      "bytes": 8730,
+      "sha256": "1f326158b44d81c0d4a0ba45daa06b81dfab37e57f09c121c95257517b66e5f4"
     },
     {
       "path": "airports/index.html",
-      "bytes": 8390,
-      "sha256": "3e546261ce57e97ca3cadecbf654bbd03cf59800c947a52a30f213706a4572c8"
+      "bytes": 8552,
+      "sha256": "5dcd11746410b0e8e35dc024e1f90a3f1f531fde849617fe19e4ea004dd96c1f"
     },
     {
       "path": "architecture/index.html",
-      "bytes": 9766,
-      "sha256": "148258f2a1872f7e8a47250b0323b358834ac8c9560eddfd6fecb5df2663ba65"
+      "bytes": 9928,
+      "sha256": "077fc83faaa870e561fc2ad08c66dd1d5023a6ef7987fc84902903d8d13d80da"
     },
     {
       "path": "assets/breakwater-hero-airport-1200.jpg",
@@ -488,6 +503,41 @@
       "sha256": "ac731efa9e1dc7f613299da89557e0c2895ebbfe5eb672ab0a8868a5ead87cb7"
     },
     {
+      "path": "assets/product-proof/apple-touch-icon-v05-180.png",
+      "bytes": 5646,
+      "sha256": "40321ac600fea8c882ebac78f5a644b8ff101869dbbcf19095912001c82f88b5"
+    },
+    {
+      "path": "assets/product-proof/brand-dark-v05-340.webp",
+      "bytes": 4914,
+      "sha256": "5b8571e5cd5550fcfc31234aea350b0a71209122c8859cceff043a53fade7438"
+    },
+    {
+      "path": "assets/product-proof/brand-dark-v05-510.webp",
+      "bytes": 7192,
+      "sha256": "b8b9cedabc3ee324537c630b0c25d3e80ec2dc5a39537737ae15bce26fd5549d"
+    },
+    {
+      "path": "assets/product-proof/brand-dark-v05-680.webp",
+      "bytes": 10048,
+      "sha256": "88b821a7ab9de11f59afaadc85611b036e3505fa4fbc047ca768fe0358505ff5"
+    },
+    {
+      "path": "assets/product-proof/brand-light-v05-340.webp",
+      "bytes": 4934,
+      "sha256": "6cb97d83275a9e385aacf130611760a0808b73ff389e2ac4949e4e2a44e19405"
+    },
+    {
+      "path": "assets/product-proof/brand-light-v05-510.webp",
+      "bytes": 7174,
+      "sha256": "30734038bfdf721a0178dcd9922e999b6548b1b21ea23cd0b3c8488e95b96fb2"
+    },
+    {
+      "path": "assets/product-proof/brand-light-v05-680.webp",
+      "bytes": 10150,
+      "sha256": "d6da3179ae8da1fb4719d088e086eabf6a347bda124d0bb78c90b2f6246cb44d"
+    },
+    {
       "path": "assets/product-proof/Breakwater-Assure-liveview-01-1280.webp",
       "bytes": 144284,
       "sha256": "0ec9eabcc748001bda3c540dc3a75d5656a7ba3904931e9727c0b6520fc5e5ef"
@@ -513,31 +563,6 @@
       "sha256": "b7cc92803d124855737a1baae37780ebe39bf1584c0a71b0e3f5071c0c4ca306"
     },
     {
-      "path": "assets/product-proof/Breakwater-secure-PQC-01-1280.webp",
-      "bytes": 185502,
-      "sha256": "1ae73a693b2acb449b11742abb99262050b43ec13f15c2cedf57fd0060aa9125"
-    },
-    {
-      "path": "assets/product-proof/Breakwater-secure-PQC-01-1676.webp",
-      "bytes": 110322,
-      "sha256": "ef16f8b3f33152b4e08fbffed9e002e8c72d0151e7e8578fc1524c399934d278"
-    },
-    {
-      "path": "assets/product-proof/Breakwater-secure-PQC-01-640.webp",
-      "bytes": 67092,
-      "sha256": "bb9709e212812761dd2060eb9ece14bdc619ddb92f884aff42fee3464479bcf1"
-    },
-    {
-      "path": "assets/product-proof/Breakwater-secure-PQC-01-960.webp",
-      "bytes": 120914,
-      "sha256": "d3f2ed8b3feec6136680309cc55984d6be1af6b69e21ff844b91b8d781547f66"
-    },
-    {
-      "path": "assets/product-proof/Breakwater-secure-PQC-01.png",
-      "bytes": 472486,
-      "sha256": "1ae5a4c65d498ffb35f652258507fb48401145dd87f0508ef67173794fdf7478"
-    },
-    {
       "path": "assets/product-proof/Breakwater-secure-attack-path-01-1280.webp",
       "bytes": 89774,
       "sha256": "b7064e7823455db776ac9ee46c86db0422c3c2168825d00e28a9cdb715f6e532"
@@ -561,6 +586,31 @@
       "path": "assets/product-proof/Breakwater-secure-attack-path-01.png",
       "bytes": 451263,
       "sha256": "259bec6a5a564424aaa032a7450e2738fc15f8b8cd276941894bfe7c3475b5d0"
+    },
+    {
+      "path": "assets/product-proof/Breakwater-secure-PQC-01-1280.webp",
+      "bytes": 185502,
+      "sha256": "1ae73a693b2acb449b11742abb99262050b43ec13f15c2cedf57fd0060aa9125"
+    },
+    {
+      "path": "assets/product-proof/Breakwater-secure-PQC-01-1676.webp",
+      "bytes": 110322,
+      "sha256": "ef16f8b3f33152b4e08fbffed9e002e8c72d0151e7e8578fc1524c399934d278"
+    },
+    {
+      "path": "assets/product-proof/Breakwater-secure-PQC-01-640.webp",
+      "bytes": 67092,
+      "sha256": "bb9709e212812761dd2060eb9ece14bdc619ddb92f884aff42fee3464479bcf1"
+    },
+    {
+      "path": "assets/product-proof/Breakwater-secure-PQC-01-960.webp",
+      "bytes": 120914,
+      "sha256": "d3f2ed8b3feec6136680309cc55984d6be1af6b69e21ff844b91b8d781547f66"
+    },
+    {
+      "path": "assets/product-proof/Breakwater-secure-PQC-01.png",
+      "bytes": 472486,
+      "sha256": "1ae5a4c65d498ffb35f652258507fb48401145dd87f0508ef67173794fdf7478"
     },
     {
       "path": "assets/product-proof/Breakwater-secure-topology-01-1280.webp",
@@ -611,26 +661,6 @@
       "path": "assets/product-proof/Breakwater-secure-vuln-01.png",
       "bytes": 488220,
       "sha256": "2635b9297b54b241849d65f27f52d75e9ef60c13b7faa60306dfb6c3e0969bbd"
-    },
-    {
-      "path": "assets/product-proof/brand-dark-340.webp",
-      "bytes": 9382,
-      "sha256": "96cf58a24d4eaa4bbb1f120b5bace36a14ffc4c041a98229812cc36dea8e3a6b"
-    },
-    {
-      "path": "assets/product-proof/brand-dark-510.webp",
-      "bytes": 16694,
-      "sha256": "f6b2962ce3e34ed2064189c82e3ff0696c8bf9cebfd1b49a3b211a109a17bd02"
-    },
-    {
-      "path": "assets/product-proof/brand-light-340.webp",
-      "bytes": 12608,
-      "sha256": "14962c8560e4cb896359a2a887d0f72dcc5ab36752bfc9a81e0b4c8167afce94"
-    },
-    {
-      "path": "assets/product-proof/brand-light-510.webp",
-      "bytes": 20852,
-      "sha256": "aa03f05e66ad7331c0d6b70fd5d9360b3b5c3c3c3bbd1fde6bbaf93adc46f31d"
     },
     {
       "path": "assets/product-proof/chetna-mallarapu-headshot-336.webp",
@@ -703,9 +733,9 @@
       "sha256": "75d089ad2f70d46fe1325b180f15ec690c9a3c308f95fb000a01a4840b57150d"
     },
     {
-      "path": "assets/site-ui/favicon.67b69ee5e105.webp",
-      "bytes": 3428,
-      "sha256": "67b69ee5e105b3f593db552eccb5dbf2a4f864d6bb3a0d474218ead791a928cd"
+      "path": "assets/site-ui/favicon.59d331b98f38.webp",
+      "bytes": 1226,
+      "sha256": "59d331b98f38ac09c9f1bd56caaa9baf2c3c27fe834ffba3b72e78f84137a7dd"
     },
     {
       "path": "assets/site-ui/lead-form.8eb8f51ef7a1.js",
@@ -713,14 +743,14 @@
       "sha256": "8eb8f51ef7a16e72f69bc3c2e209e6d77b7bd67ecbed242e26d9801741902907"
     },
     {
-      "path": "assets/site-ui/site.4c570fc49dac.js",
-      "bytes": 6656,
-      "sha256": "4c570fc49dac928b85aee77ca9c53e80346ee977bf37125fb87d43ac625dd541"
+      "path": "assets/site-ui/site.3bdb33dbae94.js",
+      "bytes": 6726,
+      "sha256": "3bdb33dbae9467104d07ae084732ef2c5a451e2522a238fccf4cdb724075c3fe"
     },
     {
-      "path": "assets/site-ui/site.60b78aea74a1.css",
-      "bytes": 36300,
-      "sha256": "60b78aea74a125f212f4aa7fac781d0909bcf72d9f9bd916d7fedd4109d34457"
+      "path": "assets/site-ui/site.750c35ca1506.css",
+      "bytes": 36462,
+      "sha256": "750c35ca1506265dcef81b08ee0b4dcf0e9d899bbf556d92fc81f7d05b12c49b"
     },
     {
       "path": "assets/site-ui/theme-init.48bf567099e1.js",
@@ -729,38 +759,38 @@
     },
     {
       "path": "connected-industry/index.html",
-      "bytes": 8183,
-      "sha256": "98d19337b3e0056fa14e3d076b3bec2c6598f9f0fd4c9ae3fb04e7fb77e08aba"
+      "bytes": 8345,
+      "sha256": "44d6c3ce62331c13e2013b3801039e79de7bf764e590ea482b7e8676c6dbfb65"
     },
     {
       "path": "healthcare/index.html",
-      "bytes": 8386,
-      "sha256": "1cb6f6641efe48f84cdc188dc9e82dd88e93f56d1f01792ca9b7e98151d2602f"
+      "bytes": 8548,
+      "sha256": "f7e1280e29ee99ecfcea04a2899836d1bd0b39cbaa39b0a0a54a067a7fceeee0"
     },
     {
       "path": "index.html",
-      "bytes": 13897,
-      "sha256": "3798cb351aea858c5e7294c84b55594f0f849aec0369d7cad87e2b982c2c78d8"
+      "bytes": 14059,
+      "sha256": "b02cb80dffc9b0049dcc4804235a8590076a249d9cbf68bde0716916d6bae73e"
     },
     {
       "path": "platform/index.html",
-      "bytes": 3300,
-      "sha256": "1783a5633e59f132a763329429ea933487eaff6c64c07b9e3956427f353b5f45"
+      "bytes": 3462,
+      "sha256": "779b8495b517c91028ad6ffac653f651e179c3f70fafc34b57cc2b14f3dba355"
     },
     {
       "path": "power-utilities/index.html",
-      "bytes": 8552,
-      "sha256": "bade57d5ad825053e577861ae04a0cec3038462c4df04f0bd1252c986c590c3f"
+      "bytes": 8714,
+      "sha256": "50718ec00708258de164bfe69cd5a1738431cc2e28136a32578f0477ce6d77d9"
     },
     {
       "path": "products/index.html",
-      "bytes": 12848,
-      "sha256": "29ae0efad6d03a1c4a85f7ef29959b6870ab3e2897f0e293d8e3f211ca1484c3"
+      "bytes": 13010,
+      "sha256": "8824a4538308858b8e27b837bc56e79e17b1f9a45d7084ff1eb5ec03e2a44302"
     },
     {
       "path": "research/index.html",
-      "bytes": 7208,
-      "sha256": "c0f3cc3f7a3c4d49259cd697ddf7901ffc1e29b4532876603d076a42c778de05"
+      "bytes": 7370,
+      "sha256": "6437e8da03758a221a94347c878d2052f43fd87550c891b79048d2b7939a2cc6"
     },
     {
       "path": "robots.txt",
@@ -769,13 +799,14 @@
     },
     {
       "path": "security/index.html",
-      "bytes": 7134,
-      "sha256": "ac965c726e02e0245434decbbd9ad9370eeda1b8fa1a1c54b760de0b7cbdae1f"
+      "bytes": 7296,
+      "sha256": "86b0dde989cb373347a0284ed02a3a1fbcff5b07abd9675cdba1a94f3016f23e"
     },
     {
       "path": "sitemap.xml",
       "bytes": 661,
       "sha256": "3934ffae7007dc370f707490b59b1353ba251c9df38d238df938100e240f578d"
     }
-  ]
+  ],
+  "brandRevision": "2026-09-21-logo-v05"
 }

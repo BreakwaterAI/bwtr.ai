@@ -4,6 +4,28 @@ September 21, 2026. Marketing website only: `BreakwaterAI/bwtr.ai`.
 
 ## Current revision approval
 
+### Logo update: September 21, 2026
+
+After reviewing the v05 header and icons locally, the owner said: "looks good...
+update teh production and commit to the main branch..." This approves the logo
+update and deployment, not additional content changes. The release retains the
+`2026-09-21-ciso-led` content version and adds `brandRevision`:
+`2026-09-21-logo-v05`. The current public artifact contains **100 files**.
+
+Changes are limited to the horizontal logo in both themes, responsive header
+sizing, tablet navigation spacing, mark-only favicon, and Apple touch icon on
+all twelve HTML documents. Body copy, product media, social cards, lead endpoint,
+form behavior, canonicals, DNS and infrastructure are unchanged. Earlier approval
+and test evidence below describe the prior CISO release; the new source-bound
+approval is `release-prep/logo-v05-publication-approval.json`.
+
+Old files remain in the repository and deployment storage for recovery, but
+superseded header derivatives and UI resources are excluded from the current
+public artifact. New artwork hashes are added to the brand contract without
+removing any previous pins or changing the palette allowlist.
+
+### Previous CISO content release
+
 The owner approved the latest local design, confirmed manual device/Safari/
 screen-reader review complete and authorized public use of the supplied clinical
 equipment photograph, then confirmed proceeding with the stated technical-check,

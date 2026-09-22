@@ -34,6 +34,20 @@ is a design regression check for trusted maintainers and agents, not a security 
 intentionally obfuscated HTML, CSS, or JavaScript. An agent must not weaken the check or expand its
 allowlist merely to make a failure disappear. A palette change requires explicit user direction.
 
+## Approved logo replacement, September 21, 2026
+
+The owner approved the v05 horizontal logo in the local website preview and
+authorized production publication. The header now uses the canonical symbol in
+#F0443E with an outlined #000100 wordmark on light backgrounds, or #FFFFFF on dark
+backgrounds. The header has no tagline. The favicon uses the symbol alone; the
+Apple touch icon places it on a white tile.
+
+The six responsive header exports, touch icon and content-addressed favicon are
+pinned in `brand-contract.json`. Historical artwork pins remain intact for
+retained assets and rollback. The palette and color allowlists are unchanged.
+The approved shared source is `breakwater-logo-kit-v05`; no image generation,
+recoloring of legacy assets, or social-card replacement is part of this release.
+
 ## How to test the live site
 
 First use a private/incognito window, or hard-refresh the page:

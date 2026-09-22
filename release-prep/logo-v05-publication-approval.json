@@ -1,0 +1,22 @@
+{
+  "revision": "2026-09-21-logo-v05",
+  "contentVersion": "2026-09-21-ciso-led",
+  "publicManifestSha256": "a8c1228e971ca6fb27031408c6146581b0ac954d7a6d647eae3ba0943a994083",
+  "approvedBy": "Website owner in this conversation, September 21, 2026",
+  "productionPublicationApproved": true,
+  "evidence": "Owner reviewed the local preview and said: looks good...update teh production and commit to the main branch...",
+  "scope": "Horizontal logo, light/dark responsive variants, header sizing, tablet navigation spacing, mark-only favicon and Apple touch icon; commit/push main and deploy to the existing Breakwater organization AWS target.",
+  "preserved": "Body copy, product captures/videos, social preview cards, lead endpoint/behavior, canonical URLs and infrastructure. Existing content/media approvals and prior manual review retained; no new manual accessibility review claimed.",
+  "sourceKit": "breakwater-logo-kit-v05",
+  "publicFiles": 100,
+  "newArtwork": {
+    "assets/product-proof/brand-light-v05-340.webp": "6cb97d83275a9e385aacf130611760a0808b73ff389e2ac4949e4e2a44e19405",
+    "assets/product-proof/brand-light-v05-510.webp": "30734038bfdf721a0178dcd9922e999b6548b1b21ea23cd0b3c8488e95b96fb2",
+    "assets/product-proof/brand-light-v05-680.webp": "d6da3179ae8da1fb4719d088e086eabf6a347bda124d0bb78c90b2f6246cb44d",
+    "assets/product-proof/brand-dark-v05-340.webp": "5b8571e5cd5550fcfc31234aea350b0a71209122c8859cceff043a53fade7438",
+    "assets/product-proof/brand-dark-v05-510.webp": "b8b9cedabc3ee324537c630b0c25d3e80ec2dc5a39537737ae15bce26fd5549d",
+    "assets/product-proof/brand-dark-v05-680.webp": "88b821a7ab9de11f59afaadc85611b036e3505fa4fbc047ca768fe0358505ff5",
+    "assets/product-proof/apple-touch-icon-v05-180.png": "40321ac600fea8c882ebac78f5a644b8ff101869dbbcf19095912001c82f88b5",
+    "assets/site-ui/favicon.59d331b98f38.webp": "59d331b98f38ac09c9f1bd56caaa9baf2c3c27fe834ffba3b72e78f84137a7dd"
+  }
+}
