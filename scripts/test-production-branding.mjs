@@ -20,7 +20,7 @@ if (process.env.BWTR_LOCAL_CANDIDATE === '1') {
 } else {
   const currentApproval = JSON.parse(read('release-prep/marketing-resources-20260924/publication-approval.json'));
   assert.equal(currentApproval.productionPublicationApproved, true);
-  assert.equal(currentApproval.revision, '2026-09-24-marketing-resources-rc1');
+  assert.equal(currentApproval.revision, '2026-09-25-pqc-discovery-rc1');
   assert.equal(currentApproval.publicFiles, release.files.length);
   assert.equal(createHash('sha256').update(read('site-release.json')).digest('hex'), currentApproval.publicManifestSha256);
   assert.equal(createHash('sha256').update(read('release-prep/marketing-resources-20260924/routing-candidate.js')).digest('hex'), currentApproval.routingCandidateSha256);
