@@ -92,9 +92,10 @@ for (const legacyPlatformPath of [
   checks += 1;
 }
 const sitemap = fs.readFileSync(new URL("../sitemap.xml", import.meta.url), "utf8");
+assert.ok(!sitemap.includes("/pqc-planner/"), "PQC planner is intentionally unlisted");
 assert.deepEqual(
   [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map((entry) => entry[1]),
-  ["https://www.bwtr.ai/", ...routes.map((route) => `https://www.bwtr.ai/${route}/`)],
+  ["https://www.bwtr.ai/", ...routes.filter(route => route !== "pqc-planner").map((route) => `https://www.bwtr.ai/${route}/`)],
   "sitemap must contain only the canonical public routes in the intended order",
 );
 checks += 1;
@@ -143,6 +144,7 @@ assert.equal(previewHome.statusCode, undefined, "preview root must not redirect 
 checks += 2;
 
 for (const route of routes) {
+  if (route === "pqc-planner") continue;
   if (!sitemap.includes(`<loc>https://www.bwtr.ai/${route}/</loc>`)) {
     throw new Error(`${route}: canonical URL is missing from sitemap.xml`);
   }

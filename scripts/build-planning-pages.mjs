@@ -39,14 +39,15 @@ const template = read('research/index.html');
 const oldTitle = 'Research and teaching | Breakwater';
 const oldDescription = 'Explore Breakwater research themes in distributed systems, adversarial methods, cryptography and AI, alongside teaching resources.';
 function page(route, title, description, body, planner = false) {
+  const hidden = route === 'pqc-planner';
   let html = template.replace(/<main id="main">[\s\S]*?<\/main>/, `<main id="main">${body}</main>`)
     .replaceAll(oldTitle, title).replaceAll(oldDescription, description)
     .replaceAll('https://www.bwtr.ai/research/', `https://www.bwtr.ai/${route}/`)
-    .replace('</head>', `<meta name="referrer" content="no-referrer"><link rel="stylesheet" href="${css}">${planner ? `<script type="module" src="${script}"></script>` : ''}</head>`);
+    .replace('</head>', `<meta name="referrer" content="no-referrer">${hidden ? '<meta name="robots" content="noindex,nofollow">' : ''}<link rel="stylesheet" href="${css}">${planner ? `<script type="module" src="${script}"></script>` : ''}</head>`);
   assert(html.includes(`<title>${title}</title>`));
   const file = `${route}/index.html`; write(file, html); managed.push(file);
 }
-const cards = `<div class="evaluation-cards"><article><span class="eyebrow">Read</span><h3>Product reader pack</h3><p>Compare Secure, Assure and SOAR through product overviews, evaluation briefs and guides.</p><a class="text-link" href="/reader-pack/">Explore the reader pack <span aria-hidden="true">→</span></a></article><article><span class="eyebrow">Scope</span><h3>PoC planner</h3><p>Define a proof of concept: footprint, data boundaries and responsibilities to review with your team.</p><a class="text-link" href="/poc-planner/">Build an evaluation brief <span aria-hidden="true">→</span></a></article><article><span class="eyebrow">Prioritize</span><h3>PQC planner</h3><p>Explore post-quantum migration timing and priorities using your own planning assumptions.</p><a class="text-link" href="/pqc-planner/">Frame a migration review <span aria-hidden="true">→</span></a></article></div>`;
+const cards = `<div class="evaluation-cards"><article><span class="eyebrow">Read</span><h3>Product reader pack</h3><p>Compare Secure, Assure and SOAR through product overviews, evaluation briefs and guides.</p><a class="text-link" href="/reader-pack/">Explore the reader pack <span aria-hidden="true">→</span></a></article><article><span class="eyebrow">Scope</span><h3>PoC planner</h3><p>Define a proof of concept: footprint, data boundaries and responsibilities to review with your team.</p><a class="text-link" href="/poc-planner/">Build an evaluation brief <span aria-hidden="true">→</span></a></article></div>`;
 const entryHeadings = {'index.html':'Take the next step in your evaluation.', 'research/index.html':'Put the research in context.', 'products/index.html':'Prepare your product evaluation.', 'architecture/index.html':'Turn the design into an evaluation scope.'};
 for (const [file, heading] of Object.entries(entryHeadings)) {
   let html = read(file);
@@ -70,8 +71,8 @@ for (const kind of ['poc','pqc']) {
 }
 const routes = ['reader-pack','poc-planner','pqc-planner'];
 release.routes = release.routes.filter(r => !routes.some(x=>r.route===`/${x}/`));
-for(const route of routes) release.routes.push({route:`/${route}/`,canonical:`https://www.bwtr.ai/${route}/`,socialImage:'https://www.bwtr.ai/assets/breakwater-social-home.png'});
-const sitemapOrder = ['', 'products', 'architecture', 'research', 'about', 'security', 'airports', 'power-utilities', 'connected-industry', 'healthcare', ...routes];
+for(const route of routes) release.routes.push({route:`/${route}/`,canonical:`https://www.bwtr.ai/${route}/`,socialImage:'https://www.bwtr.ai/assets/breakwater-social-home.png', ...(route === 'pqc-planner' ? {discoverable:false} : {})});
+const sitemapOrder = ['', 'products', 'architecture', 'research', 'about', 'security', 'airports', 'power-utilities', 'connected-industry', 'healthcare', ...routes.filter(route => route !== 'pqc-planner')];
 write('sitemap.xml', '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + sitemapOrder.map(r=>`  <url><loc>https://www.bwtr.ai/${r ? r+'/' : ''}</loc></url>`).join('\n') + '\n</urlset>\n');
 const retained = release.files.map(f=>f.path).filter(p=>!(release.planningFiles || []).includes(p));
 // One repeatable navigation change across content, utility and resource pages.

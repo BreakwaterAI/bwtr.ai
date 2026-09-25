@@ -43,15 +43,16 @@ try {
    assert(nav,file.path+' navigation');
    assert.deepEqual([...nav.matchAll(/<a[^>]*>([^<]+)/g)].map(m=>m[1]),['Products','Industries','Architecture','Evaluate','Company','Talk to us']);
    assert.equal((html.match(/evaluation-entry\.[a-f0-9]+\.css/g)||[]).length,1);
+   assert.doesNotMatch(html,/href="\/pqc-planner\//,file.path+' must not advertise PQC planner');
    const active=/^(reader-pack|poc-planner|pqc-planner)\//.test(file.path);
    assert.equal(/href="\/reader-pack\/" aria-current=/.test(nav),active);
    checks++;
  }
  for(const route of ['', 'products/', 'architecture/', 'research/']) {
    await page.goto('http://localhost:4177/'+route);
-   assert.equal(await page.locator('.evaluation-cards article').count(),3);
+   assert.equal(await page.locator('.evaluation-cards article').count(),2);
    assert.equal(await page.locator('.evaluation-cards br').count(),0);
-   assert.deepEqual(await page.locator('.evaluation-cards a').evaluateAll(links=>links.map(a=>a.getAttribute('href'))),['/reader-pack/','/poc-planner/','/pqc-planner/']);
+   assert.deepEqual(await page.locator('.evaluation-cards a').evaluateAll(links=>links.map(a=>a.getAttribute('href'))),['/reader-pack/','/poc-planner/']);
    assert(await page.evaluate(()=>Boolean(document.querySelector('#planning-resources').compareDocumentPosition(document.querySelector('section.contact'))&Node.DOCUMENT_POSITION_FOLLOWING)));
    for(const width of [320,390,768,900,901,1000,1001,1024,1100,1101,1440]) for(const theme of ['light','dark']) {
      await page.setViewportSize({width,height:900});
@@ -65,6 +66,10 @@ try {
      checks++;
    }
  }
+ await page.goto('http://localhost:4177/pqc-planner/');
+ assert.equal(await page.locator('meta[name="robots"]').getAttribute('content'),'noindex,nofollow');
+ assert.equal(await page.locator('a[href="/pqc-planner/"]').count(),0);
+ assert.equal(await page.locator('.evaluation-cards').count(),0);checks++;
  await page.setViewportSize({width:390,height:844});await page.goto('http://localhost:4177/');
  await page.locator('[data-menu]').click();await page.locator('.nav-links a[href="/reader-pack/"]').focus();
  await page.keyboard.press('Enter');await page.waitForURL('**/reader-pack/');

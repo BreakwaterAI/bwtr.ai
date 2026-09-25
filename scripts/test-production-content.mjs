@@ -21,7 +21,8 @@ for (const file of pages) {
 }
 for (const route of release.routes) {
   const html = read(route.route === '/' ? 'index.html' : `${route.route.slice(1)}index.html`);
-  assert.ok(!/noindex|nofollow/.test(html));
+  if (route.discoverable === false) assert.match(html, /name="robots" content="noindex,nofollow"/);
+  else assert.ok(!/noindex|nofollow/.test(html));
   for (const text of [`rel="canonical" href="${route.canonical}"`, `property="og:url" content="${route.canonical}"`, `property="og:image" content="${route.socialImage}"`, `name="twitter:image" content="${route.socialImage}"`, 'property="og:image:width" content="1280"', 'property="og:image:height" content="720"']) assert.ok(html.includes(text), `${route.route}: ${text}`);
 }
 const home = read('index.html');

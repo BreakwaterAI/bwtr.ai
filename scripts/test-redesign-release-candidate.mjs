@@ -26,7 +26,8 @@ for (const record of manifest.files) {
 }
 for (const record of manifest.routes) {
   const html = read(record.route === '/' ? 'index.html' : `${record.route}/index.html`);
-  assert.ok(!/noindex|nofollow|LOCAL INTEGRATION|local preview|Local prototype|data-preview-form|data-integration-form|connect-src 'none'|form-action 'none'/.test(html));
+  if (record.discoverable === false) assert.match(html, /name="robots" content="noindex,nofollow"/);
+  else assert.ok(!/noindex|nofollow|LOCAL INTEGRATION|local preview|Local prototype|data-preview-form|data-integration-form|connect-src 'none'|form-action 'none'/.test(html));
   assert.ok(html.includes(`rel="canonical" href="${record.canonical}"`));
   assert.ok(html.includes(`property="og:url" content="${record.canonical}"`));
   assert.ok(html.includes(`property="og:image" content="${record.socialImage}"`));

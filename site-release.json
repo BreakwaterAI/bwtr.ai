@@ -64,7 +64,8 @@
     {
       "route": "/pqc-planner/",
       "canonical": "https://www.bwtr.ai/pqc-planner/",
-      "socialImage": "https://www.bwtr.ai/assets/breakwater-social-home.png"
+      "socialImage": "https://www.bwtr.ai/assets/breakwater-social-home.png",
+      "discoverable": false
     }
   ],
   "utilityPages": [
@@ -330,22 +331,22 @@
     {
       "path": "404.html",
       "bytes": 3425,
-      "sha256": "47d40296a1a418b9330679fe62eb459c583400191d19d6087492bfac7bfe33c8"
+      "sha256": "0494c1ff80fc11974f114bef1508110521c7a12f1bc57e88fe762123ee713d22"
     },
     {
       "path": "about/index.html",
       "bytes": 8846,
-      "sha256": "74759a1e6cd10d7f2bb72dfa9f921bd72aa98837abb1d6036423488f57350995"
+      "sha256": "0248d69cae6453f8180f3ce241b60cc4203b4be778ae02895f620ee968891075"
     },
     {
       "path": "airports/index.html",
       "bytes": 8668,
-      "sha256": "9ac1bc1267ed09f27da539f593ebb9f4a445f316ae642f8af02fe7e23585f92a"
+      "sha256": "8529ba7f6e46206fa5cfd145db9d54d30d5dc382f1ad2e308b735cadc9f4c11f"
     },
     {
       "path": "architecture/index.html",
-      "bytes": 11065,
-      "sha256": "1de71652e873fc0dc120f302918c71b70904edea949490fb65dc5468992b963e"
+      "bytes": 10785,
+      "sha256": "c17fd7961837f2b499d73d2a72452134810c7a85be1f3a62cdbc0d7999858663"
     },
     {
       "path": "assets/breakwater-hero-airport-1200.jpg",
@@ -775,37 +776,37 @@
     {
       "path": "connected-industry/index.html",
       "bytes": 8461,
-      "sha256": "4568c22091df6f177df339f4172237736c45311b0b8661f40cce098522c534e8"
+      "sha256": "e25343bc2ad75ab88f6f8f601cfcf17baec05847caf9cb4bbb38189999d5f941"
     },
     {
       "path": "healthcare/index.html",
       "bytes": 8664,
-      "sha256": "afd251dc4bf893522fb475d16c1e6c69f05794cfad723b26d40a0d487392eda5"
+      "sha256": "cc32d3a0eecd23c68ea01432db787ccdae819ce41e12e0e98f7f0afaa7d63782"
     },
     {
       "path": "index.html",
-      "bytes": 15304,
-      "sha256": "8c2e9cc218221f6cc59e90b88e381ef81400e110fef003f294e56a2e63108480"
+      "bytes": 15024,
+      "sha256": "005eef3d9448d3b72ecb5c8414a298a17f3853b35486752459f45bb810dec3f4"
     },
     {
       "path": "platform/index.html",
       "bytes": 3578,
-      "sha256": "54efabaecf2da4c32903f979c45c9b7c4174e5fc72fe305e9460ad3caa616976"
+      "sha256": "db2d441e717e87a0c8b364b51b7077ccc079695004e02ac3c59870e4b79954ab"
     },
     {
       "path": "power-utilities/index.html",
       "bytes": 8864,
-      "sha256": "a1a96827e8cb0626a7ba2605478fd0a4b5f93438a6ebd585b77b4173125692d0"
+      "sha256": "8e25182e3b6ff5543a5bd92f4e8b149a7baf5bc5adf780fffb069ab87665e106"
     },
     {
       "path": "products/index.html",
-      "bytes": 14628,
-      "sha256": "fbd9b4ac777f29c009515097f8cc080c4ab8c694370d3c84d6e7484a930ec47c"
+      "bytes": 14348,
+      "sha256": "3169ef59775cc31d0b4ad76509735a03eb9b771864b2dcc1c8d770740f505b91"
     },
     {
       "path": "research/index.html",
-      "bytes": 8571,
-      "sha256": "e2bd2107218fb00a0f88c55924fb895285e726c9aefc850bad1ced70478ed4e9"
+      "bytes": 8291,
+      "sha256": "62bd60267e3da152c3e35da5f11b4f889182204acdd481fdde8c2ba31fe4281e"
     },
     {
       "path": "robots.txt",
@@ -815,12 +816,12 @@
     {
       "path": "security/index.html",
       "bytes": 7412,
-      "sha256": "3ca41dff17cffcbfa13c20eb073552b52f4bbb2bcbc6d9a1c64aaec07605ecd6"
+      "sha256": "833b6c52ac250c06e63c17180744f3499dd2662cd98561fd336f3977ca0ec326"
     },
     {
       "path": "sitemap.xml",
-      "bytes": 832,
-      "sha256": "d69c78fe80e36375a4b665843e9e22c9cac7c1702ce1476d0ec8814f51c3bd1e"
+      "bytes": 775,
+      "sha256": "549754f71742426c9a21b9f46b6ee3a6e8dfdc629c96073bae6e224a10334410"
     },
     {
       "path": "assets/site-ui/planner-validation.cc3648707f67.js",
@@ -848,9 +849,9 @@
       "sha256": "4babf987f02f19a52fd8b28a42e9a6c399b32cd0ec4153ab953b91694ce0af5d"
     },
     {
-      "path": "assets/site-ui/evaluation-entry.e493f67b4060.css",
-      "bytes": 2334,
-      "sha256": "e493f67b406082fc9e4369e7d04aa71716dca68051345439c236ccbf56dc2dfd"
+      "path": "assets/site-ui/evaluation-entry.dfb4c8f6dc94.css",
+      "bytes": 2352,
+      "sha256": "dfb4c8f6dc9450fc8595df83110485d984330c6a4f963751167f133ed6360afc"
     },
     {
       "path": "assets/site-ui/reader-hub.8a6cd69deaff.js",
@@ -914,18 +915,18 @@
     },
     {
       "path": "reader-pack/index.html",
-      "bytes": 23012,
-      "sha256": "d77fe9b9a5e9f0bbc04f653cb86e75139dbe9dbad4bad529e19682e3e8963a3a"
+      "bytes": 22702,
+      "sha256": "c300316775cdca851ed542857c9caf5f2cfc46c4f4afab75cc6e59a99fb4fc86"
     },
     {
       "path": "poc-planner/index.html",
-      "bytes": 5639,
-      "sha256": "f5e661c70de611a05313213478c975825558be6aca65fe262033e2bd8ad5c3e8"
+      "bytes": 5599,
+      "sha256": "7116bbaf6dea49c1d38c631901b59548ab7bbb4bb9ba7c7cd122875301a092ae"
     },
     {
       "path": "pqc-planner/index.html",
-      "bytes": 5674,
-      "sha256": "27c83d37f410fd5c9ea25cb0cf05a65e910d4dc66fc984ba290dfb98d2f372f1"
+      "bytes": 5662,
+      "sha256": "55597caaf7fa8637a9034db17cd3a047b6ca3613aa110390eeb4ccacffd5ea29"
     }
   ],
   "brandRevision": "2026-09-21-logo-v05",
@@ -935,7 +936,7 @@
     "assets/site-ui/planner-pqc.b2d46df0f22c.js",
     "assets/site-ui/planner-ui.e6ce70208653.js",
     "assets/site-ui/planners.4babf987f02f.css",
-    "assets/site-ui/evaluation-entry.e493f67b4060.css",
+    "assets/site-ui/evaluation-entry.dfb4c8f6dc94.css",
     "assets/site-ui/reader-hub.8a6cd69deaff.js",
     "assets/reader-pack/portfolio-overview.pdf",
     "assets/reader-pack/pilot-engagement-outline.pdf",
