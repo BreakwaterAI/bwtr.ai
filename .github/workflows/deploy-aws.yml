@@ -81,6 +81,7 @@ jobs:
           node scripts/test-org-lead-capture.mjs
           node scripts/test-rollback-artifact.mjs
           node scripts/test-deployment-target.mjs
+          node --experimental-strip-types --test scripts/planners/models.test.mjs
           bash scripts/test-publish-site.sh
           bash scripts/test-deploy-entrypoint.sh
           git diff --check HEAD^ HEAD
@@ -108,6 +109,9 @@ jobs:
           test "$(curl -sS -o /dev/null -w '%{http_code} %{redirect_url}' "${BWTR_SITE_BASE_URL}/platform/")" = "301 ${BWTR_SITE_BASE_URL}/architecture/"
           test "$(curl -sS -o /dev/null -w '%{http_code}' "${BWTR_SITE_BASE_URL}/architecture/")" = "200"
           # Content is validated from the rollback snapshot; this checks edge routing.
+          for route in reader-pack poc-planner pqc-planner; do
+            test "$(curl -sS -o /dev/null -w '%{http_code} %{redirect_url}' "${BWTR_SITE_BASE_URL}/${route}")" = "301 ${BWTR_SITE_BASE_URL}/${route}/"
+          done
 
       - name: Verify GitHub OIDC claims
         shell: bash
@@ -155,6 +159,7 @@ jobs:
           node scripts/test-site-artifact.mjs "${RUNNER_TEMP}/bwtr-site"
           node scripts/test-brand-contract.mjs --artifact "${RUNNER_TEMP}/bwtr-site"
           BWTR_ARTIFACT="${RUNNER_TEMP}/bwtr-site" node scripts/test-rendered-layout.mjs
+          node scripts/test-planners-browser.mjs "${RUNNER_TEMP}/bwtr-site"
           node scripts/verify-release-media.mjs "${BWTR_SITE_BASE_URL}"
 
       - name: Snapshot current production site

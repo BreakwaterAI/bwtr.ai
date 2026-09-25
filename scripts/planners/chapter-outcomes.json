@@ -1,0 +1,286 @@
+[
+  {
+    "name": "Secure",
+    "book_url": "https://secure.bwtr.ai/app/docs",
+    "chapters": [
+      {
+        "number": 1,
+        "title": "Seeing the Site",
+        "page": 8,
+        "outcome": "Identify the device behind a work order and explain the evidence for its name.",
+        "consequence": "Without this, a familiar name on a work order still does not tell you which device to touch."
+      },
+      {
+        "number": 2,
+        "title": "Choosing Evidence",
+        "page": 12,
+        "outcome": "Establish source, authorization, collection boundary and freshness.",
+        "consequence": "Without this, you cannot say where the evidence came from, who authorised it, or when it stopped being current."
+      },
+      {
+        "number": 3,
+        "title": "Reading the Inventory",
+        "page": 20,
+        "outcome": "Find and export the inventory records that need attention.",
+        "consequence": "Without this, a crowded inventory hides the small set of records actually worth discussing."
+      },
+      {
+        "number": 4,
+        "title": "Making the Next Decision",
+        "page": 25,
+        "outcome": "Give the next review question an owner and a recorded basis.",
+        "consequence": "Without this, the meeting ends with agreement and no owner for the next question."
+      },
+      {
+        "number": 5,
+        "title": "Software and Vulnerability Review",
+        "page": 29,
+        "outcome": "Prepare a supplier or engineering question from software and cryptographic evidence.",
+        "consequence": "Without this, you ask a supplier the wrong question and wait a fortnight to find out."
+      },
+      {
+        "number": 6,
+        "title": "Attack Route Evidence",
+        "page": 36,
+        "outcome": "Read each route as evidence and assumptions requiring review.",
+        "consequence": "Without this, a diagram that looks like a route gets treated as one."
+      },
+      {
+        "number": 7,
+        "title": "Cryptographic Planning",
+        "page": 43,
+        "outcome": "Estimate migration timing and assign cryptographic work to owners.",
+        "consequence": "Without this, you cannot state how long your own migration would take \u2014 the number the whole programme depends on."
+      },
+      {
+        "number": 8,
+        "title": "Rehearsing Decisions",
+        "page": 50,
+        "outcome": "Use a bounded model to challenge a proposed change before production.",
+        "consequence": "Without this, the first time you learn what a change breaks is in production."
+      },
+      {
+        "number": 9,
+        "title": "Governing the Next Step",
+        "page": 55,
+        "outcome": "Distinguish planning and authorization from executed work.",
+        "consequence": "Without this, \"not executed\" looks like failure rather than the control working."
+      },
+      {
+        "number": 10,
+        "title": "Asking Secure with Context",
+        "page": 58,
+        "outcome": "Use cited assistant answers within the available evidence.",
+        "consequence": "Without this, an assistant's answer travels further than the evidence behind it."
+      },
+      {
+        "number": 11,
+        "title": "Carrying Evidence Forward",
+        "page": 61,
+        "outcome": "Preserve the evidence and decision for later review.",
+        "consequence": "Without this, the evidence stops being useful the moment the meeting ends."
+      },
+      {
+        "number": 12,
+        "title": "Operating with Confidence",
+        "page": 64,
+        "outcome": "Verify the run and its coverage after checking collector health.",
+        "consequence": "Without this, a green service check is mistaken for a completed collection."
+      },
+      {
+        "number": 13,
+        "title": "Showing the Value",
+        "page": 68,
+        "outcome": "Prepare a handoff with an owner, evidence and a clear question.",
+        "consequence": "Without this, the handoff arrives without the owner, the evidence or the question."
+      },
+      {
+        "number": 14,
+        "title": "Bringing the Decision Together",
+        "page": 69,
+        "outcome": "Connect the local exercise to a scoped real-world next step.",
+        "consequence": "Without this, local practice never becomes a record the organisation can act on."
+      }
+    ]
+  },
+  {
+    "name": "Assure",
+    "book_url": "https://assure.bwtr.ai/app/docs",
+    "chapters": [
+      {
+        "number": 1,
+        "title": "The decision",
+        "page": 5,
+        "outcome": "Frame the release question around inspectable evidence.",
+        "consequence": "Without this, the release decision is made on a badge colour."
+      },
+      {
+        "number": 2,
+        "title": "Source and scope",
+        "page": 9,
+        "outcome": "Bind the review to one authorized source snapshot.",
+        "consequence": "Without this, two reviewers examine two different versions of the same code."
+      },
+      {
+        "number": 3,
+        "title": "Evidence",
+        "page": 13,
+        "outcome": "Check the cited source and distinguish confirmation, refutation and uncertainty.",
+        "consequence": "Without this, nobody can tell whether the finding reproduces or was never real."
+      },
+      {
+        "number": 4,
+        "title": "Attack paths",
+        "page": 17,
+        "outcome": "Separate a possible route from demonstrated runtime behavior.",
+        "consequence": "Without this, a possible route and a demonstrated one look identical in the report."
+      },
+      {
+        "number": 5,
+        "title": "Models and limits",
+        "page": 22,
+        "outcome": "Turn missing relationships into explicit review tasks.",
+        "consequence": "Without this, a missing relationship is read as an absence of risk."
+      },
+      {
+        "number": 6,
+        "title": "Software and cryptography",
+        "page": 24,
+        "outcome": "Understand the role of a component or cryptographic use.",
+        "consequence": "Without this, you know the algorithm's name and nothing about the key's job."
+      },
+      {
+        "number": 7,
+        "title": "People and decisions",
+        "page": 30,
+        "outcome": "Record a decision and a reason the next reviewer can retrieve.",
+        "consequence": "Without this, the reason for a decision is lost by the next release."
+      },
+      {
+        "number": 8,
+        "title": "Remediation",
+        "page": 33,
+        "outcome": "Prepare the proposed fix, side effects, verification and recovery.",
+        "consequence": "Without this, a fix is approved with no statement of what it could break or how to get back."
+      },
+      {
+        "number": 9,
+        "title": "Delivery and history",
+        "page": 36,
+        "outcome": "Compare review states and explain changes without assuming a fix.",
+        "consequence": "Without this, nobody can say what changed between this review and the last."
+      },
+      {
+        "number": 10,
+        "title": "Implementation",
+        "page": 40,
+        "outcome": "Agree the deployment, access and analysis boundary.",
+        "consequence": "Without this, the analysis boundary is discovered during an incident."
+      },
+      {
+        "number": 11,
+        "title": "Daily operation",
+        "page": 44,
+        "outcome": "Check source, completion, coverage and recoverability in daily use.",
+        "consequence": "Without this, the first ten minutes go on working out whether the screen is telling the truth."
+      },
+      {
+        "number": 12,
+        "title": "Evaluation",
+        "page": 47,
+        "outcome": "Evaluate reproducible cases and review effort against a fair baseline.",
+        "consequence": "Without this, you are comparing tools on a demonstration rather than on your own code."
+      }
+    ]
+  },
+  {
+    "name": "SOAR",
+    "book_url": "https://soar.bwtr.ai/app/docs",
+    "chapters": [
+      {
+        "number": 1,
+        "title": "The Decision Behind the Alert",
+        "page": 4,
+        "outcome": "Give an urgent signal an investigation question and owner.",
+        "consequence": "Without this, the alert is urgent and the decision is still nobody's."
+      },
+      {
+        "number": 2,
+        "title": "Evidence Worth Acting On",
+        "page": 12,
+        "outcome": "Reconcile a result with its inputs, time and assumptions.",
+        "consequence": "Without this, the same number means two different things to two people on the same call."
+      },
+      {
+        "number": 3,
+        "title": "Discovery and Investigation",
+        "page": 20,
+        "outcome": "Use estate context to choose the next useful check.",
+        "consequence": "Without this, the investigation starts with a host list instead of a question."
+      },
+      {
+        "number": 4,
+        "title": "Attack Paths and Consequence",
+        "page": 28,
+        "outcome": "Review candidate routes without treating rank as breach probability.",
+        "consequence": "Without this, a ranked route is mistaken for a probability of compromise."
+      },
+      {
+        "number": 5,
+        "title": "Digital Twins and Better Rehearsals",
+        "page": 36,
+        "outcome": "Use rehearsal to test the decision and its recovery assumptions.",
+        "consequence": "Without this, the rehearsal proves the diagram rather than the decision."
+      },
+      {
+        "number": 6,
+        "title": "Live Operations and Replay",
+        "page": 44,
+        "outcome": "Give the next analyst the same input window and provenance.",
+        "consequence": "Without this, the second analyst cannot see the same window as the first."
+      },
+      {
+        "number": 7,
+        "title": "The SOC and the Hunt",
+        "page": 52,
+        "outcome": "Bound the hunt with a question, time budget and stopping condition.",
+        "consequence": "Without this, the hunt extends until someone gets tired rather than until the clock says stop."
+      },
+      {
+        "number": 8,
+        "title": "IT Operations with a Change Owner",
+        "page": 60,
+        "outcome": "Prepare an operational proposal the service owner can assess.",
+        "consequence": "Without this, the change is approved by someone who cannot say what the service tolerates."
+      },
+      {
+        "number": 9,
+        "title": "Authority, Verification and Recovery",
+        "page": 68,
+        "outcome": "Verify authority on the selected path and recheck the result after action.",
+        "consequence": "Without this, authority is a label rather than a scope with an expiry and a way back."
+      },
+      {
+        "number": 10,
+        "title": "Architecture and Deployment Choices",
+        "page": 76,
+        "outcome": "Choose and verify inference, connectivity, access and recovery arrangements.",
+        "consequence": "Without this, \"it runs locally\" is believed rather than tested."
+      },
+      {
+        "number": 11,
+        "title": "A Pilot That Earns Its Place",
+        "page": 84,
+        "outcome": "Measure a bounded workflow and record the adoption decision.",
+        "consequence": "Without this, the pilot proves the calendar rather than the capability."
+      },
+      {
+        "number": 12,
+        "title": "The Executive Field Guide",
+        "page": 92,
+        "outcome": "Produce a concise handoff with evidence, uncertainty and the next owner.",
+        "consequence": "Without this, good analysis sits unread in a queue."
+      }
+    ]
+  }
+]

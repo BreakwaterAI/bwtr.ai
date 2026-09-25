@@ -20,12 +20,16 @@ for (const format of ['legacy', 'product-led', 'ciso-led']) {
     writeFileSync(join(root, 'architecture/index.html'), format === 'product-led'
       ? architecture.replace('How Breakwater connects to your environment.', 'Know what connects.')
       : architecture);
-    for (const path of Object.values(release.resources)) {
+    // Optional page styles are dependencies too, even when outside the five
+    // shared resource aliases. Keep missing/corrupt dependency checks intact.
+    const pageDependencies = [...architecture.matchAll(/(?:src|href)="\/(assets\/site-ui\/[\w-]+\.[0-9a-f]{12}\.(?:css|js|webp))"/g)].map(m=>m[1]);
+    for (const path of new Set([...Object.values(release.resources), ...pageDependencies])) {
       mkdirSync(dirname(join(root, path)), { recursive: true }); copyFileSync(path, join(root, path)); dependencies.push(path);
     }
   }
   const run = () => spawnSync(process.execPath, ['scripts/validate-rollback-artifact.mjs', root], { encoding: 'utf8' });
-  assert.equal(run().status, 0, `${format}: valid snapshot rejected`);
+  const valid = run();
+  assert.equal(valid.status, 0, `${format}: valid snapshot rejected: ${valid.stderr}`);
   const path = join(root, dependencies[0]); renameSync(path, path + '.saved');
   assert.notEqual(run().status, 0, `${format}: missing dependency accepted`);
   writeFileSync(path, 'corrupted'); assert.notEqual(run().status, 0, `${format}: corrupted dependency accepted`);

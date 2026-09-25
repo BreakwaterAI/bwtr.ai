@@ -23,7 +23,8 @@ cd "${repo_root}"
 bash scripts/build-site-artifact.sh "${artifact}"
 mkdir -p "${rollback_artifact}/architecture" "${mock_bin}"
 cp "${artifact}/architecture/index.html" "${rollback_artifact}/architecture/index.html"
-for revisioned_asset in $(node -e 'const manifest=require(process.argv[1]); console.log(Object.values(manifest).join(" "))' "${artifact}/asset-manifest.json"); do
+# A snapshot must include page-specific hashed dependencies as well as aliases.
+for revisioned_asset in $(node -e 'const fs=require("node:fs"),p=require("node:path");const manifest=require(process.argv[1]);const html=fs.readFileSync(p.join(p.dirname(process.argv[1]),"architecture/index.html"),"utf8");const extra=[...html.matchAll(/(?:src|href)="\/(assets\/site-ui\/[\w-]+\.[0-9a-f]{12}\.(?:css|js|webp))"/g)].map(m=>m[1]);console.log([...new Set([...Object.values(manifest),...extra])].join(" "))' "${artifact}/asset-manifest.json"); do
   mkdir -p "${rollback_artifact}/$(dirname "${revisioned_asset}")"
   cp "${artifact}/${revisioned_asset}" "${rollback_artifact}/${revisioned_asset}"
 done
@@ -54,7 +55,10 @@ run_publish() {
 }
 
 run_publish
-test "${publish_status}" -eq 0
+if [[ "${publish_status}" -ne 0 ]]; then
+  cat "${test_output}" >&2
+  exit 1
+fi
 grep -qx 'published' "${remote_state}"
 grep -q 'https://preview.example.test/' "${test_log}"
 if grep -q 'https://www.bwtr.ai/' "${test_log}"; then

@@ -174,7 +174,7 @@ Resources:
           var uri = request.uri;
           var host = request.headers.host ? request.headers.host.value.toLowerCase() : '';
           var canonicalHost = '${AlternateDomainName}';
-          var pages = ['/products', '/architecture', '/research', '/about', '/security', '/airports', '/power-utilities', '/connected-industry', '/healthcare'];
+          var pages = ['/products', '/architecture', '/research', '/about', '/security', '/airports', '/power-utilities', '/connected-industry', '/healthcare', '/reader-pack', '/poc-planner', '/pqc-planner'];
           var canonicalUri = uri.replace(/\/{2,}/g, '/');
 
           if (canonicalUri === '/index.html') {

@@ -1,0 +1,15 @@
+{
+  "revision": "2026-09-24-marketing-resources-rc1",
+  "publicManifestSha256": "04a2cf8572ec4534506ce97070a14de43325a2c87e3810e2fdeae6a0a8127c71",
+  "reviewedCandidateManifestSha256": "97c3d9b446bd88581dd590ea394af8fa3030884195239b52e772b2c78f804c48",
+  "mechanicalReleaseNormalization": "Removed trailing type-stripping whitespace from generated JavaScript to pass git diff --check; regenerated content-addressed filenames and references only. The two artifacts were compared after normalizing hashes and trailing whitespace; all 121 corresponding files match. No copy, layout, model or behavior changes.",
+  "publicFiles": 121,
+  "productionPublicationApproved": true,
+  "approvedBy": "Website owner in this conversation",
+  "evidence": "Owner replied 'go ahead' to the explicit request to approve this exact candidate, the three marketing CloudFront routing additions, and commit/push to main for production deployment.",
+  "scope": "Evaluation hub, both planners, eleven public PDFs, Evaluate navigation and entry cards, product website/console links, utility image crops, removal of obsolete ASOC architecture link; three marketing edge routes; commit/push BreakwaterAI/bwtr.ai main and deploy to the existing organization AWS target.",
+  "routingCandidateSha256": "7c550bb96662fa20be613c6b65b8b331a71d40daf77b31509b743b8b09a7a1c4",
+  "preserved": "Existing brand palette and logo, product media, social images, lead endpoint and behavior. No DNS changes, ASOC shutdown, protected-book publication, product authentication changes or new real lead submissions.",
+  "review": "Owner supplied independent end-to-end design acceptance. Automated candidate validation is recorded in RELEASE-REVIEW.md. No additional manual Safari/device/screen-reader review is claimed.",
+  "manifestNote": "The manifest's candidate object records its original preparation status; this separate exact-hash receipt is the current publication authority. The reviewed-to-final hash change is limited to the documented mechanical normalization."
+}

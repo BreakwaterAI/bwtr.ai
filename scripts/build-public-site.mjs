@@ -9,9 +9,14 @@ assert.ok(process.argv[2], 'Usage: build-public-site.mjs NEW_ARTIFACT_DIRECTORY'
 const target = resolve(process.argv[2]);
 assert.ok(!existsSync(target), 'Artifact destination must not already exist');
 const release = JSON.parse(readFileSync(join(source, 'site-release.json')));
+const readerPack = JSON.parse(readFileSync(join(source, 'scripts/planners/reader-pack.json')));
+const publicPdfs = new Map(readerPack.documents.map(d => ['assets/reader-pack/' + d.file, d]));
 // An exact public-file allowlist keeps working documents and private review material out.
 for (const file of release.files) {
-  assert.match(file.path, /^(?:assets\/[\w./-]+\.(?:png|jpg|webp|css|js)|(?:[\w-]+\/)?[\w.-]+\.(?:html|txt|xml)|\.well-known\/security\.txt)$/);
+  if (file.path.endsWith('.pdf')) {
+    assert.ok(publicPdfs.has(file.path), 'PDF is not in the explicit public reader-pack allowlist');
+    assert.equal(file.sha256, publicPdfs.get(file.path).sha256, 'PDF must match its approved bytes');
+  } else assert.match(file.path, /^(?:assets\/[\w./-]+\.(?:png|jpg|webp|css|js)|(?:[\w-]+\/)?[\w.-]+\.(?:html|txt|xml)|\.well-known\/security\.txt)$/);
   assert.ok(!file.path.includes('..') && !file.path.startsWith('assets/videos/'));
   const bytes = readFileSync(join(source, file.path));
   assert.equal(bytes.length, file.bytes, file.path);

@@ -56,6 +56,9 @@ const routes = [
   "power-utilities",
   "connected-industry",
   "healthcare",
+  "reader-pack",
+  "poc-planner",
+  "pqc-planner",
 ];
 let checks = 0;
 for (const route of routes) {

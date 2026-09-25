@@ -1,6 +1,11 @@
 #!/usr/bin/env bash
 set -Eeuo pipefail
 
+if [[ -n "${BWTR_LOCAL_CANDIDATE:-}" ]]; then
+  echo 'Local candidate mode cannot be used for deployment.' >&2
+  exit 2
+fi
+
 readonly EXPECTED_ACCOUNT_ID="506126099258"
 readonly REGION="us-east-1"
 readonly BUCKET_NAME="bwtr-ai-site-prod-506126099258"

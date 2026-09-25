@@ -7,7 +7,24 @@ const contract = JSON.parse(read('brand-contract.json'));
 const approval = JSON.parse(read('release-prep/logo-v05-publication-approval.json'));
 assert.equal(release.brandRevision, '2026-09-21-logo-v05');
 assert.equal(approval.productionPublicationApproved, true);
-assert.equal(createHash('sha256').update(read('site-release.json')).digest('hex'), approval.publicManifestSha256);
+// Local candidate testing is not publication approval. Default/CI keeps the
+// existing exact published-manifest gate; never change the approval receipt here.
+if (process.env.BWTR_LOCAL_CANDIDATE === '1') {
+  assert.ok(!process.env.CI, 'Candidate mode is local-only, not a production CI bypass');
+  assert.equal(release.candidate?.productionPublicationApproved, false);
+  const baseline = read('scripts/planners/approved-site-baseline.json');
+  assert.equal(createHash('sha256').update(baseline).digest('hex'), approval.publicManifestSha256);
+  const approved = JSON.parse(baseline);
+  assert.equal(release.brandRevision, approved.brandRevision);
+  assert.equal(release.resources['favicon.webp'], approved.resources['favicon.webp']);
+} else {
+  const currentApproval = JSON.parse(read('release-prep/marketing-resources-20260924/publication-approval.json'));
+  assert.equal(currentApproval.productionPublicationApproved, true);
+  assert.equal(currentApproval.revision, '2026-09-24-marketing-resources-rc1');
+  assert.equal(currentApproval.publicFiles, release.files.length);
+  assert.equal(createHash('sha256').update(read('site-release.json')).digest('hex'), currentApproval.publicManifestSha256);
+  assert.equal(createHash('sha256').update(read('release-prep/marketing-resources-20260924/routing-candidate.js')).digest('hex'), currentApproval.routingCandidateSha256);
+}
 const files = new Set(release.files.map(r => r.path));
 const logos = ['light', 'dark'].flatMap(theme => [340, 510, 680].map(width => `assets/product-proof/brand-${theme}-v05-${width}.webp`));
 for (const file of [...logos, 'assets/product-proof/apple-touch-icon-v05-180.png', release.resources['favicon.webp']]) {
@@ -25,4 +42,6 @@ for (const file of release.files.filter(r => r.path.endsWith('.html'))) {
 }
 const script = read(release.resources['script.js']).toString();
 for (const width of [340, 510, 680]) assert.ok(script.includes(`brand-\u0024{variant}-v05-${width}.webp`));
-console.log('Approved v05 branding: 12 pages, both themes, three densities, pinned icons and source-bound publication approval.');
+console.log(process.env.BWTR_LOCAL_CANDIDATE === '1'
+  ? 'Local candidate branding passed; publication is NOT approved. Brand colors, logos and icons remain pinned.'
+  : 'Approved v05 branding and source-bound publication approval passed.');

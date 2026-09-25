@@ -50,6 +50,21 @@
       "route": "/security/",
       "canonical": "https://www.bwtr.ai/security/",
       "socialImage": "https://www.bwtr.ai/assets/breakwater-social-home.png"
+    },
+    {
+      "route": "/reader-pack/",
+      "canonical": "https://www.bwtr.ai/reader-pack/",
+      "socialImage": "https://www.bwtr.ai/assets/breakwater-social-home.png"
+    },
+    {
+      "route": "/poc-planner/",
+      "canonical": "https://www.bwtr.ai/poc-planner/",
+      "socialImage": "https://www.bwtr.ai/assets/breakwater-social-home.png"
+    },
+    {
+      "route": "/pqc-planner/",
+      "canonical": "https://www.bwtr.ai/pqc-planner/",
+      "socialImage": "https://www.bwtr.ai/assets/breakwater-social-home.png"
     }
   ],
   "utilityPages": [
@@ -314,23 +329,23 @@
     },
     {
       "path": "404.html",
-      "bytes": 3309,
-      "sha256": "b1dba84600e0af05717963689aad6bffa28ad44ff495c31deee85031ef6af929"
+      "bytes": 3425,
+      "sha256": "47d40296a1a418b9330679fe62eb459c583400191d19d6087492bfac7bfe33c8"
     },
     {
       "path": "about/index.html",
-      "bytes": 8730,
-      "sha256": "1f326158b44d81c0d4a0ba45daa06b81dfab37e57f09c121c95257517b66e5f4"
+      "bytes": 8846,
+      "sha256": "74759a1e6cd10d7f2bb72dfa9f921bd72aa98837abb1d6036423488f57350995"
     },
     {
       "path": "airports/index.html",
-      "bytes": 8552,
-      "sha256": "5dcd11746410b0e8e35dc024e1f90a3f1f531fde849617fe19e4ea004dd96c1f"
+      "bytes": 8668,
+      "sha256": "9ac1bc1267ed09f27da539f593ebb9f4a445f316ae642f8af02fe7e23585f92a"
     },
     {
       "path": "architecture/index.html",
-      "bytes": 9928,
-      "sha256": "077fc83faaa870e561fc2ad08c66dd1d5023a6ef7987fc84902903d8d13d80da"
+      "bytes": 11065,
+      "sha256": "1de71652e873fc0dc120f302918c71b70904edea949490fb65dc5468992b963e"
     },
     {
       "path": "assets/breakwater-hero-airport-1200.jpg",
@@ -759,38 +774,38 @@
     },
     {
       "path": "connected-industry/index.html",
-      "bytes": 8345,
-      "sha256": "44d6c3ce62331c13e2013b3801039e79de7bf764e590ea482b7e8676c6dbfb65"
+      "bytes": 8461,
+      "sha256": "4568c22091df6f177df339f4172237736c45311b0b8661f40cce098522c534e8"
     },
     {
       "path": "healthcare/index.html",
-      "bytes": 8548,
-      "sha256": "f7e1280e29ee99ecfcea04a2899836d1bd0b39cbaa39b0a0a54a067a7fceeee0"
+      "bytes": 8664,
+      "sha256": "afd251dc4bf893522fb475d16c1e6c69f05794cfad723b26d40a0d487392eda5"
     },
     {
       "path": "index.html",
-      "bytes": 14059,
-      "sha256": "b02cb80dffc9b0049dcc4804235a8590076a249d9cbf68bde0716916d6bae73e"
+      "bytes": 15304,
+      "sha256": "8c2e9cc218221f6cc59e90b88e381ef81400e110fef003f294e56a2e63108480"
     },
     {
       "path": "platform/index.html",
-      "bytes": 3462,
-      "sha256": "779b8495b517c91028ad6ffac653f651e179c3f70fafc34b57cc2b14f3dba355"
+      "bytes": 3578,
+      "sha256": "54efabaecf2da4c32903f979c45c9b7c4174e5fc72fe305e9460ad3caa616976"
     },
     {
       "path": "power-utilities/index.html",
-      "bytes": 8714,
-      "sha256": "50718ec00708258de164bfe69cd5a1738431cc2e28136a32578f0477ce6d77d9"
+      "bytes": 8864,
+      "sha256": "a1a96827e8cb0626a7ba2605478fd0a4b5f93438a6ebd585b77b4173125692d0"
     },
     {
       "path": "products/index.html",
-      "bytes": 13010,
-      "sha256": "8824a4538308858b8e27b837bc56e79e17b1f9a45d7084ff1eb5ec03e2a44302"
+      "bytes": 14628,
+      "sha256": "fbd9b4ac777f29c009515097f8cc080c4ab8c694370d3c84d6e7484a930ec47c"
     },
     {
       "path": "research/index.html",
-      "bytes": 7370,
-      "sha256": "6437e8da03758a221a94347c878d2052f43fd87550c891b79048d2b7939a2cc6"
+      "bytes": 8571,
+      "sha256": "e2bd2107218fb00a0f88c55924fb895285e726c9aefc850bad1ced70478ed4e9"
     },
     {
       "path": "robots.txt",
@@ -799,14 +814,146 @@
     },
     {
       "path": "security/index.html",
-      "bytes": 7296,
-      "sha256": "86b0dde989cb373347a0284ed02a3a1fbcff5b07abd9675cdba1a94f3016f23e"
+      "bytes": 7412,
+      "sha256": "3ca41dff17cffcbfa13c20eb073552b52f4bbb2bcbc6d9a1c64aaec07605ecd6"
     },
     {
       "path": "sitemap.xml",
-      "bytes": 661,
-      "sha256": "3934ffae7007dc370f707490b59b1353ba251c9df38d238df938100e240f578d"
+      "bytes": 832,
+      "sha256": "d69c78fe80e36375a4b665843e9e22c9cac7c1702ce1476d0ec8814f51c3bd1e"
+    },
+    {
+      "path": "assets/site-ui/planner-validation.cc3648707f67.js",
+      "bytes": 526,
+      "sha256": "cc3648707f67c978de087314e2867ecd639f6da7899c4703343adb668f143cf2"
+    },
+    {
+      "path": "assets/site-ui/planner-poc.e76b08aae8df.js",
+      "bytes": 27012,
+      "sha256": "e76b08aae8df89c96347f0c715af44d505004cfe87aff18b32192ad0b84e921a"
+    },
+    {
+      "path": "assets/site-ui/planner-pqc.b2d46df0f22c.js",
+      "bytes": 14692,
+      "sha256": "b2d46df0f22c4b9e51a0092f6d53af22db0e2428fb44987412b0f1de4c42d23e"
+    },
+    {
+      "path": "assets/site-ui/planner-ui.e6ce70208653.js",
+      "bytes": 25339,
+      "sha256": "e6ce70208653db3bdad1a9584f9ecb34823335b20326623d71983cffb4bf8a0f"
+    },
+    {
+      "path": "assets/site-ui/planners.4babf987f02f.css",
+      "bytes": 22755,
+      "sha256": "4babf987f02f19a52fd8b28a42e9a6c399b32cd0ec4153ab953b91694ce0af5d"
+    },
+    {
+      "path": "assets/site-ui/evaluation-entry.e493f67b4060.css",
+      "bytes": 2334,
+      "sha256": "e493f67b406082fc9e4369e7d04aa71716dca68051345439c236ccbf56dc2dfd"
+    },
+    {
+      "path": "assets/site-ui/reader-hub.8a6cd69deaff.js",
+      "bytes": 383,
+      "sha256": "8a6cd69deaff160bd8c4307712d81062bb649e3a5ebc3726b5339fc0e896d70f"
+    },
+    {
+      "path": "assets/reader-pack/portfolio-overview.pdf",
+      "bytes": 175819,
+      "sha256": "acd595d5a4a5dc4c90bab3943cc26a62da5a26a3e64991731b49e275907a13b4"
+    },
+    {
+      "path": "assets/reader-pack/pilot-engagement-outline.pdf",
+      "bytes": 194111,
+      "sha256": "3ab4255834ab6c07044c3a8b41e20f95683c70dce0961cbeb013a861be418204"
+    },
+    {
+      "path": "assets/reader-pack/secure-one-page.pdf",
+      "bytes": 181065,
+      "sha256": "b434808996129faf0576d7e481446b78c2a537188811a41bf882be6c153e30b5"
+    },
+    {
+      "path": "assets/reader-pack/secure-evaluation-brief.pdf",
+      "bytes": 122116,
+      "sha256": "7dab0651046eb3ae5a8264c5c26efc69b0b43ffbbc2e423113f98abb58148b93"
+    },
+    {
+      "path": "assets/reader-pack/secure-product-brief.pdf",
+      "bytes": 340443,
+      "sha256": "3b72cd30ff28a65a8947a63f26200b00c069bb0c8b5f59f8621afa36951e986f"
+    },
+    {
+      "path": "assets/reader-pack/assure-one-page.pdf",
+      "bytes": 356239,
+      "sha256": "e0bae4543d3bcb800e954059bc932ca075ed2a7b3be86234ff0585894b0f2010"
+    },
+    {
+      "path": "assets/reader-pack/assure-evaluation-brief.pdf",
+      "bytes": 121107,
+      "sha256": "ef3fbc7c0e3dac5202a0a2d3112496798ad832d49da0fb109ef71eaf6174dc44"
+    },
+    {
+      "path": "assets/reader-pack/assure-product-brief.pdf",
+      "bytes": 512013,
+      "sha256": "e04bbef08c7e6eaf734f6f76574f082b41d0299fea91073f426a261135be979d"
+    },
+    {
+      "path": "assets/reader-pack/soar-one-page.pdf",
+      "bytes": 210818,
+      "sha256": "71f5c1d40b62f0b35a2d453bee49ad85aee2851bfc85345587055da206fa377d"
+    },
+    {
+      "path": "assets/reader-pack/soar-evaluation-brief.pdf",
+      "bytes": 123350,
+      "sha256": "305015bc959c97959ead72141e7ca06b3c203ffdfde63fc69a46ca68b58b909b"
+    },
+    {
+      "path": "assets/reader-pack/soar-product-brief.pdf",
+      "bytes": 371223,
+      "sha256": "d174e75c60b7c8a5b29d71acf314e17228c3f774b6367dcc9f0ea23a8c7648f2"
+    },
+    {
+      "path": "reader-pack/index.html",
+      "bytes": 23012,
+      "sha256": "d77fe9b9a5e9f0bbc04f653cb86e75139dbe9dbad4bad529e19682e3e8963a3a"
+    },
+    {
+      "path": "poc-planner/index.html",
+      "bytes": 5639,
+      "sha256": "f5e661c70de611a05313213478c975825558be6aca65fe262033e2bd8ad5c3e8"
+    },
+    {
+      "path": "pqc-planner/index.html",
+      "bytes": 5674,
+      "sha256": "27c83d37f410fd5c9ea25cb0cf05a65e910d4dc66fc984ba290dfb98d2f372f1"
     }
   ],
-  "brandRevision": "2026-09-21-logo-v05"
+  "brandRevision": "2026-09-21-logo-v05",
+  "planningFiles": [
+    "assets/site-ui/planner-validation.cc3648707f67.js",
+    "assets/site-ui/planner-poc.e76b08aae8df.js",
+    "assets/site-ui/planner-pqc.b2d46df0f22c.js",
+    "assets/site-ui/planner-ui.e6ce70208653.js",
+    "assets/site-ui/planners.4babf987f02f.css",
+    "assets/site-ui/evaluation-entry.e493f67b4060.css",
+    "assets/site-ui/reader-hub.8a6cd69deaff.js",
+    "assets/reader-pack/portfolio-overview.pdf",
+    "assets/reader-pack/pilot-engagement-outline.pdf",
+    "assets/reader-pack/secure-one-page.pdf",
+    "assets/reader-pack/secure-evaluation-brief.pdf",
+    "assets/reader-pack/secure-product-brief.pdf",
+    "assets/reader-pack/assure-one-page.pdf",
+    "assets/reader-pack/assure-evaluation-brief.pdf",
+    "assets/reader-pack/assure-product-brief.pdf",
+    "assets/reader-pack/soar-one-page.pdf",
+    "assets/reader-pack/soar-evaluation-brief.pdf",
+    "assets/reader-pack/soar-product-brief.pdf",
+    "reader-pack/index.html",
+    "poc-planner/index.html",
+    "pqc-planner/index.html"
+  ],
+  "candidate": {
+    "name": "marketing-resources-20260924",
+    "productionPublicationApproved": false
+  }
 }

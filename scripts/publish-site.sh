@@ -1,6 +1,11 @@
 #!/usr/bin/env bash
 set -Eeuo pipefail
 
+if [[ -n "${BWTR_LOCAL_CANDIDATE:-}" ]]; then
+  echo 'Local candidate mode cannot be used for publication.' >&2
+  exit 2
+fi
+
 for required_variable in \
   BWTR_BUCKET \
   BWTR_DISTRIBUTION \

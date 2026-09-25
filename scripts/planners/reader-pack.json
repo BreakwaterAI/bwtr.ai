@@ -1,0 +1,73 @@
+{
+  "sourceCommit": "c7d4a21753a00f5768b5e6f0c03e7c4e76202f4b",
+  "sourceContentSha256": "1d5995b7960a0170db3bae1c467ea09849fb5cfa4cf6afa1666beae7d9a044ad",
+  "scope": "Eleven approved public marketing PDFs; excludes customer briefs and protected full books.",
+  "documents": [
+    {
+      "file": "portfolio-overview.pdf",
+      "pages": 2,
+      "bytes": 175819,
+      "sha256": "acd595d5a4a5dc4c90bab3943cc26a62da5a26a3e64991731b49e275907a13b4"
+    },
+    {
+      "file": "pilot-engagement-outline.pdf",
+      "pages": 2,
+      "bytes": 194111,
+      "sha256": "3ab4255834ab6c07044c3a8b41e20f95683c70dce0961cbeb013a861be418204"
+    },
+    {
+      "file": "secure-one-page.pdf",
+      "pages": 1,
+      "bytes": 181065,
+      "sha256": "b434808996129faf0576d7e481446b78c2a537188811a41bf882be6c153e30b5"
+    },
+    {
+      "file": "secure-evaluation-brief.pdf",
+      "pages": 1,
+      "bytes": 122116,
+      "sha256": "7dab0651046eb3ae5a8264c5c26efc69b0b43ffbbc2e423113f98abb58148b93"
+    },
+    {
+      "file": "secure-product-brief.pdf",
+      "pages": 4,
+      "bytes": 340443,
+      "sha256": "3b72cd30ff28a65a8947a63f26200b00c069bb0c8b5f59f8621afa36951e986f"
+    },
+    {
+      "file": "assure-one-page.pdf",
+      "pages": 1,
+      "bytes": 356239,
+      "sha256": "e0bae4543d3bcb800e954059bc932ca075ed2a7b3be86234ff0585894b0f2010"
+    },
+    {
+      "file": "assure-evaluation-brief.pdf",
+      "pages": 1,
+      "bytes": 121107,
+      "sha256": "ef3fbc7c0e3dac5202a0a2d3112496798ad832d49da0fb109ef71eaf6174dc44"
+    },
+    {
+      "file": "assure-product-brief.pdf",
+      "pages": 4,
+      "bytes": 512013,
+      "sha256": "e04bbef08c7e6eaf734f6f76574f082b41d0299fea91073f426a261135be979d"
+    },
+    {
+      "file": "soar-one-page.pdf",
+      "pages": 1,
+      "bytes": 210818,
+      "sha256": "71f5c1d40b62f0b35a2d453bee49ad85aee2851bfc85345587055da206fa377d"
+    },
+    {
+      "file": "soar-evaluation-brief.pdf",
+      "pages": 1,
+      "bytes": 123350,
+      "sha256": "305015bc959c97959ead72141e7ca06b3c203ffdfde63fc69a46ca68b58b909b"
+    },
+    {
+      "file": "soar-product-brief.pdf",
+      "pages": 4,
+      "bytes": 371223,
+      "sha256": "d174e75c60b7c8a5b29d71acf314e17228c3f774b6367dcc9f0ea23a8c7648f2"
+    }
+  ]
+}

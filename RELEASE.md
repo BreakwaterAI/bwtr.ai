@@ -4,6 +4,20 @@ September 21, 2026. Marketing website only: `BreakwaterAI/bwtr.ai`.
 
 ## Current revision approval
 
+### Approved marketing resources release: September 24, 2026
+
+The owner approved the exact evaluation hub/planner candidate, product links,
+utility crop corrections, three marketing edge routes and commit/push to main
+for production deployment by replying "go ahead" to the explicit release request.
+Authority is pinned in
+`release-prep/marketing-resources-20260924/publication-approval.json`.
+See `release-prep/marketing-resources-20260924/RELEASE-REVIEW.md` and its
+`approval-pending.json` for the exact candidate, test evidence, commit scope and
+required three-route CloudFront change. The existing September 21 publication
+receipt below remains unchanged. The new receipt pins the 121-file release
+manifest after generated-JavaScript whitespace normalization; the candidate field in that manifest
+is historical preparation metadata, not the current approval status.
+
 ### Logo update: September 21, 2026
 
 After reviewing the v05 header and icons locally, the owner said: "looks good...

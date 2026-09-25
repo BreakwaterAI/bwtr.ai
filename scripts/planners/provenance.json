@@ -1,0 +1,23 @@
+{
+  "sourceRepository": "gwuml/asoc",
+  "sourceCommit": "c7d4a21753a00f5768b5e6f0c03e7c4e76202f4b",
+  "inputs": {
+    "app/poc-planner/planner-model.ts": "5dbf6a448107ccc23dbae5977f592eb315706f1bd2fdc1fed111d2b34543a36b",
+    "app/pqc-planner/pqc-model.ts": "512bc2bb08a0355db444b62c9e3f6e84af51f51287a71886a8b2ee3c819a5401",
+    "app/poc-planner/Planner.tsx": "a795ba9a28dfb2e47cff19937edede3f5e4ed68c38a6a33304a5e945672c4cba",
+    "app/poc-planner/ArchitectureSheet.tsx": "f6ce64c36ea46bc37410dcec24aa49d2f71e6e3b4a6130c95af522927e539b2d",
+    "app/pqc-planner/PqcPlanner.tsx": "30fcdfb9a79cf7296de34d865ddf6be0c8ed79490c765bf758d186a32033fc29",
+    "scripts/build-reader-pack.py": "7023c45cf996d0c8a9739f830ba50773dfc14c4ada6977eed11ff40b85cb075e",
+    "docs/reader-pack/chapter-outcomes.json": "c2e93e7da912fbce41eed7793442649335edeb57c46c25214185cca0936b2323"
+  },
+  "adaptations": [
+    "Static browser-only UI; no backend, scan, uploads or model calls.",
+    "Company branding; explicit illustrative assumptions, no NIST CRQC forecast.",
+    "Complete answer validation, no external inference in isolated configurations.",
+    "Presentation adapted to semantic static HTML and browser DOM rendering: progress, answer trail, keyboard controls, six-section results, spec cards, responsibilities, STRIDE, labeled sequences, local checklists and export actions.",
+    "Responsive conceptual architecture replaces the fixed-width React sheet; offline packages and non-executing response paths follow answers.",
+    "Public chapter outcome summaries are reproduced from the pinned repository; protected books remain sign-in links only.",
+    "Em-dash copy revised, collector egress absolutism removed, response-adapter threat rows omitted for non-executing plans. Review checkboxes never confer deployment approval.",
+    "Quantum horizons and Mosca timing explained as assumptions; references remain linked, priority weights are not measured risk. General-sector choices precede explicitly US-only choices."
+  ]
+}

@@ -3,7 +3,7 @@ import { readFileSync, existsSync, statSync } from 'node:fs';
 import { resolve, join, extname, sep } from 'node:path';
 const root = resolve(process.argv[2] || '');
 if (!process.argv[2] || !existsSync(join(root, 'asset-manifest.json'))) throw Error('Pass a built public artifact directory');
-const mime = { '.html':'text/html; charset=utf-8', '.css':'text/css', '.js':'text/javascript', '.png':'image/png', '.jpg':'image/jpeg', '.webp':'image/webp', '.xml':'application/xml', '.txt':'text/plain', '.json':'application/json', '.mp4':'video/mp4' };
+const mime = { '.html':'text/html; charset=utf-8', '.css':'text/css', '.js':'text/javascript', '.png':'image/png', '.jpg':'image/jpeg', '.webp':'image/webp', '.xml':'application/xml', '.txt':'text/plain', '.json':'application/json', '.mp4':'video/mp4', '.pdf':'application/pdf' };
 createServer((req, res) => {
   if (!['GET','HEAD'].includes(req.method)) { res.writeHead(405); return res.end(); }
   let url, path;

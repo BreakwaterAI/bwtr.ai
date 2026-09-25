@@ -1,0 +1,812 @@
+{
+  "version": "2026-09-21-ciso-led",
+  "routes": [
+    {
+      "route": "/",
+      "canonical": "https://www.bwtr.ai/",
+      "socialImage": "https://www.bwtr.ai/assets/breakwater-social-home.png"
+    },
+    {
+      "route": "/products/",
+      "canonical": "https://www.bwtr.ai/products/",
+      "socialImage": "https://www.bwtr.ai/assets/breakwater-social-home.png"
+    },
+    {
+      "route": "/airports/",
+      "canonical": "https://www.bwtr.ai/airports/",
+      "socialImage": "https://www.bwtr.ai/assets/breakwater-social-airports.png"
+    },
+    {
+      "route": "/healthcare/",
+      "canonical": "https://www.bwtr.ai/healthcare/",
+      "socialImage": "https://www.bwtr.ai/assets/breakwater-social-healthcare.png"
+    },
+    {
+      "route": "/power-utilities/",
+      "canonical": "https://www.bwtr.ai/power-utilities/",
+      "socialImage": "https://www.bwtr.ai/assets/breakwater-social-power-utilities.png"
+    },
+    {
+      "route": "/connected-industry/",
+      "canonical": "https://www.bwtr.ai/connected-industry/",
+      "socialImage": "https://www.bwtr.ai/assets/breakwater-social-connected-industry.png"
+    },
+    {
+      "route": "/architecture/",
+      "canonical": "https://www.bwtr.ai/architecture/",
+      "socialImage": "https://www.bwtr.ai/assets/breakwater-social-home.png"
+    },
+    {
+      "route": "/about/",
+      "canonical": "https://www.bwtr.ai/about/",
+      "socialImage": "https://www.bwtr.ai/assets/breakwater-social-home.png"
+    },
+    {
+      "route": "/research/",
+      "canonical": "https://www.bwtr.ai/research/",
+      "socialImage": "https://www.bwtr.ai/assets/breakwater-social-home.png"
+    },
+    {
+      "route": "/security/",
+      "canonical": "https://www.bwtr.ai/security/",
+      "socialImage": "https://www.bwtr.ai/assets/breakwater-social-home.png"
+    }
+  ],
+  "utilityPages": [
+    "/404.html",
+    "/platform/"
+  ],
+  "resources": {
+    "styles.css": "assets/site-ui/site.750c35ca1506.css",
+    "script.js": "assets/site-ui/site.3bdb33dbae94.js",
+    "theme-init.js": "assets/site-ui/theme-init.48bf567099e1.js",
+    "favicon.webp": "assets/site-ui/favicon.59d331b98f38.webp",
+    "lead-form.js": "assets/site-ui/lead-form.8eb8f51ef7a1.js"
+  },
+  "endpoint": "https://script.google.com/macros/s/AKfycbyn7VeN_qJtlnNLMN_nzW_nMHmPXkt9SN_Qx-1AWk1im76oI9m9v0b_7ujn2SWa1z1N/exec",
+  "media": [
+    {
+      "destination": "/assets/product-proof/Breakwater-secure-attack-path-01-640.webp",
+      "sha256": "eefbc7fdc2664b4840b4a1c72cdc16be78614c6fbe943c51f294b298ddecf5b0",
+      "bytes": 31986
+    },
+    {
+      "destination": "/assets/product-proof/Breakwater-secure-attack-path-01-960.webp",
+      "sha256": "fd71b2616745f199c199f99efcdfa20bfd85d25a4d4343fca48968655f1d9133",
+      "bytes": 59198
+    },
+    {
+      "destination": "/assets/product-proof/Breakwater-secure-attack-path-01-1280.webp",
+      "sha256": "b7064e7823455db776ac9ee46c86db0422c3c2168825d00e28a9cdb715f6e532",
+      "bytes": 89774
+    },
+    {
+      "destination": "/assets/product-proof/Breakwater-secure-attack-path-01-1920.webp",
+      "sha256": "0d79b30be72746c022b3e0af75744f27c4c496ed58682b8e1f9c56ed01b9cc07",
+      "bytes": 166554
+    },
+    {
+      "destination": "/assets/product-proof/Breakwater-Assure-liveview-01-640.webp",
+      "sha256": "82efc675b2c2cc2064a725554c4976cc3d9e99388d7f6a229d928eac8c1c3184",
+      "bytes": 47924
+    },
+    {
+      "destination": "/assets/product-proof/Breakwater-Assure-liveview-01-960.webp",
+      "sha256": "360ed70b83235ddde3e6e9c540e03de3f30b5d3e09b768a64546494b20c6358d",
+      "bytes": 92038
+    },
+    {
+      "destination": "/assets/product-proof/Breakwater-Assure-liveview-01-1280.webp",
+      "sha256": "0ec9eabcc748001bda3c540dc3a75d5656a7ba3904931e9727c0b6520fc5e5ef",
+      "bytes": 144284
+    },
+    {
+      "destination": "/assets/product-proof/Breakwater-Assure-liveview-01-1920.webp",
+      "sha256": "c47b363cbf77bd6c762a01b2d8bc710a1c5ff97501c5a91b24396cdc5973764c",
+      "bytes": 286302
+    },
+    {
+      "destination": "/assets/product-proof/Breakwater-secure-topology-01-640.webp",
+      "sha256": "2d4f1f2dbdee4cbcb1d2b95ac5d52eca584557a6430ea60ded3760fb47e154d4",
+      "bytes": 67532
+    },
+    {
+      "destination": "/assets/product-proof/Breakwater-secure-topology-01-960.webp",
+      "sha256": "095163a482e3df35836866f05da805e8e57623eda69352b847e2b2d6697831ae",
+      "bytes": 142350
+    },
+    {
+      "destination": "/assets/product-proof/Breakwater-secure-topology-01-1280.webp",
+      "sha256": "4d4e9e864962f7bae9aaab3157089144fe1abf8497ba5cfc1a869988c6e84245",
+      "bytes": 238956
+    },
+    {
+      "destination": "/assets/product-proof/Breakwater-secure-topology-01-1920.webp",
+      "sha256": "31019129da13a2e48ecc74c5383614555631779f160e5bb31093389026ef385f",
+      "bytes": 561496
+    },
+    {
+      "destination": "/assets/product-proof/Breakwater-secure-vuln-01-640.webp",
+      "sha256": "86dbcc0073edfec47854547547243a777403431c97974da9bdb73d00b12be695",
+      "bytes": 43996
+    },
+    {
+      "destination": "/assets/product-proof/Breakwater-secure-vuln-01-960.webp",
+      "sha256": "91eca5de0ef19cd738b8c97a03b88c4ddf3284f9b0dd26f1ed51d1e622bdf4b3",
+      "bytes": 79448
+    },
+    {
+      "destination": "/assets/product-proof/Breakwater-secure-vuln-01-1280.webp",
+      "sha256": "81effcc3eefd5af03d16b3ece00ecf8a40b885007010ad06a496d73d2c2f96b5",
+      "bytes": 120154
+    },
+    {
+      "destination": "/assets/product-proof/Breakwater-secure-vuln-01-1920.webp",
+      "sha256": "d0ca5c2616a18f21bba6a9d2802a74d5e04beddd9388b61d3cbbca923b6b4fea",
+      "bytes": 223804
+    },
+    {
+      "destination": "/assets/product-proof/Breakwater-secure-PQC-01-640.webp",
+      "sha256": "bb9709e212812761dd2060eb9ece14bdc619ddb92f884aff42fee3464479bcf1",
+      "bytes": 67092
+    },
+    {
+      "destination": "/assets/product-proof/Breakwater-secure-PQC-01-960.webp",
+      "sha256": "d3f2ed8b3feec6136680309cc55984d6be1af6b69e21ff844b91b8d781547f66",
+      "bytes": 120914
+    },
+    {
+      "destination": "/assets/product-proof/Breakwater-secure-PQC-01-1280.webp",
+      "sha256": "1ae73a693b2acb449b11742abb99262050b43ec13f15c2cedf57fd0060aa9125",
+      "bytes": 185502
+    },
+    {
+      "destination": "/assets/product-proof/Breakwater-secure-PQC-01-1676.webp",
+      "sha256": "ef16f8b3f33152b4e08fbffed9e002e8c72d0151e7e8578fc1524c399934d278",
+      "bytes": 110322
+    },
+    {
+      "destination": "/assets/product-proof/nagu-thogiti-headshot-336.webp",
+      "sha256": "d297203ae960ae2cfed380b10451d3691e82a0e80bf102443f5be09af965c60a",
+      "bytes": 18440
+    },
+    {
+      "destination": "/assets/product-proof/nagu-thogiti-headshot-672.webp",
+      "sha256": "43a366f8aec07ba581203671e6cc01d911f990edeea322e1ff3f558471bd5178",
+      "bytes": 60238
+    },
+    {
+      "destination": "/assets/product-proof/chetna-mallarapu-headshot-336.webp",
+      "sha256": "1bc0c895cc078eae57843f538506cf30d3a7d1ba7b28d2e7c1e6872076a3942f",
+      "bytes": 22036
+    },
+    {
+      "destination": "/assets/product-proof/chetna-mallarapu-headshot-672.webp",
+      "sha256": "0c1e2b99aaaa7a1cb0f33cbaaa8be722b6a47be66a0a554d1978f216769f682c",
+      "bytes": 65704
+    },
+    {
+      "destination": "/assets/product-proof/context-airport-400.webp",
+      "sha256": "766a625c614da592e357ef7e1474d3577267163e4e6d04483bf831beb83dcac3",
+      "bytes": 34856
+    },
+    {
+      "destination": "/assets/product-proof/context-airport-800.webp",
+      "sha256": "57bb191bb911d5340369a8c49be683b49a2e5b66db5c80ec36a1782d4ff167c5",
+      "bytes": 117476
+    },
+    {
+      "destination": "/assets/product-proof/context-substation-400.webp",
+      "sha256": "f029c46e36fe3fa56be8ad5f9c5c9088b29199647a6eec14f68c35af61c446f4",
+      "bytes": 28594
+    },
+    {
+      "destination": "/assets/product-proof/context-substation-800.webp",
+      "sha256": "cc93d426a4a2e8ebd8dee6b0da34e91fae01e60bff771fbf9ba01178d280134f",
+      "bytes": 95316
+    },
+    {
+      "destination": "/assets/product-proof/context-hmi-400.webp",
+      "sha256": "7acf344c09c42ea042f60345774fa108927aaa0ff2d18847eae0bc25762ebd30",
+      "bytes": 40838
+    },
+    {
+      "destination": "/assets/product-proof/context-hmi-800.webp",
+      "sha256": "c06cfd7cb898936a4c40e8d92b0aa50d1c8a2e9bf1cc10920b5bda21f68eb474",
+      "bytes": 108102
+    },
+    {
+      "destination": "/assets/product-proof/context-healthcare-400.webp",
+      "sha256": "f9468c7cac956a43894f24eb6cf461e28f971e6db226129b9366f52dccb268c9",
+      "bytes": 28648
+    },
+    {
+      "destination": "/assets/product-proof/context-healthcare-800.webp",
+      "sha256": "1a20929477bed476fa27d34fa82c3054b5206df73b9acf07e9e1f0787f5dd640",
+      "bytes": 85266
+    },
+    {
+      "destination": "/assets/product-proof/Breakwater-secure-attack-path-01.png",
+      "sha256": "259bec6a5a564424aaa032a7450e2738fc15f8b8cd276941894bfe7c3475b5d0",
+      "bytes": 451263
+    },
+    {
+      "destination": "/assets/product-proof/Breakwater-Assure-liveview-01.png",
+      "sha256": "b7cc92803d124855737a1baae37780ebe39bf1584c0a71b0e3f5071c0c4ca306",
+      "bytes": 751953
+    },
+    {
+      "destination": "/assets/product-proof/Breakwater-secure-topology-01.png",
+      "sha256": "9e0fe16bb78d4f0f53cf4b7565daf8616db5c6f118375a19a5e48a07189004cc",
+      "bytes": 1126399
+    },
+    {
+      "destination": "/assets/product-proof/Breakwater-secure-vuln-01.png",
+      "sha256": "2635b9297b54b241849d65f27f52d75e9ef60c13b7faa60306dfb6c3e0969bbd",
+      "bytes": 488220
+    },
+    {
+      "destination": "/assets/product-proof/Breakwater-secure-PQC-01.png",
+      "sha256": "1ae5a4c65d498ffb35f652258507fb48401145dd87f0508ef67173794fdf7478",
+      "bytes": 472486
+    },
+    {
+      "destination": "/assets/videos/redesign/secure-route.mp4",
+      "sha256": "e721964670524cd3d407b47c0a73e5e501075e3eedfebece403916bef44b3b06",
+      "bytes": 129613
+    },
+    {
+      "destination": "/assets/product-proof/secure-route-poster.jpg",
+      "sha256": "b346709e7ea72164b93196cf0c2c4c83b33dc266d572d48239acb7908d278ee6",
+      "bytes": 69844
+    },
+    {
+      "destination": "/assets/videos/redesign/soar-review.mp4",
+      "sha256": "319549d18013302b5cde7f2866e0d959cf79303e144e5255a4f5db14e536db53",
+      "bytes": 731388
+    },
+    {
+      "destination": "/assets/product-proof/soar-review-poster.jpg",
+      "sha256": "75d089ad2f70d46fe1325b180f15ec690c9a3c308f95fb000a01a4840b57150d",
+      "bytes": 159632
+    },
+    {
+      "destination": "/assets/product-proof/brand-light-v05-340.webp",
+      "sha256": "6cb97d83275a9e385aacf130611760a0808b73ff389e2ac4949e4e2a44e19405",
+      "bytes": 4934
+    },
+    {
+      "destination": "/assets/product-proof/brand-light-v05-510.webp",
+      "sha256": "30734038bfdf721a0178dcd9922e999b6548b1b21ea23cd0b3c8488e95b96fb2",
+      "bytes": 7174
+    },
+    {
+      "destination": "/assets/product-proof/brand-light-v05-680.webp",
+      "sha256": "d6da3179ae8da1fb4719d088e086eabf6a347bda124d0bb78c90b2f6246cb44d",
+      "bytes": 10150
+    },
+    {
+      "destination": "/assets/product-proof/brand-dark-v05-340.webp",
+      "sha256": "5b8571e5cd5550fcfc31234aea350b0a71209122c8859cceff043a53fade7438",
+      "bytes": 4914
+    },
+    {
+      "destination": "/assets/product-proof/brand-dark-v05-510.webp",
+      "sha256": "b8b9cedabc3ee324537c630b0c25d3e80ec2dc5a39537737ae15bce26fd5549d",
+      "bytes": 7192
+    },
+    {
+      "destination": "/assets/product-proof/brand-dark-v05-680.webp",
+      "sha256": "88b821a7ab9de11f59afaadc85611b036e3505fa4fbc047ca768fe0358505ff5",
+      "bytes": 10048
+    },
+    {
+      "destination": "/assets/product-proof/apple-touch-icon-v05-180.png",
+      "sha256": "40321ac600fea8c882ebac78f5a644b8ff101869dbbcf19095912001c82f88b5",
+      "bytes": 5646
+    }
+  ],
+  "files": [
+    {
+      "path": ".well-known/security.txt",
+      "bytes": 204,
+      "sha256": "fa7767c8158d26e20b69efeb5bfc2eaaac5ade9b101c95a12a166454319c11ac"
+    },
+    {
+      "path": "404.html",
+      "bytes": 3309,
+      "sha256": "b1dba84600e0af05717963689aad6bffa28ad44ff495c31deee85031ef6af929"
+    },
+    {
+      "path": "about/index.html",
+      "bytes": 8730,
+      "sha256": "1f326158b44d81c0d4a0ba45daa06b81dfab37e57f09c121c95257517b66e5f4"
+    },
+    {
+      "path": "airports/index.html",
+      "bytes": 8552,
+      "sha256": "5dcd11746410b0e8e35dc024e1f90a3f1f531fde849617fe19e4ea004dd96c1f"
+    },
+    {
+      "path": "architecture/index.html",
+      "bytes": 9928,
+      "sha256": "077fc83faaa870e561fc2ad08c66dd1d5023a6ef7987fc84902903d8d13d80da"
+    },
+    {
+      "path": "assets/breakwater-hero-airport-1200.jpg",
+      "bytes": 247124,
+      "sha256": "bdb346e03bf75be74cfcf7afbf018ef32bc8ad94204b6a29a0412c1da60d1829"
+    },
+    {
+      "path": "assets/breakwater-hero-airport-640.jpg",
+      "bytes": 66710,
+      "sha256": "205dc0f08a9467a908a1a9b942c0f5bdaab805603ba15c74469d821d1e65c34a"
+    },
+    {
+      "path": "assets/breakwater-hero-airport.jpg",
+      "bytes": 590144,
+      "sha256": "2c815b05f61a2e4f9d65a8dcbda231d76c39c8f8919e34110c27e2709e9247e5"
+    },
+    {
+      "path": "assets/breakwater-horizontal-dark-transparent.png",
+      "bytes": 1019944,
+      "sha256": "b276a093e045113ec924a51e68a974198642efac8012f969faa61dff1ec9d359"
+    },
+    {
+      "path": "assets/breakwater-horizontal-dark.png",
+      "bytes": 1017386,
+      "sha256": "393630fb798dec7906d587e7f1ea6ec04b24f05ea8bb18147864abb5c61a4968"
+    },
+    {
+      "path": "assets/breakwater-horizontal-light-transparent.png",
+      "bytes": 1148293,
+      "sha256": "7751b1746d73c6dcfab5d44999553b38bd195e25b392d13622f24c6f7a67fd20"
+    },
+    {
+      "path": "assets/breakwater-horizontal-light.png",
+      "bytes": 1124517,
+      "sha256": "d82615e91147ada1a4b2cbc59d8278cd1ac9dc1e49652502d432c1b737c8f6e9"
+    },
+    {
+      "path": "assets/breakwater-mark-light.png",
+      "bytes": 1032897,
+      "sha256": "0aecc7581d5eff74e9022440f75473c53fe25ccb93d259b285ab26c86a1a41cf"
+    },
+    {
+      "path": "assets/breakwater-social-airports.png",
+      "bytes": 1882651,
+      "sha256": "a231de07b94d311f4e9f1375550b67752400c10ebc967f00ca5558ef9360e8f5"
+    },
+    {
+      "path": "assets/breakwater-social-card.png",
+      "bytes": 213502,
+      "sha256": "4f02884cbe4c93e470479e375fe29afae36686e501abf197ab187dc7fe184d7a"
+    },
+    {
+      "path": "assets/breakwater-social-connected-industry.png",
+      "bytes": 1845159,
+      "sha256": "0e0d50187401304ddf516dbed5eb60ea3d6228fc1af54cd275a34fe5d7c894a4"
+    },
+    {
+      "path": "assets/breakwater-social-healthcare.png",
+      "bytes": 991885,
+      "sha256": "61298b5514de1e28455c4883efabe6e883c1febf506f68afcabe143e147328c2"
+    },
+    {
+      "path": "assets/breakwater-social-home.png",
+      "bytes": 1400952,
+      "sha256": "c578e302befc46f53b18136755f824a5b4d9936eda3a5c000d0292141c1cd268"
+    },
+    {
+      "path": "assets/breakwater-social-power-utilities.png",
+      "bytes": 1109092,
+      "sha256": "6eafea17180eeedc9645322d33c642805b5c11be279f38c079b13806bda0f9c6"
+    },
+    {
+      "path": "assets/breakwater-stacked-dark.png",
+      "bytes": 1305374,
+      "sha256": "e438f126cc5d8e00438091697bc87a83a6e1a558fbe4440c4c063f040b967a49"
+    },
+    {
+      "path": "assets/breakwater-stacked-light.png",
+      "bytes": 1089534,
+      "sha256": "bf6c9386d7fdf03bbbb08a2ddab92b922745a14f75ec10a6800709c24c7f4279"
+    },
+    {
+      "path": "assets/chetna-mallarapu-headshot.jpg",
+      "bytes": 254954,
+      "sha256": "eacf53b4585acf583912ef646e08f4038b8768c3d6229e8af56c152b22e27da7"
+    },
+    {
+      "path": "assets/infrastructure-airport-1200.jpg",
+      "bytes": 269480,
+      "sha256": "32a1763970118558e8de6270ee6f926991ae0062656608aca7ddc706fa6cd440"
+    },
+    {
+      "path": "assets/infrastructure-airport-640.jpg",
+      "bytes": 93286,
+      "sha256": "688f296a7d120093882992856d8de196f7c25a935e8a59d22ebbfdfb0ed3a450"
+    },
+    {
+      "path": "assets/infrastructure-airport.jpg",
+      "bytes": 519041,
+      "sha256": "b37a7469aa1d845ddbe0b11f70c0fccca85c6992b94722154bec9882edb42ad8"
+    },
+    {
+      "path": "assets/infrastructure-healthcare-1200.jpg",
+      "bytes": 160852,
+      "sha256": "d66b24a61bef5fc79d672812bf3a0d3ce0c1d35ff76155c748748faab3b55e77"
+    },
+    {
+      "path": "assets/infrastructure-healthcare-640.jpg",
+      "bytes": 52865,
+      "sha256": "2450b8afa8b7d9c66d65f1342b915e5064ef7aa67d0e3da8d1a763002594885b"
+    },
+    {
+      "path": "assets/infrastructure-healthcare.jpg",
+      "bytes": 182462,
+      "sha256": "f855291bdb262f8a1f2254572ebce67b8a2fc4d10a2863d9f288de3e8306ef04"
+    },
+    {
+      "path": "assets/infrastructure-hmi-1200.jpg",
+      "bytes": 259900,
+      "sha256": "63fcd262426428267e71a335503b448c6243e6040b8e1c6ce11f90ac02dd1afa"
+    },
+    {
+      "path": "assets/infrastructure-hmi-640.jpg",
+      "bytes": 102204,
+      "sha256": "f1e9754c454c52ec8b7424d0dc2e0dcd2980bd8c37f42c8c03339b0543fe5dee"
+    },
+    {
+      "path": "assets/infrastructure-hmi.jpg",
+      "bytes": 434344,
+      "sha256": "9e0e1c32bb87124947e433882830614d30243f6dbed5b25560b6a3257a02bc8e"
+    },
+    {
+      "path": "assets/infrastructure-substation-1200.jpg",
+      "bytes": 245488,
+      "sha256": "f1e0f0a1260008624a3eb0a686c1a70058954071fbee804f8a89ea1e4053a85d"
+    },
+    {
+      "path": "assets/infrastructure-substation-640.jpg",
+      "bytes": 75989,
+      "sha256": "eb43266f90c0bd045e24830358a64b37c2664607c05c1838f3b7689188a331c4"
+    },
+    {
+      "path": "assets/infrastructure-substation.jpg",
+      "bytes": 591442,
+      "sha256": "f685a84885eb9fc14b2482ba3efe9091826ab73269f44b2b59176ec966d7b5fc"
+    },
+    {
+      "path": "assets/infrastructure-utility-worker-1200.jpg",
+      "bytes": 153111,
+      "sha256": "264f3943b67b0b19038fac73b2c62664790ca467d8db3bedb700ff07b83a95cb"
+    },
+    {
+      "path": "assets/infrastructure-utility-worker-640.jpg",
+      "bytes": 59890,
+      "sha256": "418695830d8a7e87d79fcc3160c9391f6ae0bdda862513a134d8d55ec2a620ca"
+    },
+    {
+      "path": "assets/infrastructure-utility-worker.jpg",
+      "bytes": 197214,
+      "sha256": "891d08373103254c6e8514cb3a5b3f0913113d249f803474c9f0d195b542ad02"
+    },
+    {
+      "path": "assets/nagu-thogiti-headshot.jpg",
+      "bytes": 236930,
+      "sha256": "adefa9b1e44d81ddab68d8b719706b6e4ed1c4f095b560834b7b48e24f90a937"
+    },
+    {
+      "path": "assets/product-demo-poster.jpg",
+      "bytes": 53586,
+      "sha256": "ac731efa9e1dc7f613299da89557e0c2895ebbfe5eb672ab0a8868a5ead87cb7"
+    },
+    {
+      "path": "assets/product-proof/apple-touch-icon-v05-180.png",
+      "bytes": 5646,
+      "sha256": "40321ac600fea8c882ebac78f5a644b8ff101869dbbcf19095912001c82f88b5"
+    },
+    {
+      "path": "assets/product-proof/brand-dark-v05-340.webp",
+      "bytes": 4914,
+      "sha256": "5b8571e5cd5550fcfc31234aea350b0a71209122c8859cceff043a53fade7438"
+    },
+    {
+      "path": "assets/product-proof/brand-dark-v05-510.webp",
+      "bytes": 7192,
+      "sha256": "b8b9cedabc3ee324537c630b0c25d3e80ec2dc5a39537737ae15bce26fd5549d"
+    },
+    {
+      "path": "assets/product-proof/brand-dark-v05-680.webp",
+      "bytes": 10048,
+      "sha256": "88b821a7ab9de11f59afaadc85611b036e3505fa4fbc047ca768fe0358505ff5"
+    },
+    {
+      "path": "assets/product-proof/brand-light-v05-340.webp",
+      "bytes": 4934,
+      "sha256": "6cb97d83275a9e385aacf130611760a0808b73ff389e2ac4949e4e2a44e19405"
+    },
+    {
+      "path": "assets/product-proof/brand-light-v05-510.webp",
+      "bytes": 7174,
+      "sha256": "30734038bfdf721a0178dcd9922e999b6548b1b21ea23cd0b3c8488e95b96fb2"
+    },
+    {
+      "path": "assets/product-proof/brand-light-v05-680.webp",
+      "bytes": 10150,
+      "sha256": "d6da3179ae8da1fb4719d088e086eabf6a347bda124d0bb78c90b2f6246cb44d"
+    },
+    {
+      "path": "assets/product-proof/Breakwater-Assure-liveview-01-1280.webp",
+      "bytes": 144284,
+      "sha256": "0ec9eabcc748001bda3c540dc3a75d5656a7ba3904931e9727c0b6520fc5e5ef"
+    },
+    {
+      "path": "assets/product-proof/Breakwater-Assure-liveview-01-1920.webp",
+      "bytes": 286302,
+      "sha256": "c47b363cbf77bd6c762a01b2d8bc710a1c5ff97501c5a91b24396cdc5973764c"
+    },
+    {
+      "path": "assets/product-proof/Breakwater-Assure-liveview-01-640.webp",
+      "bytes": 47924,
+      "sha256": "82efc675b2c2cc2064a725554c4976cc3d9e99388d7f6a229d928eac8c1c3184"
+    },
+    {
+      "path": "assets/product-proof/Breakwater-Assure-liveview-01-960.webp",
+      "bytes": 92038,
+      "sha256": "360ed70b83235ddde3e6e9c540e03de3f30b5d3e09b768a64546494b20c6358d"
+    },
+    {
+      "path": "assets/product-proof/Breakwater-Assure-liveview-01.png",
+      "bytes": 751953,
+      "sha256": "b7cc92803d124855737a1baae37780ebe39bf1584c0a71b0e3f5071c0c4ca306"
+    },
+    {
+      "path": "assets/product-proof/Breakwater-secure-attack-path-01-1280.webp",
+      "bytes": 89774,
+      "sha256": "b7064e7823455db776ac9ee46c86db0422c3c2168825d00e28a9cdb715f6e532"
+    },
+    {
+      "path": "assets/product-proof/Breakwater-secure-attack-path-01-1920.webp",
+      "bytes": 166554,
+      "sha256": "0d79b30be72746c022b3e0af75744f27c4c496ed58682b8e1f9c56ed01b9cc07"
+    },
+    {
+      "path": "assets/product-proof/Breakwater-secure-attack-path-01-640.webp",
+      "bytes": 31986,
+      "sha256": "eefbc7fdc2664b4840b4a1c72cdc16be78614c6fbe943c51f294b298ddecf5b0"
+    },
+    {
+      "path": "assets/product-proof/Breakwater-secure-attack-path-01-960.webp",
+      "bytes": 59198,
+      "sha256": "fd71b2616745f199c199f99efcdfa20bfd85d25a4d4343fca48968655f1d9133"
+    },
+    {
+      "path": "assets/product-proof/Breakwater-secure-attack-path-01.png",
+      "bytes": 451263,
+      "sha256": "259bec6a5a564424aaa032a7450e2738fc15f8b8cd276941894bfe7c3475b5d0"
+    },
+    {
+      "path": "assets/product-proof/Breakwater-secure-PQC-01-1280.webp",
+      "bytes": 185502,
+      "sha256": "1ae73a693b2acb449b11742abb99262050b43ec13f15c2cedf57fd0060aa9125"
+    },
+    {
+      "path": "assets/product-proof/Breakwater-secure-PQC-01-1676.webp",
+      "bytes": 110322,
+      "sha256": "ef16f8b3f33152b4e08fbffed9e002e8c72d0151e7e8578fc1524c399934d278"
+    },
+    {
+      "path": "assets/product-proof/Breakwater-secure-PQC-01-640.webp",
+      "bytes": 67092,
+      "sha256": "bb9709e212812761dd2060eb9ece14bdc619ddb92f884aff42fee3464479bcf1"
+    },
+    {
+      "path": "assets/product-proof/Breakwater-secure-PQC-01-960.webp",
+      "bytes": 120914,
+      "sha256": "d3f2ed8b3feec6136680309cc55984d6be1af6b69e21ff844b91b8d781547f66"
+    },
+    {
+      "path": "assets/product-proof/Breakwater-secure-PQC-01.png",
+      "bytes": 472486,
+      "sha256": "1ae5a4c65d498ffb35f652258507fb48401145dd87f0508ef67173794fdf7478"
+    },
+    {
+      "path": "assets/product-proof/Breakwater-secure-topology-01-1280.webp",
+      "bytes": 238956,
+      "sha256": "4d4e9e864962f7bae9aaab3157089144fe1abf8497ba5cfc1a869988c6e84245"
+    },
+    {
+      "path": "assets/product-proof/Breakwater-secure-topology-01-1920.webp",
+      "bytes": 561496,
+      "sha256": "31019129da13a2e48ecc74c5383614555631779f160e5bb31093389026ef385f"
+    },
+    {
+      "path": "assets/product-proof/Breakwater-secure-topology-01-640.webp",
+      "bytes": 67532,
+      "sha256": "2d4f1f2dbdee4cbcb1d2b95ac5d52eca584557a6430ea60ded3760fb47e154d4"
+    },
+    {
+      "path": "assets/product-proof/Breakwater-secure-topology-01-960.webp",
+      "bytes": 142350,
+      "sha256": "095163a482e3df35836866f05da805e8e57623eda69352b847e2b2d6697831ae"
+    },
+    {
+      "path": "assets/product-proof/Breakwater-secure-topology-01.png",
+      "bytes": 1126399,
+      "sha256": "9e0fe16bb78d4f0f53cf4b7565daf8616db5c6f118375a19a5e48a07189004cc"
+    },
+    {
+      "path": "assets/product-proof/Breakwater-secure-vuln-01-1280.webp",
+      "bytes": 120154,
+      "sha256": "81effcc3eefd5af03d16b3ece00ecf8a40b885007010ad06a496d73d2c2f96b5"
+    },
+    {
+      "path": "assets/product-proof/Breakwater-secure-vuln-01-1920.webp",
+      "bytes": 223804,
+      "sha256": "d0ca5c2616a18f21bba6a9d2802a74d5e04beddd9388b61d3cbbca923b6b4fea"
+    },
+    {
+      "path": "assets/product-proof/Breakwater-secure-vuln-01-640.webp",
+      "bytes": 43996,
+      "sha256": "86dbcc0073edfec47854547547243a777403431c97974da9bdb73d00b12be695"
+    },
+    {
+      "path": "assets/product-proof/Breakwater-secure-vuln-01-960.webp",
+      "bytes": 79448,
+      "sha256": "91eca5de0ef19cd738b8c97a03b88c4ddf3284f9b0dd26f1ed51d1e622bdf4b3"
+    },
+    {
+      "path": "assets/product-proof/Breakwater-secure-vuln-01.png",
+      "bytes": 488220,
+      "sha256": "2635b9297b54b241849d65f27f52d75e9ef60c13b7faa60306dfb6c3e0969bbd"
+    },
+    {
+      "path": "assets/product-proof/chetna-mallarapu-headshot-336.webp",
+      "bytes": 22036,
+      "sha256": "1bc0c895cc078eae57843f538506cf30d3a7d1ba7b28d2e7c1e6872076a3942f"
+    },
+    {
+      "path": "assets/product-proof/chetna-mallarapu-headshot-672.webp",
+      "bytes": 65704,
+      "sha256": "0c1e2b99aaaa7a1cb0f33cbaaa8be722b6a47be66a0a554d1978f216769f682c"
+    },
+    {
+      "path": "assets/product-proof/context-airport-400.webp",
+      "bytes": 34856,
+      "sha256": "766a625c614da592e357ef7e1474d3577267163e4e6d04483bf831beb83dcac3"
+    },
+    {
+      "path": "assets/product-proof/context-airport-800.webp",
+      "bytes": 117476,
+      "sha256": "57bb191bb911d5340369a8c49be683b49a2e5b66db5c80ec36a1782d4ff167c5"
+    },
+    {
+      "path": "assets/product-proof/context-healthcare-400.webp",
+      "bytes": 28648,
+      "sha256": "f9468c7cac956a43894f24eb6cf461e28f971e6db226129b9366f52dccb268c9"
+    },
+    {
+      "path": "assets/product-proof/context-healthcare-800.webp",
+      "bytes": 85266,
+      "sha256": "1a20929477bed476fa27d34fa82c3054b5206df73b9acf07e9e1f0787f5dd640"
+    },
+    {
+      "path": "assets/product-proof/context-hmi-400.webp",
+      "bytes": 40838,
+      "sha256": "7acf344c09c42ea042f60345774fa108927aaa0ff2d18847eae0bc25762ebd30"
+    },
+    {
+      "path": "assets/product-proof/context-hmi-800.webp",
+      "bytes": 108102,
+      "sha256": "c06cfd7cb898936a4c40e8d92b0aa50d1c8a2e9bf1cc10920b5bda21f68eb474"
+    },
+    {
+      "path": "assets/product-proof/context-substation-400.webp",
+      "bytes": 28594,
+      "sha256": "f029c46e36fe3fa56be8ad5f9c5c9088b29199647a6eec14f68c35af61c446f4"
+    },
+    {
+      "path": "assets/product-proof/context-substation-800.webp",
+      "bytes": 95316,
+      "sha256": "cc93d426a4a2e8ebd8dee6b0da34e91fae01e60bff771fbf9ba01178d280134f"
+    },
+    {
+      "path": "assets/product-proof/nagu-thogiti-headshot-336.webp",
+      "bytes": 18440,
+      "sha256": "d297203ae960ae2cfed380b10451d3691e82a0e80bf102443f5be09af965c60a"
+    },
+    {
+      "path": "assets/product-proof/nagu-thogiti-headshot-672.webp",
+      "bytes": 60238,
+      "sha256": "43a366f8aec07ba581203671e6cc01d911f990edeea322e1ff3f558471bd5178"
+    },
+    {
+      "path": "assets/product-proof/secure-route-poster.jpg",
+      "bytes": 69844,
+      "sha256": "b346709e7ea72164b93196cf0c2c4c83b33dc266d572d48239acb7908d278ee6"
+    },
+    {
+      "path": "assets/product-proof/soar-review-poster.jpg",
+      "bytes": 159632,
+      "sha256": "75d089ad2f70d46fe1325b180f15ec690c9a3c308f95fb000a01a4840b57150d"
+    },
+    {
+      "path": "assets/site-ui/favicon.59d331b98f38.webp",
+      "bytes": 1226,
+      "sha256": "59d331b98f38ac09c9f1bd56caaa9baf2c3c27fe834ffba3b72e78f84137a7dd"
+    },
+    {
+      "path": "assets/site-ui/lead-form.8eb8f51ef7a1.js",
+      "bytes": 3410,
+      "sha256": "8eb8f51ef7a16e72f69bc3c2e209e6d77b7bd67ecbed242e26d9801741902907"
+    },
+    {
+      "path": "assets/site-ui/site.3bdb33dbae94.js",
+      "bytes": 6726,
+      "sha256": "3bdb33dbae9467104d07ae084732ef2c5a451e2522a238fccf4cdb724075c3fe"
+    },
+    {
+      "path": "assets/site-ui/site.750c35ca1506.css",
+      "bytes": 36462,
+      "sha256": "750c35ca1506265dcef81b08ee0b4dcf0e9d899bbf556d92fc81f7d05b12c49b"
+    },
+    {
+      "path": "assets/site-ui/theme-init.48bf567099e1.js",
+      "bytes": 335,
+      "sha256": "48bf567099e1219ad0e9c71691b03e6010299dec440abed7b7c29306faef7284"
+    },
+    {
+      "path": "connected-industry/index.html",
+      "bytes": 8345,
+      "sha256": "44d6c3ce62331c13e2013b3801039e79de7bf764e590ea482b7e8676c6dbfb65"
+    },
+    {
+      "path": "healthcare/index.html",
+      "bytes": 8548,
+      "sha256": "f7e1280e29ee99ecfcea04a2899836d1bd0b39cbaa39b0a0a54a067a7fceeee0"
+    },
+    {
+      "path": "index.html",
+      "bytes": 14059,
+      "sha256": "b02cb80dffc9b0049dcc4804235a8590076a249d9cbf68bde0716916d6bae73e"
+    },
+    {
+      "path": "platform/index.html",
+      "bytes": 3462,
+      "sha256": "779b8495b517c91028ad6ffac653f651e179c3f70fafc34b57cc2b14f3dba355"
+    },
+    {
+      "path": "power-utilities/index.html",
+      "bytes": 8714,
+      "sha256": "50718ec00708258de164bfe69cd5a1738431cc2e28136a32578f0477ce6d77d9"
+    },
+    {
+      "path": "products/index.html",
+      "bytes": 13010,
+      "sha256": "8824a4538308858b8e27b837bc56e79e17b1f9a45d7084ff1eb5ec03e2a44302"
+    },
+    {
+      "path": "research/index.html",
+      "bytes": 7370,
+      "sha256": "6437e8da03758a221a94347c878d2052f43fd87550c891b79048d2b7939a2cc6"
+    },
+    {
+      "path": "robots.txt",
+      "bytes": 65,
+      "sha256": "46d4d8a13c305cc6153eb231f58a8706b80695c402eac3531ab986b2fe970029"
+    },
+    {
+      "path": "security/index.html",
+      "bytes": 7296,
+      "sha256": "86b0dde989cb373347a0284ed02a3a1fbcff5b07abd9675cdba1a94f3016f23e"
+    },
+    {
+      "path": "sitemap.xml",
+      "bytes": 661,
+      "sha256": "3934ffae7007dc370f707490b59b1353ba251c9df38d238df938100e240f578d"
+    }
+  ],
+  "brandRevision": "2026-09-21-logo-v05"
+}
