@@ -1,15 +1,15 @@
 {
-  "revision": "2026-09-25-pqc-discovery-rc1",
-  "publicManifestSha256": "6bdd209133a90f92116f886f5dc62f69b96f426732de0b4285b2125d8e796a65",
-  "reviewedCandidateManifestSha256": "6bdd209133a90f92116f886f5dc62f69b96f426732de0b4285b2125d8e796a65",
-  "mechanicalReleaseNormalization": "No additional mechanical normalization. This receipt supersedes the September 24 receipt for the exact 121-file manifest after removing the PQC planner from public discovery while retaining its direct URL.",
-  "publicFiles": 121,
+  "revision": "2026-09-27-team-update-rc1",
+  "publicManifestSha256": "5c9f151edfb6ad5ba35a660fe51babf4f78b59655deb2a3051c6445eddc02017",
+  "reviewedCandidateManifestSha256": "5c9f151edfb6ad5ba35a660fe51babf4f78b59655deb2a3051c6445eddc02017",
+  "mechanicalReleaseNormalization": "This receipt supersedes the September 25 receipt for the exact 124-file manifest. It retains the approved PQC-discovery release and adds the approved Indraneel Roy Choudhury team profile, higher-resolution portrait derivatives, full-resolution JPEG fallback, and LinkedIn profile link.",
+  "publicFiles": 124,
   "productionPublicationApproved": true,
   "approvedBy": "Website owner in this conversation",
-  "evidence": "Owner reviewed the local PQC-discovery candidate, replied 'looks good.... go ahead', and authorized commit/push to main and production deployment after the technical release gates passed.",
-  "scope": "Evaluation hub and PoC planner remain publicly discoverable; PQC planner remains available by direct URL with noindex,nofollow but is removed from public navigation, resource cards, cross-links and sitemap. Existing reader-pack/planner content, eleven public PDFs, Evaluate navigation and entry cards, product website/console links, utility image crops and architecture corrections remain included; commit/push BreakwaterAI/bwtr.ai main and deploy to the existing organization AWS target.",
+  "evidence": "Owner reviewed the local team-page candidate with the higher-resolution Indraneel portrait and LinkedIn link, replied 'looks good' and then 'go ahead', authorizing commit/push to main and production deployment after the technical release gates passed.",
+  "scope": "Evaluation hub and PoC planner remain publicly discoverable; PQC planner remains available by direct URL with noindex,nofollow but is removed from public navigation, resource cards, cross-links and sitemap. Existing reader-pack/planner content, eleven public PDFs, Evaluate navigation and entry cards, product website/console links, utility image crops, architecture corrections and the three-person Company page remain included; Indraneel Roy Choudhury is listed as Founding India Market Partner with the approved portrait and LinkedIn profile link. Commit/push BreakwaterAI/bwtr.ai main and deploy to the existing organization AWS target.",
   "routingCandidateSha256": "7c550bb96662fa20be613c6b65b8b331a71d40daf77b31509b743b8b09a7a1c4",
   "preserved": "Existing brand palette and logo, product media, social images, lead endpoint and behavior. No DNS changes, ASOC shutdown, protected-book publication, product authentication changes or new real lead submissions.",
   "review": "Owner supplied independent end-to-end design acceptance. Automated candidate validation is recorded in RELEASE-REVIEW.md. No additional manual Safari/device/screen-reader review is claimed.",
-  "manifestNote": "The manifest's candidate object records its preparation status; this separate exact-hash receipt is the current publication authority. This revision records the owner's approval of the PQC discoverability change and does not authorize product-app, DNS or infrastructure changes."
+  "manifestNote": "The manifest's candidate object records its preparation status; this separate exact-hash receipt is the current publication authority. This revision records the owner's approval of the team-page update and does not authorize product-app, DNS or infrastructure changes."
 }

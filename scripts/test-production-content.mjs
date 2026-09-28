@@ -51,7 +51,7 @@ const architecture = read('architecture/index.html');
 for (const text of ['Illustrative reference design', 'must be confirmed for the selected configuration', 'These are reference-design mechanisms. Confirm support for your deployment with engineering.', 'aria-describedby="architecture-mechanism-scope"']) assert.ok(architecture.includes(text), text);
 assert.ok(!architecture.includes('ASOC'), 'Do not use an unexplained acronym in Architecture copy');
 assert.ok(!/<h[23][^>]*class="architecture-zone-label"/.test(architecture), 'Diagram zones are not page sections');
-for (const text of ['Nagu Thogiti', 'Chetna Mallarapu', 'President']) assert.ok(read('about/index.html').includes(text));
+for (const text of ['Nagu Thogiti', 'Chetna Mallarapu', 'Indraneel Roy Choudhury', 'Founding India Market Partner', 'President']) assert.ok(read('about/index.html').includes(text));
 assert.match(read('404.html'), /Page not found/);
 assert.match(read('platform/index.html'), /http-equiv="refresh" content="0;\s*url=\/architecture\/"/);
 for (const file of ['404.html', 'platform/index.html']) assert.match(read(file), /name="robots" content="noindex,follow"/);
