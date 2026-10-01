@@ -52,21 +52,18 @@
     "255,255,255"
   ],
   "pinnedBrandAssets": {
-    "assets/breakwater-horizontal-dark-transparent.png": "b276a093e045113ec924a51e68a974198642efac8012f969faa61dff1ec9d359",
-    "assets/breakwater-horizontal-dark.png": "393630fb798dec7906d587e7f1ea6ec04b24f05ea8bb18147864abb5c61a4968",
-    "assets/breakwater-horizontal-light-transparent.png": "7751b1746d73c6dcfab5d44999553b38bd195e25b392d13622f24c6f7a67fd20",
-    "assets/breakwater-horizontal-light.png": "d82615e91147ada1a4b2cbc59d8278cd1ac9dc1e49652502d432c1b737c8f6e9",
-    "assets/breakwater-mark-light.png": "0aecc7581d5eff74e9022440f75473c53fe25ccb93d259b285ab26c86a1a41cf",
     "assets/breakwater-social-card.png": "4f02884cbe4c93e470479e375fe29afae36686e501abf197ab187dc7fe184d7a",
-    "assets/breakwater-stacked-dark.png": "e438f126cc5d8e00438091697bc87a83a6e1a558fbe4440c4c063f040b967a49",
-    "assets/breakwater-stacked-light.png": "bf6c9386d7fdf03bbbb08a2ddab92b922745a14f75ec10a6800709c24c7f4279",
-    "assets/product-proof/brand-light-v05-340.webp": "6cb97d83275a9e385aacf130611760a0808b73ff389e2ac4949e4e2a44e19405",
-    "assets/product-proof/brand-light-v05-510.webp": "30734038bfdf721a0178dcd9922e999b6548b1b21ea23cd0b3c8488e95b96fb2",
-    "assets/product-proof/brand-light-v05-680.webp": "d6da3179ae8da1fb4719d088e086eabf6a347bda124d0bb78c90b2f6246cb44d",
-    "assets/product-proof/brand-dark-v05-340.webp": "5b8571e5cd5550fcfc31234aea350b0a71209122c8859cceff043a53fade7438",
-    "assets/product-proof/brand-dark-v05-510.webp": "b8b9cedabc3ee324537c630b0c25d3e80ec2dc5a39537737ae15bce26fd5549d",
-    "assets/product-proof/brand-dark-v05-680.webp": "88b821a7ab9de11f59afaadc85611b036e3505fa4fbc047ca768fe0358505ff5",
-    "assets/product-proof/apple-touch-icon-v05-180.png": "40321ac600fea8c882ebac78f5a644b8ff101869dbbcf19095912001c82f88b5",
-    "assets/site-ui/favicon.59d331b98f38.webp": "59d331b98f38ac09c9f1bd56caaa9baf2c3c27fe834ffba3b72e78f84137a7dd"
+    "assets/brand/v06/corporate/breakwater-horizontal-light.svg": "16628f5e372d399e23e438246233c714007b9a927bb51a2a0320f9d31ada4e47",
+    "assets/brand/v06/corporate/breakwater-horizontal-dark.svg": "c897ce76babda8c80d98bef72390b14e909cd4ef6d07e94e52ca83c20752c9d7",
+    "assets/brand/v06/icons/apple-touch-icon-180.png": "40321ac600fea8c882ebac78f5a644b8ff101869dbbcf19095912001c82f88b5",
+    "assets/brand/v06/icons/favicon.webp": "f25d5f947323730382b2573be969363309bf27df1be8f1a6598f6126cb3e06cb",
+    "assets/brand/v06/products/breakwater-asoc-horizontal-light-with-tagline.svg": "21d50050c61e4e3c77e7878c2ae584950b62ae04ffa55daf151739bd63e6e5d2",
+    "assets/brand/v06/products/breakwater-asoc-horizontal-dark-with-tagline.svg": "6733e58635517e59b0b229ad6d237c247140887c0acf557518c3e3404d6eaf94",
+    "assets/brand/v06/products/breakwater-discover-horizontal-light-no-tagline.svg": "f85bb936bc180368f774e4479c01097436f970e33a794bf2202dc3a64f95e029",
+    "assets/brand/v06/products/breakwater-discover-horizontal-dark-no-tagline.svg": "bd7c2440c7edaa78cb9f902abdf9a25389fc59248772fcc7151fb0d793fec347",
+    "assets/brand/v06/products/breakwater-provenance-horizontal-light-no-tagline.svg": "8fb15fb22f95e4a975887dfb5a21ff4e65624515c3ca351c79be0a4ddf0e4bbe",
+    "assets/brand/v06/products/breakwater-provenance-horizontal-dark-no-tagline.svg": "4b108fd25c9a9e31f5b1fe5c4949e039cb2e7001e425035e1ab0871533d2bb52",
+    "assets/brand/v06/products/breakwater-response-horizontal-light-no-tagline.svg": "7efaaa2aa99f5e5e0eb9ddd1cd86ad1041ade5a43e64c19506369ea760ee488f",
+    "assets/brand/v06/products/breakwater-response-horizontal-dark-no-tagline.svg": "4cba4b6827ee970bf175bdf05a22abee80c1603a9078382711a92e01e9e2cd94"
   }
 }

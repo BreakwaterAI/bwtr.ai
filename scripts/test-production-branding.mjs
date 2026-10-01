@@ -1,47 +1,57 @@
 import assert from 'node:assert/strict';
 import { createHash } from 'node:crypto';
 import { readFileSync } from 'node:fs';
+
 const read = file => readFileSync(new URL('../' + file, import.meta.url));
 const release = JSON.parse(read('site-release.json'));
 const contract = JSON.parse(read('brand-contract.json'));
-const approval = JSON.parse(read('release-prep/logo-v05-publication-approval.json'));
-assert.equal(release.brandRevision, '2026-09-21-logo-v05');
-assert.equal(approval.productionPublicationApproved, true);
-// Local candidate testing is not publication approval. Default/CI keeps the
-// existing exact published-manifest gate; never change the approval receipt here.
+const priorApproval = JSON.parse(read('release-prep/logo-v05-publication-approval.json'));
+
+assert.equal(priorApproval.productionPublicationApproved, true);
 if (process.env.BWTR_LOCAL_CANDIDATE === '1') {
   assert.ok(!process.env.CI, 'Candidate mode is local-only, not a production CI bypass');
+  assert.equal(release.brandRevision, '2026-09-30-product-v06');
+  assert.equal(release.candidate?.name, 'asoc-product-rebrand-v06-20260930');
   assert.equal(release.candidate?.productionPublicationApproved, false);
   const baseline = read('scripts/planners/approved-site-baseline.json');
-  assert.equal(createHash('sha256').update(baseline).digest('hex'), approval.publicManifestSha256);
-  const approved = JSON.parse(baseline);
-  assert.equal(release.brandRevision, approved.brandRevision);
-  assert.equal(release.resources['favicon.webp'], approved.resources['favicon.webp']);
+  assert.equal(createHash('sha256').update(baseline).digest('hex'), priorApproval.publicManifestSha256);
 } else {
-  const currentApproval = JSON.parse(read('release-prep/marketing-resources-20260924/publication-approval.json'));
-  assert.equal(currentApproval.productionPublicationApproved, true);
-  assert.equal(currentApproval.revision, '2026-09-27-team-update-rc1');
-  assert.equal(currentApproval.publicFiles, release.files.length);
-  assert.equal(createHash('sha256').update(read('site-release.json')).digest('hex'), currentApproval.publicManifestSha256);
-  assert.equal(createHash('sha256').update(read('release-prep/marketing-resources-20260924/routing-candidate.js')).digest('hex'), currentApproval.routingCandidateSha256);
+  const approval = JSON.parse(read('release-prep/marketing-resources-20260924/publication-approval.json'));
+  assert.equal(approval.productionPublicationApproved, true);
+  assert.equal(approval.revision, '2026-09-27-team-update-rc1');
+  assert.equal(approval.publicFiles, release.files.length);
+  assert.equal(createHash('sha256').update(read('site-release.json')).digest('hex'), approval.publicManifestSha256,
+    'This local ASOC candidate does not have production publication approval');
 }
-const files = new Set(release.files.map(r => r.path));
-const logos = ['light', 'dark'].flatMap(theme => [340, 510, 680].map(width => `assets/product-proof/brand-${theme}-v05-${width}.webp`));
-for (const file of [...logos, 'assets/product-proof/apple-touch-icon-v05-180.png', release.resources['favicon.webp']]) {
-  assert.ok(files.has(file), file);
-  assert.equal(createHash('sha256').update(read(file)).digest('hex'), contract.pinnedBrandAssets[file], file);
+
+const files = new Set(release.files.map(record => record.path));
+for (const [file, expectedHash] of Object.entries(contract.pinnedBrandAssets)) {
+  assert.ok(files.has(file), `${file}: pinned brand asset must be in the release candidate`);
+  assert.equal(createHash('sha256').update(read(file)).digest('hex'), expectedHash, file);
 }
-for (const file of release.files.filter(r => r.path.endsWith('.html'))) {
+
+const lightLogo = '/assets/brand/v06/corporate/breakwater-horizontal-light.svg';
+const darkLogo = '/assets/brand/v06/corporate/breakwater-horizontal-dark.svg';
+for (const file of release.files.filter(record => record.path.endsWith('.html'))) {
   const html = read(file.path).toString();
   assert.equal((html.match(/rel="icon"/g) || []).length, 1, file.path);
   assert.ok(html.includes(`href="/${release.resources['favicon.webp']}"`), file.path);
-  assert.ok(html.includes('rel="apple-touch-icon" sizes="180x180" href="/assets/product-proof/apple-touch-icon-v05-180.png"'), file.path);
-  assert.ok(html.includes('brand-light-v05-340.webp" width="1600" height="454"'), file.path);
-  assert.ok(html.includes('sizes="(max-width: 380px) 160px, (max-width: 760px) 180px, (max-width: 1000px) 170px, 220px"'), file.path);
-  assert.ok(!/brand-(?:light|dark)-(?:340|510)\.webp/.test(html), file.path);
+  assert.ok(html.includes('rel="apple-touch-icon" sizes="180x180" href="/assets/brand/v06/icons/apple-touch-icon-180.png"'), file.path);
+  assert.ok(html.includes(`data-light-src="${lightLogo}"`), file.path);
+  assert.ok(html.includes(`data-dark-src="${darkLogo}"`), file.path);
+  assert.doesNotMatch(html, /brand-(?:light|dark)-v05|apple-touch-icon-v05/, file.path);
+}
+
+const products = read('products/index.html').toString();
+assert.ok(products.includes('breakwater-asoc-horizontal-light-with-tagline.svg'), 'asoc light');
+assert.ok(products.includes('breakwater-asoc-horizontal-dark-with-tagline.svg'), 'asoc dark');
+for (const name of ['discover', 'provenance', 'response']) {
+  assert.ok(products.includes(`breakwater-${name}-horizontal-light-no-tagline.svg`), name);
+  assert.ok(products.includes(`breakwater-${name}-horizontal-dark-no-tagline.svg`), name);
 }
 const script = read(release.resources['script.js']).toString();
-for (const width of [340, 510, 680]) assert.ok(script.includes(`brand-\u0024{variant}-v05-${width}.webp`));
+assert.ok(script.includes("querySelectorAll('[data-theme-logo]')"));
+
 console.log(process.env.BWTR_LOCAL_CANDIDATE === '1'
-  ? 'Local candidate branding passed; publication is NOT approved. Brand colors, logos and icons remain pinned.'
-  : 'Approved v05 branding and source-bound publication approval passed.');
+  ? 'Local v06 ASOC candidate branding passed; production publication is NOT approved.'
+  : 'Approved production branding and source-bound publication approval passed.');

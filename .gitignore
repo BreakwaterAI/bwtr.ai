@@ -1,3 +1,6 @@
 .DS_Store
 node_modules/
 assets/videos/
+/blog/**/index.html
+/blog/feed.xml
+/blog/.generated.json

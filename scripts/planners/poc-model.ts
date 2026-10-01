@@ -30,19 +30,19 @@ export const plannerQuestions = [
     { id: 'window', title: 'Controlled update window', description: 'Normally isolated with scheduled, reviewed updates.' },
     { id: 'airgap', title: 'Fully air-gapped', description: 'No external dependency during operation.' },
   ] },
-  { id: 'collection', eyebrow: '05 · COLLECTION', question: 'How should Secure observe the networks?', context: 'Active techniques require explicit rules of engagement. OT and safety-sensitive zones should begin passively.', options: [
+  { id: 'collection', eyebrow: '05 · COLLECTION', question: 'How should Discover observe the networks?', context: 'Active techniques require explicit rules of engagement. OT and safety-sensitive zones should begin passively.', options: [
     { id: 'import', title: 'Imports and APIs', description: 'Use approved inventories, controller exports, and existing records.' },
     { id: 'passive', title: 'Passive SPAN / TAP', description: 'Watch mirrored traffic without ever talking to a device.' },
     { id: 'cautious', title: 'Cautious discovery', description: 'Use bounded identity probes under an approved allowlist.' },
     { id: 'combined', title: 'Combined evidence', description: 'Blend imports, passive observation, and approved discovery.' },
   ] },
-  { id: 'source', eyebrow: '06 · APPLICATIONS', question: 'How much source code will Assure review?', context: 'Use authorized snapshots only. The result sizes the isolated review workers; on its own it does not authorize taking in customer source code.', options: [
+  { id: 'source', eyebrow: '06 · APPLICATIONS', question: 'How much source code will Provenance review?', context: 'Use authorized snapshots only. The result sizes the isolated review workers; on its own it does not authorize taking in customer source code.', options: [
     { id: 'repo', title: 'One repository', description: 'A representative application and its build manifests.' },
     { id: 'application', title: 'Multi-repository application', description: 'Several services with their infrastructure and dependency manifests.' },
     { id: 'portfolio', title: 'Application portfolio', description: 'A prioritized set of applications and shared libraries.' },
     { id: 'restricted', title: 'Restricted source enclave', description: 'Sensitive code that must stay inside its own boundary.' },
   ] },
-  { id: 'response', eyebrow: '07 · RESPONSE', question: 'How far should SOAR go during the PoC?', context: 'Investigation and proposals are distinct from execution. Any state-changing path needs separate authority and verification.', options: [
+  { id: 'response', eyebrow: '07 · RESPONSE', question: 'How far should Response go during the PoC?', context: 'Investigation and proposals are distinct from execution. Any state-changing path needs separate authority and verification.', options: [
     { id: 'investigate', title: 'Investigate only', description: 'Correlate evidence, explain reasoning, and hand off a case.' },
     { id: 'rehearse', title: 'Investigate and rehearse', description: 'Test assumptions and consequences in a model, replay, or range.' },
     { id: 'lab', title: 'Governed lab response', description: 'Exercise approval, expiry, rollback, and verification in a controlled target.' },
@@ -165,9 +165,9 @@ export function createRecommendation(answers: AnswerMap) {
       { owner: 'customer', label: 'Crypto-agile PKI and trust', text: 'A PKI that issues TLS/mTLS certificates and can adopt hybrid or post-quantum algorithms, plus DNS, trusted time (NTP), an internal artifact/update mirror, and a secrets manager.', ref: { label: 'NIST post-quantum standards', href: 'https://csrc.nist.gov/projects/post-quantum-cryptography' } },
       { owner: 'customer', label: 'Operations and recovery', text: 'A SIEM endpoint to receive the append-only audit export, an encrypted backup target, and a window to run a restore test.' },
       { owner: answers.inference === 'external' ? 'customer' : 'vendor', label: 'Inference runtime', text: inferencePlans[answers.inference as keyof typeof inferencePlans] ?? inferencePlans.external },
-      { owner: 'vendor', label: 'Secure platform', text: `Evaluate Secure discovery with ${collectors}${answers.networks === 'twelve' ? '+' : ''} collection point${collectors === 1 ? '' : 's'} as a placement starting point, not a coverage guarantee. Validate collector credentials and cryptography inventory coverage.`, ref: { label: 'What Secure does', href: '/products/' } },
-      { owner: 'vendor', label: 'Assure platform', text: `The Assure control service plus ${sourceWorkers} isolated, read-only source-analysis worker${sourceWorkers === 1 ? '' : 's'} with deny-by-default egress. Assure reports the PQC readiness of the source it reviews.`, ref: { label: 'What Assure does', href: '/products/' } },
-      { owner: 'vendor', label: 'Agentic SOAR', text: responsePlans[answers.response as keyof typeof responsePlans] },
+      { owner: 'vendor', label: 'Discover platform', text: `Evaluate Discover discovery with ${collectors}${answers.networks === 'twelve' ? '+' : ''} collection point${collectors === 1 ? '' : 's'} as a placement starting point, not a coverage guarantee. Validate collector credentials and cryptography inventory coverage.`, ref: { label: 'What Discover does', href: '/products/' } },
+      { owner: 'vendor', label: 'Provenance platform', text: `The Provenance control service plus ${sourceWorkers} isolated, read-only source-analysis worker${sourceWorkers === 1 ? '' : 's'} with deny-by-default egress. Provenance reports the PQC readiness of the source it reviews.`, ref: { label: 'What Provenance does', href: '/products/' } },
+      { owner: 'vendor', label: 'Agentic Response', text: responsePlans[answers.response as keyof typeof responsePlans] },
       { owner: 'vendor', label: 'Installation and support', text: 'Breakwater installs and configures the platform from signed artifacts, provides updates through your mirror, and supports the PoC through to acceptance.' },
     ] as { owner: 'customer' | 'vendor'; label: string; text: string; ref?: { label: string; href: string } }[],
     controls: [
@@ -182,8 +182,8 @@ export function createRecommendation(answers: AnswerMap) {
     caveats: [
       'Sizing is an engineering design target, not a measured minimum or performance guarantee.',
       'Collector count follows security and visibility boundaries; routing alone does not prove one vantage point is sufficient.',
-      'Assure customer-source use requires explicit authorization and deployment readiness review.',
-      'SOAR does not actuate production systems unless a separately approved adapter and action policy are configured and tested.',
+      'Provenance customer-source use requires explicit authorization and deployment readiness review.',
+      'Response does not actuate production systems unless a separately approved adapter and action policy are configured and tested.',
       'The three products exchange only named, validated records; the planner does not assume an automatic cross-product pipeline.',
     ],
     customerControls: [
@@ -192,7 +192,7 @@ export function createRecommendation(answers: AnswerMap) {
       ...(answers.collection === 'passive' || answers.collection === 'combined' ? ['Provide SPAN/TAP or mirrored traffic at each collection vantage point.'] : []),
       ...(ot ? ['Segment OT and safety-sensitive zones, and approve every active method before it runs.'] : []),
       ...(answers.connectivity === 'airgap' || answers.connectivity === 'window' ? ['Own the signed offline-media transfer, custody log, and update-window approvals.'] : []),
-      'Produce and authorize the immutable source snapshot for Assure. Agree how it is transferred and retained.',
+      'Produce and authorize the immutable source snapshot for Provenance. Agree how it is transferred and retained.',
       ...(action ? ['Name the change owner and approve the exact response action policy, scope, expiry and rollback.'] : []),
       'Provide the SIEM endpoint and encrypted backup target, and schedule the restore test.',
     ],
@@ -205,9 +205,9 @@ export function createRecommendation(answers: AnswerMap) {
       { element: 'Operator / authority (entity)', s: 'MFA + PAM', t: 'Not specified', r: 'Per-user audit', i: 'Role-scoped views', d: 'Not specified', e: 'Break-glass is logged and bounded' },
     ],
     sequences: [
-      { product: 'Secure', accent: 'secure', actors: ['Operator', 'Collector', 'Ingress', 'Secure', 'Store'], steps: [['Operator', 'Collector', 'Authorize scope, ROE, allowlist'], ['Collector', 'Ingress', isolated ? 'Signed offline package transfer with custody receipt' : 'Signed mTLS upload (collector-initiated)'], ['Ingress', 'Secure', 'Validated evidence'], ['Secure', 'Store', 'Named record + CBOM'], ['Secure', 'Operator', 'Exposure, attack paths, PQC readiness']] },
-      { product: 'Assure', accent: 'assure', actors: ['Operator', 'Assure', 'Worker', 'Store'], steps: [['Operator', 'Assure', 'Submit authorized hash-bound source snapshot'], ['Assure', 'Worker', 'Read-only mount; deny-by-default egress'], ['Worker', 'Assure', 'Findings with exact-source provenance'], ['Assure', 'Store', 'Independently validated finding'], ['Assure', 'Operator', 'Finding report + source PQC readiness']] },
-      { product: 'SOAR', accent: 'soar', actors: action ? ['Store', 'SOAR', 'Authority', 'Adapter', answers.response === 'lab' ? 'Lab target' : 'Approved target'] : ['Store', 'SOAR', 'Reviewer'], steps: action ? [['Store', 'SOAR', 'Typed evidence'], ['SOAR', 'Authority', 'Proposed action (evidence-bound)'], ['Authority', 'SOAR', 'Approval: exact scope, expiry, rollback'], ['SOAR', 'Adapter', 'Governed action'], ['Adapter', answers.response === 'lab' ? 'Lab target' : 'Approved target', 'Execute only within the separately approved scope'], ['Adapter', 'SOAR', 'Fresh verification / recovery']] : [['Store', 'SOAR', 'Typed evidence'], ['SOAR', 'Reviewer', answers.response === 'rehearse' ? 'Rehearsal proposal in a model or controlled range; no customer action' : 'Investigation and accountable handoff; no execution']] },
+      { product: 'Discover', accent: 'secure', actors: ['Operator', 'Collector', 'Ingress', 'Discover', 'Store'], steps: [['Operator', 'Collector', 'Authorize scope, ROE, allowlist'], ['Collector', 'Ingress', isolated ? 'Signed offline package transfer with custody receipt' : 'Signed mTLS upload (collector-initiated)'], ['Ingress', 'Discover', 'Validated evidence'], ['Discover', 'Store', 'Named record + CBOM'], ['Discover', 'Operator', 'Exposure, attack paths, PQC readiness']] },
+      { product: 'Provenance', accent: 'assure', actors: ['Operator', 'Provenance', 'Worker', 'Store'], steps: [['Operator', 'Provenance', 'Submit authorized hash-bound source snapshot'], ['Provenance', 'Worker', 'Read-only mount; deny-by-default egress'], ['Worker', 'Provenance', 'Findings with exact-source provenance'], ['Provenance', 'Store', 'Independently validated finding'], ['Provenance', 'Operator', 'Finding report + source PQC readiness']] },
+      { product: 'Response', accent: 'soar', actors: action ? ['Store', 'Response', 'Authority', 'Adapter', answers.response === 'lab' ? 'Lab target' : 'Approved target'] : ['Store', 'Response', 'Reviewer'], steps: action ? [['Store', 'Response', 'Typed evidence'], ['Response', 'Authority', 'Proposed action (evidence-bound)'], ['Authority', 'Response', 'Approval: exact scope, expiry, rollback'], ['Response', 'Adapter', 'Governed action'], ['Adapter', answers.response === 'lab' ? 'Lab target' : 'Approved target', 'Execute only within the separately approved scope'], ['Adapter', 'Response', 'Fresh verification / recovery']] : [['Store', 'Response', 'Typed evidence'], ['Response', 'Reviewer', answers.response === 'rehearse' ? 'Rehearsal proposal in a model or controlled range; no customer action' : 'Investigation and accountable handoff; no execution']] },
     ],
     assessment: [
       answers.inference === 'external' ? 'External inference may receive approved context. Confirm provider terms and egress policy.' : 'Design target: processing and evidence remain within the approved customer boundary.',

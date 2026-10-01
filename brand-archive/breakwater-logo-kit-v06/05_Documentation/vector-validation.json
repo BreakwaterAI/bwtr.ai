@@ -1,0 +1,716 @@
+{
+  "version": "v04",
+  "source_corporate_version": "v05",
+  "breakwater_red": "#F0443E",
+  "vantablack": "#000100",
+  "source_mark_path_sha256": "ff4e1e13eaed30c93f00638b34d32747eaf5475ed3cfa0153487d222dea6d9c1",
+  "source_wordmark_path_sha256": "edcb86aeca742faf4273627a037d398075b3aa79f8e104e57fee713d0f838302",
+  "checks": [
+    {
+      "file": "01_Product_Horizontal/SVG/breakwater-asoc-horizontal-light-no-tagline.svg",
+      "passed": true,
+      "forbidden_hits": [],
+      "path_count": 6,
+      "contains_exact_v05_mark_path": true,
+      "contains_exact_v05_wordmark_path": true,
+      "tags": [
+        "g",
+        "line",
+        "path",
+        "svg",
+        "title"
+      ]
+    },
+    {
+      "file": "02_Product_Stacked/SVG/breakwater-asoc-stacked-light-no-tagline.svg",
+      "passed": true,
+      "forbidden_hits": [],
+      "path_count": 6,
+      "contains_exact_v05_mark_path": true,
+      "contains_exact_v05_wordmark_path": true,
+      "tags": [
+        "g",
+        "path",
+        "svg",
+        "title"
+      ]
+    },
+    {
+      "file": "01_Product_Horizontal/SVG/breakwater-asoc-horizontal-light-with-tagline.svg",
+      "passed": true,
+      "forbidden_hits": [],
+      "path_count": 36,
+      "contains_exact_v05_mark_path": true,
+      "contains_exact_v05_wordmark_path": true,
+      "tags": [
+        "g",
+        "line",
+        "path",
+        "svg",
+        "title"
+      ]
+    },
+    {
+      "file": "02_Product_Stacked/SVG/breakwater-asoc-stacked-light-with-tagline.svg",
+      "passed": true,
+      "forbidden_hits": [],
+      "path_count": 36,
+      "contains_exact_v05_mark_path": true,
+      "contains_exact_v05_wordmark_path": true,
+      "tags": [
+        "g",
+        "path",
+        "svg",
+        "title"
+      ]
+    },
+    {
+      "file": "01_Product_Horizontal/SVG/breakwater-asoc-horizontal-dark-no-tagline.svg",
+      "passed": true,
+      "forbidden_hits": [],
+      "path_count": 6,
+      "contains_exact_v05_mark_path": true,
+      "contains_exact_v05_wordmark_path": true,
+      "tags": [
+        "g",
+        "line",
+        "path",
+        "svg",
+        "title"
+      ]
+    },
+    {
+      "file": "02_Product_Stacked/SVG/breakwater-asoc-stacked-dark-no-tagline.svg",
+      "passed": true,
+      "forbidden_hits": [],
+      "path_count": 6,
+      "contains_exact_v05_mark_path": true,
+      "contains_exact_v05_wordmark_path": true,
+      "tags": [
+        "g",
+        "path",
+        "svg",
+        "title"
+      ]
+    },
+    {
+      "file": "01_Product_Horizontal/SVG/breakwater-asoc-horizontal-dark-with-tagline.svg",
+      "passed": true,
+      "forbidden_hits": [],
+      "path_count": 36,
+      "contains_exact_v05_mark_path": true,
+      "contains_exact_v05_wordmark_path": true,
+      "tags": [
+        "g",
+        "line",
+        "path",
+        "svg",
+        "title"
+      ]
+    },
+    {
+      "file": "02_Product_Stacked/SVG/breakwater-asoc-stacked-dark-with-tagline.svg",
+      "passed": true,
+      "forbidden_hits": [],
+      "path_count": 36,
+      "contains_exact_v05_mark_path": true,
+      "contains_exact_v05_wordmark_path": true,
+      "tags": [
+        "g",
+        "path",
+        "svg",
+        "title"
+      ]
+    },
+    {
+      "file": "01_Product_Horizontal/SVG/breakwater-discover-horizontal-light-no-tagline.svg",
+      "passed": true,
+      "forbidden_hits": [],
+      "path_count": 10,
+      "contains_exact_v05_mark_path": true,
+      "contains_exact_v05_wordmark_path": true,
+      "tags": [
+        "g",
+        "line",
+        "path",
+        "svg",
+        "title"
+      ]
+    },
+    {
+      "file": "02_Product_Stacked/SVG/breakwater-discover-stacked-light-no-tagline.svg",
+      "passed": true,
+      "forbidden_hits": [],
+      "path_count": 10,
+      "contains_exact_v05_mark_path": true,
+      "contains_exact_v05_wordmark_path": true,
+      "tags": [
+        "g",
+        "path",
+        "svg",
+        "title"
+      ]
+    },
+    {
+      "file": "01_Product_Horizontal/SVG/breakwater-discover-horizontal-light-with-tagline.svg",
+      "passed": true,
+      "forbidden_hits": [],
+      "path_count": 49,
+      "contains_exact_v05_mark_path": true,
+      "contains_exact_v05_wordmark_path": true,
+      "tags": [
+        "g",
+        "line",
+        "path",
+        "svg",
+        "title"
+      ]
+    },
+    {
+      "file": "02_Product_Stacked/SVG/breakwater-discover-stacked-light-with-tagline.svg",
+      "passed": true,
+      "forbidden_hits": [],
+      "path_count": 49,
+      "contains_exact_v05_mark_path": true,
+      "contains_exact_v05_wordmark_path": true,
+      "tags": [
+        "g",
+        "path",
+        "svg",
+        "title"
+      ]
+    },
+    {
+      "file": "01_Product_Horizontal/SVG/breakwater-discover-horizontal-dark-no-tagline.svg",
+      "passed": true,
+      "forbidden_hits": [],
+      "path_count": 10,
+      "contains_exact_v05_mark_path": true,
+      "contains_exact_v05_wordmark_path": true,
+      "tags": [
+        "g",
+        "line",
+        "path",
+        "svg",
+        "title"
+      ]
+    },
+    {
+      "file": "02_Product_Stacked/SVG/breakwater-discover-stacked-dark-no-tagline.svg",
+      "passed": true,
+      "forbidden_hits": [],
+      "path_count": 10,
+      "contains_exact_v05_mark_path": true,
+      "contains_exact_v05_wordmark_path": true,
+      "tags": [
+        "g",
+        "path",
+        "svg",
+        "title"
+      ]
+    },
+    {
+      "file": "01_Product_Horizontal/SVG/breakwater-discover-horizontal-dark-with-tagline.svg",
+      "passed": true,
+      "forbidden_hits": [],
+      "path_count": 49,
+      "contains_exact_v05_mark_path": true,
+      "contains_exact_v05_wordmark_path": true,
+      "tags": [
+        "g",
+        "line",
+        "path",
+        "svg",
+        "title"
+      ]
+    },
+    {
+      "file": "02_Product_Stacked/SVG/breakwater-discover-stacked-dark-with-tagline.svg",
+      "passed": true,
+      "forbidden_hits": [],
+      "path_count": 49,
+      "contains_exact_v05_mark_path": true,
+      "contains_exact_v05_wordmark_path": true,
+      "tags": [
+        "g",
+        "path",
+        "svg",
+        "title"
+      ]
+    },
+    {
+      "file": "01_Product_Horizontal/SVG/breakwater-provenance-horizontal-light-no-tagline.svg",
+      "passed": true,
+      "forbidden_hits": [],
+      "path_count": 12,
+      "contains_exact_v05_mark_path": true,
+      "contains_exact_v05_wordmark_path": true,
+      "tags": [
+        "g",
+        "line",
+        "path",
+        "svg",
+        "title"
+      ]
+    },
+    {
+      "file": "02_Product_Stacked/SVG/breakwater-provenance-stacked-light-no-tagline.svg",
+      "passed": true,
+      "forbidden_hits": [],
+      "path_count": 12,
+      "contains_exact_v05_mark_path": true,
+      "contains_exact_v05_wordmark_path": true,
+      "tags": [
+        "g",
+        "path",
+        "svg",
+        "title"
+      ]
+    },
+    {
+      "file": "01_Product_Horizontal/SVG/breakwater-provenance-horizontal-light-with-tagline.svg",
+      "passed": true,
+      "forbidden_hits": [],
+      "path_count": 42,
+      "contains_exact_v05_mark_path": true,
+      "contains_exact_v05_wordmark_path": true,
+      "tags": [
+        "g",
+        "line",
+        "path",
+        "svg",
+        "title"
+      ]
+    },
+    {
+      "file": "02_Product_Stacked/SVG/breakwater-provenance-stacked-light-with-tagline.svg",
+      "passed": true,
+      "forbidden_hits": [],
+      "path_count": 42,
+      "contains_exact_v05_mark_path": true,
+      "contains_exact_v05_wordmark_path": true,
+      "tags": [
+        "g",
+        "path",
+        "svg",
+        "title"
+      ]
+    },
+    {
+      "file": "01_Product_Horizontal/SVG/breakwater-provenance-horizontal-dark-no-tagline.svg",
+      "passed": true,
+      "forbidden_hits": [],
+      "path_count": 12,
+      "contains_exact_v05_mark_path": true,
+      "contains_exact_v05_wordmark_path": true,
+      "tags": [
+        "g",
+        "line",
+        "path",
+        "svg",
+        "title"
+      ]
+    },
+    {
+      "file": "02_Product_Stacked/SVG/breakwater-provenance-stacked-dark-no-tagline.svg",
+      "passed": true,
+      "forbidden_hits": [],
+      "path_count": 12,
+      "contains_exact_v05_mark_path": true,
+      "contains_exact_v05_wordmark_path": true,
+      "tags": [
+        "g",
+        "path",
+        "svg",
+        "title"
+      ]
+    },
+    {
+      "file": "01_Product_Horizontal/SVG/breakwater-provenance-horizontal-dark-with-tagline.svg",
+      "passed": true,
+      "forbidden_hits": [],
+      "path_count": 42,
+      "contains_exact_v05_mark_path": true,
+      "contains_exact_v05_wordmark_path": true,
+      "tags": [
+        "g",
+        "line",
+        "path",
+        "svg",
+        "title"
+      ]
+    },
+    {
+      "file": "02_Product_Stacked/SVG/breakwater-provenance-stacked-dark-with-tagline.svg",
+      "passed": true,
+      "forbidden_hits": [],
+      "path_count": 42,
+      "contains_exact_v05_mark_path": true,
+      "contains_exact_v05_wordmark_path": true,
+      "tags": [
+        "g",
+        "path",
+        "svg",
+        "title"
+      ]
+    },
+    {
+      "file": "01_Product_Horizontal/SVG/breakwater-response-horizontal-light-no-tagline.svg",
+      "passed": true,
+      "forbidden_hits": [],
+      "path_count": 10,
+      "contains_exact_v05_mark_path": true,
+      "contains_exact_v05_wordmark_path": true,
+      "tags": [
+        "g",
+        "line",
+        "path",
+        "svg",
+        "title"
+      ]
+    },
+    {
+      "file": "02_Product_Stacked/SVG/breakwater-response-stacked-light-no-tagline.svg",
+      "passed": true,
+      "forbidden_hits": [],
+      "path_count": 10,
+      "contains_exact_v05_mark_path": true,
+      "contains_exact_v05_wordmark_path": true,
+      "tags": [
+        "g",
+        "path",
+        "svg",
+        "title"
+      ]
+    },
+    {
+      "file": "01_Product_Horizontal/SVG/breakwater-response-horizontal-light-with-tagline.svg",
+      "passed": true,
+      "forbidden_hits": [],
+      "path_count": 41,
+      "contains_exact_v05_mark_path": true,
+      "contains_exact_v05_wordmark_path": true,
+      "tags": [
+        "g",
+        "line",
+        "path",
+        "svg",
+        "title"
+      ]
+    },
+    {
+      "file": "02_Product_Stacked/SVG/breakwater-response-stacked-light-with-tagline.svg",
+      "passed": true,
+      "forbidden_hits": [],
+      "path_count": 41,
+      "contains_exact_v05_mark_path": true,
+      "contains_exact_v05_wordmark_path": true,
+      "tags": [
+        "g",
+        "path",
+        "svg",
+        "title"
+      ]
+    },
+    {
+      "file": "01_Product_Horizontal/SVG/breakwater-response-horizontal-dark-no-tagline.svg",
+      "passed": true,
+      "forbidden_hits": [],
+      "path_count": 10,
+      "contains_exact_v05_mark_path": true,
+      "contains_exact_v05_wordmark_path": true,
+      "tags": [
+        "g",
+        "line",
+        "path",
+        "svg",
+        "title"
+      ]
+    },
+    {
+      "file": "02_Product_Stacked/SVG/breakwater-response-stacked-dark-no-tagline.svg",
+      "passed": true,
+      "forbidden_hits": [],
+      "path_count": 10,
+      "contains_exact_v05_mark_path": true,
+      "contains_exact_v05_wordmark_path": true,
+      "tags": [
+        "g",
+        "path",
+        "svg",
+        "title"
+      ]
+    },
+    {
+      "file": "01_Product_Horizontal/SVG/breakwater-response-horizontal-dark-with-tagline.svg",
+      "passed": true,
+      "forbidden_hits": [],
+      "path_count": 41,
+      "contains_exact_v05_mark_path": true,
+      "contains_exact_v05_wordmark_path": true,
+      "tags": [
+        "g",
+        "line",
+        "path",
+        "svg",
+        "title"
+      ]
+    },
+    {
+      "file": "02_Product_Stacked/SVG/breakwater-response-stacked-dark-with-tagline.svg",
+      "passed": true,
+      "forbidden_hits": [],
+      "path_count": 41,
+      "contains_exact_v05_mark_path": true,
+      "contains_exact_v05_wordmark_path": true,
+      "tags": [
+        "g",
+        "path",
+        "svg",
+        "title"
+      ]
+    },
+    {
+      "file": "03_Product_App_Icons/SVG/breakwater-asoc-app-icon-light.svg",
+      "passed": true,
+      "forbidden_hits": [],
+      "path_count": 2,
+      "contains_exact_v05_mark_path": true,
+      "contains_exact_v05_wordmark_path": false,
+      "tags": [
+        "circle",
+        "g",
+        "path",
+        "rect",
+        "svg",
+        "title"
+      ]
+    },
+    {
+      "file": "03_Product_App_Icons/SVG/breakwater-asoc-app-icon-dark.svg",
+      "passed": true,
+      "forbidden_hits": [],
+      "path_count": 2,
+      "contains_exact_v05_mark_path": true,
+      "contains_exact_v05_wordmark_path": false,
+      "tags": [
+        "circle",
+        "g",
+        "path",
+        "rect",
+        "svg",
+        "title"
+      ]
+    },
+    {
+      "file": "03_Product_App_Icons/SVG/breakwater-discover-app-icon-light.svg",
+      "passed": true,
+      "forbidden_hits": [],
+      "path_count": 2,
+      "contains_exact_v05_mark_path": true,
+      "contains_exact_v05_wordmark_path": false,
+      "tags": [
+        "circle",
+        "g",
+        "path",
+        "rect",
+        "svg",
+        "title"
+      ]
+    },
+    {
+      "file": "03_Product_App_Icons/SVG/breakwater-discover-app-icon-dark.svg",
+      "passed": true,
+      "forbidden_hits": [],
+      "path_count": 2,
+      "contains_exact_v05_mark_path": true,
+      "contains_exact_v05_wordmark_path": false,
+      "tags": [
+        "circle",
+        "g",
+        "path",
+        "rect",
+        "svg",
+        "title"
+      ]
+    },
+    {
+      "file": "03_Product_App_Icons/SVG/breakwater-provenance-app-icon-light.svg",
+      "passed": true,
+      "forbidden_hits": [],
+      "path_count": 2,
+      "contains_exact_v05_mark_path": true,
+      "contains_exact_v05_wordmark_path": false,
+      "tags": [
+        "circle",
+        "g",
+        "path",
+        "rect",
+        "svg",
+        "title"
+      ]
+    },
+    {
+      "file": "03_Product_App_Icons/SVG/breakwater-provenance-app-icon-dark.svg",
+      "passed": true,
+      "forbidden_hits": [],
+      "path_count": 2,
+      "contains_exact_v05_mark_path": true,
+      "contains_exact_v05_wordmark_path": false,
+      "tags": [
+        "circle",
+        "g",
+        "path",
+        "rect",
+        "svg",
+        "title"
+      ]
+    },
+    {
+      "file": "03_Product_App_Icons/SVG/breakwater-response-app-icon-light.svg",
+      "passed": true,
+      "forbidden_hits": [],
+      "path_count": 2,
+      "contains_exact_v05_mark_path": true,
+      "contains_exact_v05_wordmark_path": false,
+      "tags": [
+        "circle",
+        "g",
+        "path",
+        "rect",
+        "svg",
+        "title"
+      ]
+    },
+    {
+      "file": "03_Product_App_Icons/SVG/breakwater-response-app-icon-dark.svg",
+      "passed": true,
+      "forbidden_hits": [],
+      "path_count": 2,
+      "contains_exact_v05_mark_path": true,
+      "contains_exact_v05_wordmark_path": false,
+      "tags": [
+        "circle",
+        "g",
+        "path",
+        "rect",
+        "svg",
+        "title"
+      ]
+    }
+  ],
+  "summary": {
+    "new_svg_master_count": 40,
+    "corporate_v05_svg_count": 21,
+    "all_passed": true,
+    "failures": [],
+    "statement": "All v04 product/app SVG masters are true vector geometry with no embedded raster images, no live text, and no base64 image data. Product logo masters contain the exact v05 Breakwater mark path and exact v05 BREAKWATER wordmark path."
+  },
+  "corporate_svg_checks": [
+    {
+      "file": "00_Corporate_Master_v05/svg/breakwater-app-icon-dark.svg",
+      "passed": true,
+      "forbidden_hits": []
+    },
+    {
+      "file": "00_Corporate_Master_v05/svg/breakwater-app-icon-light.svg",
+      "passed": true,
+      "forbidden_hits": []
+    },
+    {
+      "file": "00_Corporate_Master_v05/svg/breakwater-horizontal-dark.svg",
+      "passed": true,
+      "forbidden_hits": []
+    },
+    {
+      "file": "00_Corporate_Master_v05/svg/breakwater-horizontal-light.svg",
+      "passed": true,
+      "forbidden_hits": []
+    },
+    {
+      "file": "00_Corporate_Master_v05/svg/breakwater-horizontal-mono-vanta.svg",
+      "passed": true,
+      "forbidden_hits": []
+    },
+    {
+      "file": "00_Corporate_Master_v05/svg/breakwater-horizontal-mono-white.svg",
+      "passed": true,
+      "forbidden_hits": []
+    },
+    {
+      "file": "00_Corporate_Master_v05/svg/breakwater-mark-red.svg",
+      "passed": true,
+      "forbidden_hits": []
+    },
+    {
+      "file": "00_Corporate_Master_v05/svg/breakwater-mark-vanta.svg",
+      "passed": true,
+      "forbidden_hits": []
+    },
+    {
+      "file": "00_Corporate_Master_v05/svg/breakwater-mark-white.svg",
+      "passed": true,
+      "forbidden_hits": []
+    },
+    {
+      "file": "00_Corporate_Master_v05/svg/breakwater-stacked-dark.svg",
+      "passed": true,
+      "forbidden_hits": []
+    },
+    {
+      "file": "00_Corporate_Master_v05/svg/breakwater-stacked-light.svg",
+      "passed": true,
+      "forbidden_hits": []
+    },
+    {
+      "file": "00_Corporate_Master_v05/svg/breakwater-stacked-mono-vanta.svg",
+      "passed": true,
+      "forbidden_hits": []
+    },
+    {
+      "file": "00_Corporate_Master_v05/svg/breakwater-stacked-mono-white.svg",
+      "passed": true,
+      "forbidden_hits": []
+    },
+    {
+      "file": "00_Corporate_Master_v05/svg/breakwater-stacked-tagline-dark.svg",
+      "passed": true,
+      "forbidden_hits": []
+    },
+    {
+      "file": "00_Corporate_Master_v05/svg/breakwater-stacked-tagline-light.svg",
+      "passed": true,
+      "forbidden_hits": []
+    },
+    {
+      "file": "00_Corporate_Master_v05/svg/breakwater-stacked-tagline-mono-vanta.svg",
+      "passed": true,
+      "forbidden_hits": []
+    },
+    {
+      "file": "00_Corporate_Master_v05/svg/breakwater-stacked-tagline-mono-white.svg",
+      "passed": true,
+      "forbidden_hits": []
+    },
+    {
+      "file": "00_Corporate_Master_v05/svg/breakwater-wordmark-dark.svg",
+      "passed": true,
+      "forbidden_hits": []
+    },
+    {
+      "file": "00_Corporate_Master_v05/svg/breakwater-wordmark-light.svg",
+      "passed": true,
+      "forbidden_hits": []
+    },
+    {
+      "file": "00_Corporate_Master_v05/svg/breakwater-wordmark-mono-vanta.svg",
+      "passed": true,
+      "forbidden_hits": []
+    },
+    {
+      "file": "00_Corporate_Master_v05/svg/breakwater-wordmark-mono-white.svg",
+      "passed": true,
+      "forbidden_hits": []
+    }
+  ]
+}

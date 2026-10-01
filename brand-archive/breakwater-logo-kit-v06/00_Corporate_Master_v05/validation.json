@@ -1,0 +1,120 @@
+{
+  "passed": true,
+  "vectorVariants": 21,
+  "pngExports": 54,
+  "webpExports": 6,
+  "geometryIdenticalAcrossColorways": true,
+  "sourceUnchanged": true,
+  "comparison": {
+    "pixels": 1048576,
+    "different": 109,
+    "matchedFraction": 0.9998960494995117
+  },
+  "results": [
+    {
+      "name": "breakwater-horizontal-light",
+      "transparent": true,
+      "valid": true
+    },
+    {
+      "name": "breakwater-stacked-light",
+      "transparent": true,
+      "valid": true
+    },
+    {
+      "name": "breakwater-wordmark-light",
+      "transparent": true,
+      "valid": true
+    },
+    {
+      "name": "breakwater-horizontal-dark",
+      "transparent": true,
+      "valid": true
+    },
+    {
+      "name": "breakwater-stacked-dark",
+      "transparent": true,
+      "valid": true
+    },
+    {
+      "name": "breakwater-wordmark-dark",
+      "transparent": true,
+      "valid": true
+    },
+    {
+      "name": "breakwater-horizontal-mono-vanta",
+      "transparent": true,
+      "valid": true
+    },
+    {
+      "name": "breakwater-stacked-mono-vanta",
+      "transparent": true,
+      "valid": true
+    },
+    {
+      "name": "breakwater-wordmark-mono-vanta",
+      "transparent": true,
+      "valid": true
+    },
+    {
+      "name": "breakwater-horizontal-mono-white",
+      "transparent": true,
+      "valid": true
+    },
+    {
+      "name": "breakwater-stacked-mono-white",
+      "transparent": true,
+      "valid": true
+    },
+    {
+      "name": "breakwater-wordmark-mono-white",
+      "transparent": true,
+      "valid": true
+    },
+    {
+      "name": "breakwater-mark-red",
+      "transparent": true,
+      "valid": true
+    },
+    {
+      "name": "breakwater-mark-vanta",
+      "transparent": true,
+      "valid": true
+    },
+    {
+      "name": "breakwater-mark-white",
+      "transparent": true,
+      "valid": true
+    },
+    {
+      "name": "breakwater-app-icon-light",
+      "transparent": false,
+      "valid": true
+    },
+    {
+      "name": "breakwater-app-icon-dark",
+      "transparent": false,
+      "valid": true
+    },
+    {
+      "name": "breakwater-stacked-tagline-light",
+      "transparent": true,
+      "valid": true
+    },
+    {
+      "name": "breakwater-stacked-tagline-dark",
+      "transparent": true,
+      "valid": true
+    },
+    {
+      "name": "breakwater-stacked-tagline-mono-vanta",
+      "transparent": true,
+      "valid": true
+    },
+    {
+      "name": "breakwater-stacked-tagline-mono-white",
+      "transparent": true,
+      "valid": true
+    }
+  ]
+}

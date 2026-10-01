@@ -48,6 +48,34 @@ retained assets and rollback. The palette and color allowlists are unchanged.
 The approved shared source is `breakwater-logo-kit-v05`; no image generation,
 recoloring of legacy assets, or social-card replacement is part of this release.
 
+## ASOC product rebrand candidate, September 30, 2026
+
+The v06 candidate presents one Breakwater ASOC platform with three connected capabilities:
+
+- Breakwater Discover — Asset, Connectivity & Exposure Intelligence
+- Breakwater Provenance — Evidence, Validation & Provenance
+- Breakwater Response — Controlled Response & Verification
+- Breakwater ASOC — Security for Connected Operations
+
+The public candidate uses only the supplied vectors in `assets/brand/v06/`: corporate light/dark
+header SVGs, the ASOC horizontal SVGs with the platform tagline, the cleaner no-tagline horizontal
+SVGs for Discover, Provenance and Response, the touch icon and favicon. Each file is pinned in
+`brand-contract.json`. The complete supplied kit is preserved byte-for-byte at
+`brand-archive/breakwater-logo-kit-v06/` for product-console and future export work.
+
+This is a local candidate. `site-release.json` keeps `productionPublicationApproved` false, and the
+September 27 production approval receipt remains unchanged. Publication requires a new review and
+explicit production approval for this exact candidate.
+
+### Where old logo artwork goes
+
+Superseded logo exports are not deleted outright — they're archived at `brand-archive/` at the repo
+root, outside `assets/`, so they're never eligible for the deploy allowlist in
+`scripts/build-public-site.mjs` (which only copies files explicitly listed in `site-release.json`).
+The production v05 subset retired by this candidate is preserved in
+`brand-archive/production-v05/`. The earlier pre-v05 exports remain in
+`brand-archive/pre-v05-logos/`.
+
 ## How to test the live site
 
 First use a private/incognito window, or hard-refresh the page:

@@ -1,0 +1,1207 @@
+[
+  {
+    "path": "00_Corporate_Master_v05/README.md",
+    "size_bytes": 3933,
+    "sha256": "263d3781f68236fdaa3429785a1f60099ffe4e277c5404fa3335e1d4c826d3f2"
+  },
+  {
+    "path": "00_Corporate_Master_v05/asset-map.json",
+    "size_bytes": 1136,
+    "sha256": "db1b2a476b7ffbe8c20e250f95f96e3485b2955d63e537aa028fdde6fa775a21"
+  },
+  {
+    "path": "00_Corporate_Master_v05/favicon.ico",
+    "size_bytes": 3702,
+    "sha256": "0a96fcf6428391c2192902d4ba00d5611292e956cf1d8d328e1af6bf1f976eab"
+  },
+  {
+    "path": "00_Corporate_Master_v05/manifest.json",
+    "size_bytes": 6773,
+    "sha256": "cc6236c9dcb6f3d33ba28e919c293086a0340e36995803866dc0b61cf16885d0"
+  },
+  {
+    "path": "00_Corporate_Master_v05/png/breakwater-app-icon-dark-180.png",
+    "size_bytes": 5758,
+    "sha256": "17812fb4aa01f0e31ad49c084cd19f651a66a9793a437cf2083567837d84a3ac"
+  },
+  {
+    "path": "00_Corporate_Master_v05/png/breakwater-app-icon-dark-192.png",
+    "size_bytes": 6117,
+    "sha256": "0c108d420c62621f7801851692ef0a6d2100508d75048828130627968ec43f98"
+  },
+  {
+    "path": "00_Corporate_Master_v05/png/breakwater-app-icon-dark-512.png",
+    "size_bytes": 17365,
+    "sha256": "ba48dee0f4cd229df5ccbd0f62b3b053d2f7b0ee01dbf5306299cfcf8a64c2b6"
+  },
+  {
+    "path": "00_Corporate_Master_v05/png/breakwater-app-icon-light-180.png",
+    "size_bytes": 5646,
+    "sha256": "40321ac600fea8c882ebac78f5a644b8ff101869dbbcf19095912001c82f88b5"
+  },
+  {
+    "path": "00_Corporate_Master_v05/png/breakwater-app-icon-light-192.png",
+    "size_bytes": 6036,
+    "sha256": "64beb18b53905e3b71ca5bd8238f91297eaffb130a8f5af7dc073df6144df037"
+  },
+  {
+    "path": "00_Corporate_Master_v05/png/breakwater-app-icon-light-512.png",
+    "size_bytes": 17243,
+    "sha256": "f089c1cfb2e16c4689256da9e654f0d7e671ea3cfdc35ee8bbeeb8e54cf125c1"
+  },
+  {
+    "path": "00_Corporate_Master_v05/png/breakwater-horizontal-dark-1600.png",
+    "size_bytes": 41606,
+    "sha256": "534158c0ad4e6ec04e9f74bf869690a942dc92de1de994427155f9b7dff7a5eb"
+  },
+  {
+    "path": "00_Corporate_Master_v05/png/breakwater-horizontal-dark-800.png",
+    "size_bytes": 19478,
+    "sha256": "a44c0c1afd295e3244e036194f9b003029c29f6e35a14b7fb0b0ce2c70a2d06d"
+  },
+  {
+    "path": "00_Corporate_Master_v05/png/breakwater-horizontal-light-1600.png",
+    "size_bytes": 41414,
+    "sha256": "e26dfcb5ec313a14702de0cbb2165a4cab18d5c596d9929986a5f752f53e768c"
+  },
+  {
+    "path": "00_Corporate_Master_v05/png/breakwater-horizontal-light-800.png",
+    "size_bytes": 19477,
+    "sha256": "ec19a897ef43c31e9f0c0cc589d74cb7cffceca2ee25bf276e0912d89ded7a8e"
+  },
+  {
+    "path": "00_Corporate_Master_v05/png/breakwater-horizontal-mono-vanta-1600.png",
+    "size_bytes": 34044,
+    "sha256": "0b9838cef5981b91dfb29852c4269d28190735b5f25b83429a5d2337657a830a"
+  },
+  {
+    "path": "00_Corporate_Master_v05/png/breakwater-horizontal-mono-vanta-800.png",
+    "size_bytes": 15141,
+    "sha256": "0593366b533a69b5219bce2d6e96d50a3880b66d5098de8a34bfd8f57a46bdcf"
+  },
+  {
+    "path": "00_Corporate_Master_v05/png/breakwater-horizontal-mono-white-1600.png",
+    "size_bytes": 34717,
+    "sha256": "1213c2cfee5b5eefe6f2d1df967823fdca96b42bf48ad013951bfc104d9b4eb6"
+  },
+  {
+    "path": "00_Corporate_Master_v05/png/breakwater-horizontal-mono-white-800.png",
+    "size_bytes": 15979,
+    "sha256": "e5531e71c3375f4c860d9751caa3a40a8ed3a5aea5dc34a19639a630e87d9545"
+  },
+  {
+    "path": "00_Corporate_Master_v05/png/breakwater-mark-red-1024.png",
+    "size_bytes": 53807,
+    "sha256": "43e28e0335e152429a103357ac87c9bfa26d8d147243daa7598056c9585216ac"
+  },
+  {
+    "path": "00_Corporate_Master_v05/png/breakwater-mark-red-128.png",
+    "size_bytes": 5697,
+    "sha256": "09548517e42797507d9a59c90f6abff1b6937bca0a21c8fb7a420d9c24808c02"
+  },
+  {
+    "path": "00_Corporate_Master_v05/png/breakwater-mark-red-16.png",
+    "size_bytes": 488,
+    "sha256": "7571052e9ae2a8d9f1835c9f9ebbf3e2abca5e905409bcb28e2d2aee8deeba23"
+  },
+  {
+    "path": "00_Corporate_Master_v05/png/breakwater-mark-red-256.png",
+    "size_bytes": 11904,
+    "sha256": "1463d6b4e4fcd761fb6886838fcedbb80d9b5c388228738878f030cb044d6c81"
+  },
+  {
+    "path": "00_Corporate_Master_v05/png/breakwater-mark-red-32.png",
+    "size_bytes": 1203,
+    "sha256": "b76bb1a1bb2a5942d16aff8cef782173e65708f6c7cebb3c076e0ab43bfb6f02"
+  },
+  {
+    "path": "00_Corporate_Master_v05/png/breakwater-mark-red-48.png",
+    "size_bytes": 1957,
+    "sha256": "951503494e7b523bdec309775eee900cc8b82abe32f408cf6ec0cff6c1a6af9c"
+  },
+  {
+    "path": "00_Corporate_Master_v05/png/breakwater-mark-red-512.png",
+    "size_bytes": 25268,
+    "sha256": "3e3af4d6db665852740cd416bb8e5fc54f9c6fd3ddbcdcb53367cb4c183ed2d1"
+  },
+  {
+    "path": "00_Corporate_Master_v05/png/breakwater-mark-red-64.png",
+    "size_bytes": 2737,
+    "sha256": "7d84a72bb667e794338b35e7310766c69153f98e46ec5635754ffba170cb387e"
+  },
+  {
+    "path": "00_Corporate_Master_v05/png/breakwater-mark-vanta-1024.png",
+    "size_bytes": 39830,
+    "sha256": "7495761dcbc83ff77415736c274c8d61ca7ff7de4b3b90166151427616e14ea9"
+  },
+  {
+    "path": "00_Corporate_Master_v05/png/breakwater-mark-vanta-128.png",
+    "size_bytes": 3641,
+    "sha256": "50acc15a56bfc60cd16eb411dd28935438817ef7ff4351eb7ff52abf505faf12"
+  },
+  {
+    "path": "00_Corporate_Master_v05/png/breakwater-mark-vanta-16.png",
+    "size_bytes": 385,
+    "sha256": "76a940a35a068292cf67c03d73dac0b63e01f1e5fbdf781dd89161865f9305a3"
+  },
+  {
+    "path": "00_Corporate_Master_v05/png/breakwater-mark-vanta-256.png",
+    "size_bytes": 7880,
+    "sha256": "bbf266c2e408b45935e979751184fe112029d03fd4b1b55136943c1f39ce5919"
+  },
+  {
+    "path": "00_Corporate_Master_v05/png/breakwater-mark-vanta-32.png",
+    "size_bytes": 794,
+    "sha256": "0e3eee70e3ad1268efc667fcea13a481229eb77d38e13097eb52eeb2759e1b70"
+  },
+  {
+    "path": "00_Corporate_Master_v05/png/breakwater-mark-vanta-48.png",
+    "size_bytes": 1191,
+    "sha256": "0f4e797ef6d2e87be95fc0e19420a8987cc2e025efe9921541274fcd1a559059"
+  },
+  {
+    "path": "00_Corporate_Master_v05/png/breakwater-mark-vanta-512.png",
+    "size_bytes": 17868,
+    "sha256": "53ffe1660233505870b04fddc8fced75edccb3762bf031382655d644b760a147"
+  },
+  {
+    "path": "00_Corporate_Master_v05/png/breakwater-mark-vanta-64.png",
+    "size_bytes": 1701,
+    "sha256": "6108229da21ce8105861ff98246121b36d23550339f4d03d29b2e98ad224996e"
+  },
+  {
+    "path": "00_Corporate_Master_v05/png/breakwater-mark-white-1024.png",
+    "size_bytes": 40688,
+    "sha256": "0badcbc1d7f37f044a328db21133302488f4ed34b10a0c9e9f86f095e49a0ea8"
+  },
+  {
+    "path": "00_Corporate_Master_v05/png/breakwater-mark-white-128.png",
+    "size_bytes": 3894,
+    "sha256": "c42a9ecac7ac97a190ea17c6fc9b4c206dde65093ea578a6f6f91720c1097400"
+  },
+  {
+    "path": "00_Corporate_Master_v05/png/breakwater-mark-white-16.png",
+    "size_bytes": 391,
+    "sha256": "908d9c3d2e4d8ecd02f782fbb60491f2b9ac9c36e7f1b6f9ccdd6b1eb5842184"
+  },
+  {
+    "path": "00_Corporate_Master_v05/png/breakwater-mark-white-256.png",
+    "size_bytes": 8441,
+    "sha256": "c13a09cb8bdd240f5a1a9309fc0c50342296eee86d58592e12711817fc531fe7"
+  },
+  {
+    "path": "00_Corporate_Master_v05/png/breakwater-mark-white-32.png",
+    "size_bytes": 842,
+    "sha256": "40aae045ef812fae6f4c24293943fa4603d12a812f0c8a882fd7717d6b38f51e"
+  },
+  {
+    "path": "00_Corporate_Master_v05/png/breakwater-mark-white-48.png",
+    "size_bytes": 1244,
+    "sha256": "2b9e24efdf91d1442c7836359c67aaaadc067984af804c4ccc5a46b1b418300f"
+  },
+  {
+    "path": "00_Corporate_Master_v05/png/breakwater-mark-white-512.png",
+    "size_bytes": 18194,
+    "sha256": "5f3865a39815d860c2ce99ab43a73237b2e88fc92ee5e3a7245c2d0540f24151"
+  },
+  {
+    "path": "00_Corporate_Master_v05/png/breakwater-mark-white-64.png",
+    "size_bytes": 1751,
+    "sha256": "8e2f5059e7b64f32bd213321046fd4309603dbbe75369d9d6c60e0d2f06284b5"
+  },
+  {
+    "path": "00_Corporate_Master_v05/png/breakwater-stacked-dark-1024.png",
+    "size_bytes": 52678,
+    "sha256": "6726208a69f8bda201ae86231a2764cd399f8edf57255a975b06a119d434b350"
+  },
+  {
+    "path": "00_Corporate_Master_v05/png/breakwater-stacked-light-1024.png",
+    "size_bytes": 52339,
+    "sha256": "70911e89611222abc51e63b32f5c707c4c76bbb3fcc82fafa8f650773a445665"
+  },
+  {
+    "path": "00_Corporate_Master_v05/png/breakwater-stacked-mono-vanta-1024.png",
+    "size_bytes": 41579,
+    "sha256": "20714cf6af92793783522d43f3e608e62434591e0136c1f387224991533db777"
+  },
+  {
+    "path": "00_Corporate_Master_v05/png/breakwater-stacked-mono-white-1024.png",
+    "size_bytes": 42649,
+    "sha256": "2147b45726904c9a37a16ae71d68fc55fa04c7363ec327bdff10a1ed83d877a8"
+  },
+  {
+    "path": "00_Corporate_Master_v05/png/breakwater-stacked-tagline-dark-1024.png",
+    "size_bytes": 62700,
+    "sha256": "95a4138d93f7f6a049594997bcefb6bc4693ddadc360a5bdaa57ac9ab8283476"
+  },
+  {
+    "path": "00_Corporate_Master_v05/png/breakwater-stacked-tagline-dark-2048.png",
+    "size_bytes": 136716,
+    "sha256": "92ea8cc10e5c5faba82f09605a14be10a16a3e432663977bf914542659d1a46a"
+  },
+  {
+    "path": "00_Corporate_Master_v05/png/breakwater-stacked-tagline-light-1024.png",
+    "size_bytes": 61965,
+    "sha256": "35895ea6cf81dd70b1c58e5d68eafe308dfaf0c55732006aaed64da9fa977943"
+  },
+  {
+    "path": "00_Corporate_Master_v05/png/breakwater-stacked-tagline-light-2048.png",
+    "size_bytes": 135608,
+    "sha256": "e87f05dca75c38c25d021bf35063df6e91ff8bd7a09d8c83c63c0c03959c5de1"
+  },
+  {
+    "path": "00_Corporate_Master_v05/png/breakwater-stacked-tagline-mono-vanta-1024.png",
+    "size_bytes": 50926,
+    "sha256": "6ebecfb7b3bcdff0e7ca14dbfb279b7db7ae8513af9c346c136a2d836679737c"
+  },
+  {
+    "path": "00_Corporate_Master_v05/png/breakwater-stacked-tagline-mono-vanta-2048.png",
+    "size_bytes": 115278,
+    "sha256": "982350c4d13d89a03c83637d4111b8a523f015992dab00324af2b88d2ee5cdc5"
+  },
+  {
+    "path": "00_Corporate_Master_v05/png/breakwater-stacked-tagline-mono-white-1024.png",
+    "size_bytes": 52383,
+    "sha256": "bcc775eb95bf39d23805a4fdcea758e3e024759f3097d67e28e7c6daa164f2cf"
+  },
+  {
+    "path": "00_Corporate_Master_v05/png/breakwater-stacked-tagline-mono-white-2048.png",
+    "size_bytes": 117111,
+    "sha256": "0adb8668f8971bae112418c82bdd27deba3ffcfca2dac3428fdcac110bcfef19"
+  },
+  {
+    "path": "00_Corporate_Master_v05/png/breakwater-wordmark-dark-800.png",
+    "size_bytes": 10327,
+    "sha256": "fb523ecb59eed27c906be39ccc2d2b2ab2fe3c8a5e7167d877416063880782ba"
+  },
+  {
+    "path": "00_Corporate_Master_v05/png/breakwater-wordmark-light-800.png",
+    "size_bytes": 10073,
+    "sha256": "c87d489d0931a82144f552621085d7e8b6d2d0506e702398365378ab0f41bd61"
+  },
+  {
+    "path": "00_Corporate_Master_v05/png/breakwater-wordmark-mono-vanta-800.png",
+    "size_bytes": 10073,
+    "sha256": "c87d489d0931a82144f552621085d7e8b6d2d0506e702398365378ab0f41bd61"
+  },
+  {
+    "path": "00_Corporate_Master_v05/png/breakwater-wordmark-mono-white-800.png",
+    "size_bytes": 10327,
+    "sha256": "fb523ecb59eed27c906be39ccc2d2b2ab2fe3c8a5e7167d877416063880782ba"
+  },
+  {
+    "path": "00_Corporate_Master_v05/preview-mobile.png",
+    "size_bytes": 184305,
+    "sha256": "f1050cec31c4f9302933998b11c03e9be002c51e8a282d5d6fe1d731968789cf"
+  },
+  {
+    "path": "00_Corporate_Master_v05/preview.html",
+    "size_bytes": 4032,
+    "sha256": "ce35e42daceee9c1b27574decdf3fd85a3429cd6440b56ed64918aef27150e01"
+  },
+  {
+    "path": "00_Corporate_Master_v05/preview.png",
+    "size_bytes": 239146,
+    "sha256": "7ce0171e8b7d300c3db21a54fef7b57ad212701e256dccd5615e6987c991d1aa"
+  },
+  {
+    "path": "00_Corporate_Master_v05/svg/breakwater-app-icon-dark.svg",
+    "size_bytes": 4416,
+    "sha256": "ee002d3cb3c03545dac615f0128fe6341154700c0478147e25361ac85ff2d91c"
+  },
+  {
+    "path": "00_Corporate_Master_v05/svg/breakwater-app-icon-light.svg",
+    "size_bytes": 4416,
+    "sha256": "0202e3e9fb56a0be77fbb7f8a17b9677c419498a38e5144774f405961e498d1c"
+  },
+  {
+    "path": "00_Corporate_Master_v05/svg/breakwater-horizontal-dark.svg",
+    "size_bytes": 8414,
+    "sha256": "c897ce76babda8c80d98bef72390b14e909cd4ef6d07e94e52ca83c20752c9d7"
+  },
+  {
+    "path": "00_Corporate_Master_v05/svg/breakwater-horizontal-light.svg",
+    "size_bytes": 8414,
+    "sha256": "16628f5e372d399e23e438246233c714007b9a927bb51a2a0320f9d31ada4e47"
+  },
+  {
+    "path": "00_Corporate_Master_v05/svg/breakwater-horizontal-mono-vanta.svg",
+    "size_bytes": 8414,
+    "sha256": "dee3a43fac82e20b675c0af39fa7e89cc22bc00a116fc5fb3ddf5f5692786e0c"
+  },
+  {
+    "path": "00_Corporate_Master_v05/svg/breakwater-horizontal-mono-white.svg",
+    "size_bytes": 8414,
+    "sha256": "35a6fd1fc3d94a354ffa6fa6b6154b74f59fb7a8c5426f290e48e6e9f087ba84"
+  },
+  {
+    "path": "00_Corporate_Master_v05/svg/breakwater-mark-red.svg",
+    "size_bytes": 4367,
+    "sha256": "39bcac5907e531810b4c3404535e558bc2eacc5cd2df23a58e926862b9af7b1a"
+  },
+  {
+    "path": "00_Corporate_Master_v05/svg/breakwater-mark-vanta.svg",
+    "size_bytes": 4367,
+    "sha256": "39b4b700ea8385233a89a9c7f05142fe8de6c83ea7975d65f707e728c72d9f33"
+  },
+  {
+    "path": "00_Corporate_Master_v05/svg/breakwater-mark-white.svg",
+    "size_bytes": 4367,
+    "sha256": "d88a8bc3631df2d44f84106a158a18a7a4f3f3fc59bfca9d9e6104b5ed8d6ea7"
+  },
+  {
+    "path": "00_Corporate_Master_v05/svg/breakwater-stacked-dark.svg",
+    "size_bytes": 8424,
+    "sha256": "b588f28169ef737700b1494d18370007a67bed2f1250ef68cc867e3420e48041"
+  },
+  {
+    "path": "00_Corporate_Master_v05/svg/breakwater-stacked-light.svg",
+    "size_bytes": 8424,
+    "sha256": "cdcb0ee3a46909fc488ba69bb39f7def5a5b0c1068b5dc849ab924de9cf2b2db"
+  },
+  {
+    "path": "00_Corporate_Master_v05/svg/breakwater-stacked-mono-vanta.svg",
+    "size_bytes": 8424,
+    "sha256": "78bcc24f9311596cac1a75c9287509c6fc45864234711b8ab6cc176ce2e640ee"
+  },
+  {
+    "path": "00_Corporate_Master_v05/svg/breakwater-stacked-mono-white.svg",
+    "size_bytes": 8424,
+    "sha256": "e672de805176284825a3be9d635e2177caaaf7a6d2dd586320e65270d8fbc43d"
+  },
+  {
+    "path": "00_Corporate_Master_v05/svg/breakwater-stacked-tagline-dark.svg",
+    "size_bytes": 17623,
+    "sha256": "3d4dc292d333edae1eebc609ca5f17f25fe61df863b8d14e79ea86c731717543"
+  },
+  {
+    "path": "00_Corporate_Master_v05/svg/breakwater-stacked-tagline-light.svg",
+    "size_bytes": 17623,
+    "sha256": "23f9aa6b904cfe149cb38b04ce4745195420df3f3f712be1ecef49ba85438131"
+  },
+  {
+    "path": "00_Corporate_Master_v05/svg/breakwater-stacked-tagline-mono-vanta.svg",
+    "size_bytes": 17623,
+    "sha256": "b66682878aa4af7479a267e5a2e9d2f5b3b81d655bd54ae9ea722f123ee35378"
+  },
+  {
+    "path": "00_Corporate_Master_v05/svg/breakwater-stacked-tagline-mono-white.svg",
+    "size_bytes": 17623,
+    "sha256": "dedb849abdb4ab8f83989c49a782b6175e701b21f9657c9b67065e533d78daa6"
+  },
+  {
+    "path": "00_Corporate_Master_v05/svg/breakwater-wordmark-dark.svg",
+    "size_bytes": 4212,
+    "sha256": "a80f47fe44bb392c06b4f4c4f46ef91ea92ec840abfe86a2c4af618ca56d67ef"
+  },
+  {
+    "path": "00_Corporate_Master_v05/svg/breakwater-wordmark-light.svg",
+    "size_bytes": 4212,
+    "sha256": "69e9e5625979dc443dd52b0ef1ae49056e47f92fe1da9d080fe27546e9fcd80b"
+  },
+  {
+    "path": "00_Corporate_Master_v05/svg/breakwater-wordmark-mono-vanta.svg",
+    "size_bytes": 4212,
+    "sha256": "69e9e5625979dc443dd52b0ef1ae49056e47f92fe1da9d080fe27546e9fcd80b"
+  },
+  {
+    "path": "00_Corporate_Master_v05/svg/breakwater-wordmark-mono-white.svg",
+    "size_bytes": 4212,
+    "sha256": "a80f47fe44bb392c06b4f4c4f46ef91ea92ec840abfe86a2c4af618ca56d67ef"
+  },
+  {
+    "path": "00_Corporate_Master_v05/validation.json",
+    "size_bytes": 2503,
+    "sha256": "50486f86d968c25a77a7b934245c0c1c5bbdc92a26d0275b62e179b441bb7fbe"
+  },
+  {
+    "path": "00_Corporate_Master_v05/webp/breakwater-horizontal-dark-340.webp",
+    "size_bytes": 4914,
+    "sha256": "5b8571e5cd5550fcfc31234aea350b0a71209122c8859cceff043a53fade7438"
+  },
+  {
+    "path": "00_Corporate_Master_v05/webp/breakwater-horizontal-dark-510.webp",
+    "size_bytes": 7192,
+    "sha256": "b8b9cedabc3ee324537c630b0c25d3e80ec2dc5a39537737ae15bce26fd5549d"
+  },
+  {
+    "path": "00_Corporate_Master_v05/webp/breakwater-horizontal-dark-680.webp",
+    "size_bytes": 10048,
+    "sha256": "88b821a7ab9de11f59afaadc85611b036e3505fa4fbc047ca768fe0358505ff5"
+  },
+  {
+    "path": "00_Corporate_Master_v05/webp/breakwater-horizontal-light-340.webp",
+    "size_bytes": 4934,
+    "sha256": "6cb97d83275a9e385aacf130611760a0808b73ff389e2ac4949e4e2a44e19405"
+  },
+  {
+    "path": "00_Corporate_Master_v05/webp/breakwater-horizontal-light-510.webp",
+    "size_bytes": 7174,
+    "sha256": "30734038bfdf721a0178dcd9922e999b6548b1b21ea23cd0b3c8488e95b96fb2"
+  },
+  {
+    "path": "00_Corporate_Master_v05/webp/breakwater-horizontal-light-680.webp",
+    "size_bytes": 10150,
+    "sha256": "d6da3179ae8da1fb4719d088e086eabf6a347bda124d0bb78c90b2f6246cb44d"
+  },
+  {
+    "path": "01_Product_Horizontal/PNG_1600/breakwater-asoc-horizontal-dark-no-tagline-1600w.png",
+    "size_bytes": 38029,
+    "sha256": "18c9048a291bbdd4ad7e0df36a36e4301eed72c86303d1ef31cbded5ad362723"
+  },
+  {
+    "path": "01_Product_Horizontal/PNG_1600/breakwater-asoc-horizontal-dark-with-tagline-1600w.png",
+    "size_bytes": 38328,
+    "sha256": "e3c4a3c14006de56ed0596f8bb1d516467aa0a647a10a380fa695c5e0c7d05e3"
+  },
+  {
+    "path": "01_Product_Horizontal/PNG_1600/breakwater-asoc-horizontal-light-no-tagline-1600w.png",
+    "size_bytes": 37729,
+    "sha256": "6f19b27e8eb99748d2c028fef9c9236a0e98a1cf4ea1800f3393f337b0b3040d"
+  },
+  {
+    "path": "01_Product_Horizontal/PNG_1600/breakwater-asoc-horizontal-light-with-tagline-1600w.png",
+    "size_bytes": 37885,
+    "sha256": "979837ffafdede291bf6ecf7274e04c80147664ceadd5a3414453572d639bc03"
+  },
+  {
+    "path": "01_Product_Horizontal/PNG_1600/breakwater-discover-horizontal-dark-no-tagline-1600w.png",
+    "size_bytes": 36500,
+    "sha256": "0262d81516f2bdccd50aa09340e51af1b0bc9add776eaa4fcb1f7e1c376fb99a"
+  },
+  {
+    "path": "01_Product_Horizontal/PNG_1600/breakwater-discover-horizontal-dark-with-tagline-1600w.png",
+    "size_bytes": 37769,
+    "sha256": "1c59b0f630e5988a89468e905795b1c368251cd60128beaa4f574d85fad7398b"
+  },
+  {
+    "path": "01_Product_Horizontal/PNG_1600/breakwater-discover-horizontal-light-no-tagline-1600w.png",
+    "size_bytes": 36159,
+    "sha256": "05ac9621a4fd0d52d2da52e2978c7032027b28ab58f898574e442406ee609ce5"
+  },
+  {
+    "path": "01_Product_Horizontal/PNG_1600/breakwater-discover-horizontal-light-with-tagline-1600w.png",
+    "size_bytes": 37101,
+    "sha256": "94bd330f97a2508b79eb3ff7e6e5c7ac7856ffa089ee6929401909a0473450f0"
+  },
+  {
+    "path": "01_Product_Horizontal/PNG_1600/breakwater-provenance-horizontal-dark-no-tagline-1600w.png",
+    "size_bytes": 34886,
+    "sha256": "889201712a49b24caff5deb65719d2af625449c6d875df78c2b0e2ec19567298"
+  },
+  {
+    "path": "01_Product_Horizontal/PNG_1600/breakwater-provenance-horizontal-dark-with-tagline-1600w.png",
+    "size_bytes": 39861,
+    "sha256": "7e2560144a89daec920ce4d528565538afbf98fea9b3efcd199cb75523915168"
+  },
+  {
+    "path": "01_Product_Horizontal/PNG_1600/breakwater-provenance-horizontal-light-no-tagline-1600w.png",
+    "size_bytes": 34487,
+    "sha256": "dcc14c07744028ba9d75d63df162b492d316c8c45bad1c6fd82fa5fb2727fa55"
+  },
+  {
+    "path": "01_Product_Horizontal/PNG_1600/breakwater-provenance-horizontal-light-with-tagline-1600w.png",
+    "size_bytes": 39270,
+    "sha256": "d418a127205b134251dbcaef0ae47b337acc0184d96897a43f3c71a4ee457b62"
+  },
+  {
+    "path": "01_Product_Horizontal/PNG_1600/breakwater-response-horizontal-dark-no-tagline-1600w.png",
+    "size_bytes": 37168,
+    "sha256": "2ea6fc18c08dcd85eba0ea5bd0610584ae2de8a1bc3c3e0a5b36d67455a3aab5"
+  },
+  {
+    "path": "01_Product_Horizontal/PNG_1600/breakwater-response-horizontal-dark-with-tagline-1600w.png",
+    "size_bytes": 40690,
+    "sha256": "16a50d2db98c31e57bf164019adc4b2ead235185ba9e4d4c51e8269785cec505"
+  },
+  {
+    "path": "01_Product_Horizontal/PNG_1600/breakwater-response-horizontal-light-no-tagline-1600w.png",
+    "size_bytes": 36743,
+    "sha256": "2582599e6b0338a09b7ba9f201d0a4e7e88d62113afbbf3a1053ea5c341c9453"
+  },
+  {
+    "path": "01_Product_Horizontal/PNG_1600/breakwater-response-horizontal-light-with-tagline-1600w.png",
+    "size_bytes": 39853,
+    "sha256": "1bf6f33b1fd138db362a641368d692caf1eb17a4a2ebc0dee5ea30aeff3c1a4e"
+  },
+  {
+    "path": "01_Product_Horizontal/PNG_800/breakwater-asoc-horizontal-dark-no-tagline-800w.png",
+    "size_bytes": 17928,
+    "sha256": "bf3d17bedad202ae25ee20743fea761d59eadbd4d07c9ffd24142d4de10fe944"
+  },
+  {
+    "path": "01_Product_Horizontal/PNG_800/breakwater-asoc-horizontal-dark-with-tagline-800w.png",
+    "size_bytes": 17396,
+    "sha256": "edd6bd1f585d9f22ff316c219ed464f4b0c20b69cc92d071505c1a7013b82d28"
+  },
+  {
+    "path": "01_Product_Horizontal/PNG_800/breakwater-asoc-horizontal-light-no-tagline-800w.png",
+    "size_bytes": 17715,
+    "sha256": "fa236b972ce4c0c96a8ee7c4240cf67f222e08c207b8ee963fb2a47a191b18c4"
+  },
+  {
+    "path": "01_Product_Horizontal/PNG_800/breakwater-asoc-horizontal-light-with-tagline-800w.png",
+    "size_bytes": 17270,
+    "sha256": "56268595bae7bcf6eef2897dc3e38966ec4691ef887e738c2d2134bc433f0901"
+  },
+  {
+    "path": "01_Product_Horizontal/PNG_800/breakwater-discover-horizontal-dark-no-tagline-800w.png",
+    "size_bytes": 17267,
+    "sha256": "4e0ac86283acbfbb4ad66a83d231cc03a7975f48c1438811e3b8279b67badda9"
+  },
+  {
+    "path": "01_Product_Horizontal/PNG_800/breakwater-discover-horizontal-dark-with-tagline-800w.png",
+    "size_bytes": 17323,
+    "sha256": "49c2b31463e85cf1745fddca768d8f924989684f1d12d12bd22e3d14d2f58d69"
+  },
+  {
+    "path": "01_Product_Horizontal/PNG_800/breakwater-discover-horizontal-light-no-tagline-800w.png",
+    "size_bytes": 17224,
+    "sha256": "6814299f8087883fd86a2ca3307e71961686e4684a678c5e1a1d6fce6a48fb7e"
+  },
+  {
+    "path": "01_Product_Horizontal/PNG_800/breakwater-discover-horizontal-light-with-tagline-800w.png",
+    "size_bytes": 16994,
+    "sha256": "2bcbfa2ae7c657598422c0e4831b6bd4eeb5c62139378e5d9de541d0c5027ed8"
+  },
+  {
+    "path": "01_Product_Horizontal/PNG_800/breakwater-provenance-horizontal-dark-no-tagline-800w.png",
+    "size_bytes": 16511,
+    "sha256": "f9489064ac7e64861ba3dfe0e23a5edd2caa4dbcc91f3e1f4ee909bdaf405a84"
+  },
+  {
+    "path": "01_Product_Horizontal/PNG_800/breakwater-provenance-horizontal-dark-with-tagline-800w.png",
+    "size_bytes": 18023,
+    "sha256": "bf95509d332b342376210b850658577fa95db8235a4344f7d37f46a6523ef022"
+  },
+  {
+    "path": "01_Product_Horizontal/PNG_800/breakwater-provenance-horizontal-light-no-tagline-800w.png",
+    "size_bytes": 16376,
+    "sha256": "adc708de2e08639845e95fdf8f7c4f06649352c463827c49a61207f033f971ff"
+  },
+  {
+    "path": "01_Product_Horizontal/PNG_800/breakwater-provenance-horizontal-light-with-tagline-800w.png",
+    "size_bytes": 17922,
+    "sha256": "48f03a26b4afd399478c2ff3eafb7adccdcce36a7fbb2baa539ab749cc484ecc"
+  },
+  {
+    "path": "01_Product_Horizontal/PNG_800/breakwater-response-horizontal-dark-no-tagline-800w.png",
+    "size_bytes": 17698,
+    "sha256": "15884c30df51f1b27d32f54979244daa08bae9d444c5eb8c888002aaac5092b0"
+  },
+  {
+    "path": "01_Product_Horizontal/PNG_800/breakwater-response-horizontal-dark-with-tagline-800w.png",
+    "size_bytes": 18643,
+    "sha256": "5a157e96a318638648fdfa191c3abb7e57f80a72e9b79d47a105ff921be45e30"
+  },
+  {
+    "path": "01_Product_Horizontal/PNG_800/breakwater-response-horizontal-light-no-tagline-800w.png",
+    "size_bytes": 17572,
+    "sha256": "6c016c5ec0399b941ff94f8b476362836c66c493459105a661131f4943dabadd"
+  },
+  {
+    "path": "01_Product_Horizontal/PNG_800/breakwater-response-horizontal-light-with-tagline-800w.png",
+    "size_bytes": 18297,
+    "sha256": "1e3f73c29b8b762317145a98bfba7ec61b890992d4ef051cc223fd827f285447"
+  },
+  {
+    "path": "01_Product_Horizontal/SVG/breakwater-asoc-horizontal-dark-no-tagline.svg",
+    "size_bytes": 9902,
+    "sha256": "7f034c159f85b9b6a5d7421c59be3e0a79b23ee2b360fb48034e2c752657e0fc"
+  },
+  {
+    "path": "01_Product_Horizontal/SVG/breakwater-asoc-horizontal-dark-with-tagline.svg",
+    "size_bytes": 18465,
+    "sha256": "6733e58635517e59b0b229ad6d237c247140887c0acf557518c3e3404d6eaf94"
+  },
+  {
+    "path": "01_Product_Horizontal/SVG/breakwater-asoc-horizontal-light-no-tagline.svg",
+    "size_bytes": 9902,
+    "sha256": "6d48744f1b42e8a40cd541a72fc31c564bd4fcc655d704401c3c41f7cc9f67a8"
+  },
+  {
+    "path": "01_Product_Horizontal/SVG/breakwater-asoc-horizontal-light-with-tagline.svg",
+    "size_bytes": 18465,
+    "sha256": "21d50050c61e4e3c77e7878c2ae584950b62ae04ffa55daf151739bd63e6e5d2"
+  },
+  {
+    "path": "01_Product_Horizontal/SVG/breakwater-discover-horizontal-dark-no-tagline.svg",
+    "size_bytes": 10772,
+    "sha256": "bd7c2440c7edaa78cb9f902abdf9a25389fc59248772fcc7151fb0d793fec347"
+  },
+  {
+    "path": "01_Product_Horizontal/SVG/breakwater-discover-horizontal-dark-with-tagline.svg",
+    "size_bytes": 21429,
+    "sha256": "7177874dfb841f56b37c4a43274f5211d9f03f6e8201d3c740a7b3d68e1a84be"
+  },
+  {
+    "path": "01_Product_Horizontal/SVG/breakwater-discover-horizontal-light-no-tagline.svg",
+    "size_bytes": 10772,
+    "sha256": "f85bb936bc180368f774e4479c01097436f970e33a794bf2202dc3a64f95e029"
+  },
+  {
+    "path": "01_Product_Horizontal/SVG/breakwater-discover-horizontal-light-with-tagline.svg",
+    "size_bytes": 21429,
+    "sha256": "2cf3c0466f75ef0f53bea83731236a1d9dbedad15d5c0e799907843344febb52"
+  },
+  {
+    "path": "01_Product_Horizontal/SVG/breakwater-provenance-horizontal-dark-no-tagline.svg",
+    "size_bytes": 11489,
+    "sha256": "4b108fd25c9a9e31f5b1fe5c4949e039cb2e7001e425035e1ab0871533d2bb52"
+  },
+  {
+    "path": "01_Product_Horizontal/SVG/breakwater-provenance-horizontal-dark-with-tagline.svg",
+    "size_bytes": 19630,
+    "sha256": "42de867ab871a35cceaeb0ad2fe9b241a73cfa8f309143305a25a42090303cc9"
+  },
+  {
+    "path": "01_Product_Horizontal/SVG/breakwater-provenance-horizontal-light-no-tagline.svg",
+    "size_bytes": 11489,
+    "sha256": "8fb15fb22f95e4a975887dfb5a21ff4e65624515c3ca351c79be0a4ddf0e4bbe"
+  },
+  {
+    "path": "01_Product_Horizontal/SVG/breakwater-provenance-horizontal-light-with-tagline.svg",
+    "size_bytes": 19630,
+    "sha256": "7d07d7d2009166266f4b18c4e0c490b45d277177a5bed5d4d738852baaee26ee"
+  },
+  {
+    "path": "01_Product_Horizontal/SVG/breakwater-response-horizontal-dark-no-tagline.svg",
+    "size_bytes": 11379,
+    "sha256": "4cba4b6827ee970bf175bdf05a22abee80c1603a9078382711a92e01e9e2cd94"
+  },
+  {
+    "path": "01_Product_Horizontal/SVG/breakwater-response-horizontal-dark-with-tagline.svg",
+    "size_bytes": 20159,
+    "sha256": "771ee0cd1197d4ff2b3f827e07e3f9180db35b927ecdb455e24b09540d7c4245"
+  },
+  {
+    "path": "01_Product_Horizontal/SVG/breakwater-response-horizontal-light-no-tagline.svg",
+    "size_bytes": 11379,
+    "sha256": "7efaaa2aa99f5e5e0eb9ddd1cd86ad1041ade5a43e64c19506369ea760ee488f"
+  },
+  {
+    "path": "01_Product_Horizontal/SVG/breakwater-response-horizontal-light-with-tagline.svg",
+    "size_bytes": 20159,
+    "sha256": "b95f3638ce20b4310d4c04c2123e0755617fe476fee97bb59bd816d1a8e2cad9"
+  },
+  {
+    "path": "02_Product_Stacked/PNG_1024/breakwater-asoc-stacked-dark-no-tagline-1024w.png",
+    "size_bytes": 60771,
+    "sha256": "5274ed195867db30ed442c78602a30120f5885d87a6ed45cf8d8065bccf5f386"
+  },
+  {
+    "path": "02_Product_Stacked/PNG_1024/breakwater-asoc-stacked-dark-with-tagline-1024w.png",
+    "size_bytes": 64427,
+    "sha256": "26e74b0c834409a03924e7d5e3d171f62ad630286dbf917f1cc8fae80d0c380a"
+  },
+  {
+    "path": "02_Product_Stacked/PNG_1024/breakwater-asoc-stacked-light-no-tagline-1024w.png",
+    "size_bytes": 59856,
+    "sha256": "7c662ecaa854941731b4c9c770f722415d17f99245d2593fed7b8da2e9eca20e"
+  },
+  {
+    "path": "02_Product_Stacked/PNG_1024/breakwater-asoc-stacked-light-with-tagline-1024w.png",
+    "size_bytes": 63045,
+    "sha256": "9718e41c07a8909a96222c7fc3226f4beca008c8efc79629feea382b98f46583"
+  },
+  {
+    "path": "02_Product_Stacked/PNG_1024/breakwater-discover-stacked-dark-no-tagline-1024w.png",
+    "size_bytes": 62476,
+    "sha256": "b8542c8f1487257f936f4605f2f636ebb44339f2697ee6d6f344ef4b8a0fb3b5"
+  },
+  {
+    "path": "02_Product_Stacked/PNG_1024/breakwater-discover-stacked-dark-with-tagline-1024w.png",
+    "size_bytes": 57215,
+    "sha256": "4de16e53be4bd6655892dd332a5edddea7d07ef8a8d0a4ba63038a96b0638e38"
+  },
+  {
+    "path": "02_Product_Stacked/PNG_1024/breakwater-discover-stacked-light-no-tagline-1024w.png",
+    "size_bytes": 61390,
+    "sha256": "cf72bbc93ad5df7fe2a787bf723b4ae46712b6966d81627e73d758ce8ae4255b"
+  },
+  {
+    "path": "02_Product_Stacked/PNG_1024/breakwater-discover-stacked-light-with-tagline-1024w.png",
+    "size_bytes": 56043,
+    "sha256": "5d139be278e50cb43ba4c314f0f38ffe31651c3c5f2a76e60ca939846dea63e4"
+  },
+  {
+    "path": "02_Product_Stacked/PNG_1024/breakwater-provenance-stacked-dark-no-tagline-1024w.png",
+    "size_bytes": 64754,
+    "sha256": "bcb09248c5ff44f57204af75cb8fd3a3426ccbcde2f433e7aab2b0a8c81920ac"
+  },
+  {
+    "path": "02_Product_Stacked/PNG_1024/breakwater-provenance-stacked-dark-with-tagline-1024w.png",
+    "size_bytes": 65967,
+    "sha256": "c99b959f6da0ff8e3fe9378e78133bf466554918e6cd24552ef711d0f2d24525"
+  },
+  {
+    "path": "02_Product_Stacked/PNG_1024/breakwater-provenance-stacked-light-no-tagline-1024w.png",
+    "size_bytes": 63624,
+    "sha256": "4ce851f05a612f414795ea947b0409baa72b99b8c2254117a700a7a81e519f4e"
+  },
+  {
+    "path": "02_Product_Stacked/PNG_1024/breakwater-provenance-stacked-light-with-tagline-1024w.png",
+    "size_bytes": 64383,
+    "sha256": "d6431e8f9eddef08b64fa6131b47ffac7410169a871055d053c2c8a7f5ed548f"
+  },
+  {
+    "path": "02_Product_Stacked/PNG_1024/breakwater-response-stacked-dark-no-tagline-1024w.png",
+    "size_bytes": 64286,
+    "sha256": "c2ffca3ccf05afc6ddb4aff0fb8bdc44fe64b670ec7353e58386814a7aab1f27"
+  },
+  {
+    "path": "02_Product_Stacked/PNG_1024/breakwater-response-stacked-dark-with-tagline-1024w.png",
+    "size_bytes": 67461,
+    "sha256": "1f775e332e6236a04568b78c45af915e7613a565a8c5acf918b58f8f7565f6d4"
+  },
+  {
+    "path": "02_Product_Stacked/PNG_1024/breakwater-response-stacked-light-no-tagline-1024w.png",
+    "size_bytes": 63035,
+    "sha256": "2387b6576ddccc3a7cd3b08203d724136dc3b441128dfa4b65b303fe47c71b06"
+  },
+  {
+    "path": "02_Product_Stacked/PNG_1024/breakwater-response-stacked-light-with-tagline-1024w.png",
+    "size_bytes": 66111,
+    "sha256": "5af4f0a41510c5c07e13b10676ddbf92285b4aad349516d9bf9f84ae36651cb9"
+  },
+  {
+    "path": "02_Product_Stacked/PNG_2048/breakwater-asoc-stacked-dark-no-tagline-2048w.png",
+    "size_bytes": 135133,
+    "sha256": "7828974aa54f4e7d05661771d69d458f583760d6f814a3b8693697aa6d97e653"
+  },
+  {
+    "path": "02_Product_Stacked/PNG_2048/breakwater-asoc-stacked-dark-with-tagline-2048w.png",
+    "size_bytes": 141053,
+    "sha256": "87314d02ecc7e9a1f07186b8d093846bb81c51c0dfdda33dd3f0c3fe01eab28c"
+  },
+  {
+    "path": "02_Product_Stacked/PNG_2048/breakwater-asoc-stacked-light-no-tagline-2048w.png",
+    "size_bytes": 132614,
+    "sha256": "3fed94b6556b56dde42adc6dc09fad8f1fea85d39598e486a939cf45c3180090"
+  },
+  {
+    "path": "02_Product_Stacked/PNG_2048/breakwater-asoc-stacked-light-with-tagline-2048w.png",
+    "size_bytes": 137715,
+    "sha256": "9a5ac10de8637ca189463a59f6301685f62c3ec86501def129c2683da22157b3"
+  },
+  {
+    "path": "02_Product_Stacked/PNG_2048/breakwater-discover-stacked-dark-no-tagline-2048w.png",
+    "size_bytes": 138303,
+    "sha256": "47abb512991e8ba466db162a1ffe8c79d759d26a1b72130778f1f8ef50bced2d"
+  },
+  {
+    "path": "02_Product_Stacked/PNG_2048/breakwater-discover-stacked-dark-with-tagline-2048w.png",
+    "size_bytes": 124606,
+    "sha256": "bd0cf0cbf772cff3a8d5fd257ba499c1c5470aefb7c206a3063b61f6110ce6c4"
+  },
+  {
+    "path": "02_Product_Stacked/PNG_2048/breakwater-discover-stacked-light-no-tagline-2048w.png",
+    "size_bytes": 136171,
+    "sha256": "2b419cf78c93767791a0540b404e2a418e489437fecefe44c6ad1a26c632d890"
+  },
+  {
+    "path": "02_Product_Stacked/PNG_2048/breakwater-discover-stacked-light-with-tagline-2048w.png",
+    "size_bytes": 121836,
+    "sha256": "ebdab4ca0e98e45b49577c4dd267dd373163915db4dbb951a9b195da913c9854"
+  },
+  {
+    "path": "02_Product_Stacked/PNG_2048/breakwater-provenance-stacked-dark-no-tagline-2048w.png",
+    "size_bytes": 142922,
+    "sha256": "1d8334449761ebb69decdfa1ddcf36e5ac59e2f7d43c70bb18475a485d2a6920"
+  },
+  {
+    "path": "02_Product_Stacked/PNG_2048/breakwater-provenance-stacked-dark-with-tagline-2048w.png",
+    "size_bytes": 144770,
+    "sha256": "c597923b6ea09b9deae5f968fe6ca64ba2d181de035eb92224ca2607cc8183d7"
+  },
+  {
+    "path": "02_Product_Stacked/PNG_2048/breakwater-provenance-stacked-light-no-tagline-2048w.png",
+    "size_bytes": 140689,
+    "sha256": "19ce2e2aa56bfe646ddbd6a50c7d6f25b1d464bcd15030c4aefc1137fd429dc0"
+  },
+  {
+    "path": "02_Product_Stacked/PNG_2048/breakwater-provenance-stacked-light-with-tagline-2048w.png",
+    "size_bytes": 141017,
+    "sha256": "a34b04c8e5ff919b443bdd93833b0574c93420993b64a6c2dd3904611f160a1b"
+  },
+  {
+    "path": "02_Product_Stacked/PNG_2048/breakwater-response-stacked-dark-no-tagline-2048w.png",
+    "size_bytes": 142040,
+    "sha256": "8ce8323b6ad0876ab0d54690fca563bb6156b2c4d76b6e705fa32bee9d060743"
+  },
+  {
+    "path": "02_Product_Stacked/PNG_2048/breakwater-response-stacked-dark-with-tagline-2048w.png",
+    "size_bytes": 149717,
+    "sha256": "3ce48fe054d386c67c7f686f1f0fa0b0872462080fb46f3a3b0a34cab8b04a24"
+  },
+  {
+    "path": "02_Product_Stacked/PNG_2048/breakwater-response-stacked-light-no-tagline-2048w.png",
+    "size_bytes": 139660,
+    "sha256": "f4a673a5ab765a26b40eaea39387a8c53c20fcecd7551ce657f2daf556cd5c1f"
+  },
+  {
+    "path": "02_Product_Stacked/PNG_2048/breakwater-response-stacked-light-with-tagline-2048w.png",
+    "size_bytes": 145633,
+    "sha256": "1072af128761a146222462da9386bf7505a1cb3e5f11d5fb47a634eb022aaf72"
+  },
+  {
+    "path": "02_Product_Stacked/SVG/breakwater-asoc-stacked-dark-no-tagline.svg",
+    "size_bytes": 9834,
+    "sha256": "e9c400ead5ac0697a41e61ba51783d65616508ebf310f4434566a8e09ccd9d59"
+  },
+  {
+    "path": "02_Product_Stacked/SVG/breakwater-asoc-stacked-dark-with-tagline.svg",
+    "size_bytes": 18436,
+    "sha256": "2b73052454eda96695a9144e711ef903d222df96d8eec9f8ca1b76a24eb24b92"
+  },
+  {
+    "path": "02_Product_Stacked/SVG/breakwater-asoc-stacked-light-no-tagline.svg",
+    "size_bytes": 9834,
+    "sha256": "cf92ce5910de8c5f5dbdb108f1379bc9cec2e235f842f92e7908c4050aafec9a"
+  },
+  {
+    "path": "02_Product_Stacked/SVG/breakwater-asoc-stacked-light-with-tagline.svg",
+    "size_bytes": 18436,
+    "sha256": "b3877959f1013391da71b7f626fed6c72432a822431c54b5db4bf58d2c930d59"
+  },
+  {
+    "path": "02_Product_Stacked/SVG/breakwater-discover-stacked-dark-no-tagline.svg",
+    "size_bytes": 10708,
+    "sha256": "999473a4ddfa685e9accf8bdd320bdc2942c3fcc76011b58e75fe5184fe3e12f"
+  },
+  {
+    "path": "02_Product_Stacked/SVG/breakwater-discover-stacked-dark-with-tagline.svg",
+    "size_bytes": 21416,
+    "sha256": "6ec5dba6a8c26b660cc77de18b8b7a767004effb523064f283c5333ed98e6df4"
+  },
+  {
+    "path": "02_Product_Stacked/SVG/breakwater-discover-stacked-light-no-tagline.svg",
+    "size_bytes": 10708,
+    "sha256": "6535f7497528bc5e42ac047b85aa441e44ea5d32e42f65912b16e3b6949d220f"
+  },
+  {
+    "path": "02_Product_Stacked/SVG/breakwater-discover-stacked-light-with-tagline.svg",
+    "size_bytes": 21416,
+    "sha256": "a0ebd927c45c15cb171927a0c5d68dd036e1adca5a9343c888f846b9ad35eb56"
+  },
+  {
+    "path": "02_Product_Stacked/SVG/breakwater-provenance-stacked-dark-no-tagline.svg",
+    "size_bytes": 11427,
+    "sha256": "3154a64e4b7b3d2238246ce63a1e7715dd378dfdc6c6a644b030bf8308cd4bc0"
+  },
+  {
+    "path": "02_Product_Stacked/SVG/breakwater-provenance-stacked-dark-with-tagline.svg",
+    "size_bytes": 19606,
+    "sha256": "4917ac9e4170b00f56813d342482c61ac0e9dc22df718ae336f83cfc05a23723"
+  },
+  {
+    "path": "02_Product_Stacked/SVG/breakwater-provenance-stacked-light-no-tagline.svg",
+    "size_bytes": 11427,
+    "sha256": "59d62140b329a5faad653d2f64a6353d000810d55e80fab1764f9fe9854a6acf"
+  },
+  {
+    "path": "02_Product_Stacked/SVG/breakwater-provenance-stacked-light-with-tagline.svg",
+    "size_bytes": 19606,
+    "sha256": "357e8b5a761e0b7137c1d70188e279eff2e553b668c9d9a635bdfb17b4433755"
+  },
+  {
+    "path": "02_Product_Stacked/SVG/breakwater-response-stacked-dark-no-tagline.svg",
+    "size_bytes": 11315,
+    "sha256": "ff492aa32d9f724924903fe83b283cb9e134fb807a0f3079cb18a06b8e65afbe"
+  },
+  {
+    "path": "02_Product_Stacked/SVG/breakwater-response-stacked-dark-with-tagline.svg",
+    "size_bytes": 20136,
+    "sha256": "ee72454bad78ff2de6a37924b72cf6a21e5a0c066428075ce28c1ad6b7331e4f"
+  },
+  {
+    "path": "02_Product_Stacked/SVG/breakwater-response-stacked-light-no-tagline.svg",
+    "size_bytes": 11315,
+    "sha256": "eba240b91e548d0c4300f80e035e271050bbc26fb131d2c0142170120a4d0300"
+  },
+  {
+    "path": "02_Product_Stacked/SVG/breakwater-response-stacked-light-with-tagline.svg",
+    "size_bytes": 20136,
+    "sha256": "ec01fbec49201a0943350d2d373ab3b84ff128c8209bc28a69de546b7b4690b7"
+  },
+  {
+    "path": "03_Product_App_Icons/PNG_180/breakwater-asoc-app-icon-dark-180.png",
+    "size_bytes": 8220,
+    "sha256": "e29589903132d530b99e2abbddaa58bda511e5fe3f53d1b5e2ba8e0986715323"
+  },
+  {
+    "path": "03_Product_App_Icons/PNG_180/breakwater-asoc-app-icon-light-180.png",
+    "size_bytes": 8176,
+    "sha256": "0d61c6ffe1f586a03807b36013f96e541172aa37de35dc8f096245ed54043b91"
+  },
+  {
+    "path": "03_Product_App_Icons/PNG_180/breakwater-discover-app-icon-dark-180.png",
+    "size_bytes": 8152,
+    "sha256": "da835168807563912459cdd0fee9f2fe7fb7ac657f4d9001110df1777114001f"
+  },
+  {
+    "path": "03_Product_App_Icons/PNG_180/breakwater-discover-app-icon-light-180.png",
+    "size_bytes": 8102,
+    "sha256": "ee80f4877d336063ed684af56bf0bda598cd89da6267dd28dade022ec1651eb3"
+  },
+  {
+    "path": "03_Product_App_Icons/PNG_180/breakwater-provenance-app-icon-dark-180.png",
+    "size_bytes": 8027,
+    "sha256": "46752a715a1e55d5725a9534a234c579a3532b6ea0571de19c75a5d50a195318"
+  },
+  {
+    "path": "03_Product_App_Icons/PNG_180/breakwater-provenance-app-icon-light-180.png",
+    "size_bytes": 7977,
+    "sha256": "afcc8edf81887eb24fe5fe23d84853e71df1314f8f199de6d500dc233bbaaceb"
+  },
+  {
+    "path": "03_Product_App_Icons/PNG_180/breakwater-response-app-icon-dark-180.png",
+    "size_bytes": 8110,
+    "sha256": "b900c5fd877417acfca5d82f98f95420d5f4b1f3e6b277869cdf49aea6c101d9"
+  },
+  {
+    "path": "03_Product_App_Icons/PNG_180/breakwater-response-app-icon-light-180.png",
+    "size_bytes": 8057,
+    "sha256": "a87428074e7469f39f0eec2cd58e1e47a9771f3af5b6335eccf2f73c59f0a0da"
+  },
+  {
+    "path": "03_Product_App_Icons/PNG_192/breakwater-asoc-app-icon-dark-192.png",
+    "size_bytes": 8900,
+    "sha256": "a2969046b1559d6d458b0e36c5fef60fce40c9408e1bef297b1d704fa83c2d93"
+  },
+  {
+    "path": "03_Product_App_Icons/PNG_192/breakwater-asoc-app-icon-light-192.png",
+    "size_bytes": 8882,
+    "sha256": "7cf9d27bce0c6c9499647d5c27ccfe22d6a57744d906832133a2c3045c8c3ca7"
+  },
+  {
+    "path": "03_Product_App_Icons/PNG_192/breakwater-discover-app-icon-dark-192.png",
+    "size_bytes": 8753,
+    "sha256": "4ec6394c161b3e8fd48bd1f063f0bc168a4e12e29a066ccf1cbcdcdf7f38dd59"
+  },
+  {
+    "path": "03_Product_App_Icons/PNG_192/breakwater-discover-app-icon-light-192.png",
+    "size_bytes": 8747,
+    "sha256": "47455da6c9af23464042845c2669576d193ff862236abf2f291c00c7b79d1f08"
+  },
+  {
+    "path": "03_Product_App_Icons/PNG_192/breakwater-provenance-app-icon-dark-192.png",
+    "size_bytes": 8615,
+    "sha256": "7153abc737d9d87e88a1c72a8f63768adfb8600c342f9e95fd8343be29ae7e12"
+  },
+  {
+    "path": "03_Product_App_Icons/PNG_192/breakwater-provenance-app-icon-light-192.png",
+    "size_bytes": 8607,
+    "sha256": "66028cfb796c62e8c5ed8983fb7407cd92ab19216babf2f3ade27f8376f44d2b"
+  },
+  {
+    "path": "03_Product_App_Icons/PNG_192/breakwater-response-app-icon-dark-192.png",
+    "size_bytes": 8737,
+    "sha256": "239bc6d0bd1ed460096b7c1283a93177b573ff5f8b25fbb6acdf2b76114317f1"
+  },
+  {
+    "path": "03_Product_App_Icons/PNG_192/breakwater-response-app-icon-light-192.png",
+    "size_bytes": 8721,
+    "sha256": "4fff56fff9a17c51594ec9cb1defeeac9f88faf593d66dd8ad300861eef49a18"
+  },
+  {
+    "path": "03_Product_App_Icons/PNG_32/breakwater-asoc-app-icon-dark-32.png",
+    "size_bytes": 1148,
+    "sha256": "1bf55804e00f248fdfcc18cd4e5857c336a1503b0aa20197b169085f815ff854"
+  },
+  {
+    "path": "03_Product_App_Icons/PNG_32/breakwater-asoc-app-icon-light-32.png",
+    "size_bytes": 1138,
+    "sha256": "6b92c3ebda309f136f5381fb7f751966ae98aaba309b52203d5500eeac5eeb12"
+  },
+  {
+    "path": "03_Product_App_Icons/PNG_32/breakwater-discover-app-icon-dark-32.png",
+    "size_bytes": 1148,
+    "sha256": "0855ffcf24338f09964bcaebe70ce09876b1328baec58355b28fee0dc8a1e72d"
+  },
+  {
+    "path": "03_Product_App_Icons/PNG_32/breakwater-discover-app-icon-light-32.png",
+    "size_bytes": 1140,
+    "sha256": "3a684518e1e11ecac0962450d587a666e68b00c4c571c93992d475f48fa80b10"
+  },
+  {
+    "path": "03_Product_App_Icons/PNG_32/breakwater-provenance-app-icon-dark-32.png",
+    "size_bytes": 1138,
+    "sha256": "5e8c85619df615b207de91635b6ff516500cf3892abee3015f7733e01565e600"
+  },
+  {
+    "path": "03_Product_App_Icons/PNG_32/breakwater-provenance-app-icon-light-32.png",
+    "size_bytes": 1127,
+    "sha256": "38ad3521e0fc42166cb515410157324ac11a97c6b5eb7eb971567250ebdc5b8f"
+  },
+  {
+    "path": "03_Product_App_Icons/PNG_32/breakwater-response-app-icon-dark-32.png",
+    "size_bytes": 1147,
+    "sha256": "958f86906d14f90a17f2c935fd06324fe4b5453709b8b6b3e98ee8dbdc3bc433"
+  },
+  {
+    "path": "03_Product_App_Icons/PNG_32/breakwater-response-app-icon-light-32.png",
+    "size_bytes": 1137,
+    "sha256": "0039c51953ad277bde923e21b3cb90035d0e238a17cd67d822b0370f4e1c4457"
+  },
+  {
+    "path": "03_Product_App_Icons/PNG_48/breakwater-asoc-app-icon-dark-48.png",
+    "size_bytes": 1895,
+    "sha256": "320f052b2429d0973dbf4cc3ddd67fc8d11d848ff99d7d49c10894a4d351ec76"
+  },
+  {
+    "path": "03_Product_App_Icons/PNG_48/breakwater-asoc-app-icon-light-48.png",
+    "size_bytes": 1908,
+    "sha256": "f71d04d3a86978aec7c3fdfa67e8975eeee02116621797c7f8503c82ea2e0d37"
+  },
+  {
+    "path": "03_Product_App_Icons/PNG_48/breakwater-discover-app-icon-dark-48.png",
+    "size_bytes": 1899,
+    "sha256": "49c585a65990e52e61c3c7ba9eb06942ad3cb2129cf9f76bc8c285f7f57d8c97"
+  },
+  {
+    "path": "03_Product_App_Icons/PNG_48/breakwater-discover-app-icon-light-48.png",
+    "size_bytes": 1916,
+    "sha256": "de55bffc3595093830d2baec05c979f5fe2c3ba14091c5013ab004fb582c0d52"
+  },
+  {
+    "path": "03_Product_App_Icons/PNG_48/breakwater-provenance-app-icon-dark-48.png",
+    "size_bytes": 1891,
+    "sha256": "1d895790b8c1a6a3e3002d05bec979d18b29a125637441b5a7f52c46661299d2"
+  },
+  {
+    "path": "03_Product_App_Icons/PNG_48/breakwater-provenance-app-icon-light-48.png",
+    "size_bytes": 1896,
+    "sha256": "2654446633d66af9998313a51033bf4da69307624ef432a05e569e4dbdcd6c89"
+  },
+  {
+    "path": "03_Product_App_Icons/PNG_48/breakwater-response-app-icon-dark-48.png",
+    "size_bytes": 1912,
+    "sha256": "649a00f598c109f80257d1c0c82b5d461f64a0299fe0ab75350af52cdf5262e7"
+  },
+  {
+    "path": "03_Product_App_Icons/PNG_48/breakwater-response-app-icon-light-48.png",
+    "size_bytes": 1912,
+    "sha256": "2612a4d12c04d5ddc4f8fb35147ac0ba8d81eb78cc3e56d4724be6ed2614e148"
+  },
+  {
+    "path": "03_Product_App_Icons/PNG_512/breakwater-asoc-app-icon-dark-512.png",
+    "size_bytes": 25847,
+    "sha256": "6983383ba57dd51c6b2d446311f9ee82cbbccf12193037372a52fefcc0e1743c"
+  },
+  {
+    "path": "03_Product_App_Icons/PNG_512/breakwater-asoc-app-icon-light-512.png",
+    "size_bytes": 25715,
+    "sha256": "9754dd6d13ad3864e0a37951a54e32b960b8b79425cd98753c0379fbc7cc686c"
+  },
+  {
+    "path": "03_Product_App_Icons/PNG_512/breakwater-discover-app-icon-dark-512.png",
+    "size_bytes": 25497,
+    "sha256": "231e248e9ce803fc23c4f85be8c10f3b7d3e621a794f995a4a8256437b20deac"
+  },
+  {
+    "path": "03_Product_App_Icons/PNG_512/breakwater-discover-app-icon-light-512.png",
+    "size_bytes": 25359,
+    "sha256": "8ac8db151a7b37ead13209bfc10b7d318280aae86f85e65e8496a11ce4036574"
+  },
+  {
+    "path": "03_Product_App_Icons/PNG_512/breakwater-provenance-app-icon-dark-512.png",
+    "size_bytes": 24973,
+    "sha256": "dc3db3b3d7761094609e2b8510af155161a8379bf596ec2e56fd949177a1ad87"
+  },
+  {
+    "path": "03_Product_App_Icons/PNG_512/breakwater-provenance-app-icon-light-512.png",
+    "size_bytes": 24847,
+    "sha256": "0b02fe2fec024bd61409100f0be0f43b39a8879035af7c7eb217de8eca1e3224"
+  },
+  {
+    "path": "03_Product_App_Icons/PNG_512/breakwater-response-app-icon-dark-512.png",
+    "size_bytes": 25401,
+    "sha256": "f5624e18099665bc8cc485a54a6392d1d28fe92432ce3a81f99ce26a31622551"
+  },
+  {
+    "path": "03_Product_App_Icons/PNG_512/breakwater-response-app-icon-light-512.png",
+    "size_bytes": 25267,
+    "sha256": "ff32bd369c1a0a9e6aef8f56ebd30d26cb35669954e0c5baf812b9e68c532059"
+  },
+  {
+    "path": "03_Product_App_Icons/SVG/breakwater-asoc-app-icon-dark.svg",
+    "size_bytes": 4720,
+    "sha256": "c1de0e4e513f11b7b36747b573654fc561bd0daa9092c55dc5b12b2948b30530"
+  },
+  {
+    "path": "03_Product_App_Icons/SVG/breakwater-asoc-app-icon-light.svg",
+    "size_bytes": 4720,
+    "sha256": "73d03af9907db0a89bcc14bb7762ff4e7a7ebcf62ea10fc70379b11acb669195"
+  },
+  {
+    "path": "03_Product_App_Icons/SVG/breakwater-discover-app-icon-dark.svg",
+    "size_bytes": 4870,
+    "sha256": "4367385088c129dfa7a202ad1ab42cf6e4981d7c22383bae49f0a79f03bdd958"
+  },
+  {
+    "path": "03_Product_App_Icons/SVG/breakwater-discover-app-icon-light.svg",
+    "size_bytes": 4870,
+    "sha256": "33cf97630e16c28bbb7c35613a9aff7966c0188f54f83c61082ad797a89dafb0"
+  },
+  {
+    "path": "03_Product_App_Icons/SVG/breakwater-provenance-app-icon-dark.svg",
+    "size_bytes": 4888,
+    "sha256": "659e79cf25bb584fbc8750879f5e8580e87ef005fc0d75ca4d8904bc12108c89"
+  },
+  {
+    "path": "03_Product_App_Icons/SVG/breakwater-provenance-app-icon-light.svg",
+    "size_bytes": 4888,
+    "sha256": "b7235348cffe998f0ebb7c9bd213be265cfb19f0bda70b2fad7f84695a233588"
+  },
+  {
+    "path": "03_Product_App_Icons/SVG/breakwater-response-app-icon-dark.svg",
+    "size_bytes": 4860,
+    "sha256": "d65a270a83b40254ad1a851e72f911c554edd1c9ff21c4d01df843ee8c8e1354"
+  },
+  {
+    "path": "03_Product_App_Icons/SVG/breakwater-response-app-icon-light.svg",
+    "size_bytes": 4860,
+    "sha256": "daba01a61f78944d298ebf78f4f3c0dde96f9fa4ae2f7f26d46bc61a40c12f43"
+  },
+  {
+    "path": "04_Review_Boards/breakwater-all-products-light-dark-paired-v04.png",
+    "size_bytes": 1683450,
+    "sha256": "cee5db0b49239c495ca9da455e78f66c461b744f0688d815375ca2cbc89cb392"
+  },
+  {
+    "path": "04_Review_Boards/breakwater-asoc-light-dark-paired-v04.png",
+    "size_bytes": 479024,
+    "sha256": "006fbff56cbd7e03a19676286a8233e685a121b1a90b8c11c6e945324e58ead2"
+  },
+  {
+    "path": "04_Review_Boards/breakwater-discover-light-dark-paired-v04.png",
+    "size_bytes": 481160,
+    "sha256": "190a362a1a35e76ed9a793062e0b7ffd155a714200b3f82e9d145fe2099ce9ba"
+  },
+  {
+    "path": "04_Review_Boards/breakwater-provenance-light-dark-paired-v04.png",
+    "size_bytes": 483810,
+    "sha256": "d3acf84e98c00fdeca03e614af25b81a1a5f84837feac8dca3828e1656eb72f7"
+  },
+  {
+    "path": "04_Review_Boards/breakwater-response-light-dark-paired-v04.png",
+    "size_bytes": 488149,
+    "sha256": "b280d37ec63bb9963c72f4c896d49fbbfe512b72d836913db72c150928ecfd31"
+  },
+  {
+    "path": "05_Documentation/README.txt",
+    "size_bytes": 1489,
+    "sha256": "54df4dfda5a090680744d012f2df34da33830d52c38ae373aecde5c98e649b51"
+  },
+  {
+    "path": "05_Documentation/VECTOR_VALIDATION.txt",
+    "size_bytes": 758,
+    "sha256": "933b38cebc9e859df6c481eba73093e7cc689861a5f33ae47630fd44f0962f61"
+  },
+  {
+    "path": "05_Documentation/vector-validation.json",
+    "size_bytes": 18306,
+    "sha256": "e21735964aa04c547f0515fe1e88fa636fd888851a5fba84a7e40384c6ba3e42"
+  }
+]

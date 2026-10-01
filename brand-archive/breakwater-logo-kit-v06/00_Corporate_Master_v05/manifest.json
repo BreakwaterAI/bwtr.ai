@@ -1,0 +1,206 @@
+{
+  "status": "Consolidated owner-requested asset kit for website/app adoption; not deployed",
+  "source": "/Users/nagumba/dev/breakwater/assets-website/logos/Breakwater-stacked-notagline (1).svg",
+  "sourceSha256": "ef642cf1dda1d146b50958cec0c06a2b0cb095d1aeac9db74cab1fca59735e9a",
+  "colors": {
+    "red": "#F0443E",
+    "vanta": "#000100",
+    "white": "#FFFFFF"
+  },
+  "contourTreatment": "paper@0.12.18 boolean subtraction of traced white background; visible silhouette and lettering preserved, no new font or redrawing",
+  "whiteBackgroundRemoved": true,
+  "bounds": {
+    "mark": {
+      "x": 225.04743183161474,
+      "y": 164.7,
+      "width": 648.0225681683853,
+      "height": 555.2014518236849
+    },
+    "word": {
+      "x": 24.48074682669352,
+      "y": 760.81,
+      "width": 980.8799211137668,
+      "height": 86.2600000000001
+    }
+  },
+  "records": [
+    {
+      "name": "breakwater-horizontal-light",
+      "width": 535.860745,
+      "height": 152,
+      "transparent": true,
+      "sha256": "16628f5e372d399e23e438246233c714007b9a927bb51a2a0320f9d31ada4e47"
+    },
+    {
+      "name": "breakwater-stacked-light",
+      "width": 1076.879921,
+      "height": 777.461452,
+      "transparent": true,
+      "sha256": "cdcb0ee3a46909fc488ba69bb39f7def5a5b0c1068b5dc849ab924de9cf2b2db"
+    },
+    {
+      "name": "breakwater-wordmark-light",
+      "width": 1076.879921,
+      "height": 134.26,
+      "transparent": true,
+      "sha256": "69e9e5625979dc443dd52b0ef1ae49056e47f92fe1da9d080fe27546e9fcd80b"
+    },
+    {
+      "name": "breakwater-horizontal-dark",
+      "width": 535.860745,
+      "height": 152,
+      "transparent": true,
+      "sha256": "c897ce76babda8c80d98bef72390b14e909cd4ef6d07e94e52ca83c20752c9d7"
+    },
+    {
+      "name": "breakwater-stacked-dark",
+      "width": 1076.879921,
+      "height": 777.461452,
+      "transparent": true,
+      "sha256": "b588f28169ef737700b1494d18370007a67bed2f1250ef68cc867e3420e48041"
+    },
+    {
+      "name": "breakwater-wordmark-dark",
+      "width": 1076.879921,
+      "height": 134.26,
+      "transparent": true,
+      "sha256": "a80f47fe44bb392c06b4f4c4f46ef91ea92ec840abfe86a2c4af618ca56d67ef"
+    },
+    {
+      "name": "breakwater-horizontal-mono-vanta",
+      "width": 535.860745,
+      "height": 152,
+      "transparent": true,
+      "sha256": "dee3a43fac82e20b675c0af39fa7e89cc22bc00a116fc5fb3ddf5f5692786e0c"
+    },
+    {
+      "name": "breakwater-stacked-mono-vanta",
+      "width": 1076.879921,
+      "height": 777.461452,
+      "transparent": true,
+      "sha256": "78bcc24f9311596cac1a75c9287509c6fc45864234711b8ab6cc176ce2e640ee"
+    },
+    {
+      "name": "breakwater-wordmark-mono-vanta",
+      "width": 1076.879921,
+      "height": 134.26,
+      "transparent": true,
+      "sha256": "69e9e5625979dc443dd52b0ef1ae49056e47f92fe1da9d080fe27546e9fcd80b"
+    },
+    {
+      "name": "breakwater-horizontal-mono-white",
+      "width": 535.860745,
+      "height": 152,
+      "transparent": true,
+      "sha256": "35a6fd1fc3d94a354ffa6fa6b6154b74f59fb7a8c5426f290e48e6e9f087ba84"
+    },
+    {
+      "name": "breakwater-stacked-mono-white",
+      "width": 1076.879921,
+      "height": 777.461452,
+      "transparent": true,
+      "sha256": "e672de805176284825a3be9d635e2177caaaf7a6d2dd586320e65270d8fbc43d"
+    },
+    {
+      "name": "breakwater-wordmark-mono-white",
+      "width": 1076.879921,
+      "height": 134.26,
+      "transparent": true,
+      "sha256": "a80f47fe44bb392c06b4f4c4f46ef91ea92ec840abfe86a2c4af618ca56d67ef"
+    },
+    {
+      "name": "breakwater-mark-red",
+      "width": 224,
+      "height": 224,
+      "transparent": true,
+      "sha256": "39bcac5907e531810b4c3404535e558bc2eacc5cd2df23a58e926862b9af7b1a"
+    },
+    {
+      "name": "breakwater-mark-vanta",
+      "width": 224,
+      "height": 224,
+      "transparent": true,
+      "sha256": "39b4b700ea8385233a89a9c7f05142fe8de6c83ea7975d65f707e728c72d9f33"
+    },
+    {
+      "name": "breakwater-mark-white",
+      "width": 224,
+      "height": 224,
+      "transparent": true,
+      "sha256": "d88a8bc3631df2d44f84106a158a18a7a4f3f3fc59bfca9d9e6104b5ed8d6ea7"
+    },
+    {
+      "name": "breakwater-app-icon-light",
+      "width": 512,
+      "height": 512,
+      "transparent": false,
+      "sha256": "0202e3e9fb56a0be77fbb7f8a17b9677c419498a38e5144774f405961e498d1c"
+    },
+    {
+      "name": "breakwater-app-icon-dark",
+      "width": 512,
+      "height": 512,
+      "transparent": false,
+      "sha256": "ee002d3cb3c03545dac615f0128fe6341154700c0478147e25361ac85ff2d91c"
+    },
+    {
+      "name": "breakwater-stacked-tagline-light",
+      "width": 1076.879921,
+      "height": 830.693172,
+      "transparent": true,
+      "sha256": "23f9aa6b904cfe149cb38b04ce4745195420df3f3f712be1ecef49ba85438131"
+    },
+    {
+      "name": "breakwater-stacked-tagline-dark",
+      "width": 1076.879921,
+      "height": 830.693172,
+      "transparent": true,
+      "sha256": "3d4dc292d333edae1eebc609ca5f17f25fe61df863b8d14e79ea86c731717543"
+    },
+    {
+      "name": "breakwater-stacked-tagline-mono-vanta",
+      "width": 1076.879921,
+      "height": 830.693172,
+      "transparent": true,
+      "sha256": "b66682878aa4af7479a267e5a2e9d2f5b3b81d655bd54ae9ea722f123ee35378"
+    },
+    {
+      "name": "breakwater-stacked-tagline-mono-white",
+      "width": 1076.879921,
+      "height": 830.693172,
+      "transparent": true,
+      "sha256": "dedb849abdb4ab8f83989c49a782b6175e701b21f9657c9b67065e533d78daa6"
+    }
+  ],
+  "version": "v05",
+  "sources": [
+    {
+      "file": "/Users/nagumba/dev/breakwater/assets-website/logos/Breakwater-stacked-notagline (1).svg",
+      "sha256": "ef642cf1dda1d146b50958cec0c06a2b0cb095d1aeac9db74cab1fca59735e9a",
+      "use": "Canonical symbol and wordmark"
+    },
+    {
+      "file": "/Users/nagumba/dev/breakwater/assets-website/logos/Breakwater-stacked-tagline.svg",
+      "sha256": "8b6359ea8a95bb3ff4d403ea2be4904a4844e48840b4eb3890202784e6f29496",
+      "use": "Outlined tagline only; source symbol/wordmark not substituted"
+    },
+    {
+      "file": "/Users/nagumba/dev/breakwater/assets-website/logos/Breakwater-mark.svg",
+      "sha256": "454b7c76cf28cd21fc7ec668541a0c12815ea89614675aefc548a7d9fb13269b",
+      "use": "Reviewed reference; noncanonical taller shape intentionally not adopted"
+    }
+  ],
+  "tagline": {
+    "wording": "Security for connected operations",
+    "pathSha256": "f76bf5ec57fa4a2c51e6a09eaa1d22a4c893e585fc195e73d90a42209b1bea78",
+    "bounds": {
+      "x": 95,
+      "y": 887.0662206487486,
+      "width": 832.8320034056628,
+      "height": 23.803779351251364
+    },
+    "outlined": true,
+    "requiresFont": false,
+    "treatment": "White path subtracted; tagline row extracted intact, centered at 90% of canonical wordmark width; 28-unit gap"
+  }
+}

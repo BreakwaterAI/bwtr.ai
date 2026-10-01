@@ -23,10 +23,10 @@ export const pqcQuestions = [
     { id: 'code', title: 'Code-signing & firmware', description: 'Long-lived signatures on software and devices.' },
     { id: 'identity', title: 'Identity & VPN', description: 'SSO, tokens, IKE/IPsec, remote access.' },
   ] },
-  { id: 'inventory', eyebrow: '04 · CRYPTO INVENTORY', question: 'How complete is your cryptography inventory (CBOM)?', context: 'You cannot migrate what you cannot see. Secure can generate a CBOM if you do not have one.', options: [
+  { id: 'inventory', eyebrow: '04 · CRYPTO INVENTORY', question: 'How complete is your cryptography inventory (CBOM)?', context: 'You cannot migrate what you cannot see. Discover can generate a CBOM if you do not have one.', options: [
     { id: 'none', title: 'None yet', description: 'No systematic view of where crypto is used.' },
     { id: 'partial', title: 'Partial / manual', description: 'Spreadsheets or per-team knowledge.' },
-    { id: 'secure', title: 'Secure-generated', description: 'A CBOM produced by Secure discovery.' },
+    { id: 'secure', title: 'Discover-generated', description: 'A CBOM produced by Discover discovery.' },
     { id: 'complete', title: 'Complete & maintained', description: 'A living, authoritative CBOM.' },
   ] },
   { id: 'compliance', eyebrow: '05 · COMPLIANCE DRIVER', question: 'Which mandate is driving the migration?', context: 'Mandates can compress the timeline regardless of the science.', options: [
@@ -84,7 +84,7 @@ const surfaceToDomain = { tls: 'tls', data: 'data', code: 'code', identity: 'ide
 const crownToDomain = { root: 'tls', data: 'data', firmware: 'code', comms: 'identity' } as const;
 
 const complianceLabel = { cnsa2: 'CNSA 2.0', nsm10: 'NSM-10 / federal', sector: 'Sector regulator', none: 'Risk-driven (no mandate yet)' } as const;
-const inventoryLabel = { none: 'No inventory yet', partial: 'Partial / manual', secure: 'Secure-generated CBOM', complete: 'Complete & maintained' } as const;
+const inventoryLabel = { none: 'No inventory yet', partial: 'Partial / manual', secure: 'Discover-generated CBOM', complete: 'Complete & maintained' } as const;
 
 export function createPqcPlan(answers: AnswerMap) {
   validateAnswers(pqcQuestions, answers);
@@ -134,9 +134,9 @@ export function createPqcPlan(answers: AnswerMap) {
     inventoryLabel: inventoryLabel[answers.inventory as keyof typeof inventoryLabel] ?? 'Unknown',
     domains, roadmap,
     weProvide: [
-      'Evaluate Secure cryptography inventory coverage and inspect evidence provenance; missing or unknown evidence is not safe.',
-      'Evaluate Assure findings for declared cryptography and dependencies in authorized source snapshots.',
-      'Assess whether the chosen SOAR configuration can support a bounded rehearsal; validate model fidelity and recovery separately.',
+      'Evaluate Discover cryptography inventory coverage and inspect evidence provenance; missing or unknown evidence is not safe.',
+      'Evaluate Provenance findings for declared cryptography and dependencies in authorized source snapshots.',
+      'Assess whether the chosen Response configuration can support a bounded rehearsal; validate model fidelity and recovery separately.',
       'A questionnaire-weighted roadmap for review, with the Mosca timing comparison and relevant NIST algorithm references (FIPS 203/204/205).',
     ],
     customerControls: [

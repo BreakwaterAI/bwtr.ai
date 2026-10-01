@@ -1,8 +1,17 @@
 import assert from 'node:assert/strict';
 import {test} from 'node:test';
-import {createRecommendation, plannerQuestions} from './poc-model.ts';
-import {createPqcPlan, pqcQuestions} from './pqc-model.ts';
 import {spawnSync} from 'node:child_process';
+import {readFileSync} from 'node:fs';
+const release = JSON.parse(readFileSync(new URL('../../site-release.json', import.meta.url)));
+const built = name => release.planningFiles.find(file => file.includes(`/planner-${name}.`));
+const loadBuilt = async name => {
+  const validation = built('validation');
+  const source = readFileSync(new URL('../../' + built(name), import.meta.url), 'utf8')
+    .replace('/' + validation, new URL('../../' + validation, import.meta.url).href);
+  return import('data:text/javascript;base64,' + Buffer.from(source).toString('base64'));
+};
+const {createRecommendation, plannerQuestions} = await loadBuilt('poc');
+const {createPqcPlan, pqcQuestions} = await loadBuilt('pqc');
 const base = qs => Object.fromEntries(qs.map(q => [q.id,q.options[0].id]));
 test('both models require complete supported answers', () => {
   for(const [qs, make] of [[plannerQuestions,createRecommendation],[pqcQuestions,createPqcPlan]]) {
@@ -23,29 +32,29 @@ test('offline boundaries reject external inference', () => {
     assert.doesNotMatch(JSON.stringify(isolated.sequences[0]),/mTLS upload/);
   }
 });
-test('SOAR execution respects all four requested response scopes', () => {
+test('Response execution respects all four requested response scopes', () => {
   for(const response of ['investigate','rehearse','lab','adapter']) {
     const result=createRecommendation({...base(plannerQuestions),response});
-    const sequence=result.sequences.find(s=>s.product==='SOAR');
+    const sequence=result.sequences.find(s=>s.product==='Response');
     const copy=JSON.stringify(sequence);
     if(['investigate','rehearse'].includes(response)) assert.doesNotMatch(copy,/Governed action|Execute only|Adapter|Target/);
     if(response==='rehearse') assert.match(copy,/Rehearsal/);
     if(response==='lab') assert.match(copy,/Lab target/);
     if(response==='adapter') assert.match(copy,/Approved target/);
-    assert.equal(result.software.find(x=>x.label==='Agentic SOAR').text,result.responseMode);
+    assert.equal(result.software.find(x=>x.label==='Agentic Response').text,result.responseMode);
     assert.equal(result.threatModel.some(x=>x.element==='Response adapter (process)'),['lab','adapter'].includes(response));
   }
 });
 test('sizing proxies and external data processing remain explicit', () => {
   const r=createRecommendation({...base(plannerQuestions),networks:'twelve',assets:'xlarge'});
   assert.match(r.summary,/25,000 sizing proxy/); assert.match(r.assetsLabel,/not a limit/);
-  assert.match(r.software.find(x=>x.label==='Secure platform').text,/12\+/);
+  assert.match(r.software.find(x=>x.label==='Discover platform').text,/12\+/);
   assert.match(r.assessment[0],/External inference/);
 });
 test('collector placement uses singular and plural correctly', () => {
   for(const [networks,phrase] of [['one','1 collection point'],['three','3 collection points'],['twelve','12+ collection points']]) {
     const r=createRecommendation({...base(plannerQuestions),networks});
-    const copy=r.software.find(x=>x.label==='Secure platform').text;
+    const copy=r.software.find(x=>x.label==='Discover platform').text;
     assert.ok(copy.includes(phrase+' as a placement'));
     assert.doesNotMatch(copy,/\b1 collection points\b/);
   }

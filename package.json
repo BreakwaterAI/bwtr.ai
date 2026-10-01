@@ -4,7 +4,18 @@
   "type": "module",
   "scripts": {
     "test": "node scripts/test-brand-contract.mjs && node scripts/test-canonical-urls.mjs && node scripts/test-production-content.mjs && node scripts/test-org-lead-capture.mjs && node scripts/test-deployment-target.mjs && node scripts/test-rollback-artifact.mjs && bash scripts/test-publish-site.sh && bash scripts/test-deploy-entrypoint.sh",
-    "test:browser": "node scripts/test-rendered-layout.mjs"
+    "test:browser": "node scripts/test-rendered-layout.mjs",
+    "blog": "node scripts/build-blog.mjs",
+    "publish-blog": "bash scripts/publish-blog.sh"
   },
-  "devDependencies": { "playwright": "1.61.0" }
+  "devDependencies": {
+    "gray-matter": "^4.0.3",
+    "highlight.js": "^11.12.0",
+    "katex": "^0.18.9",
+    "marked": "^18.0.14",
+    "marked-katex-extension": "^5.1.13",
+    "playwright": "1.61.0",
+    "reading-time": "^1.5.0",
+    "sharp": "^0.35.5"
+  }
 }

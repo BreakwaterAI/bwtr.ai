@@ -7,7 +7,7 @@ assert(existsSync(path.join(root,'asset-manifest.json')), 'Use only a built publ
 const evidence = '/tmp/bwtr-planner-browser-20260924'; mkdirSync(evidence,{recursive:true});
 const browser = await chromium.launch();
 const errors=[], external=[], requests=[];
-const mime={'.html':'text/html','.css':'text/css','.js':'text/javascript','.webp':'image/webp','.png':'image/png','.jpg':'image/jpeg','.pdf':'application/pdf'};
+const mime={'.html':'text/html','.css':'text/css','.js':'text/javascript','.svg':'image/svg+xml','.webp':'image/webp','.png':'image/png','.jpg':'image/jpeg','.pdf':'application/pdf'};
 let checks=0;
 try {
  const context=await browser.newContext({reducedMotion:'reduce',acceptDownloads:true});
@@ -24,7 +24,7 @@ try {
  for(const width of [320,390,768,1440]) for(const theme of ['light','dark']) {
    await page.setViewportSize({width,height:900});await page.goto('http://localhost:4177/products/');
    if(await page.locator('html').getAttribute('data-theme')!==theme)await page.locator('[data-theme-toggle]').click();
-   for(const product of ['secure','assure','soar']) assert.equal(await page.locator(`#${product} .product-site-link`).getAttribute('href'),`https://${product}.bwtr.ai/`);
+   for(const [section,host] of [['discover','secure'],['provenance','assure'],['response','soar']]) assert.equal(await page.locator(`#${section} .product-site-link`).getAttribute('href'),`https://${host}.bwtr.ai/`);
    assert.deepEqual(await page.locator('#access a').evaluateAll(links=>links.map(a=>a.href)),['https://secure.bwtr.ai/app','https://assure.bwtr.ai/app/login','https://soar.bwtr.ai/app']);
    assert.equal(await page.locator('a[href*="console.html"]').count(),0);
    for(const [route,selector,name] of [['','.industry-card .context-crop','home-utilities'],['power-utilities/','.sector-photo .context-crop','utilities-hero']]) {
@@ -41,7 +41,11 @@ try {
    assert.doesNotMatch(html,/https:\/\/asoc\.bwtr\.ai|https:\/\/assure\.bwtr\.ai\/console\.html/);
    const nav=html.match(/<nav class="nav-links"[^>]*>[\s\S]*?<\/nav>/)?.[0];
    assert(nav,file.path+' navigation');
-   assert.deepEqual([...nav.matchAll(/<a[^>]*>([^<]+)/g)].map(m=>m[1]),['Products','Industries','Architecture','Evaluate','Company','Talk to us']);
+   assert.deepEqual([...nav.matchAll(/<a[^>]*>([^<]+)/g)].map(m=>m[1]),['Industries','Architecture','Evaluate','Company','Talk to us']);
+   assert.match(nav,/<summary>Products<\/summary>/,file.path+' products menu');
+   for (const destination of ['/products/','/products/#discover','/products/#provenance','/products/#response']) {
+     assert.ok(nav.includes(`href="${destination}"`),file.path+' product destination '+destination);
+   }
    assert.equal((html.match(/evaluation-entry\.[a-f0-9]+\.css/g)||[]).length,1);
    assert.doesNotMatch(html,/href="\/pqc-planner\//,file.path+' must not advertise PQC planner');
    const active=/^(reader-pack|poc-planner|pqc-planner)\//.test(file.path);
@@ -66,6 +70,13 @@ try {
      checks++;
    }
  }
+ await page.setViewportSize({width:1440,height:900});await page.goto('http://localhost:4177/');
+ await page.locator('.product-menu summary').hover();await page.waitForFunction(()=>document.querySelector('.product-menu').open);assert(await page.locator('.product-menu-panel').isVisible());
+ assert.equal(await page.locator('.product-menu-panel a').count(),4);await page.keyboard.press('Escape');assert(!(await page.locator('.product-menu').getAttribute('open')));checks++;
+ await page.setViewportSize({width:390,height:844});await page.goto('http://localhost:4177/');await page.locator('[data-menu]').click();
+ await page.locator('.product-menu summary').click();assert(await page.locator('.product-menu-panel').isVisible());
+ assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));await page.locator('.product-menu-panel a[href="/products/#discover"]').click();
+ assert.equal(new URL(page.url()).pathname+new URL(page.url()).hash,'/products/#discover');checks++;
  await page.goto('http://localhost:4177/pqc-planner/');
  assert.equal(await page.locator('meta[name="robots"]').getAttribute('content'),'noindex,nofollow');
  assert.equal(await page.locator('a[href="/pqc-planner/"]').count(),0);
@@ -127,11 +138,9 @@ try {
      await page.getByRole('radio').first().waitFor();assert.equal(await page.locator('[data-planner] script').count(),0);checks++;
    }
  }
- await page.goto('http://localhost:4177/reader-pack/');assert.equal(await page.locator('a[href$=".pdf"]').count(),11);checks++;
+ await page.goto('http://localhost:4177/reader-pack/');assert.equal(await page.locator('a[href$=".pdf"]').count(),0);checks++;
  assert.equal(await page.locator('.reader-product').count(),3);
- await page.locator('.reader-product a[href="#chapters-secure"]').click();
- await page.waitForFunction(()=>document.querySelector('#chapters-secure').open);
- assert(await page.locator('#chapters-secure details').count()>8);checks++;
+ assert.deepEqual(await page.locator('.reader-product > a').evaluateAll(links=>links.map(a=>new URL(a.href).pathname+new URL(a.href).hash)),['/products/#discover','/products/#provenance','/products/#response']);checks++;
  for(const kind of ['poc','pqc']) {
    await page.goto(`http://localhost:4177/${kind}-planner/`);
    await page.getByRole('radio').first().waitFor();

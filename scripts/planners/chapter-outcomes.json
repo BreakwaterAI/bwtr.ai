@@ -1,6 +1,6 @@
 [
   {
-    "name": "Secure",
+    "name": "Discover",
     "book_url": "https://secure.bwtr.ai/app/docs",
     "chapters": [
       {
@@ -68,7 +68,7 @@
       },
       {
         "number": 10,
-        "title": "Asking Secure with Context",
+        "title": "Asking Discover with Context",
         "page": 58,
         "outcome": "Use cited assistant answers within the available evidence.",
         "consequence": "Without this, an assistant's answer travels further than the evidence behind it."
@@ -104,7 +104,7 @@
     ]
   },
   {
-    "name": "Assure",
+    "name": "Provenance",
     "book_url": "https://assure.bwtr.ai/app/docs",
     "chapters": [
       {
@@ -194,7 +194,7 @@
     ]
   },
   {
-    "name": "SOAR",
+    "name": "Response",
     "book_url": "https://soar.bwtr.ai/app/docs",
     "chapters": [
       {

@@ -1,0 +1,28 @@
+BREAKWATER v04 VECTOR VALIDATION
+
+Result: PASS
+
+Corporate source of truth: Breakwater logo kit v05
+Breakwater Red: #F0443E
+Vantablack: #000100
+
+Exact v05 mark path SHA-256:
+ff4e1e13eaed30c93f00638b34d32747eaf5475ed3cfa0153487d222dea6d9c1
+
+Exact v05 BREAKWATER wordmark path SHA-256:
+edcb86aeca742faf4273627a037d398075b3aa79f8e104e57fee713d0f838302
+
+New SVG masters validated: 40
+Corporate v05 SVG masters validated: 21
+
+Validation rules for v04 master SVGs:
+- no <image> tags
+- no <text> tags
+- no embedded data:image or base64 raster artwork
+- no <foreignObject>
+- no SVG filters
+- exact v05 Breakwater mark path present in every new SVG
+- exact v05 BREAKWATER wordmark path present in every horizontal/stacked product logo
+
+All passed: True
+Failures: None

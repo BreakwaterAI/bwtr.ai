@@ -8,7 +8,7 @@ const root = resolve(process.argv[2] || '');
 assert.equal(process.argv.length, 3, 'Usage: node scripts/test-redesign-release-candidate.mjs CANDIDATE_SITE');
 const release = JSON.parse(readFileSync(new URL('../site-release.json', import.meta.url)));
 const candidateManifest = join(dirname(root), 'release-candidate.json');
-const cisoRelease = existsSync(candidateManifest) || release.version === '2026-09-21-ciso-led';
+const cisoRelease = existsSync(candidateManifest) || ['2026-09-21-ciso-led', '2026-09-30-asoc-product-rebrand'].includes(release.version);
 const manifest = existsSync(candidateManifest) ? JSON.parse(readFileSync(candidateManifest, 'utf8')) : {
   productionApproved: false, files: release.files, routes: release.routes,
   resources: Object.fromEntries(Object.entries(release.resources).map(([k, v]) => [k, '/' + v])),
@@ -43,7 +43,7 @@ assert.equal(manifest.liveForm.schema, leadCapture.schema);
 const pw = await import(process.env.PLAYWRIGHT_MODULE ? pathToFileURL(process.env.PLAYWRIGHT_MODULE).href : 'playwright');
 const browser = await pw.chromium.launch({ headless: true });
 const base = 'http://localhost:4177';
-const mime = { '.html': 'text/html', '.css': 'text/css', '.js': 'text/javascript', '.png': 'image/png', '.jpg': 'image/jpeg', '.webp': 'image/webp', '.mp4': 'video/mp4' };
+const mime = { '.html': 'text/html', '.css': 'text/css', '.js': 'text/javascript', '.svg': 'image/svg+xml', '.png': 'image/png', '.jpg': 'image/jpeg', '.webp': 'image/webp', '.mp4': 'video/mp4' };
 let mode = 'success', blockedScript = false, releaseRequest;
 const submissions = [], unexpected = [], served = [], exceptions = [];
 const videoBytes = new Map();
@@ -128,7 +128,7 @@ try {
     await page.goto(base + path);
     // The CISO revision intentionally keeps secondary PQC detail collapsed.
     // Open it through its native control before exercising its enlargement UI.
-    const disclosure = page.locator('#secure-crypto-readiness');
+    const disclosure = page.locator('#discover-crypto-readiness');
     if (await disclosure.count() && !await disclosure.evaluate(el => el.open)) await disclosure.locator('summary').click();
     for (const button of await page.locator('[data-enlarge]').all()) {
       const before = served.length;
@@ -148,7 +148,9 @@ try {
   // lazy images near the viewport and the short hero clip (uncompressed byte budget).
   const budgets = [];
   for (const route of manifest.routes) {
-    for (const [width, dpr, budget] of [[1440,1,500000], [390,2,750000], [1440,2,1000000]]) {
+    // The v06 ASOC and Discover vectors add about 40 KB to the products page's
+    // first mobile viewport. Keep a tight 800 KB ceiling for that approved identity.
+    for (const [width, dpr, budget] of [[1440,1,500000], [390,2,800000], [1440,2,1000000]]) {
       const cold = await context({ viewport: { width, height: 900 }, deviceScaleFactor: dpr, reducedMotion: 'no-preference' });
       const tab = await cold.newPage(); const before = served.length;
       await tab.goto(base + route.route); await tab.waitForLoadState('networkidle');
@@ -157,7 +159,7 @@ try {
       assert.ok(requests.every(r => r.status === 200));
       const bytes = requests.reduce((sum, r) => sum + r.bytes, 0);
       assert.ok(bytes <= budget, `${route.route} ${width}@${dpr}: ${bytes} > ${budget}`);
-      assert.equal(requests.filter(r => /brand-(?:light|dark)-/.test(r.path)).length, 1);
+      assert.equal(requests.filter(r => /breakwater-horizontal-(?:light|dark)\.svg$/.test(r.path)).length, 1);
       assert.ok(!requests.some(r => /Breakwater-.*\.png$|horizontal-.*\.png$|emblems\/|soar-review\.mp4$/.test(r.path)));
       if (cisoRelease) assert.ok(!requests.some(r => /\.mp4$/.test(r.path)), 'CISO release must not fetch clips before explicit play');
       const captures = await tab.locator('.product-capture').evaluateAll(images => images.map(i => ({ src: i.currentSrc, width: i.getBoundingClientRect().width })));
@@ -195,7 +197,7 @@ try {
     for (const [name, value] of Object.entries({ name: 'Release test', email: 'release@example.invalid', organization: 'Local only', message: 'Intercepted test; no delivery' })) await page.locator(`[name="${name}"]`).fill(value);
   };
   const schema = readFileSync(leadCapture.schema, 'utf8').match(/const HEADERS = \[([\s\S]*?)\];/)[1].match(/'[^']+'/g).map(s => s.slice(1, -1));
-  for (const interest of ['General', 'Airports', 'Healthcare', 'Power & utilities', 'Connected industry', 'Products', 'Breakwater Secure', 'Breakwater Assure', 'Breakwater SOAR', 'PQC readiness']) {
+  for (const interest of ['General', 'Airports', 'Healthcare', 'Power & utilities', 'Connected industry', 'Products', 'Breakwater Discover', 'Breakwater Provenance', 'Breakwater Response', 'PQC readiness']) {
     await page.goto(`${base}/?interest=${encodeURIComponent(interest)}#contact`); await fill();
     const data = await page.evaluate(async path => {
       const { inquiryPayload } = await import(path);

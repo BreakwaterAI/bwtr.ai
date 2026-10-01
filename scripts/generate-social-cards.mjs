@@ -1,0 +1,79 @@
+// Generates a per-post 1200x630 social card (OG/Twitter image) from the post's own
+// title — no photography or manual design work required per post, so it holds up
+// at a multi-post-per-week cadence. Uses only approved brand colors/assets.
+import sharp from "sharp";
+import { dirname, join } from "node:path";
+import { fileURLToPath } from "node:url";
+
+const root = dirname(dirname(fileURLToPath(import.meta.url)));
+const WIDTH = 1200;
+const HEIGHT = 630;
+const VANTA = "#000100";
+const RED = "#F0443E";
+const OFFWHITE = "#F2F1EC";
+const MUTED = "#9AA3AD";
+const LOGO_MARK = join(root, "blog/assets/brand/breakwater-mark-red-256.png");
+
+const escapeXml = (s) =>
+  s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+
+function wrapText(text, fontSize, maxWidth, charWidthRatio = 0.58) {
+  const maxChars = Math.max(6, Math.floor(maxWidth / (fontSize * charWidthRatio)));
+  const words = text.split(" ");
+  const lines = [];
+  let current = "";
+  for (const word of words) {
+    const test = current ? `${current} ${word}` : word;
+    if (test.length > maxChars && current) {
+      lines.push(current);
+      current = word;
+    } else {
+      current = test;
+    }
+  }
+  if (current) lines.push(current);
+  return lines;
+}
+
+function fitTitle(title, maxWidth) {
+  let fontSize = 76;
+  let lines = wrapText(title, fontSize, maxWidth);
+  while (lines.length > 3 && fontSize > 44) {
+    fontSize -= 4;
+    lines = wrapText(title, fontSize, maxWidth);
+  }
+  return { fontSize, lines };
+}
+
+export async function generateSocialCard({ title, eyebrow, meta, outPath }) {
+  const maxWidth = WIDTH - 64 * 2;
+  const { fontSize, lines } = fitTitle(title, maxWidth);
+  const lineHeight = fontSize * 1.14;
+  const blockHeight = lines.length * lineHeight;
+  const startY = Math.min(300, (HEIGHT - blockHeight) / 2 + fontSize * 0.75);
+
+  const titleTspans = lines
+    .map((line, i) => `<tspan x="64" y="${startY + i * lineHeight}">${escapeXml(line)}</tspan>`)
+    .join("");
+
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${WIDTH}" height="${HEIGHT}">
+    <rect width="${WIDTH}" height="${HEIGHT}" fill="${VANTA}"/>
+    <rect x="0" y="0" width="${WIDTH}" height="8" fill="${RED}"/>
+    <text x="64" y="90" font-family="Menlo, Consolas, monospace" font-size="24" font-weight="700" letter-spacing="2" fill="${RED}">${escapeXml((eyebrow || "BREAKWATER BLOG").toUpperCase())}</text>
+    <text font-family="Helvetica, Arial, sans-serif" font-weight="800" fill="${OFFWHITE}" font-size="${fontSize}">${titleTspans}</text>
+    ${meta ? `<text x="64" y="${HEIGHT - 52}" font-family="Menlo, Consolas, monospace" font-size="22" fill="${MUTED}">${escapeXml(meta)}</text>` : ""}
+  </svg>`;
+
+  const logoSize = 64;
+  const logoMargin = 48;
+  await sharp(Buffer.from(svg))
+    .composite([
+      {
+        input: await sharp(LOGO_MARK).resize(logoSize, logoSize).toBuffer(),
+        left: WIDTH - logoMargin - logoSize,
+        top: HEIGHT - logoMargin - logoSize,
+      },
+    ])
+    .png()
+    .toFile(outPath);
+}

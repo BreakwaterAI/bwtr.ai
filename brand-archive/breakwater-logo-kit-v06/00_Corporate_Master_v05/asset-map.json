@@ -1,0 +1,37 @@
+{
+  "version": "v05",
+  "deployment": "not installed",
+  "palette": {
+    "red": "#F0443E",
+    "vanta": "#000100",
+    "white": "#FFFFFF"
+  },
+  "layouts": {
+    "mark": {
+      "red": "svg/breakwater-mark-red.svg",
+      "vanta": "svg/breakwater-mark-vanta.svg",
+      "white": "svg/breakwater-mark-white.svg"
+    },
+    "stacked": {
+      "light": "svg/breakwater-stacked-light.svg",
+      "dark": "svg/breakwater-stacked-dark.svg"
+    },
+    "stackedTagline": {
+      "light": "svg/breakwater-stacked-tagline-light.svg",
+      "dark": "svg/breakwater-stacked-tagline-dark.svg"
+    },
+    "horizontal": {
+      "light": "svg/breakwater-horizontal-light.svg",
+      "dark": "svg/breakwater-horizontal-dark.svg"
+    }
+  },
+  "icons": {
+    "favicon": "favicon.ico",
+    "appleLight": "png/breakwater-app-icon-light-180.png",
+    "appleDark": "png/breakwater-app-icon-dark-180.png",
+    "webAppLight192": "png/breakwater-app-icon-light-192.png",
+    "webAppLight512": "png/breakwater-app-icon-light-512.png",
+    "webAppDark192": "png/breakwater-app-icon-dark-192.png",
+    "webAppDark512": "png/breakwater-app-icon-dark-512.png"
+  }
+}
