@@ -67,9 +67,11 @@ for (const kind of ['poc','pqc']) {
   page(kind+'-planner', title+' | Breakwater', description, plannerPage(kind), true);
 }
 const routes = ['reader-pack','poc-planner','pqc-planner'];
-release.routes = release.routes.filter(r => !routes.some(x=>r.route===`/${x}/`));
+const productRoutes = ['discover','provenance','response'];
+release.routes = release.routes.filter(r => ![...routes,...productRoutes].some(x=>r.route===`/${x}/`));
+for(const route of productRoutes) release.routes.push({route:`/${route}/`,canonical:`https://www.bwtr.ai/${route}/`,socialImage:'https://www.bwtr.ai/assets/breakwater-social-home.png'});
 for(const route of routes) release.routes.push({route:`/${route}/`,canonical:`https://www.bwtr.ai/${route}/`,socialImage:'https://www.bwtr.ai/assets/breakwater-social-home.png', ...(route === 'pqc-planner' ? {discoverable:false} : {})});
-const sitemapOrder = ['', 'products', 'architecture', 'research', 'about', 'security', 'airports', 'power-utilities', 'connected-industry', 'healthcare', ...routes.filter(route => route !== 'pqc-planner')];
+const sitemapOrder = ['', 'products', ...productRoutes, 'architecture', 'research', 'about', 'security', 'airports', 'power-utilities', 'connected-industry', 'healthcare', ...routes.filter(route => route !== 'pqc-planner')];
 write('sitemap.xml', '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + sitemapOrder.map(r=>`  <url><loc>https://www.bwtr.ai/${r ? r+'/' : ''}</loc></url>`).join('\n') + '\n</urlset>\n');
 const brandFiles = [
   release.resources['styles.css'],
@@ -84,6 +86,11 @@ const brandFiles = [
     `assets/brand/v06/products/breakwater-${name}-horizontal-${theme}-no-tagline.svg`)),
 ];
 const candidatePublicMedia = ['assets/product-proof/discover-attack-path-poster.webp'];
+const productDetailFiles = [
+  'assets/site-ui/product-detail.be45d1b86a89.css',
+  ...productRoutes.map(route => `${route}/index.html`),
+];
+release.resources['product-detail.css'] = productDetailFiles[0];
 const candidateProvisionedMedia = [{
   destination: '/assets/videos/redesign/discover-attack-path.mp4',
   sha256: '831587c0cbc79c3dfd66a3af512025154db9b41e49103470159c30110b47efc7',
@@ -105,11 +112,12 @@ const retained = release.files.map(f=>f.path).filter(p =>
   !(release.planningFiles || []).includes(p) &&
   !retiredBrandFiles.has(p) &&
   !p.startsWith('assets/brand/v06/') &&
+  (!/^assets\/site-ui\/product-detail\.[a-f0-9]{12}\.css$/.test(p) || p === release.resources['product-detail.css']) &&
   (!/^assets\/site-ui\/site\.[a-f0-9]{12}\.(?:css|js)$/.test(p) || [release.resources['styles.css'], release.resources['script.js']].includes(p)) &&
   !p.startsWith('assets/reader-pack/')
 );
 // One repeatable navigation change across content, utility and resource pages.
-for (const file of new Set([...retained, ...managed].filter(file=>file.endsWith('.html')))) {
+for (const file of new Set([...retained, ...managed, ...productDetailFiles].filter(file=>file.endsWith('.html')))) {
   let html = read(file).replace(/<link rel="stylesheet" href="\/assets\/site-ui\/evaluation-entry\.[a-f0-9]+\.css">/g, '');
   html = html.replace('</head>', `<link rel="stylesheet" href="${entryCss}"></head>`);
   const resourcePage = routes.some(route=>file===`${route}/index.html`);
@@ -120,7 +128,8 @@ for (const file of new Set([...retained, ...managed].filter(file=>file.endsWith(
   write(file, html);
 }
 release.planningFiles = managed;
-release.candidate = {name: 'asoc-product-rebrand-v06-20260930', productionPublicationApproved: false};
+release.version = '2026-10-01-asoc-product-content-consolidation';
+release.candidate = {name: 'asoc-product-content-consolidation-20261001', productionPublicationApproved: false};
 const refreshedMediaDestinations = new Set([
   ...refreshedMediaFiles.map(file => '/' + file),
   ...candidateProvisionedMedia.map(record => record.destination),
@@ -134,6 +143,6 @@ for (const file of refreshedMediaFiles) {
   release.media.push({destination: '/' + file, sha256: sha(bytes), bytes: bytes.length});
 }
 release.media.push(...candidateProvisionedMedia);
-release.files = [...new Set([...retained,...brandFiles,...candidatePublicMedia,...managed])].map(file=>{const bytes=readFileSync(path.join(root,file));return {path:file,bytes:bytes.length,sha256:sha(bytes)};});
+release.files = [...new Set([...retained,...brandFiles,...candidatePublicMedia,...productDetailFiles,...managed])].map(file=>{const bytes=readFileSync(path.join(root,file));return {path:file,bytes:bytes.length,sha256:sha(bytes)};});
 write('site-release.json',JSON.stringify(release,null,2)+'\n');
 console.log(`Prepared ${routes.length} evaluation routes for the ASOC candidate; no publication.`);

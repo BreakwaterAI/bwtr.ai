@@ -48,6 +48,9 @@ function expectRewrite(uri, rewritten) {
 
 const routes = [
   "products",
+  "discover",
+  "provenance",
+  "response",
   "architecture",
   "research",
   "about",

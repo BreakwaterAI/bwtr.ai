@@ -11,7 +11,7 @@ assert.equal(priorApproval.productionPublicationApproved, true);
 if (process.env.BWTR_LOCAL_CANDIDATE === '1') {
   assert.ok(!process.env.CI, 'Candidate mode is local-only, not a production CI bypass');
   assert.equal(release.brandRevision, '2026-09-30-product-v06');
-  assert.equal(release.candidate?.name, 'asoc-product-rebrand-v06-20260930');
+  assert.equal(release.candidate?.name, 'asoc-product-content-consolidation-20261001');
   assert.equal(release.candidate?.productionPublicationApproved, false);
   const baseline = read('scripts/planners/approved-site-baseline.json');
   assert.equal(createHash('sha256').update(baseline).digest('hex'), priorApproval.publicManifestSha256);

@@ -8,7 +8,7 @@ const root = resolve(process.argv[2] || '');
 assert.equal(process.argv.length, 3, 'Usage: node scripts/test-redesign-release-candidate.mjs CANDIDATE_SITE');
 const release = JSON.parse(readFileSync(new URL('../site-release.json', import.meta.url)));
 const candidateManifest = join(dirname(root), 'release-candidate.json');
-const cisoRelease = existsSync(candidateManifest) || ['2026-09-21-ciso-led', '2026-09-30-asoc-product-rebrand'].includes(release.version);
+const cisoRelease = existsSync(candidateManifest) || ['2026-09-21-ciso-led', '2026-09-30-asoc-product-rebrand', '2026-10-01-asoc-product-content-consolidation'].includes(release.version);
 const manifest = existsSync(candidateManifest) ? JSON.parse(readFileSync(candidateManifest, 'utf8')) : {
   productionApproved: false, files: release.files, routes: release.routes,
   resources: Object.fromEntries(Object.entries(release.resources).map(([k, v]) => [k, '/' + v])),
@@ -63,9 +63,14 @@ async function intercept(route) {
     const media = release.media.find(m => m.destination === url.pathname);
     assert.ok(media, 'Only approved video dependencies may load');
     if (!videoBytes.has(url.pathname)) {
-      const response = await fetch('https://www.bwtr.ai' + url.pathname, { signal: AbortSignal.timeout(30000) });
-      assert.equal(response.status, 200);
-      const bytes = Buffer.from(await response.arrayBuffer());
+      const localPath = resolve(root, '.' + url.pathname);
+      let bytes;
+      if (existsSync(localPath)) bytes = readFileSync(localPath);
+      else {
+        const response = await fetch('https://www.bwtr.ai' + url.pathname, { signal: AbortSignal.timeout(30000) });
+        assert.equal(response.status, 200);
+        bytes = Buffer.from(await response.arrayBuffer());
+      }
       assert.equal(createHash('sha256').update(bytes).digest('hex'), media.sha256);
       videoBytes.set(url.pathname, bytes);
     }

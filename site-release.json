@@ -1,5 +1,5 @@
 {
-  "version": "2026-09-30-asoc-product-rebrand",
+  "version": "2026-10-01-asoc-product-content-consolidation",
   "routes": [
     {
       "route": "/",
@@ -52,6 +52,21 @@
       "socialImage": "https://www.bwtr.ai/assets/breakwater-social-home.png"
     },
     {
+      "route": "/discover/",
+      "canonical": "https://www.bwtr.ai/discover/",
+      "socialImage": "https://www.bwtr.ai/assets/breakwater-social-home.png"
+    },
+    {
+      "route": "/provenance/",
+      "canonical": "https://www.bwtr.ai/provenance/",
+      "socialImage": "https://www.bwtr.ai/assets/breakwater-social-home.png"
+    },
+    {
+      "route": "/response/",
+      "canonical": "https://www.bwtr.ai/response/",
+      "socialImage": "https://www.bwtr.ai/assets/breakwater-social-home.png"
+    },
+    {
       "route": "/reader-pack/",
       "canonical": "https://www.bwtr.ai/reader-pack/",
       "socialImage": "https://www.bwtr.ai/assets/breakwater-social-home.png"
@@ -77,7 +92,8 @@
     "script.js": "assets/site-ui/site.a2581296c688.js",
     "theme-init.js": "assets/site-ui/theme-init.48bf567099e1.js",
     "favicon.webp": "assets/brand/v06/icons/favicon.webp",
-    "lead-form.js": "assets/site-ui/lead-form.8eb8f51ef7a1.js"
+    "lead-form.js": "assets/site-ui/lead-form.8eb8f51ef7a1.js",
+    "product-detail.css": "assets/site-ui/product-detail.be45d1b86a89.css"
   },
   "endpoint": "https://script.google.com/macros/s/AKfycbyn7VeN_qJtlnNLMN_nzW_nMHmPXkt9SN_Qx-1AWk1im76oI9m9v0b_7ujn2SWa1z1N/exec",
   "media": [
@@ -375,23 +391,23 @@
     },
     {
       "path": "404.html",
-      "bytes": 4064,
-      "sha256": "fe02ccb4c397d6e409d50c1546023592ce14246ac95845a792fbbdd33cc31b2e"
+      "bytes": 4037,
+      "sha256": "b31d47aba428907f5889fb1c91f67a21c4be16b031a3700d84b40a233d0126f3"
     },
     {
       "path": "about/index.html",
-      "bytes": 11274,
-      "sha256": "75958a2911794a4a3e7e0128032230ff44e57f531f822ccc5faf33f7eab99564"
+      "bytes": 11247,
+      "sha256": "2d99740b2a68cff1b2f8abb5d1d50f35486b480377dc43c925340e7a83a48c62"
     },
     {
       "path": "airports/index.html",
-      "bytes": 9309,
-      "sha256": "8433abb12c836555e4cb2b2034b1ba23e75428a828e50de5f2a9bced6d46b8b7"
+      "bytes": 9282,
+      "sha256": "ed961fe283b2d5e908dd887a19da8248de7a097012129fd68076f6d47b7e8ef2"
     },
     {
       "path": "architecture/index.html",
-      "bytes": 11502,
-      "sha256": "ce414557f2b23b2a9dad458c68c9b72f2763376342ceb2b658760f89efb575fa"
+      "bytes": 11475,
+      "sha256": "11597ee04fbc6b13a5c06ec5fff09d955ca3bd7feb83d8184cf3d7ba2f112fdb"
     },
     {
       "path": "assets/breakwater-hero-airport-1200.jpg",
@@ -750,38 +766,38 @@
     },
     {
       "path": "connected-industry/index.html",
-      "bytes": 9104,
-      "sha256": "de043ed3996c06f7b7fa4c7c7a978fc812ca8ab7fb8e5533238dcd387549225b"
+      "bytes": 9068,
+      "sha256": "b0ddbb5ae52f6b525e56d86cb173e15a15423d9b24980299910a3886104c1f15"
     },
     {
       "path": "healthcare/index.html",
-      "bytes": 9309,
-      "sha256": "4bb9d58fddd76034ac25a31b7437280b98b7243d3ac62bd28cef8aaece359884"
+      "bytes": 9282,
+      "sha256": "37526d949ce04e0b0946b9ac81a1edba859180406c1bf73dbe530231c7c02d08"
     },
     {
       "path": "index.html",
-      "bytes": 17262,
-      "sha256": "2e8741ccf3c1b8cee5498c17f64906524c0c76e21f8366bcef9f7d2e9f491402"
+      "bytes": 17199,
+      "sha256": "3b716dbcf39eb783cceba114618a354a09be850d9d68e40d2c8d85c1631d4fcc"
     },
     {
       "path": "platform/index.html",
-      "bytes": 4217,
-      "sha256": "3964a1928c6dd6a086a4b7fec2c921fe1d513f3d1274ee95cc1192211cc4bcff"
+      "bytes": 4190,
+      "sha256": "e93489cda32ee8c0f44bb20d5f2ed7fbaf588e707986ee721696fb377ad68452"
     },
     {
       "path": "power-utilities/index.html",
-      "bytes": 9505,
-      "sha256": "60ce3d674ee3851f786c082188f517b3c87b224f8a457c6432b9138dfacce97b"
+      "bytes": 9478,
+      "sha256": "0b2fad5f285f6d5b21109160f3672023ee87aaf6e359b84fe9212791aa96f3b1"
     },
     {
       "path": "products/index.html",
-      "bytes": 16418,
-      "sha256": "f409f76e780c7898323b7c40ccf0b9b9bc196d393a5adebe8382593198d90c47"
+      "bytes": 16212,
+      "sha256": "2c1a7c9d84d01a81a35a6849ce97ab9119dcf4ccad9aaff76933bce1efce434e"
     },
     {
       "path": "research/index.html",
-      "bytes": 8996,
-      "sha256": "4f92bc09f0ea4ac21326f4bdd697b274a1a4c0f4524b03f98e2f921a2bafc812"
+      "bytes": 8967,
+      "sha256": "999c97d81f41643b7ac6515cde03ba42650ca64d7b6fc2c0defdf5c6619c1428"
     },
     {
       "path": "robots.txt",
@@ -790,13 +806,13 @@
     },
     {
       "path": "security/index.html",
-      "bytes": 8051,
-      "sha256": "1a8390039bef1e0d3d23e0f325281f24f8a46d3ca172e84f2f6fb78b552002ef"
+      "bytes": 8024,
+      "sha256": "0644568a1ce4d28c38e84623a90bfab196f82c6747bdcb072c8a134743461eb2"
     },
     {
       "path": "sitemap.xml",
-      "bytes": 775,
-      "sha256": "549754f71742426c9a21b9f46b6ee3a6e8dfdc629c96073bae6e224a10334410"
+      "bytes": 939,
+      "sha256": "2ed874cf1c5c1518410d4c304e638ee110d27d0fe8b4d7988de5cfed80ccc325"
     },
     {
       "path": "assets/site-ui/site.d64178e89ea6.css",
@@ -812,6 +828,26 @@
       "path": "assets/product-proof/discover-attack-path-poster.webp",
       "bytes": 56342,
       "sha256": "b9eed934ab2636c0fe735bc554cf014f34293b0098b16b911a8d38bbf67c8bd3"
+    },
+    {
+      "path": "discover/index.html",
+      "bytes": 19179,
+      "sha256": "c31012fa553b7adafb4107d799d347c0333d5d7767bd08f49841fe41f0e83995"
+    },
+    {
+      "path": "provenance/index.html",
+      "bytes": 16958,
+      "sha256": "5feb75c4bc4a7198211ab69b7d84a57751ea1f793d340883776ab33ad17a91d3"
+    },
+    {
+      "path": "response/index.html",
+      "bytes": 18026,
+      "sha256": "d2c8e4924d7e1148bbb02017cd426ce1039e6ac80cc1f2b0b022d10112510efb"
+    },
+    {
+      "path": "assets/site-ui/product-detail.be45d1b86a89.css",
+      "bytes": 8041,
+      "sha256": "be45d1b86a893a7aafd7f1aedfa370f370fbebac6ec77f572bf4e0f6ba682054"
     },
     {
       "path": "assets/brand/v06/corporate/breakwater-horizontal-light.svg",
@@ -905,18 +941,18 @@
     },
     {
       "path": "reader-pack/index.html",
-      "bytes": 8846,
-      "sha256": "e10ad1578eb81bd8d5a717d7a266e26676722a8ac34a7317fcec90977794648c"
+      "bytes": 8792,
+      "sha256": "88dcb697e7515296e83835fb867f33aecac089e4cec33c0ac15c4d6149513dfa"
     },
     {
       "path": "poc-planner/index.html",
-      "bytes": 6240,
-      "sha256": "013b699e34de927acf47188cc2c5699f72b4165c64edecc7b65070ee6b5a16c3"
+      "bytes": 6213,
+      "sha256": "5a42509a94cd0892279ff53230d58d46297e87e07f644a825e482565e3433934"
     },
     {
       "path": "pqc-planner/index.html",
-      "bytes": 6303,
-      "sha256": "590ee982b4a80b6d00821732a94df2f56f6a2b3cf1ac4fbe320bacea6fe0ed4f"
+      "bytes": 6276,
+      "sha256": "02c6bea68b33e19fc2b600793a6010a29f938cddff9d6938bb030abc8f1e1dcd"
     }
   ],
   "brandRevision": "2026-09-30-product-v06",
@@ -932,7 +968,7 @@
     "pqc-planner/index.html"
   ],
   "candidate": {
-    "name": "asoc-product-rebrand-v06-20260930",
+    "name": "asoc-product-content-consolidation-20261001",
     "productionPublicationApproved": false
   }
 }

@@ -127,8 +127,14 @@ run_phase "smoke-home" curl -fsS --output "${verification_body}" "${site_base_ur
 grep -F "Understand exposure across connected operations." "${verification_body}" >/dev/null
 grep -F "See what the connection is based on." "${verification_body}" >/dev/null
 run_phase "smoke-products" curl -fsS --output "${verification_body}" "${site_base_url}/products/"
-grep -F "Put security findings in operational context." \
+grep -F "Turn operational context into controlled action." \
   "${verification_body}" >/dev/null
+run_phase "smoke-discover" curl -fsS --output "${verification_body}" "${site_base_url}/discover/"
+grep -F "See how exposure becomes a path to impact." "${verification_body}" >/dev/null
+run_phase "smoke-provenance" curl -fsS --output "${verification_body}" "${site_base_url}/provenance/"
+grep -F "Turn findings into defensible decisions." "${verification_body}" >/dev/null
+run_phase "smoke-response" curl -fsS --output "${verification_body}" "${site_base_url}/response/"
+grep -F "Make the next decision count." "${verification_body}" >/dev/null
 run_phase "smoke-architecture" curl -fsS --output "${verification_body}" \
   "${site_base_url}/architecture/"
 grep -F "How Breakwater connects to your environment." "${verification_body}" >/dev/null
@@ -147,11 +153,12 @@ done < <(node -e 'const fs=require("fs"); const m=JSON.parse(fs.readFileSync(pro
 
 cache_headers="${RUNNER_TEMP:-/tmp}/bwtr-site-cache-headers.txt"
 for cache_url in \
-  "${site_base_url}/"; do
+  "${site_base_url}/" \
+  "${site_base_url}/assets/brand/v06/icons/favicon.webp"; do
   run_phase "cache-unversioned" curl -fsSI --output "${cache_headers}" "${cache_url}"
   grep -qi '^cache-control: no-cache' "${cache_headers}"
 done
-for revisioned_asset in $(node -e 'const manifest=require(process.argv[1]); console.log(Object.values(manifest).join(" "))' "${artifact}/asset-manifest.json"); do
+for revisioned_asset in $(node -e 'const manifest=require(process.argv[1]); console.log(Object.values(manifest).filter(path=>/\.[0-9a-f]{12}\.(?:css|js|webp)$/.test(path)).join(" "))' "${artifact}/asset-manifest.json"); do
   run_phase "cache-revisioned" curl -fsSI --output "${cache_headers}" \
     "${site_base_url}/${revisioned_asset}"
   grep -qi '^cache-control: public, max-age=31536000, immutable' "${cache_headers}"

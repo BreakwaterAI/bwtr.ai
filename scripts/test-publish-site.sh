@@ -79,6 +79,9 @@ for failure_phase in \
   publish-invalidation-wait \
   smoke-home \
   smoke-products \
+  smoke-discover \
+  smoke-provenance \
+  smoke-response \
   smoke-architecture \
   smoke-release \
   cache-unversioned \

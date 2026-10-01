@@ -24,7 +24,7 @@ try {
  for(const width of [320,390,768,1440]) for(const theme of ['light','dark']) {
    await page.setViewportSize({width,height:900});await page.goto('http://localhost:4177/products/');
    if(await page.locator('html').getAttribute('data-theme')!==theme)await page.locator('[data-theme-toggle]').click();
-   for(const [section,host] of [['discover','secure'],['provenance','assure'],['response','soar']]) assert.equal(await page.locator(`#${section} .product-site-link`).getAttribute('href'),`https://${host}.bwtr.ai/`);
+   for(const section of ['discover','provenance','response']) assert.equal(await page.locator(`#${section} .product-site-link`).getAttribute('href'),`/${section}/`);
    assert.deepEqual(await page.locator('#access a').evaluateAll(links=>links.map(a=>a.href)),['https://secure.bwtr.ai/app','https://assure.bwtr.ai/app/login','https://soar.bwtr.ai/app']);
    assert.equal(await page.locator('a[href*="console.html"]').count(),0);
    for(const [route,selector,name] of [['','.industry-card .context-crop','home-utilities'],['power-utilities/','.sector-photo .context-crop','utilities-hero']]) {
@@ -43,7 +43,7 @@ try {
    assert(nav,file.path+' navigation');
    assert.deepEqual([...nav.matchAll(/<a[^>]*>([^<]+)/g)].map(m=>m[1]),['Industries','Architecture','Evaluate','Company','Talk to us']);
    assert.match(nav,/<summary>Products<\/summary>/,file.path+' products menu');
-   for (const destination of ['/products/','/products/#discover','/products/#provenance','/products/#response']) {
+   for (const destination of ['/products/','/discover/','/provenance/','/response/']) {
      assert.ok(nav.includes(`href="${destination}"`),file.path+' product destination '+destination);
    }
    assert.equal((html.match(/evaluation-entry\.[a-f0-9]+\.css/g)||[]).length,1);
@@ -75,8 +75,8 @@ try {
  assert.equal(await page.locator('.product-menu-panel a').count(),4);await page.keyboard.press('Escape');assert(!(await page.locator('.product-menu').getAttribute('open')));checks++;
  await page.setViewportSize({width:390,height:844});await page.goto('http://localhost:4177/');await page.locator('[data-menu]').click();
  await page.locator('.product-menu summary').click();assert(await page.locator('.product-menu-panel').isVisible());
- assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));await page.locator('.product-menu-panel a[href="/products/#discover"]').click();
- assert.equal(new URL(page.url()).pathname+new URL(page.url()).hash,'/products/#discover');checks++;
+ assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));await page.locator('.product-menu-panel a[href="/discover/"]').click();
+ assert.equal(new URL(page.url()).pathname,'/discover/');checks++;
  await page.goto('http://localhost:4177/pqc-planner/');
  assert.equal(await page.locator('meta[name="robots"]').getAttribute('content'),'noindex,nofollow');
  assert.equal(await page.locator('a[href="/pqc-planner/"]').count(),0);
@@ -140,7 +140,7 @@ try {
  }
  await page.goto('http://localhost:4177/reader-pack/');assert.equal(await page.locator('a[href$=".pdf"]').count(),0);checks++;
  assert.equal(await page.locator('.reader-product').count(),3);
- assert.deepEqual(await page.locator('.reader-product > a').evaluateAll(links=>links.map(a=>new URL(a.href).pathname+new URL(a.href).hash)),['/products/#discover','/products/#provenance','/products/#response']);checks++;
+ assert.deepEqual(await page.locator('.reader-product > a').evaluateAll(links=>links.map(a=>new URL(a.href).pathname)),['/discover/','/provenance/','/response/']);checks++;
  for(const kind of ['poc','pqc']) {
    await page.goto(`http://localhost:4177/${kind}-planner/`);
    await page.getByRole('radio').first().waitFor();

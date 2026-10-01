@@ -4,18 +4,10 @@ import assert from 'node:assert/strict';
 export function releaseCorrections(file, html) {
   if (file === 'products/index.html') {
     html = html.replaceAll('https://assure.bwtr.ai/console.html', 'https://assure.bwtr.ai/app/login');
-    for (const [name, marker] of [
-      ['Secure', 'Talk to us<span aria-hidden="true">↗</span></a></div></div><figure'],
-      ['Assure', 'Identify the components that need source-level review.</p></div><figure'],
-      ['SOAR', 'Inspect the proposed response.</h2></div><figure'],
-    ]) {
-      const slug = name.toLowerCase();
-      if (html.includes(`class="text-link product-site-link" href="https://${slug}.bwtr.ai/"`)) continue;
-      assert(html.includes(marker), `${name}: reviewed insertion point changed`);
-      const link = `<a class="text-link product-site-link" href="https://${slug}.bwtr.ai/" target="_blank" rel="noopener noreferrer">Visit ${name} website ↗</a>`;
-      const anchor = name === 'Secure' ? '</a>' : name === 'Assure' ? '</p>' : '</h2>';
-      html = html.replace(marker, marker.replace(anchor, anchor + link));
-    }
+    html = html
+      .replace(/href="https:\/\/secure\.bwtr\.ai\/" target="_blank" rel="noopener noreferrer">Visit (?:Secure|Discover) website ↗/, 'href="/discover/">Explore Discover →')
+      .replace(/href="https:\/\/assure\.bwtr\.ai\/" target="_blank" rel="noopener noreferrer">Visit (?:Assure|Provenance) website ↗/, 'href="/provenance/">Explore Provenance →')
+      .replace(/href="https:\/\/soar\.bwtr\.ai\/" target="_blank" rel="noopener noreferrer">Visit (?:SOAR|Response) website ↗/, 'href="/response/">Explore Response →');
   }
   if (file === 'index.html' || file === 'power-utilities/index.html') {
     const source = file === 'index.html' ? '/assets/product-proof/context-substation-400.webp' : '/assets/infrastructure-substation-1200.jpg';
