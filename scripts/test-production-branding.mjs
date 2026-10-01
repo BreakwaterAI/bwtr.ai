@@ -39,6 +39,10 @@ for (const file of release.files.filter(record => record.path.endsWith('.html'))
   assert.ok(html.includes('rel="apple-touch-icon" sizes="180x180" href="/assets/brand/v06/icons/apple-touch-icon-180.png"'), file.path);
   assert.ok(html.includes(`data-light-src="${lightLogo}"`), file.path);
   assert.ok(html.includes(`data-dark-src="${darkLogo}"`), file.path);
+  for (const name of ['asoc', 'discover', 'provenance', 'response']) {
+    assert.ok(html.includes(`/assets/brand/v06/product-icons/breakwater-${name}-app-icon-light.svg`), `${file.path}: ${name} menu icon`);
+    assert.ok(html.includes(`/assets/brand/v06/product-icons/breakwater-${name}-app-icon-dark.svg`), `${file.path}: ${name} dark menu icon`);
+  }
   assert.doesNotMatch(html, /brand-(?:light|dark)-v05|apple-touch-icon-v05/, file.path);
 }
 
@@ -48,6 +52,11 @@ assert.ok(products.includes('breakwater-asoc-horizontal-dark-with-tagline.svg'),
 for (const name of ['discover', 'provenance', 'response']) {
   assert.ok(products.includes(`breakwater-${name}-horizontal-light-no-tagline.svg`), name);
   assert.ok(products.includes(`breakwater-${name}-horizontal-dark-no-tagline.svg`), name);
+}
+for (const name of ['discover', 'provenance', 'response']) {
+  const page = read(`${name}/index.html`).toString();
+  assert.ok(page.includes('<p class="product-detail-identity">'), `${name}: compact product identity`);
+  assert.doesNotMatch(page, /class="product-detail-logo"/, `${name}: repeated hero logo`);
 }
 const script = read(release.resources['script.js']).toString();
 assert.ok(script.includes("querySelectorAll('[data-theme-logo]')"));

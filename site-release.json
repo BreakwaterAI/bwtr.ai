@@ -88,12 +88,12 @@
     "/platform/"
   ],
   "resources": {
-    "styles.css": "assets/site-ui/site.d64178e89ea6.css",
+    "styles.css": "assets/site-ui/site.f00b5cb2b92d.css",
     "script.js": "assets/site-ui/site.a2581296c688.js",
     "theme-init.js": "assets/site-ui/theme-init.48bf567099e1.js",
     "favicon.webp": "assets/brand/v06/icons/favicon.webp",
     "lead-form.js": "assets/site-ui/lead-form.8eb8f51ef7a1.js",
-    "product-detail.css": "assets/site-ui/product-detail.be45d1b86a89.css"
+    "product-detail.css": "assets/site-ui/product-detail.863b7c654bf6.css"
   },
   "endpoint": "https://script.google.com/macros/s/AKfycbyn7VeN_qJtlnNLMN_nzW_nMHmPXkt9SN_Qx-1AWk1im76oI9m9v0b_7ujn2SWa1z1N/exec",
   "media": [
@@ -373,6 +373,46 @@
       "bytes": 11379
     },
     {
+      "destination": "/assets/brand/v06/product-icons/breakwater-asoc-app-icon-light.svg",
+      "sha256": "73d03af9907db0a89bcc14bb7762ff4e7a7ebcf62ea10fc70379b11acb669195",
+      "bytes": 4720
+    },
+    {
+      "destination": "/assets/brand/v06/product-icons/breakwater-asoc-app-icon-dark.svg",
+      "sha256": "c1de0e4e513f11b7b36747b573654fc561bd0daa9092c55dc5b12b2948b30530",
+      "bytes": 4720
+    },
+    {
+      "destination": "/assets/brand/v06/product-icons/breakwater-discover-app-icon-light.svg",
+      "sha256": "33cf97630e16c28bbb7c35613a9aff7966c0188f54f83c61082ad797a89dafb0",
+      "bytes": 4870
+    },
+    {
+      "destination": "/assets/brand/v06/product-icons/breakwater-discover-app-icon-dark.svg",
+      "sha256": "4367385088c129dfa7a202ad1ab42cf6e4981d7c22383bae49f0a79f03bdd958",
+      "bytes": 4870
+    },
+    {
+      "destination": "/assets/brand/v06/product-icons/breakwater-provenance-app-icon-light.svg",
+      "sha256": "b7235348cffe998f0ebb7c9bd213be265cfb19f0bda70b2fad7f84695a233588",
+      "bytes": 4888
+    },
+    {
+      "destination": "/assets/brand/v06/product-icons/breakwater-provenance-app-icon-dark.svg",
+      "sha256": "659e79cf25bb584fbc8750879f5e8580e87ef005fc0d75ca4d8904bc12108c89",
+      "bytes": 4888
+    },
+    {
+      "destination": "/assets/brand/v06/product-icons/breakwater-response-app-icon-light.svg",
+      "sha256": "daba01a61f78944d298ebf78f4f3c0dde96f9fa4ae2f7f26d46bc61a40c12f43",
+      "bytes": 4860
+    },
+    {
+      "destination": "/assets/brand/v06/product-icons/breakwater-response-app-icon-dark.svg",
+      "sha256": "d65a270a83b40254ad1a851e72f911c554edd1c9ff21c4d01df843ee8c8e1354",
+      "bytes": 4860
+    },
+    {
       "destination": "/assets/product-proof/discover-attack-path-poster.webp",
       "sha256": "b9eed934ab2636c0fe735bc554cf014f34293b0098b16b911a8d38bbf67c8bd3",
       "bytes": 56342
@@ -391,23 +431,23 @@
     },
     {
       "path": "404.html",
-      "bytes": 4037,
-      "sha256": "b31d47aba428907f5889fb1c91f67a21c4be16b031a3700d84b40a233d0126f3"
+      "bytes": 5507,
+      "sha256": "35dc7499042ee6f695948091ef52ada16941380f4cf56fefeba3c3bb5aad1c44"
     },
     {
       "path": "about/index.html",
-      "bytes": 11247,
-      "sha256": "2d99740b2a68cff1b2f8abb5d1d50f35486b480377dc43c925340e7a83a48c62"
+      "bytes": 12717,
+      "sha256": "7ed0d95abb4c1a0816c2b563c931e50dcdc28840340860d6f9f1744511293b11"
     },
     {
       "path": "airports/index.html",
-      "bytes": 9282,
-      "sha256": "ed961fe283b2d5e908dd887a19da8248de7a097012129fd68076f6d47b7e8ef2"
+      "bytes": 10752,
+      "sha256": "8bd5b06fa635fa864921098094ffa3e423e18260ab0afb62487cc0d33047e3db"
     },
     {
       "path": "architecture/index.html",
-      "bytes": 11475,
-      "sha256": "11597ee04fbc6b13a5c06ec5fff09d955ca3bd7feb83d8184cf3d7ba2f112fdb"
+      "bytes": 12945,
+      "sha256": "4ac32a7ad89b2ac618f2f405a2a06588304367922dc1a53ad1f593977814865e"
     },
     {
       "path": "assets/breakwater-hero-airport-1200.jpg",
@@ -766,38 +806,38 @@
     },
     {
       "path": "connected-industry/index.html",
-      "bytes": 9068,
-      "sha256": "b0ddbb5ae52f6b525e56d86cb173e15a15423d9b24980299910a3886104c1f15"
+      "bytes": 10538,
+      "sha256": "9a05d31435def95caba9afd575b40c40c9e08ecf51a76ad766888b274dae5c8c"
     },
     {
       "path": "healthcare/index.html",
-      "bytes": 9282,
-      "sha256": "37526d949ce04e0b0946b9ac81a1edba859180406c1bf73dbe530231c7c02d08"
+      "bytes": 10752,
+      "sha256": "5bb16673f3b337bc3e0a39b33e95cd5aca413636036d94114660426dabfe6346"
     },
     {
       "path": "index.html",
-      "bytes": 17199,
-      "sha256": "3b716dbcf39eb783cceba114618a354a09be850d9d68e40d2c8d85c1631d4fcc"
+      "bytes": 18669,
+      "sha256": "9f1f5ed52b4d76bcca9f95a9d581dca1fe32db9f2ace53ea3dbca84563b47ea7"
     },
     {
       "path": "platform/index.html",
-      "bytes": 4190,
-      "sha256": "e93489cda32ee8c0f44bb20d5f2ed7fbaf588e707986ee721696fb377ad68452"
+      "bytes": 5660,
+      "sha256": "491775c8f68901bb345f03fa7fb24ea2043f5425832ae1f6bd0fa19046d3a471"
     },
     {
       "path": "power-utilities/index.html",
-      "bytes": 9478,
-      "sha256": "0b2fad5f285f6d5b21109160f3672023ee87aaf6e359b84fe9212791aa96f3b1"
+      "bytes": 10948,
+      "sha256": "940b15fa4cff8335d6265f5fe87665f095cfa734ad0b5f9942439679838074f5"
     },
     {
       "path": "products/index.html",
-      "bytes": 16212,
-      "sha256": "2c1a7c9d84d01a81a35a6849ce97ab9119dcf4ccad9aaff76933bce1efce434e"
+      "bytes": 17682,
+      "sha256": "d5054c5e2c1a66bac762bed76af1584fda41d4df77f33657b1be9dcf9c1ad150"
     },
     {
       "path": "research/index.html",
-      "bytes": 8967,
-      "sha256": "999c97d81f41643b7ac6515cde03ba42650ca64d7b6fc2c0defdf5c6619c1428"
+      "bytes": 10437,
+      "sha256": "d275f3850b693dc2e4d58e3b0780b1b02c4d2ba2efb325c44e1d466fcd921b64"
     },
     {
       "path": "robots.txt",
@@ -806,18 +846,13 @@
     },
     {
       "path": "security/index.html",
-      "bytes": 8024,
-      "sha256": "0644568a1ce4d28c38e84623a90bfab196f82c6747bdcb072c8a134743461eb2"
+      "bytes": 9494,
+      "sha256": "338d835c12d568b13786fd05406e32b6c8d6aaf631f7e90e84bcd91b273a135a"
     },
     {
       "path": "sitemap.xml",
       "bytes": 939,
       "sha256": "2ed874cf1c5c1518410d4c304e638ee110d27d0fe8b4d7988de5cfed80ccc325"
-    },
-    {
-      "path": "assets/site-ui/site.d64178e89ea6.css",
-      "bytes": 39043,
-      "sha256": "d64178e89ea6341c904817c0a54eb2a89dc9528feb69f537f28b0c6f65ec412d"
     },
     {
       "path": "assets/site-ui/site.a2581296c688.js",
@@ -831,23 +866,28 @@
     },
     {
       "path": "discover/index.html",
-      "bytes": 19179,
-      "sha256": "c31012fa553b7adafb4107d799d347c0333d5d7767bd08f49841fe41f0e83995"
+      "bytes": 20322,
+      "sha256": "cd9f89616428ed981aebd1cf864541310528971798c67a0baaddc6f7f5956aa9"
     },
     {
       "path": "provenance/index.html",
-      "bytes": 16958,
-      "sha256": "5feb75c4bc4a7198211ab69b7d84a57751ea1f793d340883776ab33ad17a91d3"
+      "bytes": 18095,
+      "sha256": "9a5b703f7e1e775adb7871ff871f715c5310faec8acde4e18e30ae166ad9d4ec"
     },
     {
       "path": "response/index.html",
-      "bytes": 18026,
-      "sha256": "d2c8e4924d7e1148bbb02017cd426ce1039e6ac80cc1f2b0b022d10112510efb"
+      "bytes": 19169,
+      "sha256": "5dd1a77a04d34828230b26838b3a06035cdd96605ed7e6165601803f982dee1f"
     },
     {
-      "path": "assets/site-ui/product-detail.be45d1b86a89.css",
-      "bytes": 8041,
-      "sha256": "be45d1b86a893a7aafd7f1aedfa370f370fbebac6ec77f572bf4e0f6ba682054"
+      "path": "assets/site-ui/product-detail.863b7c654bf6.css",
+      "bytes": 8595,
+      "sha256": "863b7c654bf6001e36805acdb25928a1e4b5423c20b06307569b02d1f3bc4e32"
+    },
+    {
+      "path": "assets/site-ui/site.f00b5cb2b92d.css",
+      "bytes": 39566,
+      "sha256": "f00b5cb2b92d8f8200b63c97263c91ee9686a94b7c7e9f00fc4746fb289e4c01"
     },
     {
       "path": "assets/brand/v06/corporate/breakwater-horizontal-light.svg",
@@ -910,6 +950,46 @@
       "sha256": "4cba4b6827ee970bf175bdf05a22abee80c1603a9078382711a92e01e9e2cd94"
     },
     {
+      "path": "assets/brand/v06/product-icons/breakwater-asoc-app-icon-light.svg",
+      "bytes": 4720,
+      "sha256": "73d03af9907db0a89bcc14bb7762ff4e7a7ebcf62ea10fc70379b11acb669195"
+    },
+    {
+      "path": "assets/brand/v06/product-icons/breakwater-asoc-app-icon-dark.svg",
+      "bytes": 4720,
+      "sha256": "c1de0e4e513f11b7b36747b573654fc561bd0daa9092c55dc5b12b2948b30530"
+    },
+    {
+      "path": "assets/brand/v06/product-icons/breakwater-discover-app-icon-light.svg",
+      "bytes": 4870,
+      "sha256": "33cf97630e16c28bbb7c35613a9aff7966c0188f54f83c61082ad797a89dafb0"
+    },
+    {
+      "path": "assets/brand/v06/product-icons/breakwater-discover-app-icon-dark.svg",
+      "bytes": 4870,
+      "sha256": "4367385088c129dfa7a202ad1ab42cf6e4981d7c22383bae49f0a79f03bdd958"
+    },
+    {
+      "path": "assets/brand/v06/product-icons/breakwater-provenance-app-icon-light.svg",
+      "bytes": 4888,
+      "sha256": "b7235348cffe998f0ebb7c9bd213be265cfb19f0bda70b2fad7f84695a233588"
+    },
+    {
+      "path": "assets/brand/v06/product-icons/breakwater-provenance-app-icon-dark.svg",
+      "bytes": 4888,
+      "sha256": "659e79cf25bb584fbc8750879f5e8580e87ef005fc0d75ca4d8904bc12108c89"
+    },
+    {
+      "path": "assets/brand/v06/product-icons/breakwater-response-app-icon-light.svg",
+      "bytes": 4860,
+      "sha256": "daba01a61f78944d298ebf78f4f3c0dde96f9fa4ae2f7f26d46bc61a40c12f43"
+    },
+    {
+      "path": "assets/brand/v06/product-icons/breakwater-response-app-icon-dark.svg",
+      "bytes": 4860,
+      "sha256": "d65a270a83b40254ad1a851e72f911c554edd1c9ff21c4d01df843ee8c8e1354"
+    },
+    {
       "path": "assets/site-ui/planner-validation.592ce36b8858.js",
       "bytes": 481,
       "sha256": "592ce36b885818932f243a25bf360466450e06ed3da01373388ca97a25ec0406"
@@ -941,18 +1021,18 @@
     },
     {
       "path": "reader-pack/index.html",
-      "bytes": 8792,
-      "sha256": "88dcb697e7515296e83835fb867f33aecac089e4cec33c0ac15c4d6149513dfa"
+      "bytes": 10262,
+      "sha256": "0938b820871d42fc20f37d30632c2c9c4f912dce5c2399437805130e968ed4f8"
     },
     {
       "path": "poc-planner/index.html",
-      "bytes": 6213,
-      "sha256": "5a42509a94cd0892279ff53230d58d46297e87e07f644a825e482565e3433934"
+      "bytes": 7683,
+      "sha256": "95b2747984fb88724373647e6866ddddf91fc19ef5785682dcac03deb5c1bb7f"
     },
     {
       "path": "pqc-planner/index.html",
-      "bytes": 6276,
-      "sha256": "02c6bea68b33e19fc2b600793a6010a29f938cddff9d6938bb030abc8f1e1dcd"
+      "bytes": 7746,
+      "sha256": "e2f63dd2dd920484713f3f1c953a92d2431b6bf7bf84f4fc843d7edea22aa2fe"
     }
   ],
   "brandRevision": "2026-09-30-product-v06",

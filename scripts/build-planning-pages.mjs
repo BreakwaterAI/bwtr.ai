@@ -84,10 +84,12 @@ const brandFiles = [
     `assets/brand/v06/products/breakwater-asoc-horizontal-${theme}-with-tagline.svg`),
   ...['discover','provenance','response'].flatMap(name => ['light','dark'].map(theme =>
     `assets/brand/v06/products/breakwater-${name}-horizontal-${theme}-no-tagline.svg`)),
+  ...['asoc','discover','provenance','response'].flatMap(name => ['light','dark'].map(theme =>
+    `assets/brand/v06/product-icons/breakwater-${name}-app-icon-${theme}.svg`)),
 ];
 const candidatePublicMedia = ['assets/product-proof/discover-attack-path-poster.webp'];
 const productDetailFiles = [
-  'assets/site-ui/product-detail.be45d1b86a89.css',
+  'assets/site-ui/product-detail.863b7c654bf6.css',
   ...productRoutes.map(route => `${route}/index.html`),
 ];
 release.resources['product-detail.css'] = productDetailFiles[0];

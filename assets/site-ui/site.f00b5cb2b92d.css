@@ -107,10 +107,14 @@ button, a, input, select, textarea, summary { -webkit-tap-highlight-color: trans
 .product-menu[open] summary::after { transform: translateY(2px) rotate(225deg); }
 .product-menu[data-current] summary { text-decoration: underline; text-decoration-color: var(--breakwater-red); text-decoration-thickness: 2px; text-underline-offset: 3px; }
 .product-menu-panel { position: fixed; z-index: 8; top: 81px; left: 50%; width: min(calc(100vw - 40px), 1180px); transform: translateX(-50%); display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); padding: 12px; background: var(--paper); border: 1px solid var(--line); border-top: 3px solid var(--breakwater-red); border-radius: 0 0 8px 8px; box-shadow: 0 18px 40px rgba(0,1,0,.18); }
-.product-menu-panel a { display: block; min-width: 0; padding: 18px; border-right: 1px solid var(--line); }
+.product-menu-panel a { display: grid; grid-template-columns: 60px minmax(0,1fr); align-items: center; gap: 14px; min-width: 0; padding: 18px; border-right: 1px solid var(--line); }
 .product-menu-panel a:last-child { border-right: 0; }
+.product-menu-icon { display: block; width: 60px; height: 60px; border-radius: 12px; }
+.product-menu-copy { display: block; min-width: 0; }
 .product-menu-panel strong { display: block; margin-bottom: 7px; color: var(--ink); font-size: 17px; }
-.product-menu-panel span { display: block; color: var(--muted); font-size: 12px; line-height: 1.45; }
+.product-menu-copy > span { display: block; color: var(--muted); font-size: 12px; line-height: 1.45; }
+.product-menu-panel a[aria-current="page"] { background: var(--surface); text-decoration: none; }
+.product-menu-panel a[aria-current="page"] strong { color: var(--breakwater-red); }
 .product-menu-panel a:hover strong, .product-menu-panel a:focus-visible strong { color: var(--breakwater-red); }
 .theme-button, .menu-button { border: 1px solid var(--line); background: transparent; color: var(--ink); min-height: 44px; padding: 8px 12px; border-radius: 4px; font-size: 13px; }
 .menu-button { display: none; }
@@ -307,8 +311,9 @@ dialog[open] { display: flex; flex-direction: column; gap: 12px; max-height: 94d
   .nav-links a { padding: 12px 0; }.nav-links .button { padding: 12px; margin-top: 10px; }
   .product-menu summary { padding: 12px 0; }
   .product-menu-panel { position: static; width: 100%; transform: none; grid-template-columns: 1fr; padding: 0 0 8px 16px; border: 0; border-left: 2px solid var(--breakwater-red); border-radius: 0; box-shadow: none; }
-  .product-menu-panel a { padding: 10px 12px; border-right: 0; border-bottom: 1px solid var(--line); }
+  .product-menu-panel a { grid-template-columns: 44px minmax(0,1fr); gap: 12px; padding: 10px 12px; border-right: 0; border-bottom: 1px solid var(--line); }
   .product-menu-panel a:last-child { border-bottom: 0; }
+  .product-menu-icon { width: 44px; height: 44px; border-radius: 9px; }
   .product-menu-panel strong { margin-bottom: 3px; font-size: 15px; }
   .hero { padding-block: 42px 26px; }h1 { font-size: 46px; }.hero .lead { font-size: 18px; }.section { padding-block: 48px; }
   .actions .button { padding-inline: 16px; gap: 12px; font-size: 13px; }

@@ -59,7 +59,8 @@ The v06 candidate presents one Breakwater ASOC platform with three connected cap
 
 The public candidate uses only the supplied vectors in `assets/brand/v06/`: corporate light/dark
 header SVGs, the ASOC horizontal SVGs with the platform tagline, the cleaner no-tagline horizontal
-SVGs for Discover, Provenance and Response, the touch icon and favicon. Each file is pinned in
+SVGs for Discover, Provenance and Response, the compact product navigation icons, the touch icon
+and favicon. Each file is pinned in
 `brand-contract.json`. The complete supplied kit is preserved byte-for-byte at
 `brand-archive/breakwater-logo-kit-v06/` for product-console and future export work.
 
