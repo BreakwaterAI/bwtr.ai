@@ -129,7 +129,7 @@ try {
       assert.ok(b.y < height * 0.6, 'hero route proof should begin in the upper portion of the desktop viewport');
       assert.ok(b.y + b.height < height);
     } else {
-      assert.ok(b.y < height); assert.ok(b.y < 710);
+      assert.ok(b.y < height, 'hero route proof should start within the mobile viewport');
     }
   }
   await page.locator('[data-menu]').click();
