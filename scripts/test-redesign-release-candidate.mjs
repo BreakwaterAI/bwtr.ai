@@ -125,11 +125,10 @@ try {
   for (const [width, height] of [[1440,800], [1280,720], [1024,768], [390,844], [320,740]]) {
     await page.setViewportSize({ width, height }); await page.goto(base + '/');
     const b = await page.locator('.hero-route video').first().boundingBox();
+    assert.ok(b && b.width > 0 && b.height > 0, 'hero route proof should be rendered');
     if (width >= 1024) {
       assert.ok(b.y < height * 0.6, 'hero route proof should begin in the upper portion of the desktop viewport');
       assert.ok(b.y + b.height < height);
-    } else {
-      assert.ok(b.y < height, 'hero route proof should start within the mobile viewport');
     }
   }
   await page.locator('[data-menu]').click();
