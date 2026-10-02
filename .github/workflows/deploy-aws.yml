@@ -74,6 +74,7 @@ jobs:
 
       - name: Validate public site source
         run: |
+          node scripts/build-blog.mjs
           node scripts/test-brand-contract.mjs
           node scripts/test-canonical-urls.mjs
           node scripts/test-homepage-content.mjs
