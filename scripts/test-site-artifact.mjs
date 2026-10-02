@@ -1,8 +1,9 @@
 import assert from 'node:assert/strict';
 import { createHash } from 'node:crypto';
-import { readFileSync, readdirSync } from 'node:fs';
+import { readFileSync, readdirSync, existsSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import sharp from 'sharp';
 import { blogPublicFiles } from './blog-public-files.mjs';
 const root = process.argv[2];
 assert.ok(root, 'Usage: test-site-artifact.mjs ARTIFACT_DIRECTORY');
@@ -35,5 +36,22 @@ for (const file of blogFiles) {
     assert.ok(html.includes('/' + release.resources['styles.css']), `${file}: missing current site stylesheet`);
     assert.ok(html.includes('/' + release.resources['theme-init.js']), `${file}: missing current theme initialization`);
   }
+}
+for (const postFile of readdirSync(join(source, 'blog/posts')).filter(file => file.endsWith('.md'))) {
+  const slug = postFile.slice(0, -3);
+  const pagePath = `blog/${slug}/index.html`;
+  const html = readFileSync(join(root, pagePath), 'utf8');
+  const ogImage = html.match(/<meta property="og:image" content="([^"]+)"/)?.[1];
+  const twitterImage = html.match(/<meta name="twitter:image" content="([^"]+)"/)?.[1];
+  const expectedImage = `https://www.bwtr.ai/blog/${slug}/social-card-cover.png`;
+  assert.equal(ogImage, expectedImage, `${pagePath}: Open Graph image uses the post cover card`);
+  assert.equal(twitterImage, expectedImage, `${pagePath}: Twitter image uses the post cover card`);
+  const localImage = join(root, expectedImage.replace('https://www.bwtr.ai/', ''));
+  assert.ok(existsSync(localImage), `${pagePath}: social cover image is included in the artifact`);
+  const metadata = await sharp(localImage).metadata();
+  assert.equal(metadata.width, 1200, `${pagePath}: social cover width`);
+  assert.equal(metadata.height, 630, `${pagePath}: social cover height`);
+  const coverStats = await sharp(localImage).extract({ left: 0, top: 8, width: 1200, height: 280 }).stats();
+  assert.ok(Math.max(...coverStats.channels.map(channel => channel.stdev)) > 8, `${pagePath}: social cover artwork is present`);
 }
 console.log(`Public artifact: ${release.files.length} pinned files and ${blogFiles.length} blog files, no review material.`);

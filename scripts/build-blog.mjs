@@ -61,16 +61,18 @@ const posts = await Promise.all(files.map(async (file) => {
   // A post may point at a real screenshot/animation via `hero:` (relative to
   // blog/assets/); its own aspect ratio is kept so nothing gets cropped.
   // Without one, an abstract hero graphic is generated at build time below.
-  let heroUrl, heroWidth, heroHeight;
+  let heroUrl, heroWidth, heroHeight, heroImagePath;
   if (data.hero) {
     const heroPath = join(outDir, "assets", data.hero);
     if (!existsSync(heroPath)) throw new Error(`${file}: hero not found at blog/assets/${data.hero}`);
     const meta = await sharp(heroPath).metadata();
     heroUrl = `/blog/assets/${data.hero}`;
+    heroImagePath = heroPath;
     heroWidth = meta.width;
     heroHeight = meta.height;
   } else {
     heroUrl = `/blog/${slug}/hero.png`;
+    heroImagePath = join(outDir, slug, "hero.png");
     heroWidth = HERO_WIDTH;
     heroHeight = HERO_HEIGHT;
   }
@@ -87,6 +89,7 @@ const posts = await Promise.all(files.map(async (file) => {
     minutes: Math.max(1, Math.round(stats.minutes)),
     url: `${siteUrl}/blog/${slug}/`,
     heroUrl,
+    heroImagePath,
     heroWidth,
     heroHeight,
     hasCustomHero: Boolean(data.hero),
@@ -217,13 +220,14 @@ for (const p of posts) {
     title: p.title,
     eyebrow: p.tags[0] || "Breakwater Blog",
     meta: `${formatDate(p.date)} · ${p.minutes} min read`,
-    outPath: join(dir, "social-card.png"),
+    imagePath: p.heroImagePath,
+    outPath: join(dir, "social-card-cover.png"),
   });
   const html = `${head({
     title: `${p.title} | Breakwater Blog`,
     description: p.excerpt,
     canonical: p.url,
-    ogImage: `${p.url}social-card.png`,
+    ogImage: `${p.url}social-card-cover.png`,
     ogImageAlt: p.title,
     jsonLd: [
       {
