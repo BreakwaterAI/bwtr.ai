@@ -174,7 +174,7 @@ Resources:
           var uri = request.uri;
           var host = request.headers.host ? request.headers.host.value.toLowerCase() : '';
           var canonicalHost = '${AlternateDomainName}';
-          var pages = ['/products', '/discover', '/provenance', '/response', '/architecture', '/research', '/about', '/security', '/airports', '/power-utilities', '/connected-industry', '/healthcare', '/reader-pack', '/poc-planner', '/pqc-planner'];
+          var pages = ['/products', '/discover', '/provenance', '/response', '/architecture', '/research', '/about', '/security', '/airports', '/power-utilities', '/connected-industry', '/healthcare', '/reader-pack', '/poc-planner', '/pqc-planner', '/blog'];
           var canonicalUri = uri.replace(/\/{2,}/g, '/');
 
           if (canonicalUri === '/index.html') {
@@ -183,6 +183,17 @@ Resources:
 
           if (canonicalUri === '/platform' || canonicalUri === '/platform/' || canonicalUri === '/platform.html' || canonicalUri === '/platform/index.html') {
             canonicalUri = '/architecture/';
+          }
+
+          if (canonicalUri === '/blog' || canonicalUri === '/blog/index.html') {
+            canonicalUri = '/blog/';
+          } else if (canonicalUri.indexOf('/blog/') === 0) {
+            var blogPath = canonicalUri.substring('/blog/'.length);
+            if (/\/index\.html$/.test(canonicalUri)) {
+              canonicalUri = canonicalUri.substring(0, canonicalUri.length - 'index.html'.length);
+            } else if (blogPath.indexOf('.') === -1 && canonicalUri.charAt(canonicalUri.length - 1) !== '/') {
+              canonicalUri += '/';
+            }
           }
 
           for (var index = 0; index < pages.length; index += 1) {
@@ -202,6 +213,10 @@ Resources:
               request.uri = pages[pageIndex] + '/index.html';
               break;
             }
+          }
+
+          if (uri.indexOf('/blog/') === 0 && uri.charAt(uri.length - 1) === '/') {
+            request.uri = uri + 'index.html';
           }
 
           return request;

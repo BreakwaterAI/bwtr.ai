@@ -82,6 +82,17 @@ for (const route of routes) {
   checks += 2;
 }
 
+for (const blogPath of ["/blog", "/blog/index.html"]) {
+  expectRedirect(blogPath, "https://www.bwtr.ai/blog/");
+  checks += 1;
+}
+expectRewrite("/blog/", "/blog/index.html");
+expectRedirect("/blog/published-post", "https://www.bwtr.ai/blog/published-post/");
+expectRedirect("/blog/published-post/index.html", "https://www.bwtr.ai/blog/published-post/");
+expectRewrite("/blog/published-post/", "/blog/published-post/index.html");
+expectRewrite("/blog/blog.css", "/blog/blog.css");
+checks += 5;
+
 expectRedirect("/index.html", "https://www.bwtr.ai/");
 expectRedirect("//products/", "https://www.bwtr.ai/products/");
 expectRedirect("/about/", "https://www.bwtr.ai/about/", "bwtr.ai");
