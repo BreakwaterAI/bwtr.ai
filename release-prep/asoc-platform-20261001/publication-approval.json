@@ -1,0 +1,10 @@
+{
+  "revision": "2026-10-01-leadership-homepage-and-product-pages",
+  "candidate": "leadership-homepage-product-pages-20261001",
+  "publicManifestSha256": "06f6604638695a192ab43b7d41d18076bfa740a53a7a0c27786022ad9b053446",
+  "publicFiles": 137,
+  "approvedBy": "Website owner in this conversation, October 1, 2026",
+  "productionPublicationApproved": true,
+  "scope": "Reviewed local ASOC marketing site candidate: homepage and product pages, shared navigation and footer, blog routes and posts, product media, and evaluation form styling.",
+  "reviewEvidence": "The owner reviewed the local candidate, said it looked good, authorized the next steps, and signed in to the breakwater-prod AWS profile for release work."
+}

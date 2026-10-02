@@ -113,7 +113,15 @@
 .post-demo { margin: 32px 0 38px; }
 .post-demo img { border-radius: var(--radius); display: block; width: 100%; }
 .post-demo figcaption { color: var(--quiet); font-size: .82rem; margin-top: 10px; text-align: center; }
-.post-footer { border-top: 1px solid var(--line); margin-top: 60px; padding-top: 30px; }
+.post-footer { border-top: 1px solid var(--line); margin-top: 60px; padding-top: 28px; }
+.post-pagination { align-items: start; display: grid; gap: 24px; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); }
+.post-pagination-link { color: var(--text); display: flex; flex-direction: column; gap: 8px; max-width: 100%; }
+.post-pagination-link span { color: var(--quiet); font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: .68rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+.post-pagination-link strong { font-size: .95rem; line-height: 1.4; }
+.post-pagination-link:hover strong, .post-pagination-all:hover { color: var(--brand-text); }
+.post-pagination-next { text-align: right; }
+.post-pagination-all { align-self: center; color: var(--text); font-size: .9rem; font-weight: 800; white-space: nowrap; }
+.post-pagination-empty { min-width: 0; }
 
 .post-faq { border-top: 1px solid var(--line); margin-top: 60px; padding-top: 40px; }
 .post-faq h2 { font-size: 1.4rem; letter-spacing: -0.02em; margin-bottom: 6px; }
@@ -130,10 +138,6 @@
 .post-prose > *:first-child { margin-top: 0; }
 .post-prose > p:first-of-type { font-size: 1.28rem; line-height: 1.6; }
 
-.post-related { border-top: 1px solid var(--line); margin-top: 60px; padding-top: 40px; }
-.post-related-label { color: var(--quiet); font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: .68rem; font-weight: 800; letter-spacing: .08em; margin-bottom: 14px; text-transform: uppercase; }
-.post-related a { color: var(--text); display: block; font-size: 1.15rem; font-weight: 800; }
-.post-related a:hover { color: var(--brand-text); }
 .post-prose h2 { font-size: clamp(1.5rem, 2.6vw, 1.95rem); letter-spacing: -0.02em; margin: 52px 0 18px; scroll-margin-top: calc(var(--header) + 20px); }
 .post-prose h3 { font-size: 1.3rem; margin: 38px 0 14px; scroll-margin-top: calc(var(--header) + 20px); }
 .post-prose p { margin: 0 0 22px; }
@@ -167,4 +171,9 @@
 @media (max-width: 640px) {
   .post-article { padding-top: 24px; }
   .post-hero { margin-bottom: 32px; }
+  .post-pagination { display: flex; flex-direction: column; gap: 22px; }
+  .post-pagination-link { max-width: 100%; }
+  .post-pagination-next { text-align: left; }
+  .post-pagination-all { align-self: flex-start; }
+  .post-pagination-empty { display: none; }
 }

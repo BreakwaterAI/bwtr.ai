@@ -5,24 +5,15 @@ import { readFileSync } from 'node:fs';
 const read = file => readFileSync(new URL('../' + file, import.meta.url));
 const release = JSON.parse(read('site-release.json'));
 const contract = JSON.parse(read('brand-contract.json'));
-const priorApproval = JSON.parse(read('release-prep/logo-v05-publication-approval.json'));
+const approval = JSON.parse(read('release-prep/asoc-platform-20261001/publication-approval.json'));
 
-assert.equal(priorApproval.productionPublicationApproved, true);
-if (process.env.BWTR_LOCAL_CANDIDATE === '1') {
-  assert.ok(!process.env.CI, 'Candidate mode is local-only, not a production CI bypass');
-  assert.equal(release.brandRevision, '2026-09-30-product-v06');
-  assert.equal(release.candidate?.name, 'asoc-product-content-consolidation-20261001');
-  assert.equal(release.candidate?.productionPublicationApproved, false);
-  const baseline = read('scripts/planners/approved-site-baseline.json');
-  assert.equal(createHash('sha256').update(baseline).digest('hex'), priorApproval.publicManifestSha256);
-} else {
-  const approval = JSON.parse(read('release-prep/marketing-resources-20260924/publication-approval.json'));
-  assert.equal(approval.productionPublicationApproved, true);
-  assert.equal(approval.revision, '2026-09-27-team-update-rc1');
-  assert.equal(approval.publicFiles, release.files.length);
-  assert.equal(createHash('sha256').update(read('site-release.json')).digest('hex'), approval.publicManifestSha256,
-    'This local ASOC candidate does not have production publication approval');
-}
+assert.equal(approval.productionPublicationApproved, true);
+assert.equal(approval.revision, release.version);
+assert.equal(approval.publicFiles, release.files.length);
+assert.equal(release.candidate?.name, approval.candidate);
+assert.equal(release.candidate?.productionPublicationApproved, true);
+assert.equal(createHash('sha256').update(read('site-release.json')).digest('hex'), approval.publicManifestSha256,
+  'The current public manifest does not match its source-bound publication approval');
 
 const files = new Set(release.files.map(record => record.path));
 for (const [file, expectedHash] of Object.entries(contract.pinnedBrandAssets)) {
@@ -61,6 +52,4 @@ for (const name of ['discover', 'provenance', 'response']) {
 const script = read(release.resources['script.js']).toString();
 assert.ok(script.includes("querySelectorAll('[data-theme-logo]')"));
 
-console.log(process.env.BWTR_LOCAL_CANDIDATE === '1'
-  ? 'Local v06 ASOC candidate branding passed; production publication is NOT approved.'
-  : 'Approved production branding and source-bound publication approval passed.');
+console.log('Approved ASOC branding and source-bound publication receipt passed.');

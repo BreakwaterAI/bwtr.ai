@@ -18,6 +18,12 @@ for (const file of pages) {
     assert.ok(existsSync(resolve(root, '.' + path)), `${file}: missing ${path}`);
   }
   assert.ok(!html.includes('—'), `${file}: avoid repeated em-dash copy cadence`);
+  const navigation = html.match(/<nav class="nav-links"[^>]*>[\s\S]*?<\/nav>/)?.[0];
+  if (navigation) {
+    assert.ok(navigation.includes('href="/blog/">Blog</a>') || navigation.includes('href="/blog/" aria-current="page">Blog</a>'), `${file}: Blog navigation`);
+    assert.ok(navigation.includes('Plan an evaluation'), `${file}: evaluation CTA`);
+    assert.ok(!/>Evaluate<\/a>|>Talk to us/.test(navigation), `${file}: retired navigation label`);
+  }
 }
 for (const route of release.routes) {
   const html = read(route.route === '/' ? 'index.html' : `${route.route.slice(1)}index.html`);
@@ -26,7 +32,7 @@ for (const route of release.routes) {
   for (const text of [`rel="canonical" href="${route.canonical}"`, `property="og:url" content="${route.canonical}"`, `property="og:image" content="${route.socialImage}"`, `name="twitter:image" content="${route.socialImage}"`, 'property="og:image:width" content="1280"', 'property="og:image:height" content="720"']) assert.ok(html.includes(text), `${route.route}: ${text}`);
 }
 const home = read('index.html');
-for (const text of ['IoT & OT security', 'Understand exposure across connected operations.', 'See what the connection is based on.', 'cryptographic readiness', 'Simulated plant', 'data-lead-form', 'Google Apps Script', 'Breakwater-managed Google Sheet', '<fieldset disabled', 'data-play', 'id="product-family"']) assert.ok(home.includes(text), text);
+for (const text of ['IoT &amp; OT security for connected operations', 'See the path.', 'Prove the risk.', 'Control the response.', 'Integrated attack paths', 'AI-orchestrated operations', 'Digital twin &amp; rehearsal', 'cryptographic readiness', 'Simulated plant', 'data-lead-form', 'Google Apps Script', 'Breakwater-managed Google Sheet', '<fieldset disabled', 'data-play', 'id="platform"', 'id="evaluation"']) assert.ok(home.includes(text), text);
 assert.ok(!home.includes('Plan your post-quantum transition.'), 'PQC must not dominate the homepage');
 const products = read('products/index.html');
 assert.match(products, /<details\b[^>]*id="discover-crypto-readiness"[^>]*>/);
@@ -35,6 +41,7 @@ assert.match(products, /Post-quantum transition planning/);
 assert.match(products, /soar-review-summary/);
 for (const name of ['Breakwater ASOC', 'Breakwater Discover', 'Breakwater Provenance', 'Breakwater Response']) assert.ok(products.includes(name), name);
 assert.doesNotMatch(products, />\s*(?:Breakwater )?(?:Secure|Assure|SOAR)\s*</, 'Retired product names must not be visible labels');
+for (const route of ['discover', 'provenance', 'response']) assert.ok(!read(`${route}/index.html`).includes('Customer sign in'), `${route}: product sign-in is outside the marketing journey`);
 for (const name of ['name', 'email', 'organization', 'interest', 'message', 'website']) assert.ok(home.includes(`name="${name}"`));
 assert.ok(!/hero-backdrop|secure\.webp|assure\.webp|soar\.webp/.test(home));
 const lead = read(release.resources['lead-form.js']);

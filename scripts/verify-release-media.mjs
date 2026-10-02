@@ -5,7 +5,7 @@ const base = process.argv[2] || 'https://www.bwtr.ai';
 assert.match(base, /^https:\/\/[^/]+$/);
 const release = JSON.parse(readFileSync(new URL('../site-release.json', import.meta.url)));
 const videos = release.media.filter(m => m.destination.startsWith('/assets/videos/'));
-assert.equal(videos.length, 2);
+assert.equal(videos.length, 3);
 for (const media of videos) {
   const response = await fetch(base + media.destination, { signal: AbortSignal.timeout(30000) });
   assert.equal(response.status, 200, media.destination);

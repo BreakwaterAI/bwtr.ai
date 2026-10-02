@@ -94,21 +94,12 @@ const posts = await Promise.all(files.map(async (file) => {
 }));
 posts.sort((a, b) => new Date(b.date) - new Date(a.date));
 
-// Related post: whichever other post shares the most tags, tie-broken by recency.
-// No shared tags -> no related post; the section is simply omitted, not forced.
-for (const post of posts) {
-  let best = null;
-  let bestShared = 0;
-  for (const other of posts) {
-    if (other === post) continue;
-    const shared = other.tags.filter((t) => post.tags.includes(t)).length;
-    if (shared > bestShared) {
-      best = other;
-      bestShared = shared;
-    }
-  }
-  post.related = bestShared > 0 ? best : null;
-}
+// Posts are ordered newest first. Previous points to the newer article and
+// Next points to the older article, matching the order in the blog archive.
+posts.forEach((post, index) => {
+  post.previous = posts[index - 1] || null;
+  post.next = posts[index + 1] || null;
+});
 
 const allTags = [...new Set(posts.flatMap((p) => p.tags))].sort((a, b) => a.localeCompare(b));
 const generatedDirs = [
@@ -135,9 +126,9 @@ const head = ({ title, description, canonical, ogImage, ogImageAlt, jsonLd }) =>
 <html lang="en" data-theme="light"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#000100"><title>${title}</title><meta name="description" content="${description}"><script src="/${release.resources["theme-init.js"]}"></script><link rel="stylesheet" href="/${release.resources["styles.css"]}"><link rel="stylesheet" href="/blog/assets/katex/katex.min.css"><link rel="stylesheet" href="/blog/blog.css"><script src="/blog/blog.js" defer></script><link rel="canonical" href="${canonical}"><link rel="icon" href="/${release.resources["favicon.webp"]}" type="image/webp"><link rel="apple-touch-icon" sizes="180x180" href="/assets/brand/v06/icons/apple-touch-icon-180.png"><meta property="og:type" content="website"><meta property="og:site_name" content="Breakwater"><meta property="og:title" content="${title}"><meta property="og:description" content="${description}"><meta property="og:url" content="${canonical}"><meta property="og:image" content="${ogImage}"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="${imageAlt}"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="${title}"><meta name="twitter:description" content="${description}"><meta name="twitter:image" content="${ogImage}"><meta name="twitter:image:alt" content="${imageAlt}"><link rel="alternate" type="application/rss+xml" title="Breakwater Blog" href="/blog/feed.xml">${jsonLdTags}</head>`;
 };
 
-const header = (active) => `<body data-theme="light" data-page="blog"><a class="skip" href="#main">Skip to content</a><header class="header"><div class="wrap nav"><a class="brand" href="/" aria-label="Breakwater home"><img data-brand-logo data-theme-logo data-light-src="/assets/brand/v06/corporate/breakwater-horizontal-light.svg" data-dark-src="/assets/brand/v06/corporate/breakwater-horizontal-dark.svg" src="/assets/brand/v06/corporate/breakwater-horizontal-light.svg" width="536" height="152" alt="Breakwater"></a><button class="theme-button" data-theme-toggle aria-label="Dark theme">Dark</button><button class="menu-button" data-menu aria-expanded="false" aria-controls="navigation">Menu</button><nav class="nav-links" id="navigation" aria-label="Main navigation"><details class="product-menu"><summary>Products</summary><div class="product-menu-panel"><a href="/products/"><img class="product-menu-icon" data-theme-logo data-light-src="/assets/brand/v06/product-icons/breakwater-asoc-app-icon-light.svg" data-dark-src="/assets/brand/v06/product-icons/breakwater-asoc-app-icon-dark.svg" src="/assets/brand/v06/product-icons/breakwater-asoc-app-icon-light.svg" width="512" height="512" alt=""><span class="product-menu-copy"><strong>ASOC Platform</strong><span>One connected security platform</span></span></a><a href="/discover/"><img class="product-menu-icon" data-theme-logo data-light-src="/assets/brand/v06/product-icons/breakwater-discover-app-icon-light.svg" data-dark-src="/assets/brand/v06/product-icons/breakwater-discover-app-icon-dark.svg" src="/assets/brand/v06/product-icons/breakwater-discover-app-icon-light.svg" width="512" height="512" alt=""><span class="product-menu-copy"><strong>Discover</strong><span>Assets, attack paths and exposure</span></span></a><a href="/provenance/"><img class="product-menu-icon" data-theme-logo data-light-src="/assets/brand/v06/product-icons/breakwater-provenance-app-icon-light.svg" data-dark-src="/assets/brand/v06/product-icons/breakwater-provenance-app-icon-dark.svg" src="/assets/brand/v06/product-icons/breakwater-provenance-app-icon-light.svg" width="512" height="512" alt=""><span class="product-menu-copy"><strong>Provenance</strong><span>Evidence, validation and provenance</span></span></a><a href="/response/"><img class="product-menu-icon" data-theme-logo data-light-src="/assets/brand/v06/product-icons/breakwater-response-app-icon-light.svg" data-dark-src="/assets/brand/v06/product-icons/breakwater-response-app-icon-dark.svg" src="/assets/brand/v06/product-icons/breakwater-response-app-icon-light.svg" width="512" height="512" alt=""><span class="product-menu-copy"><strong>Response</strong><span>Controlled response and verification</span></span></a></div></details><a href="/#industries">Industries</a><a href="/architecture/">Architecture</a><a href="/blog/"${active === "blog" ? ' aria-current="page"' : ""}>Blog</a><a href="/about/">Company</a><a class="button" href="/#contact">Talk to us<span aria-hidden="true">↗</span></a></nav></div></header><main id="main">`;
+const header = (active) => `<body data-theme="light" data-page="blog"><a class="skip" href="#main">Skip to content</a><header class="header"><div class="wrap nav"><a class="brand" href="/" aria-label="Breakwater home"><img data-brand-logo data-theme-logo data-light-src="/assets/brand/v06/corporate/breakwater-horizontal-light.svg" data-dark-src="/assets/brand/v06/corporate/breakwater-horizontal-dark.svg" src="/assets/brand/v06/corporate/breakwater-horizontal-light.svg" width="536" height="152" alt="Breakwater"></a><button class="theme-button" data-theme-toggle aria-label="Dark theme">Dark</button><button class="menu-button" data-menu aria-expanded="false" aria-controls="navigation">Menu</button><nav class="nav-links" id="navigation" aria-label="Main navigation"><details class="product-menu"><summary>Products</summary><div class="product-menu-panel"><a href="/products/"><img class="product-menu-icon" data-theme-logo data-light-src="/assets/brand/v06/product-icons/breakwater-asoc-app-icon-light.svg" data-dark-src="/assets/brand/v06/product-icons/breakwater-asoc-app-icon-dark.svg" src="/assets/brand/v06/product-icons/breakwater-asoc-app-icon-light.svg" width="512" height="512" alt=""><span class="product-menu-copy"><strong>ASOC Platform</strong><span>One connected security platform</span></span></a><a href="/discover/"><img class="product-menu-icon" data-theme-logo data-light-src="/assets/brand/v06/product-icons/breakwater-discover-app-icon-light.svg" data-dark-src="/assets/brand/v06/product-icons/breakwater-discover-app-icon-dark.svg" src="/assets/brand/v06/product-icons/breakwater-discover-app-icon-light.svg" width="512" height="512" alt=""><span class="product-menu-copy"><strong>Discover</strong><span>Assets, attack paths and exposure</span></span></a><a href="/provenance/"><img class="product-menu-icon" data-theme-logo data-light-src="/assets/brand/v06/product-icons/breakwater-provenance-app-icon-light.svg" data-dark-src="/assets/brand/v06/product-icons/breakwater-provenance-app-icon-dark.svg" src="/assets/brand/v06/product-icons/breakwater-provenance-app-icon-light.svg" width="512" height="512" alt=""><span class="product-menu-copy"><strong>Provenance</strong><span>Evidence, validation and provenance</span></span></a><a href="/response/"><img class="product-menu-icon" data-theme-logo data-light-src="/assets/brand/v06/product-icons/breakwater-response-app-icon-light.svg" data-dark-src="/assets/brand/v06/product-icons/breakwater-response-app-icon-dark.svg" src="/assets/brand/v06/product-icons/breakwater-response-app-icon-light.svg" width="512" height="512" alt=""><span class="product-menu-copy"><strong>Response</strong><span>Controlled response and verification</span></span></a></div></details><a href="/#industries">Industries</a><a href="/architecture/">Architecture</a><a href="/blog/"${active === "blog" ? ' aria-current="page"' : ""}>Blog</a><a href="/about/">Company</a><a class="button" href="/#evaluation">Plan an evaluation<span aria-hidden="true">↗</span></a></nav></div></header><main id="main">`;
 
-const footer = `</main><footer class="footer wrap"><div class="footer-row"><div><strong>Breakwater</strong><p>Security evidence for connected operations.</p></div><nav class="footer-links" aria-label="Footer"><a href="/products/">Products</a><a href="/architecture/">Architecture</a><a href="/blog/">Blog</a><a href="/about/">Company</a><a href="/security/">Security</a><a href="mailto:hello@bwtr.ai">hello@bwtr.ai</a></nav></div><p>© <span data-year>2026</span> Breakwater. All rights reserved.</p></footer></body></html>`;
+const footer = `</main><footer class="footer wrap"><div class="footer-row"><div><strong>Breakwater</strong><p>Security for connected operations.</p></div><nav class="footer-links" aria-label="Footer"><a href="/products/">Products</a><a href="/architecture/">Architecture</a><a href="/blog/">Blog</a><a href="/about/">Company</a><a href="/security/">Security</a><a href="mailto:hello@bwtr.ai">hello@bwtr.ai</a></nav></div><p>© <span data-year>2026</span> Breakwater. All rights reserved.</p></footer></body></html>`;
 
 const faqBlock = (faq) => {
   if (!faq || !faq.length) return "";
@@ -150,10 +141,11 @@ const faqBlock = (faq) => {
   return `<section class="post-faq" aria-label="Frequently asked questions"><h2>Questions this raises</h2>${items}</section>`;
 };
 
-const relatedBlock = (related) =>
-  !related
-    ? ""
-    : `<section class="post-related" aria-label="Related post"><div class="post-related-label">Related</div><a href="/blog/${related.slug}/">${related.title}</a></section>`;
+const postNavigation = (previous, next) => `<nav class="post-pagination" aria-label="Post navigation">
+  ${previous ? `<a class="post-pagination-link post-pagination-previous" href="/blog/${previous.slug}/"><span>← Previous</span><strong>${previous.title}</strong></a>` : '<span class="post-pagination-empty" aria-hidden="true"></span>'}
+  <a class="post-pagination-all" href="/blog/">All posts</a>
+  ${next ? `<a class="post-pagination-link post-pagination-next" href="/blog/${next.slug}/"><span>Next →</span><strong>${next.title}</strong></a>` : '<span class="post-pagination-empty" aria-hidden="true"></span>'}
+</nav>`;
 
 const faqJsonLd = (faq) =>
   !faq || !faq.length
@@ -253,8 +245,7 @@ for (const p of posts) {
   <div class="post-hero" style="aspect-ratio:${p.heroWidth}/${p.heroHeight}"><img src="${p.heroUrl}" width="${p.heroWidth}" height="${p.heroHeight}" alt="" loading="eager"></div>
   <div class="post-prose">${p.html}</div>
   ${faqBlock(p.faq)}
-  ${relatedBlock(p.related)}
-  <footer class="post-footer"><a class="text-link" href="/blog/">← All posts</a></footer>
+  <footer class="post-footer">${postNavigation(p.previous, p.next)}</footer>
 </article>
 ${footer}`;
   writeFileSync(join(dir, "index.html"), html);

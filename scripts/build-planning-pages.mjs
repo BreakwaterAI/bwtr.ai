@@ -122,16 +122,17 @@ const retained = release.files.map(f=>f.path).filter(p =>
 for (const file of new Set([...retained, ...managed, ...productDetailFiles].filter(file=>file.endsWith('.html')))) {
   let html = read(file).replace(/<link rel="stylesheet" href="\/assets\/site-ui\/evaluation-entry\.[a-f0-9]+\.css">/g, '');
   html = html.replace('</head>', `<link rel="stylesheet" href="${entryCss}"></head>`);
-  const resourcePage = routes.some(route=>file===`${route}/index.html`);
   html = html.replace(/<nav class="nav-links"[^>]*>[\s\S]*?<\/nav>/, nav=>{
     nav = nav.replace(/<a href="\/reader-pack\/"[^>]*>Evaluate<\/a>/g, '');
-    return nav.replace(/(<a href="\/architecture\/"[^>]*>Architecture<\/a>)/, `$1<a href="/reader-pack/"${resourcePage ? ` aria-current="${file==='reader-pack/index.html'?'page':'true'}"` : ''}>Evaluate</a>`);
+    nav = nav.replace(/<a href="\/blog\/"([^>]*)>Insights<\/a>/g, '<a href="/blog/"$1>Blog</a>');
+    if (!nav.includes('href="/blog/"')) nav = nav.replace(/(<a href="\/architecture\/"[^>]*>Architecture<\/a>)/, '$1<a href="/blog/">Blog</a>');
+    return nav;
   });
   write(file, html);
 }
 release.planningFiles = managed;
-release.version = '2026-10-01-asoc-product-content-consolidation';
-release.candidate = {name: 'asoc-product-content-consolidation-20261001', productionPublicationApproved: false};
+release.version = '2026-10-01-leadership-homepage-and-product-pages';
+release.candidate = {name: 'leadership-homepage-product-pages-20261001', productionPublicationApproved: false};
 const refreshedMediaDestinations = new Set([
   ...refreshedMediaFiles.map(file => '/' + file),
   ...candidateProvisionedMedia.map(record => record.destination),

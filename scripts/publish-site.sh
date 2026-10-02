@@ -124,8 +124,8 @@ invalidate_and_wait "publish"
 
 verification_body="${RUNNER_TEMP:-/tmp}/bwtr-site-verification.html"
 run_phase "smoke-home" curl -fsS --output "${verification_body}" "${site_base_url}/"
-grep -F "Understand exposure across connected operations." "${verification_body}" >/dev/null
-grep -F "See what the connection is based on." "${verification_body}" >/dev/null
+grep -F "See the path." "${verification_body}" >/dev/null
+grep -F "Control the response." "${verification_body}" >/dev/null
 run_phase "smoke-products" curl -fsS --output "${verification_body}" "${site_base_url}/products/"
 grep -F "Turn operational context into controlled action." \
   "${verification_body}" >/dev/null
@@ -134,7 +134,7 @@ grep -F "See how exposure becomes a path to impact." "${verification_body}" >/de
 run_phase "smoke-provenance" curl -fsS --output "${verification_body}" "${site_base_url}/provenance/"
 grep -F "Turn findings into defensible decisions." "${verification_body}" >/dev/null
 run_phase "smoke-response" curl -fsS --output "${verification_body}" "${site_base_url}/response/"
-grep -F "Make the next decision count." "${verification_body}" >/dev/null
+grep -F "Investigate with AI. Keep authority human." "${verification_body}" >/dev/null
 run_phase "smoke-architecture" curl -fsS --output "${verification_body}" \
   "${site_base_url}/architecture/"
 grep -F "How Breakwater connects to your environment." "${verification_body}" >/dev/null

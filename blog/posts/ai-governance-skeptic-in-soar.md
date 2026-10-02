@@ -16,7 +16,7 @@ faq:
 
 A single AI model reviewing a security alert has the same failure mode as a single analyst who's been staring at the same dashboard for six hours: it anchors on its first read and gets more confident, not less, the longer it looks. Ask it again five minutes later and you'll usually get the same answer, delivered with the same confidence, whether or not that confidence is earned. That's the problem nobody talks about when they say "add AI to the SOC." Speed was never the hard part. Knowing when to doubt yourself is.
 
-We built Breakwater Response around a council instead of a single model, and the fifth seat at that table is a role whose entire job is to disagree.
+We built [Breakwater Response](/response/) around a council instead of a single model, and the fifth seat at that table is a role whose entire job is to disagree.
 
 ## Five roles, one incident
 

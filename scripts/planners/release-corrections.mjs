@@ -20,7 +20,7 @@ export function releaseCorrections(file, html) {
   if (file === 'architecture/index.html' && html.includes('https://asoc.bwtr.ai/architecture')) {
     const old = '<h2>Go deeper into the deployment patterns.</h2><p>Explore the 11-sheet reference across cloud, hybrid, OT, software delivery and regulated environments.</p><a class="text-link" href="https://asoc.bwtr.ai/architecture" target="_blank" rel="noopener noreferrer">Open the full reference architecture ↗</a>';
     assert(html.includes(old), 'Architecture: reviewed replacement changed');
-    html = html.replace(old, '<h2>Review the deployment requirements.</h2><p>Discuss the data boundary, connectivity and action controls for your environment with the Breakwater team.</p><a class="text-link" href="/#contact">Discuss your architecture →</a>');
+    html = html.replace(old, '<h2>Review the deployment requirements.</h2><p>Discuss the data boundary, connectivity and action controls for your environment with the Breakwater team.</p><a class="text-link" href="/#evaluation">Discuss your architecture →</a>');
   }
   return html;
 }
